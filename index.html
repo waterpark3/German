@@ -1235,6 +1235,15 @@
             return shuffle([...disguised]).map((w, id) => ({ id: id, text: w }));
         }
 
+        // 選択肢をシャッフルしつつ、正解のインデックスを追従させる
+        // (文法クイズの正解が常に1番目の選択肢に固定されていた問題を修正)
+        function shuffleOptionsWithAnswer(options, answerIndex) {
+            const order = shuffle(options.map((_, i) => i));
+            const newOptions = order.map(i => options[i]);
+            const newAnswer = order.indexOf(answerIndex);
+            return { options: newOptions, answer: newAnswer };
+        }
+
         let activeDictCategory = 'ALL';
         let activeDictView = 'cards';
         let flashcardsList = [];
@@ -1479,6 +1488,7 @@
                 currentQuizQueue = shuffle([...grammarQuestions]).slice(0, 10).map(q => {
                     const fullSentence = q.q.replace('_____', q.options[q.answer] || '');
                     const unrevealedSentence = q.q.replace('_____', '...');
+                    const shuffled = shuffleOptionsWithAnswer(q.options, q.answer);
                     return {
                         type: 'choice',
                         title: `${q.cat} 文法クイズ`,
@@ -1489,8 +1499,8 @@
                         speaker: fullSentence,
                         unrevealedSpeaker: unrevealedSentence,
                         wordOnly: false,
-                        options: q.options,
-                        answer: q.answer,
+                        options: shuffled.options,
+                        answer: shuffled.answer,
                         ja: q.ja || "",
                         exp: q.exp || ""
                     };
