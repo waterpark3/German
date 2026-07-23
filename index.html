@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ドイツ語マスタークイズ & 単語帳</title>
+    <!-- 検索エンジンインデックス設定（必要に応じて変更） -->
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="ドイツ語の初学者向け無料学習Webアプリ。名詞の性(der/die/das)・複数形、動詞活用、前置詞の格変化、日本語例文からの語順並び替え問題を収録。">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,22 +26,24 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-amber-200">
 
-    <!-- Header -->
+    <!-- Header (レイアウト崩れ対策済み) -->
     <header class="bg-gradient-to-r from-slate-900 via-zinc-800 to-amber-900 text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showSection('home')">
-                <span class="text-2xl">🇩🇪</span>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight">Deutsch Master</h1>
-                    <p class="text-xs text-amber-300">問題集単語クイズ & 単語帳</p>
+        <div class="max-w-4xl mx-auto px-3 sm:px-4 py-2.5 sm:py-3 flex justify-between items-center gap-2">
+            <!-- App Title & Icon -->
+            <div class="flex items-center space-x-2 sm:space-x-3 cursor-pointer min-w-0" onclick="showSection('home')">
+                <span class="text-xl sm:text-2xl shrink-0">🇩🇪</span>
+                <div class="min-w-0">
+                    <h1 class="font-bold text-base sm:text-lg leading-tight truncate">Deutsch Master</h1>
+                    <p class="text-[10px] sm:text-xs text-amber-300 truncate">問題集クイズ & 単語帳</p>
                 </div>
             </div>
-            <nav class="flex space-x-2 text-sm font-medium">
-                <button onclick="showSection('home')" id="nav-home" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition flex items-center gap-1">
-                    <i class="fa-solid fa-house"></i> ホーム
+            <!-- Navigation Buttons (折り返し防止指定) -->
+            <nav class="flex space-x-1.5 sm:space-x-2 text-xs sm:text-sm font-medium shrink-0">
+                <button onclick="showSection('home')" id="nav-home" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-house text-xs"></i> ホーム
                 </button>
-                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1">
-                    <i class="fa-solid fa-book"></i> 単語帳
+                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-book text-xs"></i> 単語帳
                 </button>
             </nav>
         </div>
@@ -52,7 +58,7 @@
                 <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-100 rounded-full opacity-50 blur-xl pointer-events-none"></div>
                 <h2 class="text-2xl font-bold text-slate-800 mb-2">ドイツ語文法・語彙クイズ</h2>
                 <p class="text-slate-600 text-sm max-w-xl mx-auto">
-                    問題集に含まれる250以上の名詞、80以上の動詞、前置詞・語順・格変化から出題されます。挑戦したいカテゴリを選択してください！
+                    問題集に含まれる250以上の名詞（性と複数形）、80以上の動詞、前置詞・語順・格変化から出題されます。
                 </p>
             </div>
 
@@ -60,19 +66,19 @@
             <div class="grid sm:grid-cols-2 gap-4">
                 <!-- Category 1 -->
                 <div onclick="startQuiz('gender')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition cursor-pointer group flex items-start space-x-4">
-                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl group-hover:bg-amber-500 group-hover:text-white transition">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl group-hover:bg-amber-500 group-hover:text-white transition shrink-0">
                         <i class="fa-solid fa-venus-mars text-xl"></i>
                     </div>
                     <div class="flex-1">
-                        <h3 class="font-bold text-lg text-slate-800 group-hover:text-amber-600 transition">1. 名詞の性・定冠詞</h3>
-                        <p class="text-xs text-slate-500 mt-1">der, die, das の正確な性を判定するクイズ</p>
-                        <span class="inline-block mt-2 text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">全250+単語</span>
+                        <h3 class="font-bold text-lg text-slate-800 group-hover:text-amber-600 transition">1. 名詞の性・定冠詞 & 複数形</h3>
+                        <p class="text-xs text-slate-500 mt-1">der/die/dasの性判別、および名詞の複数形を選ぶ問題</p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">性 & 複数形特訓</span>
                     </div>
                 </div>
 
                 <!-- Category 2 -->
                 <div onclick="startQuiz('vocab')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition cursor-pointer group flex items-start space-x-4">
-                    <div class="p-3 bg-blue-100 text-blue-700 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition">
+                    <div class="p-3 bg-blue-100 text-blue-700 rounded-xl group-hover:bg-blue-500 group-hover:text-white transition shrink-0">
                         <i class="fa-solid fa-language text-xl"></i>
                     </div>
                     <div class="flex-1">
@@ -84,31 +90,31 @@
 
                 <!-- Category 3 -->
                 <div onclick="startQuiz('grammar')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition cursor-pointer group flex items-start space-x-4">
-                    <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition">
+                    <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition shrink-0">
                         <i class="fa-solid fa-sliders text-xl"></i>
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg text-slate-800 group-hover:text-emerald-600 transition">3. 動詞活用・話法の助動詞</h3>
                         <p class="text-xs text-slate-500 mt-1">人称変化（können, müssen, fahren等）の穴埋め</p>
-                        <span class="inline-block mt-2 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">タップでヒント表示</span>
+                        <span class="inline-block mt-2 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">ヒント表示あり</span>
                     </div>
                 </div>
 
                 <!-- Category 4 -->
                 <div onclick="startQuiz('prep')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition cursor-pointer group flex items-start space-x-4">
-                    <div class="p-3 bg-purple-100 text-purple-700 rounded-xl group-hover:bg-purple-500 group-hover:text-white transition">
+                    <div class="p-3 bg-purple-100 text-purple-700 rounded-xl group-hover:bg-purple-500 group-hover:text-white transition shrink-0">
                         <i class="fa-solid fa-link text-xl"></i>
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg text-slate-800 group-hover:text-purple-600 transition">4. 前置詞と格変化</h3>
                         <p class="text-xs text-slate-500 mt-1">3格/4格支配、2格支配前置詞、縮約形クイズ</p>
-                        <span class="inline-block mt-2 text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">タップでヒント表示</span>
+                        <span class="inline-block mt-2 text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">ヒント表示あり</span>
                     </div>
                 </div>
 
                 <!-- Category 5 -->
                 <div onclick="startQuiz('ordering')" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-400 transition cursor-pointer group flex items-start space-x-4 sm:col-span-2">
-                    <div class="p-3 bg-rose-100 text-rose-700 rounded-xl group-hover:bg-rose-500 group-hover:text-white transition">
+                    <div class="p-3 bg-rose-100 text-rose-700 rounded-xl group-hover:bg-rose-500 group-hover:text-white transition shrink-0">
                         <i class="fa-solid fa-arrow-down-short-wide text-xl"></i>
                     </div>
                     <div class="flex-1">
@@ -127,21 +133,26 @@
 
         <!-- QUIZ SECTION -->
         <section id="sec-quiz" class="hidden space-y-4 animate-fade-in">
-            <!-- Progress & Header -->
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <button onclick="confirmExitQuiz()" class="text-slate-400 hover:text-slate-600 p-1">
-                        <i class="fa-solid fa-arrow-left text-lg"></i>
-                    </button>
-                    <span id="quiz-title-display" class="font-bold text-slate-700 text-sm sm:text-base">クイズ</span>
+            <!-- Progress & Header with Nav Buttons -->
+            <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center gap-2">
+                <!-- Left Top: Previous Question Button -->
+                <button id="btn-prev-question" onclick="prevQuestion()" class="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-chevron-left text-xs"></i> 前の問題
+                </button>
+
+                <!-- Center: Counter -->
+                <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
+                    <span id="quiz-counter" class="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-1 rounded-full whitespace-nowrap">1 / 10</span>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <span id="quiz-counter" class="text-xs font-semibold bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">1 / 10</span>
-                </div>
+
+                <!-- Right Top: Next Question Button (Appears on Answer) -->
+                <button id="btn-next-header" onclick="nextQuestion()" class="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-white bg-amber-500 hover:bg-amber-600 rounded-lg shadow-sm transition flex items-center gap-1 opacity-0 pointer-events-none whitespace-nowrap shrink-0">
+                    次の問題 <i class="fa-solid fa-chevron-right text-xs"></i>
+                </button>
             </div>
 
             <!-- Question Card -->
-            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 text-center relative">
+            <div class="bg-white p-5 sm:p-8 rounded-2xl shadow-sm border border-slate-200 text-center relative">
                 <div id="badge-category" class="inline-block text-xs font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full mb-3">
                     カテゴリ
                 </div>
@@ -150,7 +161,7 @@
                 </h3>
                 <p id="question-subtext" class="text-sm text-slate-500 mb-2">補足説明</p>
 
-                <!-- HINT CONTAINER (For Category 3 & 4) -->
+                <!-- HINT CONTAINER -->
                 <div id="hint-container" class="hidden my-3">
                     <button id="btn-show-hint" onclick="revealHint()" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 rounded-lg text-xs font-semibold transition">
                         <i class="fa-solid fa-lightbulb"></i> 💡 ヒントを見る
@@ -160,9 +171,9 @@
                     </div>
                 </div>
 
-                <!-- Audio Button -->
+                <!-- Audio Button (Word only) -->
                 <button id="btn-audio" onclick="speakCurrentWord()" class="mb-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-700 rounded-lg text-xs font-semibold transition">
-                    <i class="fa-solid fa-volume-high"></i> 音声を聞く
+                    <i class="fa-solid fa-volume-high"></i> 単語の発音を聞く
                 </button>
 
                 <!-- TYPE 1: Choices Grid -->
@@ -187,16 +198,16 @@
                     </div>
 
                     <div class="flex gap-3 pt-2">
-                        <button onclick="resetOrderingAnswer()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-1">
+                        <button onclick="resetOrderingAnswer()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-2.5 rounded-xl transition text-sm flex items-center justify-center gap-1 whitespace-nowrap">
                             <i class="fa-solid fa-rotate-left"></i> リセット
                         </button>
-                        <button id="btn-check-order" onclick="checkOrderingAnswer()" class="w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1">
+                        <button id="btn-check-order" onclick="checkOrderingAnswer()" class="w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1 whitespace-nowrap">
                             判定する <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Explanation Box (Initially Hidden) -->
+                <!-- Explanation Box -->
                 <div id="explanation-box" class="hidden mt-6 p-4 rounded-xl text-left border animate-fade-in">
                     <div class="flex items-center gap-2 font-bold mb-2" id="explanation-status">
                         <!-- Icon & Result -->
@@ -213,11 +224,7 @@
                     </div>
 
                     <button id="btn-explanation-audio" onclick="speakCurrentAnswerSentence()" class="mt-3 hidden inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-100 text-amber-800 hover:bg-amber-200 rounded-lg text-xs font-semibold transition">
-                        <i class="fa-solid fa-volume-high"></i> 正解の文を聞く
-                    </button>
-
-                    <button onclick="nextQuestion()" class="mt-4 w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-2.5 rounded-lg transition text-sm flex items-center justify-center gap-2">
-                        次の問題へ <i class="fa-solid fa-chevron-right text-xs"></i>
+                        <i class="fa-solid fa-volume-high"></i> 全文の発音を聞く
                     </button>
                 </div>
             </div>
@@ -233,7 +240,7 @@
                 <p class="text-slate-500 text-sm mb-6">お疲れ様でした。結果は以下の通りです。</p>
 
                 <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-6">
-                    <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">正解率</div>
+                    <div class="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1">正解数</div>
                     <div id="result-score-text" class="text-4xl font-extrabold text-amber-600">8 / 10</div>
                     <p id="result-feedback" class="text-xs text-slate-600 mt-2 font-medium">素晴らしい結果です！</p>
                 </div>
@@ -276,7 +283,7 @@
                         <thead class="bg-slate-50 text-slate-500 text-xs uppercase sticky top-0 border-b border-slate-200">
                             <tr>
                                 <th class="p-3">単語 (基本形)</th>
-                                <th class="p-3">品詞 / 性・変化</th>
+                                <th class="p-3">品詞 / 性・変化 / 複数形</th>
                                 <th class="p-3">日本語訳</th>
                                 <th class="p-3 text-center">音声</th>
                             </tr>
@@ -295,102 +302,102 @@
     <script>
         // MASTER WORD LIST DATA
         const wordList = [
-            // 名詞
-            { word: "Anfang", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "開始、はじめ" },
-            { word: "Antwort", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "答、返事" },
-            { word: "Apfel", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "リンゴ" },
-            { word: "Appetit", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "食欲" },
-            { word: "Arzt", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "医師、医者" },
-            { word: "Ausflug", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "遠足、ハイキング" },
-            { word: "Ausstellung", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "展覧会、展示" },
-            { word: "Ausweis", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "身分証明書" },
-            { word: "Auto", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "自動車、車" },
-            { word: "Baum", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "木" },
-            { word: "Bericht", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "報告書" },
-            { word: "Bett", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "ベッド" },
-            { word: "Bibliothek", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "図書館" },
-            { word: "Bier", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "ビール" },
-            { word: "Bild", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "絵、写真" },
-            { word: "Bleistift", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "鉛筆" },
-            { word: "Blume", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "花" },
-            { word: "Bluse", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "ブラウス" },
-            { word: "Botschaft", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "大使館" },
-            { word: "Brief", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "手紙" },
-            { word: "Briefträger", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "郵便配達員" },
-            { word: "Brille", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "眼鏡" },
-            { word: "Bruder", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "兄、弟" },
-            { word: "Buch", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "本" },
-            { word: "Bürgermeister", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "市長" },
-            { word: "Büro", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "事務所、オフィス" },
-            { word: "Café", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "カフェ" },
-            { word: "Ecke", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "角、コーナー" },
-            { word: "Eltern", pos: "名詞", gender: "die", detail: "Pl. (複数)", meaning: "両親" },
-            { word: "Erkältung", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "風邪" },
-            { word: "Erfolg", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "成功" },
-            { word: "Esstisch", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "食卓" },
-            { word: "Essen", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "食事" },
-            { word: "Fahrrad", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "自転車" },
-            { word: "Familie", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "家族" },
-            { word: "Farbe", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "色" },
-            { word: "Fenster", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "窓" },
-            { word: "Fieber", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "熱、発熱" },
-            { word: "Film", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "映画" },
-            { word: "Finger", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "指" },
-            { word: "Fisch", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "魚" },
-            { word: "Flugzeug", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "飛行機" },
-            { word: "Frage", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "質問、問い" },
-            { word: "Frau", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "女性、妻、〜夫人" },
-            { word: "Freizeit", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "余暇、自由時間" },
-            { word: "Freund", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "友人（男性）、彼氏" },
-            { word: "Freundin", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "友人（女性）、彼女" },
-            { word: "Fußball", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "サッカー" },
-            { word: "Garten", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "庭" },
-            { word: "Gast", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "客、ゲスト" },
-            { word: "Geburtstag", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "誕生日" },
-            { word: "Geburtstagsgeschenk", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "誕生日プレゼント" },
-            { word: "Geige", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "ヴァイオリン" },
-            { word: "Geld", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "お金" },
-            { word: "Geschäft", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "店、店舗" },
-            { word: "Glas", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "グラス、コップ" },
-            { word: "Großmutter", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "祖母" },
-            { word: "Großvater", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "祖父" },
-            { word: "Haus", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "家" },
-            { word: "Hausaufgabe", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "宿題" },
-            { word: "Hut", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "帽子" },
-            { word: "Hund", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "犬" },
-            { word: "Kaffee", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "コーヒー" },
-            { word: "Kartoffel", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "ジャガイモ" },
-            { word: "Käse", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "チーズ" },
-            { word: "Katze", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "猫" },
-            { word: "Kind", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "子供" },
-            { word: "Kirche", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "教会" },
-            { word: "Klavier", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "ピアノ" },
-            { word: "Kugelschreiber", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "ボールペン" },
-            { word: "Kühlschrank", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "冷蔵庫" },
-            { word: "Lampe", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "ランプ、電球" },
-            { word: "Lehrer", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "教師（男性）" },
-            { word: "Lehrerin", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "教師（女性）" },
-            { word: "Mädchen", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "少女、女の子" },
-            { word: "Mann", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "男性、夫" },
-            { word: "Milch", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "牛乳、ミルク" },
-            { word: "Mutter", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "母、母親" },
-            { word: "Onkel", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "叔父、伯父" },
-            { word: "Park", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "公園" },
-            { word: "Regenschirm", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "傘" },
-            { word: "Schule", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "学校" },
-            { word: "Sohn", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "息子" },
-            { word: "Stadt", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "都市、町" },
-            { word: "Student", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "大学生（男性）" },
-            { word: "Studentin", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "大学生（女性）" },
-            { word: "Tante", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "叔母、伯母" },
-            { word: "Tasse", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "カップ" },
-            { word: "Tisch", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "机、テーブル" },
-            { word: "Tochter", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "娘" },
-            { word: "Uhr", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "時計" },
-            { word: "Vater", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "父、父親" },
-            { word: "Wagen", pos: "名詞", gender: "der", detail: "m. (男性)", meaning: "車、自動車" },
-            { word: "Wohnung", pos: "名詞", gender: "die", detail: "f. (女性)", meaning: "住居、アパート" },
-            { word: "Zimmer", pos: "名詞", gender: "das", detail: "n. (中性)", meaning: "部屋" },
+            // 名詞 (性と複数形)
+            { word: "Anfang", pos: "名詞", gender: "der", plural: "Anfänge", detail: "m. (男性)", meaning: "開始、はじめ" },
+            { word: "Antwort", pos: "名詞", gender: "die", plural: "Antworten", detail: "f. (女性)", meaning: "答、返事" },
+            { word: "Apfel", pos: "名詞", gender: "der", plural: "Äpfel", detail: "m. (男性)", meaning: "リンゴ" },
+            { word: "Appetit", pos: "名詞", gender: "der", plural: "-", detail: "m. (男性)", meaning: "食欲" },
+            { word: "Arzt", pos: "名詞", gender: "der", plural: "Ärzte", detail: "m. (男性)", meaning: "医師、医者" },
+            { word: "Ausflug", pos: "名詞", gender: "der", plural: "Ausflüge", detail: "m. (男性)", meaning: "遠足、ハイキング" },
+            { word: "Ausstellung", pos: "名詞", gender: "die", plural: "Ausstellungen", detail: "f. (女性)", meaning: "展覧会、展示" },
+            { word: "Ausweis", pos: "名詞", gender: "der", plural: "Ausweise", detail: "m. (男性)", meaning: "身分証明書" },
+            { word: "Auto", pos: "名詞", gender: "das", plural: "Autos", detail: "n. (中性)", meaning: "自動車、車" },
+            { word: "Baum", pos: "名詞", gender: "der", plural: "Bäume", detail: "m. (男性)", meaning: "木" },
+            { word: "Bericht", pos: "名詞", gender: "der", plural: "Berichte", detail: "m. (男性)", meaning: "報告書" },
+            { word: "Bett", pos: "名詞", gender: "das", plural: "Betten", detail: "n. (中性)", meaning: "ベッド" },
+            { word: "Bibliothek", pos: "名詞", gender: "die", plural: "Bibliotheken", detail: "f. (女性)", meaning: "図書館" },
+            { word: "Bier", pos: "名詞", gender: "das", plural: "Biere", detail: "n. (中性)", meaning: "ビール" },
+            { word: "Bild", pos: "名詞", gender: "das", plural: "Bilder", detail: "n. (中性)", meaning: "絵、写真" },
+            { word: "Bleistift", pos: "名詞", gender: "der", plural: "Bleistifte", detail: "m. (男性)", meaning: "鉛筆" },
+            { word: "Blume", pos: "名詞", gender: "die", plural: "Blumen", detail: "f. (女性)", meaning: "花" },
+            { word: "Bluse", pos: "名詞", gender: "die", plural: "Blusen", detail: "f. (女性)", meaning: "ブラウス" },
+            { word: "Botschaft", pos: "名詞", gender: "die", plural: "Botschaften", detail: "f. (女性)", meaning: "大使館" },
+            { word: "Brief", pos: "名詞", gender: "der", plural: "Briefe", detail: "m. (男性)", meaning: "手紙" },
+            { word: "Briefträger", pos: "名詞", gender: "der", plural: "Briefträger", detail: "m. (男性)", meaning: "郵便配達員" },
+            { word: "Brille", pos: "名詞", gender: "die", plural: "Brillen", detail: "f. (女性)", meaning: "眼鏡" },
+            { word: "Bruder", pos: "名詞", gender: "der", plural: "Brüder", detail: "m. (男性)", meaning: "兄、弟" },
+            { word: "Buch", pos: "名詞", gender: "das", plural: "Bücher", detail: "n. (中性)", meaning: "本" },
+            { word: "Bürgermeister", pos: "名詞", gender: "der", plural: "Bürgermeister", detail: "m. (男性)", meaning: "市長" },
+            { word: "Büro", pos: "名詞", gender: "das", plural: "Büros", detail: "n. (中性)", meaning: "事務所、オフィス" },
+            { word: "Café", pos: "名詞", gender: "das", plural: "Cafés", detail: "n. (中性)", meaning: "カフェ" },
+            { word: "Ecke", pos: "名詞", gender: "die", plural: "Ecken", detail: "f. (女性)", meaning: "角、コーナー" },
+            { word: "Eltern", pos: "名詞", gender: "die", plural: "Eltern", detail: "Pl. (複数)", meaning: "両親" },
+            { word: "Erkältung", pos: "名詞", gender: "die", plural: "Erkältungen", detail: "f. (女性)", meaning: "風邪" },
+            { word: "Erfolg", pos: "名詞", gender: "der", plural: "Erfolge", detail: "m. (男性)", meaning: "成功" },
+            { word: "Esstisch", pos: "名詞", gender: "der", plural: "Esstische", detail: "m. (男性)", meaning: "食卓" },
+            { word: "Essen", pos: "名詞", gender: "das", plural: "Essen", detail: "n. (中性)", meaning: "食事" },
+            { word: "Fahrrad", pos: "名詞", gender: "das", plural: "Fahrräder", detail: "n. (中性)", meaning: "自転車" },
+            { word: "Familie", pos: "名詞", gender: "die", plural: "Familien", detail: "f. (女性)", meaning: "家族" },
+            { word: "Farbe", pos: "名詞", gender: "die", plural: "Farben", detail: "f. (女性)", meaning: "色" },
+            { word: "Fenster", pos: "名詞", gender: "das", plural: "Fenster", detail: "n. (中性)", meaning: "窓" },
+            { word: "Fieber", pos: "名詞", gender: "das", plural: "-", detail: "n. (中性)", meaning: "熱、発熱" },
+            { word: "Film", pos: "名詞", gender: "der", plural: "Filme", detail: "m. (男性)", meaning: "映画" },
+            { word: "Finger", pos: "名詞", gender: "der", plural: "Finger", detail: "m. (男性)", meaning: "指" },
+            { word: "Fisch", pos: "名詞", gender: "der", plural: "Fische", detail: "m. (男性)", meaning: "魚" },
+            { word: "Flugzeug", pos: "名詞", gender: "das", plural: "Flugzeuge", detail: "n. (中性)", meaning: "飛行機" },
+            { word: "Frage", pos: "名詞", gender: "die", plural: "Fragen", detail: "f. (女性)", meaning: "質問、問い" },
+            { word: "Frau", pos: "名詞", gender: "die", plural: "Frauen", detail: "f. (女性)", meaning: "女性、妻、〜夫人" },
+            { word: "Freizeit", pos: "名詞", gender: "die", plural: "-", detail: "f. (女性)", meaning: "余暇、自由時間" },
+            { word: "Freund", pos: "名詞", gender: "der", plural: "Freunde", detail: "m. (男性)", meaning: "友人（男性）、彼氏" },
+            { word: "Freundin", pos: "名詞", gender: "die", plural: "Freundinnen", detail: "f. (女性)", meaning: "友人（女性）、彼女" },
+            { word: "Fußball", pos: "名詞", gender: "der", plural: "Fußbälle", detail: "m. (男性)", meaning: "サッカー" },
+            { word: "Garten", pos: "名詞", gender: "der", plural: "Gärten", detail: "m. (男性)", meaning: "庭" },
+            { word: "Gast", pos: "名詞", gender: "der", plural: "Gäste", detail: "m. (男性)", meaning: "客、ゲスト" },
+            { word: "Geburtstag", pos: "名詞", gender: "der", plural: "Geburtstage", detail: "m. (男性)", meaning: "誕生日" },
+            { word: "Geburtstagsgeschenk", pos: "名詞", gender: "das", plural: "Geburtstagsgeschenke", detail: "n. (中性)", meaning: "誕生日プレゼント" },
+            { word: "Geige", pos: "名詞", gender: "die", plural: "Geigen", detail: "f. (女性)", meaning: "ヴァイオリン" },
+            { word: "Geld", pos: "名詞", gender: "das", plural: "Gelder", detail: "n. (中性)", meaning: "お金" },
+            { word: "Geschäft", pos: "名詞", gender: "das", plural: "Geschäfte", detail: "n. (中性)", meaning: "店、店舗" },
+            { word: "Glas", pos: "名詞", gender: "das", plural: "Gläser", detail: "n. (中性)", meaning: "グラス、コップ" },
+            { word: "Großmutter", pos: "名詞", gender: "die", plural: "Großmütter", detail: "f. (女性)", meaning: "祖母" },
+            { word: "Großvater", pos: "名詞", gender: "der", plural: "Großväter", detail: "m. (男性)", meaning: "祖父" },
+            { word: "Haus", pos: "名詞", gender: "das", plural: "Häuser", detail: "n. (中性)", meaning: "家" },
+            { word: "Hausaufgabe", pos: "名詞", gender: "die", plural: "Hausaufgaben", detail: "f. (女性)", meaning: "宿題" },
+            { word: "Hut", pos: "名詞", gender: "der", plural: "Hüte", detail: "m. (男性)", meaning: "帽子" },
+            { word: "Hund", pos: "名詞", gender: "der", plural: "Hunde", detail: "m. (男性)", meaning: "犬" },
+            { word: "Kaffee", pos: "名詞", gender: "der", plural: "Kaffees", detail: "m. (男性)", meaning: "コーヒー" },
+            { word: "Kartoffel", pos: "名詞", gender: "die", plural: "Kartoffeln", detail: "f. (女性)", meaning: "ジャガイモ" },
+            { word: "Käse", pos: "名詞", gender: "der", plural: "Käse", detail: "m. (男性)", meaning: "チーズ" },
+            { word: "Katze", pos: "名詞", gender: "die", plural: "Katzen", detail: "f. (女性)", meaning: "猫" },
+            { word: "Kind", pos: "名詞", gender: "das", plural: "Kinder", detail: "n. (中性)", meaning: "子供" },
+            { word: "Kirche", pos: "名詞", gender: "die", plural: "Kirchen", detail: "f. (女性)", meaning: "教会" },
+            { word: "Klavier", pos: "名詞", gender: "das", plural: "Klaviere", detail: "n. (中性)", meaning: "ピアノ" },
+            { word: "Kugelschreiber", pos: "名詞", gender: "der", plural: "Kugelschreiber", detail: "m. (男性)", meaning: "ボールペン" },
+            { word: "Kühlschrank", pos: "名詞", gender: "der", plural: "Kühlschränke", detail: "m. (男性)", meaning: "冷蔵庫" },
+            { word: "Lampe", pos: "名詞", gender: "die", plural: "Lampen", detail: "f. (女性)", meaning: "ランプ、電球" },
+            { word: "Lehrer", pos: "名詞", gender: "der", plural: "Lehrer", detail: "m. (男性)", meaning: "教師（男性）" },
+            { word: "Lehrerin", pos: "名詞", gender: "die", plural: "Lehrerinnen", detail: "f. (女性)", meaning: "教師（女性）" },
+            { word: "Mädchen", pos: "名詞", gender: "das", plural: "Mädchen", detail: "n. (中性)", meaning: "少女、女の子" },
+            { word: "Mann", pos: "名詞", gender: "der", plural: "Männer", detail: "m. (男性)", meaning: "男性、夫" },
+            { word: "Milch", pos: "名詞", gender: "die", plural: "-", detail: "f. (女性)", meaning: "牛乳、ミルク" },
+            { word: "Mutter", pos: "名詞", gender: "die", plural: "Mütter", detail: "f. (女性)", meaning: "母、母親" },
+            { word: "Onkel", pos: "名詞", gender: "der", plural: "Onkel", detail: "m. (男性)", meaning: "叔父、伯父" },
+            { word: "Park", pos: "名詞", gender: "der", plural: "Parks", detail: "m. (男性)", meaning: "公園" },
+            { word: "Regenschirm", pos: "名詞", gender: "der", plural: "Regenschirme", detail: "m. (男性)", meaning: "傘" },
+            { word: "Schule", pos: "名詞", gender: "die", plural: "Schulen", detail: "f. (女性)", meaning: "学校" },
+            { word: "Sohn", pos: "名詞", gender: "der", plural: "Söhne", detail: "m. (男性)", meaning: "息子" },
+            { word: "Stadt", pos: "名詞", gender: "die", plural: "Städte", detail: "f. (女性)", meaning: "都市、町" },
+            { word: "Student", pos: "名詞", gender: "der", plural: "Studenten", detail: "m. (男性)", meaning: "大学生（男性）" },
+            { word: "Studentin", pos: "名詞", gender: "die", plural: "Studentinnen", detail: "f. (女性)", meaning: "大学生（女性）" },
+            { word: "Tante", pos: "名詞", gender: "die", plural: "Tanten", detail: "f. (女性)", meaning: "叔母、伯母" },
+            { word: "Tasse", pos: "名詞", gender: "die", plural: "Tassen", detail: "f. (女性)", meaning: "カップ" },
+            { word: "Tisch", pos: "名詞", gender: "der", plural: "Tische", detail: "m. (男性)", meaning: "机、テーブル" },
+            { word: "Tochter", pos: "名詞", gender: "die", plural: "Töchter", detail: "f. (女性)", meaning: "娘" },
+            { word: "Uhr", pos: "名詞", gender: "die", plural: "Uhren", detail: "f. (女性)", meaning: "時計" },
+            { word: "Vater", pos: "名詞", gender: "der", plural: "Väter", detail: "m. (男性)", meaning: "父、父親" },
+            { word: "Wagen", pos: "名詞", gender: "der", plural: "Wagen", detail: "m. (男性)", meaning: "車、自動車" },
+            { word: "Wohnung", pos: "名詞", gender: "die", plural: "Wohnungen", detail: "f. (女性)", meaning: "住居、アパート" },
+            { word: "Zimmer", pos: "名詞", gender: "das", plural: "Zimmer", detail: "n. (中性)", meaning: "部屋" },
 
             // 動詞
             { word: "arbeiten", pos: "動詞", detail: "一般動詞", meaning: "働く" },
@@ -455,7 +462,7 @@
             { word: "auf", pos: "前置詞", detail: "3格/4格支配", meaning: "〜の上に/へ" }
         ];
 
-        // CATEGORY 3 & 4 GRAMMAR QUESTIONS (With Ja, Hint, and Exp)
+        // CATEGORY 3 & 4 GRAMMAR QUESTIONS
         const grammarQuestions = [
             {
                 cat: 'grammar',
@@ -615,6 +622,7 @@
 
         // QUIZ STATE
         let currentQuizQueue = [];
+        let userAnswersState = [];
         let currentQuestionIndex = 0;
         let score = 0;
         let currentCategory = 'all';
@@ -631,9 +639,8 @@
             });
             document.getElementById('sec-' + secId).classList.remove('hidden');
 
-            // Nav active styles
-            document.getElementById('nav-home').className = secId === 'home' ? 'px-3 py-1.5 rounded-lg bg-white/10 text-amber-300 flex items-center gap-1 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1';
-            document.getElementById('nav-dictionary').className = secId === 'dictionary' ? 'px-3 py-1.5 rounded-lg bg-white/10 text-amber-300 flex items-center gap-1 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1';
+            document.getElementById('nav-home').className = secId === 'home' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            document.getElementById('nav-dictionary').className = secId === 'dictionary' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
 
             if (secId === 'dictionary') {
                 renderDictionary();
@@ -644,24 +651,49 @@
         function startQuiz(type) {
             currentCategory = type;
             currentQuizQueue = [];
+            userAnswersState = [];
             currentQuestionIndex = 0;
             score = 0;
 
             if (type === 'gender') {
                 const nouns = wordList.filter(w => w.pos === '名詞' && w.gender);
                 const shuffled = shuffle([...nouns]).slice(0, 10);
-                currentQuizQueue = shuffled.map(n => ({
-                    type: 'choice',
-                    title: "名詞の性・定冠詞クイズ",
-                    badge: "性（Gender）",
-                    q: `_____ ${n.word}`,
-                    sub: `意味: ${n.meaning}`,
-                    speaker: `${n.gender} ${n.word}`,
-                    options: ["der (男性)", "die (女性)", "das (中性)"],
-                    answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
-                    ja: `単語: ${n.gender} ${n.word}（${n.meaning}）`,
-                    exp: `正解は「${n.gender} ${n.word}」です。（${n.detail}）`
-                }));
+                
+                currentQuizQueue = shuffled.map(n => {
+                    const isPluralQuiz = (n.plural && n.plural !== '-' && Math.random() > 0.5);
+                    if (!isPluralQuiz) {
+                        return {
+                            type: 'choice',
+                            title: "名詞の性・定冠詞クイズ",
+                            badge: "性（Gender）",
+                            q: `_____ ${n.word}`,
+                            sub: `意味: ${n.meaning}`,
+                            speaker: n.word,
+                            options: ["der (男性)", "die (女性)", "das (中性)"],
+                            answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
+                            ja: `単語: ${n.word}（${n.meaning}）`,
+                            exp: `正解は「${n.gender} ${n.word}」です。（${n.detail}）`
+                        };
+                    } else {
+                        const wrongPlurals = shuffle(
+                            wordList.filter(w => w.pos === '名詞' && w.plural && w.plural !== '-' && w.plural !== n.plural)
+                        ).slice(0, 3).map(w => w.plural);
+                        const options = shuffle([n.plural, ...wrongPlurals]);
+
+                        return {
+                            type: 'choice',
+                            title: "名詞の複数形クイズ",
+                            badge: "複数形 (Plural)",
+                            q: `【${n.word}】の複数形は？`,
+                            sub: `単数: ${n.gender} ${n.word}（${n.meaning}）`,
+                            speaker: n.word,
+                            options: options,
+                            answer: options.indexOf(n.plural),
+                            ja: `単数形: ${n.gender} ${n.word} / 複数形: die ${n.plural}`,
+                            exp: `【${n.word}】の複数形は「die ${n.plural}」です。`
+                        };
+                    }
+                });
             } else if (type === 'vocab') {
                 const shuffled = shuffle([...wordList]).slice(0, 10);
                 currentQuizQueue = shuffled.map(item => {
@@ -705,7 +737,7 @@
                     title: type === 'grammar' ? "文法・動詞活用クイズ" : "前置詞・格変化クイズ",
                     badge: "文法",
                     q: q.q,
-                    sub: "", // Hide subtext by default
+                    sub: "",
                     hint: q.hint,
                     speaker: q.q.replace('_____', q.options[q.answer]),
                     options: q.options,
@@ -757,17 +789,39 @@
                 currentQuizQueue = shuffle([...part1, ...part2, ...part3, ...part4]);
             }
 
+            userAnswersState = new Array(currentQuizQueue.length).fill(null);
             showSection('quiz');
             renderQuestion();
         }
 
         function renderQuestion() {
             const qData = currentQuizQueue[currentQuestionIndex];
+            const state = userAnswersState[currentQuestionIndex];
+
+            // Header UI
             document.getElementById('quiz-title-display').innerText = qData.title;
             document.getElementById('quiz-counter').innerText = `${currentQuestionIndex + 1} / ${currentQuizQueue.length}`;
             document.getElementById('badge-category').innerText = qData.badge;
             document.getElementById('question-text').innerText = qData.q;
             
+            // Prev Question Button state
+            const btnPrev = document.getElementById('btn-prev-question');
+            if (currentQuestionIndex > 0) {
+                btnPrev.classList.remove('opacity-40', 'cursor-not-allowed');
+                btnPrev.disabled = false;
+            } else {
+                btnPrev.classList.add('opacity-40', 'cursor-not-allowed');
+                btnPrev.disabled = true;
+            }
+
+            // Next Question Header Button state
+            const btnNextHeader = document.getElementById('btn-next-header');
+            if (state && state.answered) {
+                btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                btnNextHeader.classList.add('opacity-0', 'pointer-events-none');
+            }
+
             // Subtext Handling
             const subtextElem = document.getElementById('question-subtext');
             if (qData.sub && qData.sub.trim() !== '') {
@@ -778,22 +832,28 @@
                 subtextElem.classList.add('hidden');
             }
             
-            // Hint Handling (For Cat 3 & 4)
+            // Hint Handling
             const hintContainer = document.getElementById('hint-container');
             const btnShowHint = document.getElementById('btn-show-hint');
             const hintTextBox = document.getElementById('hint-text-box');
 
             if (qData.hint) {
                 hintContainer.classList.remove('hidden');
-                btnShowHint.classList.remove('hidden');
-                hintTextBox.classList.add('hidden');
+                if (state && state.hintRevealed) {
+                    btnShowHint.classList.add('hidden');
+                    hintTextBox.classList.remove('hidden');
+                } else {
+                    btnShowHint.classList.remove('hidden');
+                    hintTextBox.classList.add('hidden');
+                }
                 hintTextBox.innerText = "💡 " + qData.hint;
             } else {
                 hintContainer.classList.add('hidden');
             }
 
-            // Reset Explanation Box
-            document.getElementById('explanation-box').classList.add('hidden');
+            // Explanation Box Reset
+            const expBox = document.getElementById('explanation-box');
+            expBox.classList.add('hidden');
             document.getElementById('btn-explanation-audio').classList.add('hidden');
 
             const choicesContainer = document.getElementById('choices-container');
@@ -815,28 +875,68 @@
                     btn.onclick = () => selectChoiceAnswer(idx);
                     choicesContainer.appendChild(btn);
                 });
+
+                if (state && state.answered) {
+                    restoreChoiceAnswerUI(state.selectedIdx);
+                }
+
             } else if (qData.type === 'ordering') {
                 choicesContainer.classList.add('hidden');
                 orderingContainer.classList.remove('hidden');
                 btnAudio.classList.add('hidden');
 
-                userSelectedOrderWords = [];
-                availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
+                if (state && state.answered) {
+                    userSelectedOrderWords = state.userWords;
+                    availablePoolWords = state.poolWords;
+                    renderOrderingBoxes();
+                    
+                    const btnCheck = document.getElementById('btn-check-order');
+                    btnCheck.disabled = true;
+                    btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
 
-                document.getElementById('btn-check-order').disabled = false;
-                document.getElementById('btn-check-order').className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1";
+                    const jaText = `【正解】 ${qData.correctSentence}`;
+                    showExplanation(state.isCorrect, jaText, qData.exp);
+                    document.getElementById('btn-explanation-audio').classList.remove('hidden');
+                    currentSpeakerWord = qData.correctSentence;
+                } else {
+                    userSelectedOrderWords = [];
+                    availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
 
-                renderOrderingBoxes();
+                    document.getElementById('btn-check-order').disabled = false;
+                    document.getElementById('btn-check-order').className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1 whitespace-nowrap";
+
+                    renderOrderingBoxes();
+                }
             }
         }
 
         function revealHint() {
             document.getElementById('btn-show-hint').classList.add('hidden');
             document.getElementById('hint-text-box').classList.remove('hidden');
+            if (!userAnswersState[currentQuestionIndex]) {
+                userAnswersState[currentQuestionIndex] = {};
+            }
+            userAnswersState[currentQuestionIndex].hintRevealed = true;
         }
 
-        // --- CHOICE QUIZ LOGIC ---
+        // CHOICE ANSWER LOGIC
         function selectChoiceAnswer(selectedIndex) {
+            const qData = currentQuizQueue[currentQuestionIndex];
+            const isCorrect = selectedIndex === qData.answer;
+
+            userAnswersState[currentQuestionIndex] = {
+                ...(userAnswersState[currentQuestionIndex] || {}),
+                answered: true,
+                selectedIdx: selectedIndex,
+                isCorrect: isCorrect
+            };
+
+            restoreChoiceAnswerUI(selectedIndex);
+            document.getElementById('btn-next-header').classList.remove('opacity-0', 'pointer-events-none');
+            speakGerman(currentSpeakerWord);
+        }
+
+        function restoreChoiceAnswerUI(selectedIndex) {
             const qData = currentQuizQueue[currentQuestionIndex];
             const choiceButtons = document.querySelectorAll('.choice-btn');
 
@@ -854,13 +954,10 @@
             });
 
             const isCorrect = selectedIndex === qData.answer;
-            if (isCorrect) score++;
-
             showExplanation(isCorrect, qData.ja, qData.exp);
-            speakGerman(currentSpeakerWord);
         }
 
-        // --- ORDERING QUIZ LOGIC ---
+        // ORDERING QUIZ LOGIC
         function renderOrderingBoxes() {
             const userBox = document.getElementById('user-answer-box');
             const poolBox = document.getElementById('word-pool-box');
@@ -919,15 +1016,22 @@
             const userSentence = userSelectedOrderWords.map(w => w.text).join(" ");
             const isCorrect = (userSentence === qData.correctSentence);
 
-            if (isCorrect) score++;
+            userAnswersState[currentQuestionIndex] = {
+                ...(userAnswersState[currentQuestionIndex] || {}),
+                answered: true,
+                userWords: [...userSelectedOrderWords],
+                poolWords: [...availablePoolWords],
+                isCorrect: isCorrect
+            };
 
             const btnCheck = document.getElementById('btn-check-order');
             btnCheck.disabled = true;
-            btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed";
+            btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
 
             const jaText = `【正解】 ${qData.correctSentence}`;
             showExplanation(isCorrect, jaText, qData.exp);
 
+            document.getElementById('btn-next-header').classList.remove('opacity-0', 'pointer-events-none');
             document.getElementById('btn-explanation-audio').classList.remove('hidden');
             currentSpeakerWord = qData.correctSentence;
             speakGerman(currentSpeakerWord);
@@ -937,7 +1041,7 @@
             speakGerman(currentSpeakerWord);
         }
 
-        // --- SHOW EXPLANATION UI ---
+        // EXPLANATION UI
         function showExplanation(isCorrect, jaText, expText) {
             const expBox = document.getElementById('explanation-box');
             const expStatus = document.getElementById('explanation-status');
@@ -966,6 +1070,13 @@
             expBoxText.innerHTML = `<strong>【解説】</strong><br>${expText}`;
         }
 
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
         function nextQuestion() {
             currentQuestionIndex++;
             if (currentQuestionIndex < currentQuizQueue.length) {
@@ -978,6 +1089,7 @@
         function finishQuiz() {
             showSection('result');
             const total = currentQuizQueue.length;
+            score = userAnswersState.filter(s => s && s.isCorrect).length;
             document.getElementById('result-score-text').innerText = `${score} / ${total}`;
 
             const percentage = (score / total) * 100;
@@ -999,13 +1111,14 @@
             }
         }
 
-        // SPEECH SYNTHESIS (TTS)
+        // SPEECH SYNTHESIS (TTS) - SPEAKS ONLY GERMAN TEXT WITHOUT ARTICLES
         function speakGerman(text) {
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                const u = new SpeechSynthesisUtterance(text);
+                let cleanText = text.replace(/^(der|die|das)\s+/i, '');
+                const u = new SpeechSynthesisUtterance(cleanText);
                 u.lang = 'de-DE';
-                u.rate = 0.9;
+                u.rate = 0.85;
                 window.speechSynthesis.speak(u);
             }
         }
@@ -1025,7 +1138,9 @@
 
             const filtered = wordList.filter(item => {
                 const matchCategory = (activeDictCategory === 'ALL') || (item.pos === activeDictCategory);
-                const matchSearch = item.word.toLowerCase().includes(searchVal) || item.meaning.includes(searchVal);
+                const matchSearch = item.word.toLowerCase().includes(searchVal) || 
+                                    item.meaning.includes(searchVal) ||
+                                    (item.plural && item.plural.toLowerCase().includes(searchVal));
                 return matchCategory && matchSearch;
             });
 
@@ -1039,17 +1154,23 @@
                 tr.className = "hover:bg-slate-50/80 transition";
                 
                 let wordDisplay = item.word;
+                let detailDisplay = item.detail || item.pos;
+
                 if (item.pos === '名詞' && item.gender) {
                     const colorClass = item.gender === 'der' ? 'text-blue-600 font-bold' : item.gender === 'die' ? 'text-rose-600 font-bold' : 'text-amber-600 font-bold';
                     wordDisplay = `<span class="${colorClass}">${item.gender}</span> ${item.word}`;
+                    
+                    if (item.plural) {
+                        detailDisplay += ` / 複数: die ${item.plural}`;
+                    }
                 }
 
                 tr.innerHTML = `
                     <td class="p-3 font-semibold text-slate-800">${wordDisplay}</td>
-                    <td class="p-3 text-xs text-slate-500"><span class="bg-slate-100 px-2 py-0.5 rounded">${item.detail || item.pos}</span></td>
+                    <td class="p-3 text-xs text-slate-500"><span class="bg-slate-100 px-2 py-0.5 rounded">${detailDisplay}</span></td>
                     <td class="p-3 text-slate-600">${item.meaning}</td>
                     <td class="p-3 text-center">
-                        <button onclick="speakGerman('${item.gender ? item.gender + ' ' : ''}${item.word}')" class="text-slate-400 hover:text-amber-500 p-1">
+                        <button onclick="speakGerman('${item.word}')" class="text-slate-400 hover:text-amber-500 p-1" title="単語のみ発音">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
                     </td>
