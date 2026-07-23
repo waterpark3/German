@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドイツ語マスタークイズ & 単語帳（完全網羅版）</title>
+    <title>ドイツ語マスタークイズ & 単語帳（全単語完全復元・品詞統一版）</title>
     <!-- 検索エンジンインデックス設定 -->
     <meta name="robots" content="index, follow">
-    <meta name="description" content="ドイツ語の初学者向け無料学習Webアプリ。名詞の性(der/die/das)・複数形・男性弱変化、動詞活用、話法の助動詞、前置詞格変化、語順並び替え問題を収録。">
+    <meta name="description" content="ドイツ語初級教科書（Lektion 1〜8）に対応した無料学習Webアプリ。名詞の性・複数形・人称代名詞・否定・動詞変化・前置詞・形容詞語尾・話法の助動詞・未来形・語順並び替え問題を大量収録。">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,10 +49,10 @@
 
         <!-- HOME / MENU SECTION -->
         <section id="sec-home" class="space-y-4 animate-fade-in pt-1">
-            <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 text-center relative overflow-hidden">
-                <h2 class="text-lg sm:text-2xl font-bold text-slate-800 mb-1">ドイツ語学習マスター (完全網羅版)</h2>
+            <div class="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-slate-100 text-center relative overflow-hidden">
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-800 mb-1">ドイツ語学習マスター (全単語復元 & Lektion 1〜8)</h2>
                 <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-                    全400語超の全品詞単語帳（定冠詞・複数形・活用タップ表示・格支配）&amp; 実践クイズ！
+                    名詞・動詞・形容詞・副詞・前置詞・代名詞300語超を完全収録！同品詞選択肢の単語クイズ＆文法選択90問＆並び替え60問！
                 </p>
             </div>
 
@@ -63,8 +63,8 @@
                         <i class="fa-solid fa-language"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-amber-600 transition truncate">1. 単語問題 (性・複数形・意味)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">der/die/das・複数形・全品詞意味4択</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-amber-600 transition truncate">1. 単語クイズ (性・複数形・同品詞意味)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">der/die/das・複数形・同品詞限定4択クイズ</p>
                     </div>
                 </div>
 
@@ -73,8 +73,8 @@
                         <i class="fa-solid fa-sliders"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-emerald-600 transition truncate">2. 文法問題 (活用・前置詞・格支配)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">助動詞人称変化・格支配・人称代名詞</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-emerald-600 transition truncate">2. 文法選択問題 (全90問から10問)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">幹母音変化・前置詞・形容詞変化・助動詞・未来形</p>
                     </div>
                 </div>
 
@@ -83,8 +83,8 @@
                         <i class="fa-solid fa-arrow-down-short-wide"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-rose-600 transition truncate">3. 単語並び替えクイズ (語順・作文)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">定動詞2位の原則・枠構造・倒置文の作文特訓</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-rose-600 transition truncate">3. 単語並び替え問題 (全60問から10問)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">定動詞2位・倒置・命令文・助動詞枠構造の作文特訓</p>
                     </div>
                 </div>
             </div>
@@ -239,8 +239,7 @@
                         <button onclick="filterDictCategory('動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">動詞</button>
                         <button onclick="filterDictCategory('形容詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">形容詞</button>
                         <button onclick="filterDictCategory('副詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">副詞</button>
-                        <button onclick="filterDictCategory('前置詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">前置詞</button>
-                        <button onclick="filterDictCategory('代名詞・冠詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">代名詞・冠詞</button>
+                        <button onclick="filterDictCategory('その他')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">その他</button>
                     </div>
 
                     <div class="flex bg-slate-100 p-0.5 rounded-lg shrink-0 text-xs">
@@ -263,17 +262,21 @@
                     <span id="flashcard-counter">1 / 100</span> (カードをタップで裏返し)
                 </div>
 
-                <div onclick="flipFlashcard()" class="w-full max-w-sm h-56 perspective-1000 cursor-pointer">
+                <div onclick="flipFlashcard()" class="w-full max-w-sm h-80 perspective-1000 cursor-pointer">
                     <div id="flashcard-inner" class="w-full h-full relative transform-style-3d transition-transform duration-300 rounded-2xl shadow-md border-2 border-amber-200 bg-amber-50/40 flex items-center justify-center p-4">
                         <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-4 text-center">
                             <span id="fc-front-gender" class="text-xs font-bold text-slate-400 mb-1"></span>
                             <h3 id="fc-front-word" class="text-2xl sm:text-3xl font-bold text-slate-800">Word</h3>
                             <span class="text-xs text-amber-600 bg-amber-100 px-2 py-0.5 rounded mt-2">タップして意味を表示</span>
                         </div>
-                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white rounded-2xl p-4 flex flex-col items-center justify-center text-center">
+                        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white rounded-2xl p-4 flex flex-col items-center justify-center text-center overflow-y-auto">
                             <h4 id="fc-back-meaning" class="text-lg sm:text-xl font-bold text-slate-800 mb-1">意味</h4>
                             <p id="fc-back-detail" class="text-xs sm:text-sm text-slate-600 leading-snug"></p>
                             <div id="fc-back-conj" class="hidden mt-2 p-1.5 bg-amber-50 border border-amber-200 rounded text-xs font-mono text-amber-900"></div>
+                            <div id="fc-back-example" class="hidden mt-2 p-2 bg-amber-50/70 border border-amber-200 rounded-lg text-left w-full">
+                                <p id="fc-back-example-de" class="text-xs sm:text-sm text-slate-800 italic leading-snug"></p>
+                                <p id="fc-back-example-ja" class="text-xs text-slate-500 mt-1 leading-snug">→ </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -296,307 +299,893 @@
 
     <!-- App Data & Logic -->
     <script>
-        // データ構造定義関数
-        function N(w,g,p,m,d=""){ return {word:w, pos:"名詞", gender:g, plural:p, detail:d||(g==="der"?"m. (男性)":g==="die"?"f. (女性)":"n. (中性)"), meaning:m}; }
-        function V(w,m,c,d="一般動詞"){ return {word:w, pos:"動詞", detail:d, conjugation:c, meaning:m}; }
-        function A(w,m,d="形容詞"){ return {word:w, pos:"形容詞", detail:d, meaning:m}; }
-        function ADV(w,m,d="副詞"){ return {word:w, pos:"副詞", detail:d, meaning:m}; }
-        function P(w,m,d="前置詞"){ return {word:w, pos:"前置詞", detail:d, meaning:m}; }
-        function PR(w,m,d="代名詞・冠詞"){ return {word:w, pos:"代名詞・冠詞", detail:d, meaning:m}; }
-
-        // 単語リスト全抽出・完全統合マスターデータ
+        // 単語データ（統合リスト.xlsx 完全準拠・678語・例文/対訳付き）
         const wordList = [
-            // ==================== 名詞 ====================
-            N("Abend","der","Abende","晩、夕方"), N("Anfang","der","Anfänge","開始、はじめ"), N("Antwort","die","Antworten","答、返事"),
-            N("Apfel","der","Äpfel","リンゴ"), N("Appetit","der","-","食欲"), N("Arzt","der","Ärzte","医師、医者"),
-            N("Ausflug","der","Ausflüge","遠足、ハイキング"), N("Ausstellung","die","Ausstellungen","展覧会、展示"), N("Ausweis","der","Ausweise","身分証明書"),
-            N("Auto","das","Autos","自動車、車"), N("Bäckerei","die","Bäckereien","パン屋"), N("Bahnhof","der","Bahnhöfe","駅"),
-            N("Bank","die","Bänke","ベンチ / 銀行"), N("Baum","der","Bäume","木"), N("Bericht","der","Berichte","報告書"),
-            N("Beruf","der","Berufe","職業"), N("Bett","das","Betten","ベッド"), N("Bibliothek","die","Bibliotheken","図書館"),
-            N("Bier","das","Biere","ビール"), N("Bild","das","Bilder","絵、写真"), N("Bleistift","der","Bleistifte","鉛筆"),
-            N("Blume","die","Blumen","花"), N("Bluse","die","Blusen","ブラウス"), N("Botschaft","die","Botschaften","大使館"),
-            N("Brief","der","Briefe","手紙"), N("Briefträger","der","Briefträger","郵便配達員"), N("Brille","die","Brillen","眼鏡"),
-            N("Brot","das","Brote","パン"), N("Brötchen","das","Brötchen","小型パン"), N("Bruder","der","Brüder","兄、弟"),
-            N("Buch","das","Bücher","本"), N("Bürgermeister","der","Bürgermeister","市長"), N("Büro","das","Büros","事務所、オフィス"),
-            N("Bus","der","Busse","バス"), N("Café","das","Cafés","カフェ"), N("Computer","der","Computer","コンピュータ"),
-            N("Deutschland","das","-","ドイツ","n. (国名)"), N("Ecke","die","Ecken","角、コーナー"), N("Eltern","die","Eltern","両親","Pl. (複数形のみ)"),
-            N("Erkältung","die","Erkältungen","風邪"), N("Erfolg","der","Erfolge","成功"), N("Esstisch","der","Esstische","食卓"),
-            N("Essen","das","Essen","食事"), N("Etage","die","Etagen","階"), N("Fahrkarte","die","Fahrkarten","乗車券、切符"),
-            N("Fahrrad","das","Fahrräder","自転車"), N("Familie","die","Familien","家族"), N("Farbe","die","Farben","色"),
-            N("Fenster","das","Fenster","窓"), N("Fieber","das","-","熱、発熱"), N("Film","der","Filme","映画"),
-            N("Finger","der","Finger","指"), N("Fisch","der","Fische","魚"), N("Flasche","die","Flaschen","瓶、ボトル"),
-            N("Flugzeug","das","Flugzeuge","飛行機"), N("Franzose","der","Franzosen","フランス人男性","⚡️男性弱変化 (-n/-n)"), N("Frau","die","Frauen","女性、妻、〜夫人"),
-            N("Freizeit","die","-","余暇、自由時間"), N("Freund","der","Freunde","友人（男性）、彼氏"), N("Freundin","die","Freundinnen","友人（女性）、彼女"),
-            N("Fußball","der","Fußbälle","サッカー"), N("Garten","der","Gärten","庭"), N("Gast","der","Gäste","客、ゲスト"),
-            N("Geburtstag","der","Geburtstage","誕生日"), N("Geburtstagsgeschenk","das","Geburtstagsgeschenke","誕生日プレゼント"), N("Geige","die","Geigen","ヴァイオリン"),
-            N("Geld","das","Gelder","お金"), N("Geschäft","das","Geschäfte","店、店舗"), N("Glas","das","Gläser","グラス、コップ"),
-            N("Großmutter","die","Großmütter","祖母"), N("Großvater","der","Großväter","祖父"), N("Hand","die","Hände","手"),
-            N("Handtasche","die","Handtaschen","ハンドバッグ"), N("Handy","das","Handys","携帯電話、スマホ"), N("Hauptbahnhof","der","Hauptbahnhöfe","中央駅"),
-            N("Haus","das","Häuser","家"), N("Hausaufgabe","die","Hausaufgaben","宿題"), N("Heimat","die","-","故郷"),
-            N("Herr","der","Herren","〜氏、男性","⚡️男性弱変化 (-n/-en)"), N("Hut","der","Hüte","帽子"), N("Hund","der","Hunde","犬"),
-            N("Junge","der","Jungen","少年、男の子","⚡️男性弱変化 (-n/-n)"), N("Kaffee","der","Kaffees","コーヒー"), N("Kartoffel","die","Kartoffeln","ジャガイモ"),
-            N("Käse","der","Käse","チーズ"), N("Katze","die","Katzen","猫"), N("Kellner","der","Kellner","ウェイター"),
-            N("Kind","das","Kinder","子供"), N("Kino","das","Kinos","映画館"), N("Kirche","die","Kirchen","教会"),
-            N("Klavier","das","Klaviere","ピアノ"), N("Kollege","der","Kollegen","同僚（男性）","⚡️男性弱変化 (-n/-n)"), N("Krankheit","die","Krankheiten","病気"),
-            N("Kuchen","der","Kuchen","ケーキ"), N("Kugelschreiber","der","Kugelschreiber","ボールペン"), N("Kühlschrank","der","Kühlschränke","冷蔵庫"),
-            N("Lampe","die","Lampen","ランプ、電球"), N("Lehrer","der","Lehrer","教師（男性）"), N("Lehrerin","die","Lehrerinnen","教師（女性）"),
-            N("Lektion","die","Lektionen","課、レッスン"), N("Löffel","der","Löffel","スプーン"), N("Mädchen","das","Mädchen","少女、女の子"),
-            N("Mann","der","Männer","男性、夫"), N("Märchen","das","Märchen","童話"), N("Mensch","der","Menschen","人間、人","⚡️男性弱変化 (-en/-en)"),
-            N("Milch","die","-","牛乳、ミルク"), N("Monat","der","Monate","月(1ヶ月)"), N("Motorrad","das","Motorräder","オートバイ"),
-            N("Museum","das","Museen","博物館"), N("Mutter","die","Mütter","母、母親"), N("Nacht","die","Nächte","夜"),
-            N("Nachbar","der","Nachbarn","隣人（男性）","⚡️男性弱変化 (-n/-n)"), N("Name","der","Namen","名前","⚡️男性弱変化(特殊)"), N("Onkel","der","Onkel","叔父、伯父"),
-            N("Park","der","Parks","公園"), N("Präsident","der","Präsidenten","大統領","⚡️男性弱変化 (-en/-en)"), N("Prüfung","die","Prüfungen","試験"),
-            N("Regenschirm","der","Regenschirme","傘"), N("Schule","die","Schulen","学校"), N("Schüler","der","Schüler","生徒（男性）"),
-            N("Schwester","die","Schwestern","姉、妹"), N("Sohn","der","Söhne","息子"), N("Sommer","der","Sommer","夏"),
-            N("Stadt","die","Städte","都市、町"), N("Student","der","Studenten","大学生（男性）","⚡️男性弱変化 (-en/-en)"), N("Studentin","die","Studentinnen","大学生（女性）"),
-            N("Tante","die","Tanten","叔母、伯母"), N("Tasse","die","Tassen","カップ"), N("Tisch","der","Tische","机、テーブル"),
-            N("Tochter","die","Töchter","娘"), N("Tür","die","Türen","ドア"), N("Uhr","die","Uhren","時計"),
-            N("Vater","der","Väter","父、父親"), N("Wagen","der","Wagen","車、自動車"), N("Wald","der","Wälder","森林、森"),
-            N("Wand","die","Wände","壁"), N("Wohnung","die","Wohnungen","住居、アパート"), N("Wörterbuch","das","Wörterbücher","辞書"),
-            N("Zeit","die","Zeiten","時間"), N("Zeitung","die","Zeitungen","新聞"), N("Zimmer","das","Zimmer","部屋"), N("Zug","der","Züge","列車、電車"),
-
-            // 抽出全追加名詞
-            N("Pullover","der","Pullover","セーター"), N("Vase","die","Vasen","花瓶"), N("Stuhl","der","Stühle","椅子"),
-            N("Schreibtisch","der","Schreibtische","机、事務机"), N("Stäbchen","das","Stäbchen","箸"), N("Politik","die","-","政治"),
-            N("Straße","die","Straßen","通り、道路"), N("Regen","der","-","雨"), N("Spaziergang","der","Spaziergänge","散歩"),
-            N("Strom","der","Ströme","電気、電流"), N("Unterricht","der","-","授業"), N("Urlaub","der","Urlaube","休暇、旅行"),
-            N("Weg","der","Wege","道、道のり"), N("Post","die","-","郵便、郵便局"), N("Genie","das","Genies","天才"),
-            N("Wissenschaftler","der","Wissenschaftler","科学者"), N("Theater","das","Theater","劇場"), N("Koffer","der","Koffer","スーツケース"),
-            N("Villa","die","Villen","別荘、邸宅"), N("Teil","der","Teile","部分、部品"), N("Lage","die","Lagen","位置、状況"),
-            N("Taxi","das","Taxis","タクシー"), N("Platz","der","Plätze","場所、広場、席"), N("Sänger","der","Sänger","歌手（男性）"),
-            N("Vogel","der","Vögel","鳥"), N("Frage","die","Fragen","質問"), N("Rose","die","Rosen","バラ"),
-            N("Politiker","der","Politiker","政治家"), N("Paket","das","Pakete","小包、小荷物"), N("Wein","der","Weine","ワイン"),
-            N("Liebe","die","-","愛"), N("Tier","das","Tiere","動物"), N("Heft","das","Hefte","ノート"),
-            N("Pferd","das","Pferde","馬"), N("Aufzug","der","Aufzüge","エレベーター"), N("Person","die","Personen","人、人物"),
-            N("Zukunft","die","-","未来、将来"), N("Krankenhaus","das","Krankenhäuser","病院"), N("Süßigkeit","die","Süßigkeiten","お菓子、甘いもの"),
-            N("Referat","das","Referate","研究発表、レポート"), N("Physiker","der","Physiker","物理学者"), N("Puppe","die","Puppen","人形"),
-            N("Party","die","Partys","パーティー"), N("Kerze","die","Kerzen","ローソク"), N("Ahnung","die","Ahnungen","予感、心当たり"),
-            N("Rathaus","das","Rathäuser","市役所"), N("Wetter","das","-","天気"), N("Ring","der","Ringe","指輪"),
-            N("Niveau","das","Niveaus","水準、レベル"), N("Turm","der","Türme","塔"), N("Mantel","der","Mäntel","コート"),
-            N("Arbeitslose","der","Arbeitslosen","失業者","形容詞由来名詞"), N("Angestellte","der","Angestellten","会社員、従業員","形容詞由来名詞"),
-            N("Reisende","der","Reisenden","旅行者","形容詞由来名詞"), N("Kranke","der","Kranken","病人","形容詞由来名詞"),
-            N("Wahrheit","die","Wahrheiten","真実"), N("Tasche","die","Taschen","鞄、ポケット"), N("Rock","der","Röcke","スカート"),
-            N("Kleid","das","Kleider","ドレス、ワンピース"), N("Schuh","der","Schuhe","靴"), N("Geheimnis","das","Geheimnisse","秘密"),
-            N("Haut","die","Häute","皮膚、肌"), N("Ernährung","die","-","栄養、食事"), N("Insekt","das","Insekten","昆虫"),
-            N("Eingang","der","Eingänge","入り口"), N("Schloss","das","Schlösser","城、鍵"), N("Schauspieler","der","Schauspieler","俳優"),
-            N("Schwein","das","Schweine","豚"), N("Tennis","das","-","テニス"), N("Viertel","das","Viertel","4分の1、地区"),
-            N("Restaurant","das","Restaurants","レストラン"), N("Gras","das","Gräser","草、芝生"), N("Schatten","der","Schatten","影"),
-            N("Wind","der","Winde","風"), N("Licht","das","Lichter","光、明かり"), N("Natur","die","-","自然"),
-            N("Ball","der","Bälle","ボール、舞踏会"), N("Stimme","die","Stimmen","声"), N("Atmosphäre","die","Atmosphären","雰囲気"),
-            N("Lebensstil","der","Lebensstile","ライフスタイル"), N("Generation","die","Generationen","世代"), N("Gefühl","das","Gefühle","感情、感覚"),
-            N("Zufriedenheit","die","-","満足"), N("Ohr","das","Ohren","耳"), N("Jahrhundert","das","Jahrhunderte","世紀"),
-            N("Stock","der","Stockwerke","階"), N("Oper","die","Opern","オペラ"), N("Alphabet","das","Alphabete","アルファベット"),
-            N("Kräutertee","der","Kräutertees","ハーブティー"), N("Firma","die","Firmen","会社"), N("Sofa","das","Sofas","ソファ"),
-            N("Frühstück","das","-","朝食"), N("Mittagessen","das","Mittagessen","昼食"), N("Abendessen","das","Abendessen","夕食"),
-            N("Müsli","das","Müslis","ミューズリー"), N("Joghurt","der","Joghurts","ヨーグルト"), N("Honig","der","-","ハチミツ"),
-            N("Getränk","das","Getränke","飲み物"), N("Salat","der","Salate","サラダ"), N("Gemüse","das","-","野菜"),
-            N("Fleisch","das","-","肉"), N("Schinken","der","Schinken","ハム"), N("Reis","der","-","米、ご飯"),
-            N("Mensa","die","Mensen","学食"), N("Wochenende","das","Wochenenden","週末"), N("Küche","die","Küchen","台所、キッチン"),
-            N("Polizist","der","Polizisten","警察官","⚡️男性弱変化 (-en/-en)"), N("Musiker","der","Musiker","音楽家"), N("Comic","der","Comics","漫画"),
-            N("Karotte","die","Karotten","ニンジン"), N("Zwiebel","die","Zwiebeln","タマネギ"), N("Sellerie","der","-","セロリ"),
-            N("Avocado","die","Avocados","アボカド"), N("Rezept","das","Rezepte","レシピ、処方箋"), N("Sushi","das","-","寿司"),
-            N("Supermarkt","der","Supermärkte","スーパーマーケット"), N("Konzert","das","Konzerte","コンサート"), N("Uni","die","Unis","大学（略称）"),
-            N("Berg","der","Berge","山"), N("Geschwister","die","Geschwister","兄弟姉妹","Pl. (複数形のみ)"), N("Ingenieur","der","Ingenieure","エンジニア、技師"),
-            N("Ärztin","die","Ärztinnen","女医"), N("Quatsch","der","-","くだらないこと、ナンセンス"), N("Cousin","der","Cousins","従兄弟（男性）"),
-            N("Spaß","der","-","楽しみ、面白さ"), N("Wort","das","Wörter","単語、言葉"), N("Durst","der","-","喉の渇き"),
-            N("Lust","die","-","意欲、やる気"), N("Ei","das","Eier","卵"), N("Hochzeit","die","Hochzeiten","結婚式"),
-            N("Bonbon","der","Bonbons","キャンディー"), N("Blumenstrauß","der","Blumensträuße","花束"), N("Jacke","die","Jacken","上着、ジャケット"),
-            N("Hemd","das","Hemden","シャツ"), N("Titel","der","Titel","タイトル、称号"), N("Professor","der","Professoren","教授"),
-            N("Zucker","der","-","砂糖"), N("Sonne","die","Sonnen","太陽"), N("Mond","der","Monde","月"),
-            N("Pianist","der","Pianisten","ピアニスト","⚡️男性弱変化 (-en/-en)"), N("Japaner","der","Japaner","日本人（男性）"), N("Bisschen","das","-","少し"),
-
-            // ==================== 動詞 ====================
-            V("arbeiten","働く","ich arbeite, du arbeitest, er arbeitet","規則(e挿入)"),
-            V("besuchen","訪問する、見学する","ich besuche, du besuchst, er besucht","非分離動詞"),
-            V("bleiben","留まる、滞在する","ich bleibe, du bleibst, er bleibt","規則動詞"),
-            V("bringen","持ってくる","ich bringe, du bringst, er bringt","混合動詞"),
-            V("danken","感謝する","ich danke, du dankst, er dankt","3格支配"),
-            V("dürfen","〜してもよい","ich darf, du darfst, er darf, wir dürfen","話法の助動詞"),
-            V("essen","食べる","ich esse, du isst, er isst, wir essen","幹母音変化(e→i)"),
-            V("fahren","行く、乗る","ich fahre, du fährst, er fährt","幹母音変化(a→ä)"),
-            V("gefallen","気に入る","es gefällt, sie gefallen","3格支配(a→ä)"),
-            V("gehen","行く","ich gehe, du gehst, er geht","規則動詞"),
-            V("gehören","〜のものである","es gehört, sie gehören","3格支配"),
-            V("haben","持っている、〜がある","ich habe, du hast, er hat, ihr habt","不規則動詞"),
-            V("helfen","助ける、手伝う","ich helfe, du hilfst, er hilft","3格支配(e→i)"),
-            V("kaufen","買う","ich kaufe, du kaufst, er kauft","規則動詞"),
-            V("kennen","知っている","ich kenne, du kennst, er kennt","規則動詞"),
-            V("kommen","来る","ich komme, du kommst, er kommt","規則動詞"),
-            V("können","〜できる","ich kann, du kannst, er kann, wir können","話法の助動詞"),
-            V("lernen","学ぶ、勉強する","ich lerne, du lernst, er lernt","規則動詞"),
-            V("lesen","読む","ich lese, du liest, er liest","幹母音変化(e→ie)"),
-            V("lieben","愛する","ich liebe, du liebst, er liebt","規則動詞"),
-            V("machen","する、作る","ich mache, du machst, er macht","規則動詞"),
-            V("mögen","〜が好きだ、〜かもしれない","ich mag, du magst, er mag, wir mögen","話法の助動詞"),
-            V("möchten","〜したい","ich möchte, du möchtest, er möchte","話法の助動詞"),
-            V("müssen","〜しなければならない","ich muss, du musst, er muss, wir müssen","話法の助動詞"),
-            V("schenken","贈る、プレゼントする","ich schenke, du schenkst, er schenkt","3格人+4格物"),
-            V("schreiben","書く","ich schreibe, du schreibst, er schreibt","規則動詞"),
-            V("sein","〜である","ich bin, du bist, er ist, wir sind, ihr seid","Be動詞(不規則)"),
-            V("sollen","〜すべきである","ich soll, du sollst, er soll, wir sollen","話法の助動詞"),
-            V("spielen","遊ぶ、演奏する","ich spiele, du spielst, er spielt","規則動詞"),
-            V("sprechen","話す","ich spreche, du sprichst, er spricht","幹母音変化(e→i)"),
-            V("tragen","身につける、運ぶ","ich trage, du trägst, er trägt","幹母音変化(a→ä)"),
-            V("trinken","飲む","ich trinke, du trinkst, er trinkt","規則動詞"),
-            V("werden","〜になる・〜だろう","ich werde, du wirst, er wird, wir werden","不規則(e→i)"),
-            V("wohnen","住む","ich wohne, du wohnst, er wohnt","規則動詞"),
-            V("wollen","〜するつもりである","ich will, du willst, er will, wir wollen","話法の助動詞"),
-
-            // 抽出全追加動詞
-            V("bekommen","手に入れる、受け取る","ich bekomme, du bekommst, er bekommt","非分離動詞"),
-            V("stehen","立っている","ich stehe, du stehst, er steht","規則動詞"),
-            V("stellen","立てて置く","ich stelle, du stellst, er stellt","規則動詞"),
-            V("legen","横にして置く","ich lege, du legst, er legt","規則動詞"),
-            V("sitzen","座っている","ich sitze, du sitzt, er sitzt","不規則動詞"),
-            V("setzen","座らせる、置く","ich setze, du setzt, er setzt","規則動詞"),
-            V("hängen","掛かっている/掛ける","ich hänge, du hängst, er hängt","規則/不規則"),
-            V("liegen","横たわっている","ich liege, du liegst, er liegt","不規則動詞"),
-            V("diskutieren","議論する","ich diskutiere, du diskutierst, er diskutiert","規則動詞"),
-            V("schwimmen","泳ぐ","ich schwimme, du schwimmst, er schwimmt","不規則動詞"),
-            V("warten","待つ","ich warte, du wartest, er wartet","規則(e挿入)"),
-            V("fragen","質問する、尋ねる","ich frage, du fragst, er fragt","規則動詞"),
-            V("schicken","送る","ich schicke, du schickst, er schickt","規則動詞"),
-            V("wünschen","望む、祈る","ich wünsche, du wünschst, er wünscht","規則動詞"),
-            V("geben","与える、あげる","ich gebe, du gibst, er gibt","幹母音変化(e→i)"),
-            V("rauchen","タバコを吸う","ich rauche, du rauchst, er raucht","規則動詞"),
-            V("abgeben","提出する、渡す","ich gebe ab, du gibst ab, er gibt ab","分離動詞(e→i)"),
-            V("stehlen","盗む","ich stehle, du stiehlst, er stiehlt","幹母音変化(e→ie)"),
-            V("heißen","〜という名前である","ich heiße, du heißt, er heißt","規則動詞"),
-            V("brauchen","必要とする","ich brauche, du brauchst, er braucht","規則動詞"),
-            V("verbringen","（時間を）過ごす","ich verbringe, du verbringst, er verbringt","非分離動詞"),
-            V("singen","歌う","ich singe, du singst, er singt","不規則動詞"),
-            V("beantworten","答える","ich beantworte, du beantwortest, er beantwortet","非分離動詞"),
-            V("kochen","料理する、沸かす","ich koche, du kochst, er kocht","規則動詞"),
-            V("leihen","貸す、借りる","ich leihe, du leihst, er leiht","不規則動詞"),
-            V("lachen","笑う","ich lache, du lachst, er lacht","規則動詞"),
-            V("schließen","閉める、閉じる","ich schließe, du schließt, er schließt","不規則動詞"),
-            V("benutzen","使う、利用する","ich benutze, du benutzt, er benutzt","規則動詞"),
-            V("sterben","死ぬ","ich sterbe, du stirbst, er stirbt","幹母音変化(e→i)"),
-            V("tanzen","踊る","ich tanze, du tanzt, er tanzt","規則動詞"),
-            V("ehren","尊敬する、称える","ich ehre, du ehrst, er ehrt","規則動詞"),
-            V("töten","殺す","ich töte, du tötest, er tötet","規則(e挿入)"),
-            V("versuchen","試みる、やってみる","ich versuche, du versuchst, er versucht","非分離動詞"),
-            V("fotografieren","写真を撮る","ich fotografiere, du fotografierst, er fotografiert","規則動詞"),
-            V("denken","考える、思う","ich denke, du denkst, er denkt","混合動詞"),
-            V("sehen","見る、会う","ich sehe, du siehst, er sieht","幹母音変化(e→ie)"),
-            V("schlafen","眠る","ich schlafe, du schläfst, er schläft","幹母音変化(a→ä)"),
-            V("nehmen","取る、選ぶ","ich nehme, du nimmst, er nimmt","幹母音変化(e→i)"),
-            V("backen","焼く","ich backe, du bäckst, er bäckt","幹母音変化(a→ä)"),
-            V("halten","止まる、保つ","ich halte, du hältst, er hält","幹母音変化(a→ä)"),
-            V("wissen","（知識として）知っている","ich weiß, du weißt, er weiß, wir wissen","不規則動詞"),
-            V("heiraten","結婚する","ich heirate, du heiratest, er heiratet","規則(e挿入)"),
-            V("picknicken","ピクニックする","ich picknicke, du picknickst, er picknickt","規則動詞"),
-            V("genießen","楽しむ、味わう","ich genieße, du genießt, er genießt","不規則動詞"),
-            V("klingen","（〜のように）響く・聞こえる","es klingt, sie klingen","不規則動詞"),
-            V("bestehen","合格する、存在する","ich bestehe, du bestehst, er besteht","非分離動詞"),
-            V("küssen","キスする","ich küsse, du küsst, er küsst","規則動詞"),
-            V("lächeln","微笑む","ich lächele, du lächelst, er lächelt","規則動詞"),
-            V("finden","見つける、思う","ich finde, du findest, er findet","規則(e挿入)"),
-
-            // ==================== 形容詞 ====================
-            A("alt","古い、〜歳の"), A("ähnlich","似ている"), A("ausgezeichnet","優れた、素晴らしい"),
-            A("bekannt","有名な、知られている"), A("blau","青い"), A("deutsch","ドイツの"),
-            A("drei","3つの","数詞"), A("englisch","英語の、イギリスの"), A("faul","怠惰な、なまけている"),
-            A("fleißig","勤勉な、熱心な"), A("frei","自由な、空いている"), A("fröhlich","陽気な、楽しそうな"),
-            A("fünf","5つの","数詞"), A("groß","大きい、背が高い"), A("gut","良い、上手な"),
-            A("hübsch","かわいい、きれいな"), A("interessant","面白い、興味深い"), A("japanisch","日本の、日本語の"),
-            A("krank","病気の"), A("kurz","短い、少しの間"), A("laut","大声の、騒がしい"),
-            A("müde","疲れた、眠い"), A("nett","親切な、感じが良い"), A("neu","新しい"),
-            A("reich","豊かな、金持ちの"), A("rot","赤い"), A("schön","美しい、すばらしい"),
-            A("schwarz","黒い"), A("schwer","難しい、重い"), A("sicher","確実な、安全な"),
-            A("warm","暖かい"), A("weiß","白い"), A("zwei","2つの","数詞"), A("klein","小さな"),
-            A("schnell","速い"), A("langsam","遅い、ゆっくりした"), A("einfach","簡単な、単純な"),
-
-            // 抽出全追加形容詞
-            A("viel","多くの、たくさん"), A("sauer","酸っぱい、おこった"), A("richtig","正しい"),
-            A("elegant","エレガントな、優雅な"), A("schlecht","悪い、不調な"), A("hoch","高い"),
-            A("dunkel","暗い"), A("teuer","高価な、値段が高い"), A("edel","高貴な、上品な"),
-            A("weise","賢い、賢明な"), A("gelb","黄色い"), A("kalt","寒い、冷たい"),
-            A("schick","おしゃれな"), A("blond","ブロンドの、金髪の"), A("berühmt","有名な"),
-            A("dick","太った、分厚い"), A("klug","賢い、頭が良い"), A("mild","マイルドな、穏やかな"),
-            A("kühl","涼しい、冷ややかな"), A("angenehm","心地よい、快適な"), A("entfernt","離れた、遠い"),
-            A("ruhig","静かな、落ち着いた"), A("einzig","唯一の"), A("verwandt","親戚の、親縁の"),
-            A("hilfsbereit","親切な、助けになる"), A("freundlich","親しみやすい、親切な"), A("sportlich","スポーティーな、運動好きな"),
-            A("süß","甘い、かわいい"), A("heiter","晴れやかな、陽気な"), A("kreativ","創造的な"),
-            A("traditionell","伝統的な"), A("lecker","美味しい"), A("italienisch","イタリアの、イタリア語の"),
-            A("glücklich","幸せな、幸運な"), A("betrunken","酔っ払った"), A("wild","野生の、激しい"),
-
-            // ==================== 副詞 ====================
-            ADV("aber","しかし、だが","接続詞/副詞"), ADV("allein","一人で"), ADV("auch","〜もまた"),
-            ADV("bald","もうすぐ"), ADV("bitte","どうぞ、お願いします"), ADV("dann","それから、そうすれば"),
-            ADV("etwa","およそ、約"), ADV("gern","好んで、喜んで"), ADV("gleich","すぐに"),
-            ADV("heute","今日"), ADV("hier","ここに"), ADV("immer","いつも"), ADV("jetzt","今"),
-            ADV("leider","あいにく、残念ながら"), ADV("morgen","明日"), ADV("nicht","〜ない","否定副詞"),
-            ADV("noch","まだ、さらに"), ADV("oft","しばしば、よく"), ADV("schon","すでに、もう"),
-            ADV("sehr","とても、大変"), ADV("sofort","すぐに、即座に"), ADV("zusammen","一緒に"),
-            ADV("ja","はい","応答詞"), ADV("nein","いいえ","応答詞"), ADV("vielleicht","ひょっとすると"),
-
-            // 抽出全追加副詞
-            ADV("dort","そこに、あそこに"), ADV("wohin","どこへ"), ADV("wie","どのように、どんなに"),
-            ADV("da","そこに、その時"), ADV("gelegentlich","たまに、折に触れて"), ADV("mehr","より多くの、もはや"),
-            ADV("wo","どこで"), ADV("weit","遠くに、広く"), ADV("meistens","たいてい、大抵"),
-            ADV("selber","自分自身で"), ADV("spät","遅く"), ADV("wann","いつ"),
-            ADV("warum","なぜ"), ADV("woher","どこから"), ADV("lange","長い間"),
-
-            // ==================== 前置詞 ====================
-            P("aus","〜から（出身・外へ）","3格支配"), P("bei","〜のところで","3格支配"), P("mit","〜と一緒に、〜で","3格支配"),
-            P("nach","〜へ、〜の後で","3格支配"), P("von","〜から、〜の","3格支配"), P("zu","〜へ","3格支配"),
-            P("für","〜のために","4格支配"), P("durch","〜を通って","4格支配"), P("wegen","〜の理由で","2格支配"),
-            P("während","〜の間に","2格支配"), P("in","〜の中に/へ","3格/4格支配"), P("an","〜に（接触して）","3格/4格支配"),
-            P("auf","〜の上に/へ","3格/4格支配"), P("zwischen","〜の間に/へ","3格/4格支配"), P("über","〜の上(上方)に","3格/4格支配"),
-
-            // 抽出全追加前置詞
-            P("statt","〜の代わりに","2格支配"), P("vor","〜の前に/へ","3格/4格支配"), P("hinter","〜の後ろに/へ","3格/4格支配"),
-            P("neben","〜の隣に/へ","3格/4格支配"), P("trotz","〜にもかかわらず","2格支配"), P("seit","〜以来、〜前から","3格支配"),
-            P("um","〜の周りに、〜時に","4格支配"), P("gegen","〜に向かって、〜に対して","4格支配"),
-
-            // ==================== 代名詞・冠詞 ====================
-            PR("ich","私 (1格ich/3格mir/4格mich)","1人称単数"), PR("du","君 (1格du/3格dir/4格dich)","2人称単数"),
-            PR("er","彼 (1格er/3格ihm/4格ihn)","3人称男性"), PR("sie","彼女/それら (1・4格sie/3格ihr,ihnen)","3人称女性/複数"),
-            PR("es","それ (1・4格es/3格ihm)","3人称中性"), PR("wir","私たち (1格wir/3・4格uns)","1人称複数"),
-            PR("ihr","君たち/彼女の/それらの","2人称複数/所有"), PR("Sie","あなた/あなた方 (3格Ihnen)","敬称"),
-            PR("mein","私の","所有冠詞"), PR("dein","君の","所有冠詞"), PR("sein","彼の、それの","所有冠詞"), PR("unser","私たちの","所有冠詞"),
-
-            // 抽出全追加代名詞
-            PR("mich","私を (4格)","1人称単数4格"), PR("dich","君を (4格)","2人称単数4格"), PR("ihn","彼を (4格)","3人称男性4格"),
-            PR("uns","私たちに/を (3・4格)","1人称複数"), PR("euch","君たちに/を (3・4格)","2人称複数"), PR("Ihnen","あなた/あなた方に (3格)","敬称3格"),
-            PR("mir","私に (3格)","1人称単数3格"), PR("dir","君に (3格)","2人称単数3格"), PR("ihm","彼に/それに (3格)","3人称男性/中性3格"),
-            PR("euer","君たちの","所有冠詞"), PR("kein","〜ない (否定冠詞)","否定冠詞"), PR("dieser","この〜 (dieser/diese/dieses)","指示代名詞/冠詞"),
-            PR("welcher","どの〜 (welcher/welche/welches)","疑問代名詞/冠詞"), PR("jeder","すべての、各自の","不定代名詞/冠詞"), PR("aller","すべての","不定代名詞/冠詞"),
-            PR("was","何","疑問代名詞"), PR("wen","誰を (4格)","疑問代名詞4格"), PR("wem","誰に (3格)","疑問代名詞3格"),
-            PR("man","人は（一般の人）","不定代名詞"), PR("solcher","このような〜 (solcher/solche/solches)","指示代名詞"), PR("mancher","いくつかの〜 (mancher/manche/manches)","不定代名詞"),
-            PR("wer","誰が (1格)","疑問代名詞1格"), PR("wessen","誰の (2格)","疑問代名詞2格")
+            // --- 名詞 ---
+            {word:"Schwester", pos:"名詞", gender:"die", plural:"Schwestern", meaning:"姉、妹", example:"Meine Schwester wohnt in Berlin.", translation:"私の姉妹はベルリンに住んでいます。"},
+            {word:"Tante", pos:"名詞", gender:"die", plural:"Tanten", meaning:"叔母、伯母", example:"Meine Tante kocht sehr gut.", translation:"私の叔母はとても料理が上手です。"},
+            {word:"Brief", pos:"名詞", gender:"der", plural:"Briefe", meaning:"手紙", example:"Ich schreibe heute einen Brief.", translation:"私は今日、手紙を書きます。"},
+            {word:"Vater", pos:"名詞", gender:"der", plural:"Väter", meaning:"父、父親", example:"Mein Vater liest ein Buch.", translation:"私の父は本を読みます。"},
+            {word:"Mutter", pos:"名詞", gender:"die", plural:"Mütter", meaning:"母、母親", example:"Meine Mutter hilft mir gern.", translation:"私の母は喜んで私を助けてくれます。"},
+            {word:"Pullover", pos:"名詞", gender:"der", plural:"Pullover", meaning:"セーター", example:"Der Pullover ist warm und schön.", translation:"そのセーターは暖かくて美しいです。"},
+            {word:"Sohn", pos:"名詞", gender:"der", plural:"Söhne", meaning:"息子", example:"Sein Sohn spielt im Garten.", translation:"彼の息子は庭で遊んでいます。"},
+            {word:"Bruder", pos:"名詞", gender:"der", plural:"Brüder", meaning:"兄、弟", example:"Dein Bruder lernt Deutsch an der Uni.", translation:"あなたの兄弟は大学でドイツ語を学んでいます。"},
+            {word:"Vase", pos:"名詞", gender:"die", plural:"Vasen", meaning:"花瓶", example:"Die Vase steht auf dem Tisch.", translation:"花瓶がテーブルの上に置いてあります。"},
+            {word:"Tisch", pos:"名詞", gender:"der", plural:"Tische", meaning:"机、テーブル", example:"Der Tisch ist aus Holz.", translation:"そのテーブルは木製です。"},
+            {word:"Esstisch", pos:"名詞", gender:"der", plural:"Esstische", meaning:"食卓", example:"Wir sitzen am Esstisch.", translation:"私たちは食卓に座っています。"},
+            {word:"Mann", pos:"名詞", gender:"der", plural:"Männer", meaning:"男性、夫", example:"Der Mann kennt diesen Weg.", translation:"その男性はこの道を知っています。"},
+            {word:"Fenster", pos:"名詞", gender:"das", plural:"Fenster", meaning:"窓", example:"Das Fenster ist geschlossen.", translation:"窓は閉まっています。"},
+            {word:"Stuhl", pos:"名詞", gender:"der", plural:"Stühle", meaning:"椅子", example:"Auf dem Stuhl sitzt ein Kind.", translation:"椅子の上に子供が座っています。"},
+            {word:"Schreibtisch", pos:"名詞", gender:"der", plural:"Schreibtische", meaning:"机、事務机", example:"Er arbeitet am Schreibtisch.", translation:"彼は机に向かって働いています。"},
+            {word:"Stadt", pos:"名詞", gender:"die", plural:"Städte", meaning:"都市、町", example:"Die Stadt ist sehr alt.", translation:"その街はとても古いです。"},
+            {word:"Käse", pos:"名詞", gender:"der", plural:"Käse", meaning:"チーズ", example:"Ich esse gern Käse.", translation:"私はチーズを食べるのが好きです。"},
+            {word:"Kühlschrank", pos:"名詞", gender:"der", plural:"Kühlschränke", meaning:"冷蔵庫", example:"Die Milch steht im Kühlschrank.", translation:"牛乳は冷蔵庫の中にあります。"},
+            {word:"Haus", pos:"名詞", gender:"das", plural:"Häuser", meaning:"家", example:"Das Haus hat einen schönen Garten.", translation:"その家には美しい庭があります。"},
+            {word:"Baum", pos:"名詞", gender:"der", plural:"Bäume", meaning:"木", example:"Der Baum vor dem Haus ist hoch.", translation:"家の前の木は高いです。"},
+            {word:"Stäbchen", pos:"名詞", gender:"das", plural:"Stäbchen", meaning:"箸", example:"In Japan benutzt man Stäbchen.", translation:"日本では人々は箸を使います。"},
+            {word:"Büro", pos:"名詞", gender:"das", plural:"Büros", meaning:"事務所、オフィス", example:"Sie arbeitet im Büro.", translation:"彼女はオフィスで働いています。"},
+            {word:"Kind", pos:"名詞", gender:"das", plural:"Kinder", meaning:"子供", example:"Das Kind schläft ruhig im Bett.", translation:"子供はベッドで静かに眠っています。"},
+            {word:"Bürgermeister", pos:"名詞", gender:"der", plural:"Bürgermeister", meaning:"市長", example:"Der Bürgermeister spricht heute.", translation:"市長が今日話します。"},
+            {word:"Präsident", pos:"名詞", gender:"der", plural:"Präsidenten", meaning:"大統領", detail:"男性弱変化 (-en/-en)", example:"Der Präsident besucht diese Stadt.", translation:"大統領はこの街を訪問します。"},
+            {word:"Lampe", pos:"名詞", gender:"die", plural:"Lampen", meaning:"ランプ、電球", example:"Die Lampe hängt über dem Tisch.", translation:"ランプがテーブルの上に吊り下がっています。"},
+            {word:"Klavier", pos:"名詞", gender:"das", plural:"Klaviere", meaning:"ピアノ", example:"Meine Schwester spielt Klavier.", translation:"私の姉はピアノを弾きます。"},
+            {word:"Ecke", pos:"名詞", gender:"die", plural:"Ecken", meaning:"角、コーナー", example:"Der Stuhl steht in der Ecke.", translation:"椅子は部屋の隅に置いてあります。"},
+            {word:"Café", pos:"名詞", gender:"das", plural:"Cafés", meaning:"カフェ", example:"Wir treffen uns im Café.", translation:"私たちはカフェで会います。"},
+            {word:"Wand", pos:"名詞", gender:"die", plural:"Wände", meaning:"壁", example:"Das Bild hängt an der Wand.", translation:"絵が壁にかかっています。"},
+            {word:"Bild", pos:"名詞", gender:"das", plural:"Bilder", meaning:"絵、写真", example:"Das Bild ist sehr interessant.", translation:"その絵はとても興味深いです。"},
+            {word:"Garten", pos:"名詞", gender:"der", plural:"Gärten", meaning:"庭", example:"Der Garten ist grün und groß.", translation:"庭は緑豊かで広いです。"},
+            {word:"Wald", pos:"名詞", gender:"der", plural:"Wälder", meaning:"森林、森", example:"Wir gehen im Wald spazieren.", translation:"私たちは森を散歩します。"},
+            {word:"Politik", pos:"名詞", gender:"die", plural:"-", meaning:"政治", example:"Er interessiert sich für Politik.", translation:"彼は政治に関心があります。"},
+            {word:"Straße", pos:"名詞", gender:"die", plural:"Straßen", meaning:"通り、道路", example:"Die Straße ist breit.", translation:"その道路は幅が広いです。"},
+            {word:"Sommer", pos:"名詞", gender:"der", plural:"Sommer", meaning:"夏", example:"Im Sommer ist es warm.", translation:"夏は暖かいです。"},
+            {word:"Regen", pos:"名詞", gender:"der", plural:"-", meaning:"雨", example:"Trotz des Regens gehen wir aus.", translation:"雨にもかかわらず私たちは外出します。"},
+            {word:"Erkältung", pos:"名詞", gender:"die", plural:"Erkältungen", meaning:"風邪", example:"Wegen der Erkältung bleibe ich zu Hause.", translation:"風邪のため私は家に残ります。"},
+            {word:"Essen", pos:"名詞", gender:"das", plural:"Essen", meaning:"食事", example:"Das Essen schmeckt lecker.", translation:"料理は美味しいです。"},
+            {word:"Kaffee", pos:"名詞", gender:"der", plural:"Kaffees", meaning:"コーヒー", example:"Morgens trinke ich Kaffee.", translation:"朝、私はコーヒーを飲みます。"},
+            {word:"Monat", pos:"名詞", gender:"der", plural:"Monate", meaning:"月(1ヶ月)", example:"Seit einem Monat lernt er Deutsch.", translation:"1ヶ月前から彼はドイツ語を学んでいます。"},
+            {word:"Lehrerin", pos:"名詞", gender:"die", plural:"Lehrerinnen", meaning:"教師（女性）", example:"Die Lehrerin erklärt das Wort.", translation:"女性教師はその単語を説明します。"},
+            {word:"Familie", pos:"名詞", gender:"die", plural:"Familien", meaning:"家族", example:"Meine Familie lebt in Tokio.", translation:"私の家族は東京に住んでいます。"},
+            {word:"Spaziergang", pos:"名詞", gender:"der", plural:"Spaziergänge", meaning:"散歩", example:"Wir machen einen Spaziergang im Park.", translation:"私たちは公園で散歩をします。"},
+            {word:"Strom", pos:"名詞", gender:"der", plural:"Ströme", meaning:"電気、電流", example:"Ohne Strom gibt es kein Licht.", translation:"電気がなければ光はありません。"},
+            {word:"Eltern", pos:"名詞", gender:"die", plural:"Eltern", meaning:"両親", detail:"Pl. (複数形のみ)", example:"Meine Eltern wohnen dort.", translation:"私の両親はそこに住んでいます。"},
+            {word:"Unterricht", pos:"名詞", gender:"der", plural:"-", meaning:"授業", example:"Der Unterricht beginnt um acht Uhr.", translation:"授業は8時に始まります。"},
+            {word:"Zimmer", pos:"名詞", gender:"das", plural:"Zimmer", meaning:"部屋", example:"Das Zimmer ist ruhig und hell.", translation:"その部屋は静かで明るいです。"},
+            {word:"Urlaub", pos:"名詞", gender:"der", plural:"Urlaube", meaning:"休暇、旅行", example:"Im Urlaub fahren wir in die Berge.", translation:"休暇中に私たちは山へ行きます。"},
+            {word:"Freund", pos:"名詞", gender:"der", plural:"Freunde", meaning:"友人（男性）、彼氏", example:"Mein Freund kommt heute zu Besuch.", translation:"私の友人が今日遊びに来ます。"},
+            {word:"Freundin", pos:"名詞", gender:"die", plural:"Freundinnen", meaning:"友人（女性）、彼女", example:"Meine Freundin liest ein Buch.", translation:"私のガールフレンドは本を読んでいます。"},
+            {word:"Weg", pos:"名詞", gender:"der", plural:"Wege", meaning:"道、道のり", example:"Der Weg zum Bahnhof ist weit.", translation:"駅への道は遠いです。"},
+            {word:"Kellner", pos:"名詞", gender:"der", plural:"Kellner", meaning:"ウェイター", example:"Der Kellner bringt das Getränk.", translation:"給仕が飲み物を持ってきます。"},
+            {word:"Glas", pos:"名詞", gender:"das", plural:"Gläser", meaning:"グラス、コップ", example:"Das Glas steht auf dem Tisch.", translation:"コップがテーブルの上に置いてあります。"},
+            {word:"Bier", pos:"名詞", gender:"das", plural:"Biere", meaning:"ビール", example:"Er trinkt ein Glas Bier.", translation:"彼はビールを1杯飲みます。"},
+            {word:"Geburtstag", pos:"名詞", gender:"der", plural:"Geburtstage", meaning:"誕生日", example:"Heute feiert er seinen Geburtstag.", translation:"今日、彼は誕生日を祝います。"},
+            {word:"Blumen", pos:"名詞", gender:"die", plural:"-", meaning:"花（複数）", detail:"Blumeの複数形", example:"Er kauft schöne Blumen.", translation:"彼は美しい花を買います。"},
+            {word:"Buch", pos:"名詞", gender:"das", plural:"Bücher", meaning:"本", example:"Das Buch liegt auf dem Schreibtisch.", translation:"本が机の上に置いてあります。"},
+            {word:"Post", pos:"名詞", gender:"die", plural:"-", meaning:"郵便、郵便局", example:"Ich bringe den Brief zur Post.", translation:"私は手紙を郵便局へ持っていきます。"},
+            {word:"Hund", pos:"名詞", gender:"der", plural:"Hunde", meaning:"犬", example:"Der Hund schläft unter dem Tisch.", translation:"犬がテーブルの下で眠っています。"},
+            {word:"Namen", pos:"名詞", gender:"die", plural:"-", meaning:"名前（複数）", detail:"Nameの複数形／男性弱変化(特殊)", example:"Wie ist Ihr Name?", translation:"お名前は何ですか？"},
+            {word:"Milch", pos:"名詞", gender:"die", plural:"-", meaning:"牛乳、ミルク", example:"Das Kind trinkt frische Milch.", translation:"子供は新鮮な牛乳を飲みます。"},
+            {word:"Kugelschreiber", pos:"名詞", gender:"der", plural:"Kugelschreiber", meaning:"ボールペン", example:"Der Kugelschreiber schreibt gut.", translation:"そのボールペンは書き味が良いです。"},
+            {word:"Kirche", pos:"名詞", gender:"die", plural:"Kirchen", meaning:"教会", example:"Die Kirche ist sehr alt.", translation:"その教会はとても古いです。"},
+            {word:"Kartoffeln", pos:"名詞", gender:"die", plural:"-", meaning:"ジャガイモ（複数）", detail:"Kartoffelの複数形", example:"Wir essen gekochte Kartoffeln.", translation:"私たちはゆでたジャガイモを食べます。"},
+            {word:"Jahre", pos:"名詞", gender:"die", plural:"-", meaning:"年、1年間（複数）", detail:"Jahrの複数形", example:"Er ist zwanzig Jahre alt.", translation:"彼は20歳です。"},
+            {word:"Tasse", pos:"名詞", gender:"die", plural:"Tassen", meaning:"カップ", example:"Eine Tasse Kaffee, bitte!", translation:"コーヒーを1杯ください！"},
+            {word:"Hause", pos:"名詞", gender:"das", plural:"-", meaning:"家（に）", detail:"Hausの与格：zu Hauseで「家で／に」", example:"Ich bin um sechs Uhr zu Hause.", translation:"私は6時に家にいます。"},
+            {word:"Genie", pos:"名詞", gender:"das", plural:"Genies", meaning:"天才", example:"Dieser Wissenschaftler ist ein Genie.", translation:"この科学者は天才です。"},
+            {word:"Wissenschaftler", pos:"名詞", gender:"der", plural:"Wissenschaftler", meaning:"科学者", example:"Der Wissenschaftler arbeitet viel.", translation:"その科学者はよく働きます。"},
+            {word:"Bericht", pos:"名詞", gender:"der", plural:"Berichte", meaning:"報告書", example:"Er schreibt einen langen Bericht.", translation:"彼は長い報告書を書きます。"},
+            {word:"Park", pos:"名詞", gender:"der", plural:"Parks", meaning:"公園", example:"Kinder spielen im Park.", translation:"子供たちが公園で遊んでいます。"},
+            {word:"Fußball", pos:"名詞", gender:"der", plural:"Fußbälle", meaning:"サッカー", example:"Am Wochenende spielen wir Fußball.", translation:"週末に私たちはサッカーをします。"},
+            {word:"Theater", pos:"名詞", gender:"das", plural:"Theater", meaning:"劇場", example:"Abends gehen wir ins Theater.", translation:"夜、私たちは劇場へ行きます。"},
+            {word:"Frau", pos:"名詞", gender:"die", plural:"Frauen", meaning:"女性、妻、〜夫人", example:"Die Frau spricht freundlich.", translation:"その女性は親切に話します。"},
+            {word:"Koffer", pos:"名詞", gender:"der", plural:"Koffer", meaning:"スーツケース", example:"Der Koffer ist zu schwer.", translation:"そのスーツケースは重すぎます。"},
+            {word:"Ausweis", pos:"名詞", gender:"der", plural:"Ausweise", meaning:"身分証明書", example:"Zeigen Sie bitte Ihren Ausweis!", translation:"身分証明書を見せてください！"},
+            {word:"Wörterbuch", pos:"名詞", gender:"das", plural:"Wörterbücher", meaning:"辞書", example:"Ich brauche ein deutsches Wörterbuch.", translation:"私にはドイツ語の辞書が必要です。"},
+            {word:"Regenschirm", pos:"名詞", gender:"der", plural:"Regenschirme", meaning:"傘", example:"Nimm einen Regenschirm mit!", translation:"傘を持っていきなさい！"},
+            {word:"Villa", pos:"名詞", gender:"die", plural:"Villen", meaning:"別荘、邸宅", example:"Die Villa steht am Wald.", translation:"その邸宅は森のそばに立っています。"},
+            {word:"Onkel", pos:"名詞", gender:"der", plural:"Onkel", meaning:"叔父、伯父", example:"Mein Onkel besucht uns morgen.", translation:"叔父が明日私たちを訪問します。"},
+            {word:"Auto", pos:"名詞", gender:"das", plural:"Autos", meaning:"自動車、車", example:"Das Auto fährt sehr schnell.", translation:"その車はとても速く走ります。"},
+            {word:"Teil", pos:"名詞", gender:"der", plural:"Teile", meaning:"部分、部品", example:"Das ist ein wichtiger Teil.", translation:"これは重要な部分です。"},
+            {word:"Flugzeug", pos:"名詞", gender:"das", plural:"Flugzeuge", meaning:"飛行機", example:"Das Flugzeug fliegt nach Berlin.", translation:"その飛行機はベルリンへ飛びます。"},
+            {word:"Wagen", pos:"名詞", gender:"der", plural:"Wagen", meaning:"車、自動車", example:"Der Wagen steht vor dem Eingang.", translation:"車は入口の前に止まっています。"},
+            {word:"Freizeit", pos:"名詞", gender:"die", plural:"-", meaning:"余暇、自由時間", example:"In der Freizeit treibe ich Sport.", translation:"余暇に私はスポーツをします。"},
+            {word:"Lesen", pos:"名詞", gender:"das", plural:"-", meaning:"読書", example:"Lesen macht mir viel Spaß.", translation:"読書は私にとってとても楽しいです。"},
+            {word:"Lage", pos:"名詞", gender:"die", plural:"Lagen", meaning:"位置、状況", example:"Die Lage des Hauses ist gut.", translation:"その家の立地は良いです。"},
+            {word:"Appetit", pos:"名詞", gender:"der", plural:"-", meaning:"食欲", example:"Guten Appetit!", translation:"召し上がれ！"},
+            {word:"Geld", pos:"名詞", gender:"das", plural:"Gelder", meaning:"お金", example:"Ich habe kein Geld bei mir.", translation:"私はいまお金を持っていません。"},
+            {word:"Taxi", pos:"名詞", gender:"das", plural:"Taxis", meaning:"タクシー", example:"Wir nehmen ein Taxi zum Bahnhof.", translation:"私たちは駅までタクシーに乗ります。"},
+            {word:"Antwort", pos:"名詞", gender:"die", plural:"Antworten", meaning:"答、返事", example:"Die Antwort ist richtig.", translation:"その答えは正しいです。"},
+            {word:"Zeit", pos:"名詞", gender:"die", plural:"Zeiten", meaning:"時間", example:"Ich habe heute leider keine Zeit.", translation:"あいにく私は今日時間がありません。"},
+            {word:"Märchen", pos:"名詞", gender:"das", plural:"Märchen", meaning:"童話", example:"Die Mutter liest ein Märchen vor.", translation:"母はメルヘン（童話）を読み聞かせます。"},
+            {word:"Platz", pos:"名詞", gender:"der", plural:"Plätze", meaning:"場所、広場、席", example:"Ist dieser Platz frei?", translation:"この席は空いていますか？"},
+            {word:"Sänger", pos:"名詞", gender:"der", plural:"Sänger", meaning:"歌手（男性）", example:"Der Sänger singt schön.", translation:"その歌手は美しく歌います。"},
+            {word:"Studentin", pos:"名詞", gender:"die", plural:"Studentinnen", meaning:"大学生（女性）", example:"Die Studentin lernt fleißig.", translation:"その女子学生は熱心に勉強します。"},
+            {word:"Anfang", pos:"名詞", gender:"der", plural:"Anfänge", meaning:"開始、はじめ", example:"Aller Anfang ist schwer.", translation:"あらゆる始まりは難しい。（ことわざ）"},
+            {word:"Briefträger", pos:"名詞", gender:"der", plural:"Briefträger", meaning:"郵便配達員", example:"Der Briefträger bringt ein Paket.", translation:"郵便配達員が小包を持ってきます。"},
+            {word:"Söhne", pos:"名詞", gender:"die", plural:"-", meaning:"息子（複数）", detail:"Sohnの複数形", example:"Seine Söhne sind noch klein.", translation:"彼の息子たちはまだ小さいです。"},
+            {word:"Töchter", pos:"名詞", gender:"die", plural:"Töchter", meaning:"娘", detail:"※Tochterの複数形として掲載", example:"Ihre Töchter lernen Deutsch.", translation:"彼女の娘たちはドイツ語を学んでいます。"},
+            {word:"Vögel", pos:"名詞", gender:"die", plural:"-", meaning:"鳥（複数）", detail:"Vogelの複数形", example:"Die Vögel singen im Garten.", translation:"鳥たちが庭で歌っています。"},
+            {word:"Frauen", pos:"名詞", gender:"die", plural:"-", meaning:"女性、妻、〜夫人（複数）", detail:"Frauの複数形", example:"Die Frauen sprechen im Café.", translation:"女性たちがカフェで話をしています。"},
+            {word:"Bücher", pos:"名詞", gender:"die", plural:"-", meaning:"本（複数）", detail:"Buchの複数形", example:"Er kauft drei Bücher.", translation:"彼は本を3冊買います。"},
+            {word:"Lehrer", pos:"名詞", gender:"der", plural:"Lehrer", meaning:"教師（男性）", example:"Der Lehrer erklärt die Regel.", translation:"教師は規則を説明します。"},
+            {word:"Fragen", pos:"名詞", gender:"die", plural:"-", meaning:"質問（複数）", detail:"Frageの複数形", example:"Wir haben viele Fragen.", translation:"私達にはたくさんの質問があります。"},
+            {word:"Student", pos:"名詞", gender:"der", plural:"Studenten", meaning:"大学生（男性）", detail:"男性弱変化 (-en/-en)", example:"Der Student liest eine Zeitung.", translation:"その学生は新聞を読んでいます。"},
+            {word:"Kinder", pos:"名詞", gender:"die", plural:"-", meaning:"子供（複数）", detail:"Kindの複数形", example:"Die Kinder spielen fröhlich.", translation:"子供たちは楽しそうに遊んでいます。"},
+            {word:"Rose", pos:"名詞", gender:"die", plural:"Rosen", meaning:"バラ", example:"Die Rose blüht im Garten.", translation:"バラが庭で咲いています。"},
+            {word:"Politiker", pos:"名詞", gender:"der", plural:"Politiker", meaning:"政治家", example:"Der Politiker hält eine Rede.", translation:"その政治家は演説を行います。"},
+            {word:"Paket", pos:"名詞", gender:"das", plural:"Pakete", meaning:"小包、小荷物", example:"Das Paket kommt heute an.", translation:"小包は今日届きます。"},
+            {word:"Schüler", pos:"名詞", gender:"der", plural:"Schüler", meaning:"生徒（男性）", example:"Der Schüler schreibt den Satz.", translation:"生徒はその文章を書きます。"},
+            {word:"Bleistift", pos:"名詞", gender:"der", plural:"Bleistifte", meaning:"鉛筆", example:"Ich brauche einen Bleistift.", translation:"私には鉛筆が必要です。"},
+            {word:"Wein", pos:"名詞", gender:"der", plural:"Weine", meaning:"ワイン", example:"Trinken Sie gern Wein?", translation:"ワインを飲むのがお好きですか？"},
+            {word:"Farbe", pos:"名詞", gender:"die", plural:"Farben", meaning:"色", example:"Welche Farbe gefällt dir?", translation:"どの色が好きですか？"},
+            {word:"Liebe", pos:"名詞", gender:"die", plural:"-", meaning:"愛", example:"Liebe ist sehr wichtig.", translation:"愛はとても大切です。"},
+            {word:"Gast", pos:"名詞", gender:"der", plural:"Gäste", meaning:"客、ゲスト", example:"Der Gast kommt um sieben Uhr.", translation:"お客様は7時に来ます。"},
+            {word:"Uhr", pos:"名詞", gender:"die", plural:"Uhren", meaning:"時計", example:"Wie viel Uhr ist es jetzt?", translation:"今何時ですか？"},
+            {word:"Tier", pos:"名詞", gender:"das", plural:"Tiere", meaning:"動物", example:"Das Tier schläft unter dem Baum.", translation:"その動物は木の下で眠っています。"},
+            {word:"Wohnung", pos:"名詞", gender:"die", plural:"Wohnungen", meaning:"住居、アパート", example:"Die Wohnung ist groß und hell.", translation:"そのマンション/部屋は広くて明るいです。"},
+            {word:"Heft", pos:"名詞", gender:"das", plural:"Hefte", meaning:"ノート", example:"Das Heft liegt auf dem Tisch.", translation:"ノートがテーブルの上に置いてあります。"},
+            {word:"Mädchen", pos:"名詞", gender:"das", plural:"Mädchen", meaning:"少女、女の子", example:"Das Mädchen spielt mit der Puppe.", translation:"少女は人形と遊んでいます。"},
+            {word:"Katze", pos:"名詞", gender:"die", plural:"Katzen", meaning:"猫", example:"Die Katze liegt auf dem Sofa.", translation:"猫がソファの上で横になっています。"},
+            {word:"Pferd", pos:"名詞", gender:"das", plural:"Pferde", meaning:"馬", example:"Das Pferd läuft schnell.", translation:"その馬は速く走ります。"},
+            {word:"Tür", pos:"名詞", gender:"die", plural:"Türen", meaning:"ドア", example:"Schließen Sie bitte die Tür!", translation:"ドアを閉めてください！"},
+            {word:"Aufzug", pos:"名詞", gender:"der", plural:"Aufzüge", meaning:"エレベーター", example:"Der Aufzug fährt nach oben.", translation:"エレベーターが上に上がります。"},
+            {word:"Person", pos:"名詞", gender:"die", plural:"Personen", meaning:"人、人物", example:"Eine Person wartet am Eingang.", translation:"1人の人が入口で待っています。"},
+            {word:"Geige", pos:"名詞", gender:"die", plural:"Geigen", meaning:"ヴァイオリン", example:"Sie spielt sehr gut Geige.", translation:"彼女はバイオリンをとても上手く弾きます。"},
+            {word:"Zukunft", pos:"名詞", gender:"die", plural:"-", meaning:"未来、将来", example:"In der Zukunft werde ich Arzt.", translation:"将来、私は医師になるつもりです。"},
+            {word:"Computer", pos:"名詞", gender:"der", plural:"Computer", meaning:"コンピュータ", example:"Der Computer ist ganz neu.", translation:"そのパソコンはまったく新しいです。"},
+            {word:"Hausaufgaben", pos:"名詞", gender:"die", plural:"-", meaning:"宿題（複数）", detail:"Hausaufgabeの複数形", example:"Er macht jetzt Hausaufgaben.", translation:"彼は今、宿題をしています。"},
+            {word:"Schule", pos:"名詞", gender:"die", plural:"Schulen", meaning:"学校", example:"Die Kinder gehen zur Schule.", translation:"子供たちは学校に行きます。"},
+            {word:"Krankenhaus", pos:"名詞", gender:"das", plural:"Krankenhäuser", meaning:"病院", example:"Das Krankenhaus ist nicht weit.", translation:"病院は遠くありません。"},
+            {word:"Bett", pos:"名詞", gender:"das", plural:"Betten", meaning:"ベッド", example:"Das Kind schläft im Bett.", translation:"子供はベッドで眠っています。"},
+            {word:"Süßigkeiten", pos:"名詞", gender:"die", plural:"-", meaning:"お菓子、甘いもの（複数）", detail:"Süßigkeitの複数形", example:"Kinder essen gern Süßigkeiten.", translation:"子供たちはお菓子を喜んで食べます。"},
+            {word:"Kino", pos:"名詞", gender:"das", plural:"Kinos", meaning:"映画館", example:"Gehen wir heute ins Kino?", translation:"今日、映画館に行きましょうか？"},
+            {word:"Museum", pos:"名詞", gender:"das", plural:"Museen", meaning:"博物館、美術館", example:"Das Museum ist sonntags offen.", translation:"その美術館は日曜日に開館しています。"},
+            {word:"Fisch", pos:"名詞", gender:"der", plural:"Fische", meaning:"魚", example:"Freitags essen wir Fisch.", translation:"金曜日に私たちは魚を食べます。"},
+            {word:"Nacht", pos:"名詞", gender:"die", plural:"Nächte", meaning:"夜", example:"In der Nacht ist es ruhig.", translation:"夜は静かです。"},
+            {word:"Ausstellung", pos:"名詞", gender:"die", plural:"Ausstellungen", meaning:"展覧会、展示", example:"Die Ausstellung ist sehr bekannt.", translation:"その展覧会はとても有名です。"},
+            {word:"Referat", pos:"名詞", gender:"das", plural:"Referate", meaning:"研究発表、レポート", example:"Er muss ein Referat halten.", translation:"彼はレポート発表をしなければなりません。"},
+            {word:"Physiker", pos:"名詞", gender:"der", plural:"Physiker", meaning:"物理学者", example:"Der Physiker arbeitet im Labor.", translation:"その物理学者は研究所で働いています。"},
+            {word:"Puppe", pos:"名詞", gender:"die", plural:"Puppen", meaning:"人形", example:"Das Kind hat eine süße Puppe.", translation:"子供はかわいい人形を持っています。"},
+            {word:"Party", pos:"名詞", gender:"die", plural:"Partys", meaning:"パーティー", example:"Die Party beginnt um acht.", translation:"パーティーは8時に始まります。"},
+            {word:"Kerzen", pos:"名詞", gender:"die", plural:"-", meaning:"ローソク（複数）", detail:"Kerzeの複数形", example:"Auf dem Tisch stehen Kerzen.", translation:"テーブルの上にローソクが置いてあります。"},
+            {word:"Ahnung", pos:"名詞", gender:"die", plural:"Ahnungen", meaning:"予感、心当たり", example:"Ich habe keine Ahnung.", translation:"私には全くわかりません。"},
+            {word:"Rathaus", pos:"名詞", gender:"das", plural:"Rathäuser", meaning:"市役所", example:"Das Rathaus steht am Platz.", translation:"市役所は広場に立っています。"},
+            {word:"Wetter", pos:"名詞", gender:"das", plural:"-", meaning:"天気", example:"Das Wetter ist heute schön.", translation:"今日の天気は良いです。"},
+            {word:"Ring", pos:"名詞", gender:"der", plural:"Ringe", meaning:"指輪", example:"Der Ring ist aus Gold.", translation:"その指輪は金製です。"},
+            {word:"Niveau", pos:"名詞", gender:"das", plural:"Niveaus", meaning:"水準、レベル", example:"Das Niveau ist sehr hoch.", translation:"レベルがとても高いです。"},
+            {word:"Turm", pos:"名詞", gender:"der", plural:"Türme", meaning:"塔", example:"Der Turm ist alt und hoch.", translation:"その塔は古くて高いです。"},
+            {word:"Mantel", pos:"名詞", gender:"der", plural:"Mäntel", meaning:"コート", example:"Der Mantel ist dunkelblau.", translation:"そのコートは濃い青色です。"},
+            {word:"Arbeitslosen", pos:"名詞", gender:"die", plural:"-", meaning:"失業者たち", detail:"形容詞由来の名詞（複数形）", example:"Die Arbeitslosen suchen Arbeit.", translation:"失業者たちは仕事を探しています。"},
+            {word:"Angestellte", pos:"名詞", gender:"die", plural:"Angestellten", meaning:"会社員、従業員（女性）", detail:"形容詞由来の名詞", example:"Die Angestellte arbeitet fleißig.", translation:"その女性会社員は熱心に働いています。"},
+            {word:"Reisender", pos:"名詞", gender:"der", plural:"Reisende", meaning:"旅行者", detail:"形容詞由来の名詞（無冠詞・強変化形）", example:"Der Reisender hat zwei Koffer.", translation:"その旅行者はスーツケースを2つ持っています。"},
+            {word:"Kranke", pos:"名詞", gender:"der", plural:"Kranken", meaning:"病人", detail:"形容詞由来の名詞", example:"Die Ärztin hilft dem Kranken.", translation:"医師は病人を助けます。"},
+            {word:"Japanisch", pos:"名詞", gender:"das", plural:"-", meaning:"日本語", example:"Ich lerne seit drei Jahren Japanisch.", translation:"私は3年前から日本語を学んでいます。"},
+            {word:"Kuchen", pos:"名詞", gender:"der", plural:"Kuchen", meaning:"ケーキ", example:"Die Mutter backt einen Kuchen.", translation:"母はケーキを焼きます。"},
+            {word:"Wahrheit", pos:"名詞", gender:"die", plural:"Wahrheiten", meaning:"真実", example:"Er sagt immer die Wahrheit.", translation:"彼は常に真実を言います。"},
+            {word:"Tasche", pos:"名詞", gender:"die", plural:"Taschen", meaning:"鞄、ポケット", example:"Die Tasche steht auf dem Stuhl.", translation:"バッグが椅子の上に置いてあります。"},
+            {word:"Rock", pos:"名詞", gender:"der", plural:"Röcke", meaning:"スカート", example:"Der Rock ist elegant.", translation:"そのスカートはエレガントです。"},
+            {word:"Bluse", pos:"名詞", gender:"die", plural:"Blusen", meaning:"ブラウス", example:"Die Bluse ist weiß.", translation:"そのブラウスは白です。"},
+            {word:"Kleid", pos:"名詞", gender:"das", plural:"Kleider", meaning:"ドレス、ワンピース", example:"Das Kleid gefällt mir gut.", translation:"そのドレスが私はとても気に入っています。"},
+            {word:"Schuhe", pos:"名詞", gender:"die", plural:"-", meaning:"靴（複数）", detail:"Schuhの複数形", example:"Die Schuhe sind neu.", translation:"その靴は新しいです。"},
+            {word:"Geheimnis", pos:"名詞", gender:"das", plural:"Geheimnisse", meaning:"秘密", example:"Das ist mein Geheimnis.", translation:"これは私の秘密です。"},
+            {word:"Haut", pos:"名詞", gender:"die", plural:"Häute", meaning:"皮膚、肌", example:"Ihre Haut ist sehr weich.", translation:"彼女の肌はとても柔らかいです。"},
+            {word:"Ernährung", pos:"名詞", gender:"die", plural:"-", meaning:"栄養、食事", example:"Gute Ernährung ist wichtig.", translation:"良い栄養は大切です。"},
+            {word:"Insekten", pos:"名詞", gender:"die", plural:"-", meaning:"昆虫（複数）", detail:"Insektの複数形", example:"Im Sommer gibt es viele Insekten.", translation:"夏にはたくさんの昆虫がいます。"},
+            {word:"Eingang", pos:"名詞", gender:"der", plural:"Eingänge", meaning:"入り口", example:"Der Eingang ist hier.", translation:"入口はこちらです。"},
+            {word:"Schloss", pos:"名詞", gender:"das", plural:"Schlösser", meaning:"城、鍵", example:"Das Schloss ist sehr alt.", translation:"その城はとても古いです。"},
+            {word:"Schauspieler", pos:"名詞", gender:"der", plural:"Schauspieler", meaning:"俳優", example:"Der Schauspieler ist sehr berühmt.", translation:"その俳優はとても有名です。"},
+            {word:"Schwein", pos:"名詞", gender:"das", plural:"Schweine", meaning:"豚", example:"Das Schwein frisst viel.", translation:"その豚はたくさん食べます。"},
+            {word:"Tennis", pos:"名詞", gender:"das", plural:"-", meaning:"テニス", example:"Er spielt am Samstag Tennis.", translation:"彼は土曜日にテニスをします。"},
+            {word:"Viertel", pos:"名詞", gender:"das", plural:"Viertel", meaning:"4分の1、地区", example:"Es ist Viertel nach drei.", translation:"3時15分（3時15分過ぎ）です。"},
+            {word:"Krankheit", pos:"名詞", gender:"die", plural:"Krankheiten", meaning:"病気", example:"Die Krankheit ist gefährlich.", translation:"その病気は危険です。"},
+            {word:"Löffel", pos:"名詞", gender:"der", plural:"Löffel", meaning:"スプーン", example:"Ich brauche einen Löffel.", translation:"私にはスプーンが必要です。"},
+            {word:"Brille", pos:"名詞", gender:"die", plural:"Brillen", meaning:"眼鏡", example:"Meine Brille liegt auf dem Schreibtisch.", translation:"私の眼鏡は机の上に置いてあります。"},
+            {word:"Restaurant", pos:"名詞", gender:"das", plural:"Restaurants", meaning:"レストラン", example:"Wir essen im Restaurant.", translation:"私たちはレストランで食事をします。"},
+            {word:"Gras", pos:"名詞", gender:"das", plural:"Gräser", meaning:"草、芝生", example:"Das Gras ist grün.", translation:"芝生は緑です。"},
+            {word:"Schatten", pos:"名詞", gender:"der", plural:"Schatten", meaning:"影", example:"Wir sitzen im Schatten.", translation:"私たちは日陰に座っています。"},
+            {word:"Wind", pos:"名詞", gender:"der", plural:"Winde", meaning:"風", example:"Der Wind ist heute kalt.", translation:"今日の風は冷たいです。"},
+            {word:"Licht", pos:"名詞", gender:"das", plural:"Lichter", meaning:"光、明かり", example:"Mach bitte das Licht an!", translation:"電気（明かり）をつけてください！"},
+            {word:"Natur", pos:"名詞", gender:"die", plural:"-", meaning:"自然", example:"Ich liebe die Natur.", translation:"私は自然を愛しています。"},
+            {word:"Fahrrad", pos:"名詞", gender:"das", plural:"Fahrräder", meaning:"自転車", example:"Er fährt mit dem Fahrrad.", translation:"彼は自転車で行きます。"},
+            {word:"Ball", pos:"名詞", gender:"der", plural:"Bälle", meaning:"ボール、舞踏会", example:"Das Kind wirft den Ball.", translation:"子供はボールを投げます。"},
+            {word:"Stimme", pos:"名詞", gender:"die", plural:"Stimmen", meaning:"声", example:"Ihre Stimme klingt schön.", translation:"彼女の声は美しく響きます。"},
+            {word:"Atmosphäre", pos:"名詞", gender:"die", plural:"Atmosphären", meaning:"雰囲気", example:"Die Atmosphäre ist angenehm.", translation:"雰囲気が心地よいです。"},
+            {word:"Lebensstile", pos:"名詞", gender:"die", plural:"-", meaning:"ライフスタイル（複数）", detail:"Lebensstilの複数形", example:"Es gibt verschiedene Lebensstile.", translation:"さまざまなライフスタイルが存在します。"},
+            {word:"Generationen", pos:"名詞", gender:"die", plural:"-", meaning:"世代（複数）", detail:"Generationの複数形", example:"Verschiedene Generationen wohnen hier.", translation:"異なる世代がここに住んでいます。"},
+            {word:"Gefühl", pos:"名詞", gender:"das", plural:"Gefühle", meaning:"感情、感覚", example:"Das ist ein gutes Gefühl.", translation:"それは良い気分/感覚です。"},
+            {word:"Zufriedenheit", pos:"名詞", gender:"die", plural:"-", meaning:"満足", example:"Zufriedenheit macht glücklich.", translation:"満足感は人を幸せにします。"},
+            {word:"Ohren", pos:"名詞", gender:"die", plural:"-", meaning:"耳（複数）", detail:"Ohrの複数形", example:"Seine Ohren sind rot.", translation:"彼の耳は赤いです。"},
+            {word:"Jahrhundert", pos:"名詞", gender:"das", plural:"Jahrhunderte", meaning:"世紀", example:"Wir leben im 21. Jahrhundert.", translation:"私たちは21世紀に生きています。"},
+            {word:"Stock", pos:"名詞", gender:"der", plural:"Stockwerke", meaning:"階", example:"Er wohnt im ersten Stock.", translation:"彼は2階（最初の階層）に住んでいます。"},
+            {word:"Oper", pos:"名詞", gender:"die", plural:"Opern", meaning:"オペラ", example:"Morgen besuchen wir die Oper.", translation:"明日、私たちはオペラを観に行きます。"},
+            {word:"Heimat", pos:"名詞", gender:"die", plural:"-", meaning:"故郷", example:"Japan ist meine Heimat.", translation:"日本は私の故郷です。"},
+            {word:"Alphabet", pos:"名詞", gender:"das", plural:"Alphabete", meaning:"アルファベット", example:"Ich lerne das Alphabet.", translation:"私はアルファベットを学びます。"},
+            {word:"Kräutertee", pos:"名詞", gender:"der", plural:"Kräutertees", meaning:"ハーブティー", example:"Sie trinkt heißen Kräutertee.", translation:"彼女は温かいハーブティーを飲みます。"},
+            {word:"Firma", pos:"名詞", gender:"die", plural:"Firmen", meaning:"会社", example:"Er arbeitet bei einer großen Firma.", translation:"彼は大きな会社で働いています。"},
+            {word:"Sofa", pos:"名詞", gender:"das", plural:"Sofas", meaning:"ソファ", example:"Wir sitzen auf dem Sofa.", translation:"私たちはソファに座っています。"},
+            {word:"Frühstück", pos:"名詞", gender:"das", plural:"-", meaning:"朝食", example:"Das Frühstück ist fertig.", translation:"朝食の準備ができました。"},
+            {word:"Mittagessen", pos:"名詞", gender:"das", plural:"Mittagessen", meaning:"昼食", example:"Um zwölf Uhr gibt es Mittagessen.", translation:"12時に昼食があります。"},
+            {word:"Abendessen", pos:"名詞", gender:"das", plural:"Abendessen", meaning:"夕食", example:"Das Abendessen schmeckt sehr gut.", translation:"夕食はとても美味しいです。"},
+            {word:"Brot", pos:"名詞", gender:"das", plural:"Brote", meaning:"パン", example:"Ich esse Brot mit Butter.", translation:"私はバターを塗ったパンを食べます。"},
+            {word:"Müsli", pos:"名詞", gender:"das", plural:"Müslis", meaning:"ミューズリー", example:"Morgens esse ich Müsli.", translation:"朝、私はミューズリーを食べます。"},
+            {word:"Joghurt", pos:"名詞", gender:"der", plural:"Joghurts", meaning:"ヨーグルト", example:"Der Joghurt ist frisch.", translation:"ヨーグルトは新鮮です。"},
+            {word:"Honig", pos:"名詞", gender:"der", plural:"-", meaning:"ハチミツ", example:"Der Honig ist süß.", translation:"ハチミツは甘いです。"},
+            {word:"Getränke", pos:"名詞", gender:"die", plural:"-", meaning:"飲み物（複数）", detail:"Getränkの複数形", example:"Er bringt kaltes Getränke.", translation:"彼は冷たい飲み物を持ってきます。"},
+            {word:"Apfel", pos:"名詞", gender:"der", plural:"Äpfel", meaning:"リンゴ", example:"Der Apfel ist rot und süß.", translation:"そのリンゴは赤くて甘いです。"},
+            {word:"Salat", pos:"名詞", gender:"der", plural:"Salate", meaning:"サラダ", example:"Ich bestelle einen Salat.", translation:"私はサラダを注文します。"},
+            {word:"Gemüse", pos:"名詞", gender:"das", plural:"-", meaning:"野菜", example:"Gemüse ist gesund.", translation:"野菜は健康に良いです。"},
+            {word:"Fleisch", pos:"名詞", gender:"das", plural:"-", meaning:"肉", example:"Er isst kein Fleisch.", translation:"彼は肉を食べません。"},
+            {word:"Schinken", pos:"名詞", gender:"der", plural:"Schinken", meaning:"ハム", example:"Der Schinken ist lecker.", translation:"そのハムは美味しいです。"},
+            {word:"Reis", pos:"名詞", gender:"der", plural:"-", meaning:"米、ご飯", example:"Sie kocht Reis.", translation:"彼女はご飯を炊きます/料理します。"},
+            {word:"Mensa", pos:"名詞", gender:"die", plural:"Mensen", meaning:"学食", example:"Wir essen zusammen in der Mensa.", translation:"私たちは学食で一緒に食べます。"},
+            {word:"Wochenende", pos:"名詞", gender:"das", plural:"Wochenenden", meaning:"週末", example:"Schönes Wochenende!", translation:"良い週末を！"},
+            {word:"Bus", pos:"名詞", gender:"der", plural:"Busse", meaning:"バス", example:"Der Bus kommt um neun Uhr.", translation:"バスは9時に来ます。"},
+            {word:"Küche", pos:"名詞", gender:"die", plural:"Küchen", meaning:"台所、キッチン", example:"Die Mutter ist in der Küche.", translation:"母は台所にいます。"},
+            {word:"Polizisten", pos:"名詞", gender:"die", plural:"-", meaning:"警察官（複数）", detail:"Polizistの複数形／男性弱変化 (-en/-en)", example:"Die Polizisten helfen den Menschen.", translation:"警察官たちは人々を助けます。"},
+            {word:"Bahnhof", pos:"名詞", gender:"der", plural:"Bahnhöfe", meaning:"駅", example:"Der Bahnhof ist ganz nah.", translation:"駅は目と鼻の先にあります。"},
+            {word:"Musiker", pos:"名詞", gender:"der", plural:"Musiker", meaning:"音楽家", example:"Der Musiker spielt Geige.", translation:"その音楽家はバイオリンを弾きます。"},
+            {word:"Comics", pos:"名詞", gender:"die", plural:"-", meaning:"漫画（複数）", detail:"Comicの複数形", example:"Das Kind liest Comics.", translation:"その子供は漫画を読みます。"},
+            {word:"Karotten", pos:"名詞", gender:"die", plural:"-", meaning:"ニンジン（複数）", detail:"Karotteの複数形", example:"Ich kaufe frische Karotten.", translation:"私は新鮮なニンジンを買います。"},
+            {word:"Zwiebeln", pos:"名詞", gender:"die", plural:"-", meaning:"タマネギ（複数）", detail:"Zwiebelの複数形", example:"Die Zwiebeln sind billig.", translation:"玉ねぎは安いです。"},
+            {word:"Sellerie", pos:"名詞", gender:"der", plural:"-", meaning:"セロリ", example:"Sellerie ist grün und gesund.", translation:"セロリは緑色で健康に良いです。"},
+            {word:"Avocado", pos:"名詞", gender:"die", plural:"Avocados", meaning:"アボカド", example:"Die Avocado schmeckt gut.", translation:"アボカドは美味しいです。"},
+            {word:"Rezepte", pos:"名詞", gender:"die", plural:"-", meaning:"レシピ、処方箋（複数）", detail:"Rezeptの複数形", example:"Sie liest alte Rezepte.", translation:"彼女は古いレシピを読みます。"},
+            {word:"Sushi", pos:"名詞", gender:"das", plural:"-", meaning:"寿司", example:"Wir essen im Restaurant Sushi.", translation:"私たちはレストランで寿司を食べます。"},
+            {word:"Prüfung", pos:"名詞", gender:"die", plural:"Prüfungen", meaning:"試験", example:"Die Prüfung ist schwer.", translation:"試験は難しいです。"},
+            {word:"Ausflug", pos:"名詞", gender:"der", plural:"Ausflüge", meaning:"遠足、ハイキング", example:"Am Sonntag machen wir einen Ausflug.", translation:"日曜日に私たちは遠足/日帰り旅行をします。"},
+            {word:"Supermarkt", pos:"名詞", gender:"der", plural:"Supermärkte", meaning:"スーパーマーケット", example:"Ich kaufe im Supermarkt ein.", translation:"私はスーパーマーケットで買い物をします。"},
+            {word:"Konzert", pos:"名詞", gender:"das", plural:"Konzerte", meaning:"コンサート", example:"Das Konzert beginnt um sieben.", translation:"コンサートは7時に始まります。"},
+            {word:"Uni", pos:"名詞", gender:"die", plural:"Unis", meaning:"大学（略称）", example:"Sie studiert an der Uni.", translation:"彼女は大学で学んでいます。"},
+            {word:"Berge", pos:"名詞", gender:"die", plural:"-", meaning:"山（複数）", detail:"Bergの複数形", example:"Die Berge sind sehr hoch.", translation:"山々はとても高いです。"},
+            {word:"Großmutter", pos:"名詞", gender:"die", plural:"Großmütter", meaning:"祖母", example:"Meine Großmutter ist sehr nett.", translation:"私の祖母はとても親切です。"},
+            {word:"Großvater", pos:"名詞", gender:"der", plural:"Großväter", meaning:"祖父", example:"Mein Großvater liest eine Zeitung.", translation:"私の祖父は新聞を読んでいます。"},
+            {word:"Geschwister", pos:"名詞", gender:"die", plural:"Geschwister", meaning:"兄弟姉妹", detail:"Pl. (複数形のみ)", example:"Ich habe zwei Geschwister.", translation:"私には兄弟姉妹が2人います。"},
+            {word:"Ingenieur", pos:"名詞", gender:"der", plural:"Ingenieure", meaning:"エンジニア、技師", example:"Er ist Ingenieur von Beruf.", translation:"彼は職業柄エンジニアです。"},
+            {word:"Ärztin", pos:"名詞", gender:"die", plural:"Ärztinnen", meaning:"女医", example:"Die Ärztin untersucht das Kind.", translation:"女性医師は子供を診察します。"},
+            {word:"Quatsch", pos:"名詞", gender:"der", plural:"-", meaning:"くだらないこと、ナンセンス", example:"Das ist doch Quatsch!", translation:"そんなのナンセンスだ！"},
+            {word:"Cousins", pos:"名詞", gender:"die", plural:"-", meaning:"従兄弟（男性）（複数）", detail:"Cousinの複数形", example:"Meine Cousins wohnen in Berlin.", translation:"私のいとこたちはベルリンに住んでいます。"},
+            {word:"Spaß", pos:"名詞", gender:"der", plural:"-", meaning:"楽しみ、面白さ", example:"Das macht mir Spaß.", translation:"それは私にとって楽しいです。"},
+            {word:"Handy", pos:"名詞", gender:"das", plural:"Handys", meaning:"スマホ", example:"Das Handy liegt auf dem Tisch.", translation:"スマホがテーブルの上に置いてあります。"},
+            {word:"Wort", pos:"名詞", gender:"das", plural:"Wörter", meaning:"単語、言葉", example:"Verstehen Sie dieses Wort?", translation:"この単語が理解できますか？"},
+            {word:"Durst", pos:"名詞", gender:"der", plural:"-", meaning:"喉の渇き", example:"Ich habe großen Durst.", translation:"私はいま、とても喉が渇いています。"},
+            {word:"Fieber", pos:"名詞", gender:"das", plural:"-", meaning:"熱、発熱", example:"Das Kind hat Fieber.", translation:"子供は熱があります。"},
+            {word:"Lust", pos:"名詞", gender:"die", plural:"-", meaning:"意欲、やる気", example:"Ich habe keine Lust.", translation:"私はやる気/気が乗りません。"},
+            {word:"Ei", pos:"名詞", gender:"das", plural:"Eier", meaning:"卵", example:"Ich esse morgens ein Ei.", translation:"私は朝に卵を1個食べます。"},
+            {word:"Kollegen", pos:"名詞", gender:"die", plural:"-", meaning:"同僚（男性）（複数）", detail:"Kollegeの複数形／男性弱変化 (-n/-n)", example:"Meine Kollegen sind nett.", translation:"私の同僚たちは親切です。"},
+            {word:"Hochzeit", pos:"名詞", gender:"die", plural:"Hochzeiten", meaning:"結婚式", example:"Die Hochzeit findet morgen statt.", translation:"結婚式は明日行われます。"},
+            {word:"Bonbons", pos:"名詞", gender:"die", plural:"-", meaning:"キャンディー（複数）", detail:"Bonbonの複数形", example:"Die Bonbons sind süß.", translation:"そのキャンディーは甘いです。"},
+            {word:"Flasche", pos:"名詞", gender:"die", plural:"Flaschen", meaning:"瓶、ボトル", example:"Die Flasche ist voll.", translation:"そのボトルは満杯です。"},
+            {word:"Blumenstrauß", pos:"名詞", gender:"der", plural:"Blumensträuße", meaning:"花束", example:"Er schenkt ihr einen Blumenstrauß.", translation:"彼は彼女に花束を贈ります。"},
+            {word:"Jacke", pos:"名詞", gender:"die", plural:"Jacken", meaning:"上着、ジャケット", example:"Die Jacke ist warm.", translation:"ジャケットは暖かいです。"},
+            {word:"Hemd", pos:"名詞", gender:"das", plural:"Hemden", meaning:"シャツ", example:"Das Hemd ist weiß.", translation:"シャツは白です。"},
+            {word:"Hut", pos:"名詞", gender:"der", plural:"Hüte", meaning:"帽子", example:"Der Mann trägt einen Hut.", translation:"その男性は帽子をかぶっています。"},
+            {word:"Titel", pos:"名詞", gender:"der", plural:"Titel", meaning:"タイトル、称号", example:"Der Titel des Buches ist kurz.", translation:"その本のタイトルは短いです。"},
+            {word:"Film", pos:"名詞", gender:"der", plural:"Filme", meaning:"映画", example:"Der Film ist sehr interessant.", translation:"その映画はとても興味深いです。"},
+            {word:"Professor", pos:"名詞", gender:"der", plural:"Professoren", meaning:"教授", example:"Der Professor antwortet freundlich.", translation:"教授は親切に答えます。"},
+            {word:"Motorrad", pos:"名詞", gender:"das", plural:"Motorräder", meaning:"オートバイ", example:"Er fährt ein altes Motorrad.", translation:"彼は古いオートバイに乗っています。"},
+            {word:"Zucker", pos:"名詞", gender:"der", plural:"-", meaning:"砂糖", example:"Trinken Sie Kaffee mit Zucker?", translation:"砂糖入りでコーヒーを飲みますか？"},
+            {word:"Sonne", pos:"名詞", gender:"die", plural:"Sonnen", meaning:"太陽", example:"Die Sonne scheint heute.", translation:"今日は太陽が輝いています。"},
+            {word:"Mond", pos:"名詞", gender:"der", plural:"Monde", meaning:"月", example:"Der Mond steht am Himmel.", translation:"月が空に出て（立って）います。"},
+            {word:"Deutsch", pos:"名詞", gender:"das", plural:"-", meaning:"ドイツ語", example:"Ich lerne seit einem Jahr Deutsch.", translation:"私は1年前からドイツ語を学んでいます。"},
+            {word:"Englisch", pos:"名詞", gender:"das", plural:"-", meaning:"英語", example:"Er spricht gut Englisch.", translation:"彼は英語を上手に話します。"},
+            {word:"Italienisch", pos:"名詞", gender:"das", plural:"-", meaning:"イタリア語", example:"Sie kocht gern Italienisch.", translation:"彼女はイタリア料理を作るのが好きです。"},
+            {word:"Pianist", pos:"名詞", gender:"der", plural:"Pianisten", meaning:"ピアニスト", detail:"男性弱変化 (-en/-en)", example:"Der Pianist spielt wunderschön.", translation:"そのピアニストは素晴らしく演奏します。"},
+            {word:"Japaner", pos:"名詞", gender:"der", plural:"Japaner", meaning:"日本人（男性）", example:"Der Japaner isst gerne Reis.", translation:"その日本人はご飯を喜んで食べます。"},
+            {word:"Franzose", pos:"名詞", gender:"der", plural:"Franzosen", meaning:"フランス人男性", detail:"男性弱変化 (-n/-n)", example:"Der Franzose trinkt Rotwein.", translation:"そのフランス人は赤ワインを飲みます。"},
+            {word:"bisschen", pos:"名詞", gender:"das", plural:"-", meaning:"少し、少量", detail:"ein bisschenで「少し」", example:"Ich spreche ein bisschen Deutsch.", translation:"私は少しドイツ語を話します。"},
+            // --- 動詞 ---
+            {word:"spielen", pos:"動詞", meaning:"遊ぶ、演奏する", detail:"規則動詞", conjugation:"ich spiele, du spielst, er spielt", example:"Kinder spielen gerne im Park.", translation:"子供たちは公園で好んで遊んでいます。"},
+            {word:"wohnen", pos:"動詞", meaning:"住む", detail:"規則動詞", conjugation:"ich wohne, du wohnst, er wohnt", example:"Wir wohnen in diesem Haus.", translation:"私たちはこの家に住んでいます。"},
+            {word:"bekommen", pos:"動詞", meaning:"手に入れる、受け取る", detail:"非分離動詞", conjugation:"ich bekomme, du bekommst, er bekommt", example:"Er bekommt ein Geschenk.", translation:"彼はプレゼントを受け取ります。"},
+            {word:"gehen", pos:"動詞", meaning:"行く", detail:"規則動詞", conjugation:"ich gehe, du gehst, er geht", example:"Wir gehen nach Hause.", translation:"私たちは家に帰ります。"},
+            {word:"kaufen", pos:"動詞", meaning:"買う", detail:"規則動詞", conjugation:"ich kaufe, du kaufst, er kauft", example:"Ich kaufe frisches Brot.", translation:"私は焼きたてのパンを買います。"},
+            {word:"kommen", pos:"動詞", meaning:"来る", detail:"規則動詞", conjugation:"ich komme, du kommst, er kommt", example:"Er kommt heute um sechs Uhr.", translation:"彼は今日6時に来ます。"},
+            {word:"stehen", pos:"動詞", meaning:"立っている", detail:"規則動詞", conjugation:"ich stehe, du stehst, er steht", example:"Die Vase steht auf dem Tisch.", translation:"花瓶がテーブルの上に立っています。"},
+            {word:"stellen", pos:"動詞", meaning:"立てて置く", detail:"規則動詞", conjugation:"ich stelle, du stellst, er stellt", example:"Er stellt die Tasse auf den Tisch.", translation:"彼はカップをテーブルの上に置きます。"},
+            {word:"legen", pos:"動詞", meaning:"横にして置く", detail:"規則動詞", conjugation:"ich lege, du legst, er legt", example:"Sie legt das Buch auf den Schreibtisch.", translation:"彼女は本を机の上に置きます。"},
+            {word:"arbeiten", pos:"動詞", meaning:"働く", detail:"規則(e挿入)", conjugation:"ich arbeite, du arbeitest, er arbeitet", example:"Mein Vater arbeitet viel.", translation:"私の父はたくさん働きます。"},
+            {word:"sitzen", pos:"動詞", meaning:"座っている", detail:"不規則動詞", conjugation:"ich sitze, du sitzt, er sitzt", example:"Wir sitzen im Café.", translation:"私たちはカフェに座っています。"},
+            {word:"setzen", pos:"動詞", meaning:"座らせる、置く", detail:"規則動詞", conjugation:"ich setze, du setzt, er setzt", example:"Er setzt das Kind auf den Stuhl.", translation:"彼は子供を椅子に座らせます。"},
+            {word:"hängen", pos:"動詞", meaning:"掛かっている/掛ける", detail:"規則/不規則", conjugation:"ich hänge, du hängst, er hängt", example:"Das Bild hängt an der Wand.", translation:"絵が壁にかかっています。"},
+            {word:"liegen", pos:"動詞", meaning:"横たわっている", detail:"不規則動詞", conjugation:"ich liege, du liegst, er liegt", example:"Das Heft liegt auf dem Tisch.", translation:"ノートがテーブルの上に置いてあります。"},
+            {word:"diskutieren", pos:"動詞", meaning:"議論する", detail:"規則動詞", conjugation:"ich diskutiere, du diskutierst, er diskutiert", example:"Wir diskutieren über Politik.", translation:"私たちは政治について議論します。"},
+            {word:"bleiben", pos:"動詞", meaning:"留まる、滞在する", detail:"規則動詞", conjugation:"ich bleibe, du bleibst, er bleibt", example:"Ich bleibe heute zu Hause.", translation:"私は今日家に残ります。"},
+            {word:"trinken", pos:"動詞", meaning:"飲む", detail:"規則動詞", conjugation:"ich trinke, du trinkst, er trinkt", example:"Er trinkt ein Glas Wasser.", translation:"彼はコップ1杯の水を飲みます。"},
+            {word:"sein", pos:"動詞", meaning:"彼の、それの", detail:"所有冠詞", example:"Das Wetter ist heute schön.", translation:"今日の天気は良いです。"},
+            {word:"schwimmen", pos:"動詞", meaning:"泳ぐ", detail:"不規則動詞", conjugation:"ich schwimme, du schwimmst, er schwimmt", example:"Im Sommer schwimmen wir viel.", translation:"夏に私たちはたくさん泳ぎます。"},
+            {word:"machen", pos:"動詞", meaning:"する、作る", detail:"規則動詞", conjugation:"ich mache, du machst, er macht", example:"Was machen Sie morgen?", translation:"明日は何をされますか？"},
+            {word:"warten", pos:"動詞", meaning:"待つ", detail:"規則(e挿入)", conjugation:"ich warte, du wartest, er wartet", example:"Ich warte auf den Bus.", translation:"私はバスを待っています。"},
+            {word:"fragen", pos:"動詞", meaning:"質問する、尋ねる", detail:"規則動詞", conjugation:"ich frage, du fragst, er fragt", example:"Der Student fragt den Professor.", translation:"学生は教授に質問します。"},
+            {word:"bringen", pos:"動詞", meaning:"持ってくる", detail:"混合動詞", conjugation:"ich bringe, du bringst, er bringt", example:"Der Kellner bringt das Essen.", translation:"給仕が料理を持ってきます。"},
+            {word:"besuchen", pos:"動詞", meaning:"訪問する、見学する", detail:"非分離動詞", conjugation:"ich besuche, du besuchst, er besucht", example:"Wir besuchen unsere Großmutter.", translation:"私たちは祖母を訪問します。"},
+            {word:"kennen", pos:"動詞", meaning:"知っている", detail:"規則動詞", conjugation:"ich kenne, du kennst, er kennt", example:"Ich kenne diesen Mann gut.", translation:"私はこの男性をよく知っています。"},
+            {word:"schenken", pos:"動詞", meaning:"贈る、プレゼントする", detail:"3格人+4格物", conjugation:"ich schenke, du schenkst, er schenkt", example:"Er schenkt ihr Blumen.", translation:"彼は彼女に花を贈ります。"},
+            {word:"schicken", pos:"動詞", meaning:"送る", detail:"規則動詞", conjugation:"ich schicke, du schickst, er schickt", example:"Ich schicke einen Brief an meine Mutter.", translation:"私は母へ手紙を送ります。"},
+            {word:"gehören", pos:"動詞", meaning:"〜のものである", detail:"3格支配", conjugation:"es gehört, sie gehören", example:"Das Buch gehört mir.", translation:"その本は私のものです。"},
+            {word:"gefallen", pos:"動詞", meaning:"気に入る", detail:"3格支配(a→ä)", conjugation:"es gefällt, sie gefallen", example:"Das Bild gefällt mir sehr.", translation:"その絵がとても気に入っています。"},
+            {word:"wünschen", pos:"動詞", meaning:"望む、祈る", detail:"規則動詞", conjugation:"ich wünsche, du wünschst, er wünscht", example:"Ich wünsche dir alles Gute.", translation:"あなたの幸運を祈ります。"},
+            {word:"geben", pos:"動詞", meaning:"与える、あげる", detail:"幹母音変化(e→i)", conjugation:"ich gebe, du gibst, er gibt", example:"Er gibt mir einen Bleistift.", translation:"彼は私に鉛筆をくれます。"},
+            {word:"mögen", pos:"動詞", meaning:"〜が好きだ、〜かもしれない", detail:"話法の助動詞", conjugation:"ich mag, du magst, er mag, wir mögen", example:"Ich mag kalten Kaffee nicht.", translation:"私は冷たいコーヒーが好きではありません。"},
+            {word:"möchten", pos:"動詞", meaning:"〜したい", detail:"話法の助動詞", conjugation:"ich möchte, du möchtest, er möchte", example:"Ich möchte eine Tasse Tee.", translation:"私はハーブティー/お茶を1杯いただきたいです。"},
+            {word:"werden", pos:"動詞", meaning:"〜になる・〜だろう", detail:"不規則(e→i)", conjugation:"ich werde, du wirst, er wird, wir werden", example:"Er wird im Sommer Arzt.", translation:"彼は夏に医師になります。"},
+            {word:"müssen", pos:"動詞", meaning:"〜しなければならない", detail:"話法の助動詞", conjugation:"ich muss, du musst, er muss, wir müssen", example:"Ich muss heute viel lernen.", translation:"私は今日たくさん勉強しなければなりません。"},
+            {word:"dürfen", pos:"動詞", meaning:"〜してもよい", detail:"話法の助動詞", conjugation:"ich darf, du darfst, er darf, wir dürfen", example:"Hier darf man nicht rauchen.", translation:"ここではタバコを吸ってはいけません。"},
+            {word:"rauchen", pos:"動詞", meaning:"タバコを吸う", detail:"規則動詞", conjugation:"ich rauche, du rauchst, er raucht", example:"Mein Onkel raucht nicht mehr.", translation:"叔父はもうタバコを吸いません。"},
+            {word:"abgeben", pos:"動詞", meaning:"提出する、渡す", detail:"分離動詞(e→i)", conjugation:"ich gebe ab, du gibst ab, er gibt ab", example:"Er muss den Bericht abgeben.", translation:"彼は報告書を提出しなければなりません。"},
+            {word:"stehlen", pos:"動詞", meaning:"盗む", detail:"幹母音変化(e→ie)", conjugation:"ich stehle, du stiehlst, er stiehlt", example:"Man darf kein Geld stehlen.", translation:"お金を盗んではいけません。"},
+            {word:"können", pos:"動詞", meaning:"〜できる", detail:"話法の助動詞", conjugation:"ich kann, du kannst, er kann, wir können", example:"Sie kann sehr gut singen.", translation:"彼女は歌がとても上手です。"},
+            {word:"essen", pos:"動詞", meaning:"食べる", detail:"幹母音変化(e→i)", conjugation:"ich esse, du isst, er isst, wir essen", example:"Wir essen morgens Müsli.", translation:"私たちは朝にミューズリーを食べます。"},
+            {word:"sollen", pos:"動詞", meaning:"〜すべきである", detail:"話法の助動詞", conjugation:"ich soll, du sollst, er soll, wir sollen", example:"Du sollst fleißig lernen.", translation:"あなたは熱心に勉強すべきです。"},
+            {word:"helfen", pos:"動詞", meaning:"助ける、手伝う", detail:"3格支配(e→i)", conjugation:"ich helfe, du hilfst, er hilft", example:"Er hilft seinen Eltern.", translation:"彼は両親を助けます。"},
+            {word:"heißen", pos:"動詞", meaning:"〜という名前である", detail:"規則動詞", conjugation:"ich heiße, du heißt, er heißt", example:"Wie heißen Sie?", translation:"お名前は何とおっしゃいますか？"},
+            {word:"brauchen", pos:"動詞", meaning:"必要とする", detail:"規則動詞", conjugation:"ich brauche, du brauchst, er braucht", example:"Ich brauche deine Hilfe.", translation:"私にはあなたの助けが必要です。"},
+            {word:"verbringen", pos:"動詞", meaning:"（時間を）過ごす", detail:"非分離動詞", conjugation:"ich verbringe, du verbringst, er verbringt", example:"Wir verbringen den Urlaub in Japan.", translation:"私たちは日本で休暇を過ごします。"},
+            {word:"haben", pos:"動詞", meaning:"持っている、〜がある", detail:"不規則動詞", conjugation:"ich habe, du hast, er hat, ihr habt", example:"Ich habe heute viel Zeit.", translation:"私には今日たくさんの時間があります。"},
+            {word:"danken", pos:"動詞", meaning:"感謝する", detail:"3格支配", conjugation:"ich danke, du dankst, er dankt", example:"Ich danke Ihnen für das Geschenk.", translation:"プレゼントをいただき感謝いたします。"},
+            {word:"singen", pos:"動詞", meaning:"歌う", detail:"不規則動詞", conjugation:"ich singe, du singst, er singt", example:"Die Kinder singen ein schönes Lied.", translation:"子供たちが美しい歌を歌っています。"},
+            {word:"beantworten", pos:"動詞", meaning:"答える", detail:"非分離動詞", conjugation:"ich beantworte, du beantwortest, er beantwortet", example:"Er beantwortet meine Frage.", translation:"彼は私の質問に答えます。"},
+            {word:"kochen", pos:"動詞", meaning:"料理する、沸かす", detail:"規則動詞", conjugation:"ich koche, du kochst, er kocht", example:"Meine Mutter kocht Suppe.", translation:"母はスープを料理します。"},
+            {word:"lieben", pos:"動詞", meaning:"愛する", detail:"規則動詞", conjugation:"ich liebe, du liebst, er liebt", example:"Ich liebe meine Familie.", translation:"私は家族を愛しています。"},
+            {word:"leihen", pos:"動詞", meaning:"貸す、借りる", detail:"不規則動詞", conjugation:"ich leihe, du leihst, er leiht", example:"Er leiht mir sein Wörterbuch.", translation:"彼は私に自身の辞書を貸してくれます。"},
+            {word:"lachen", pos:"動詞", meaning:"笑う", detail:"規則動詞", conjugation:"ich lache, du lachst, er lacht", example:"Alle lachen fröhlich.", translation:"みんな楽しそうに笑っています。"},
+            {word:"schreiben", pos:"動詞", meaning:"書く", detail:"規則動詞", conjugation:"ich schreibe, du schreibst, er schreibt", example:"Sie schreibt eine Karte.", translation:"彼女はハガキを書きます。"},
+            {word:"schließen", pos:"動詞", meaning:"閉める、閉じる", detail:"不規則動詞", conjugation:"ich schließe, du schließt, er schließt", example:"Er schließt das Fenster.", translation:"彼は窓を閉めます。"},
+            {word:"fahren", pos:"動詞", meaning:"行く、乗る", detail:"幹母音変化(a→ä)", conjugation:"ich fahre, du fährst, er fährt", example:"Wir fahren mit dem Auto.", translation:"私たちは車で行きます。"},
+            {word:"benutzen", pos:"動詞", meaning:"使う、利用する", detail:"規則動詞", conjugation:"ich benutze, du benutzt, er benutzt", example:"Ich benutze den Computer.", translation:"私はパソコンを使います。"},
+            {word:"sterben", pos:"動詞", meaning:"死ぬ", detail:"幹母音変化(e→i)", conjugation:"ich sterbe, du stirbst, er stirbt", example:"Alte Bäume sterben im Winter.", translation:"古い木々は冬に枯れます。"},
+            {word:"tanzen", pos:"動詞", meaning:"踊る", detail:"規則動詞", conjugation:"ich tanze, du tanzt, er tanzt", example:"Sie tanzen gern auf der Party.", translation:"彼らはパーティーで踊るのが好きです。"},
+            {word:"ehren", pos:"動詞", meaning:"尊敬する、称える", detail:"規則動詞", conjugation:"ich ehre, du ehrst, er ehrt", example:"Wir ehren unsere Eltern.", translation:"私たちは両親を敬います。"},
+            {word:"töten", pos:"動詞", meaning:"殺す", detail:"規則(e挿入)", conjugation:"ich töte, du tötest, er tötet", example:"Man darf keine Tiere töten.", translation:"動物を殺してはいけません。"},
+            {word:"versuchen", pos:"動詞", meaning:"試みる、やってみる", detail:"非分離動詞", conjugation:"ich versuche, du versuchst, er versucht", example:"Ich versuche es noch einmal.", translation:"私はもう一度それを試してみます。"},
+            {word:"fotografieren", pos:"動詞", meaning:"写真を撮る", detail:"規則動詞", conjugation:"ich fotografiere, du fotografierst, er fotografiert", example:"Er fotografiert das Schloss.", translation:"彼は城の写真をとります。"},
+            {word:"denken", pos:"動詞", meaning:"考える、思う", detail:"混合動詞", conjugation:"ich denke, du denkst, er denkt", example:"Ich denke oft an dich.", translation:"私はよくあなたのことを考えています。"},
+            {word:"sprechen", pos:"動詞", meaning:"話す", detail:"幹母音変化(e→i)", conjugation:"ich spreche, du sprichst, er spricht", example:"Sprechen Sie Deutsch?", translation:"ドイツ語を話しますか？"},
+            {word:"sehen", pos:"動詞", meaning:"見る、会う", detail:"幹母音変化(e→ie)", conjugation:"ich sehe, du siehst, er sieht", example:"Ich sehe ein schönes Bild.", translation:"私には美しい絵が見えます。"},
+            {word:"schlafen", pos:"動詞", meaning:"眠る", detail:"幹母音変化(a→ä)", conjugation:"ich schlafe, du schläfst, er schläft", example:"Das Baby schläft ruhig.", translation:"赤ちゃんは静かに眠っています。"},
+            {word:"nehmen", pos:"動詞", meaning:"取る、選ぶ", detail:"幹母音変化(e→i)", conjugation:"ich nehme, du nimmst, er nimmt", example:"Er nimmt einen Löffel.", translation:"彼はスプーンを取ります。"},
+            {word:"backen", pos:"動詞", meaning:"焼く", detail:"幹母音変化(a→ä)", conjugation:"ich backe, du bäckst, er bäckt", example:"Großmutter backt Kuchen.", translation:"祖母はケーキを焼きます。"},
+            {word:"halten", pos:"動詞", meaning:"止まる、保つ", detail:"幹母音変化(a→ä)", conjugation:"ich halte, du hältst, er hält", example:"Er hält das Paket in der Hand.", translation:"彼は手で小包を持っています。"},
+            {word:"wissen", pos:"動詞", meaning:"（知識として）知っている", detail:"不規則動詞", conjugation:"ich weiß, du weißt, er weiß, wir wissen", example:"Ich weiß das nicht.", translation:"私はそれを知りません。"},
+            {word:"heiraten", pos:"動詞", meaning:"結婚する", detail:"規則(e挿入)", conjugation:"ich heirate, du heiratest, er heiratet", example:"Sie heiraten im Sommer.", translation:"彼らは夏に結婚します。"},
+            {word:"picknicken", pos:"動詞", meaning:"ピクニックする", detail:"規則動詞", conjugation:"ich picknicke, du picknickst, er picknickt", example:"Wir picknicken im Park.", translation:"私たちは公園でピクニックをします。"},
+            {word:"genießen", pos:"動詞", meaning:"楽しむ、味わう", detail:"不規則動詞", conjugation:"ich genieße, du genießt, er genießt", example:"Wir genießen das gute Wetter.", translation:"私たちは素晴らしい天気を楽しみます。"},
+            {word:"klingen", pos:"動詞", meaning:"（〜のように）響く・聞こえる", detail:"不規則動詞", conjugation:"es klingt, sie klingen", example:"Das klingt sehr gut.", translation:"それはとても良さそうに聞こえます。"},
+            {word:"bestehen", pos:"動詞", meaning:"合格する、存在する", detail:"非分離動詞", conjugation:"ich bestehe, du bestehst, er besteht", example:"Er wird die Prüfung bestehen.", translation:"彼は試験に合格するでしょう。"},
+            {word:"lernen", pos:"動詞", meaning:"学ぶ、勉強する", detail:"規則動詞", conjugation:"ich lerne, du lernst, er lernt", example:"Ich lerne gern Deutsch.", translation:"私はドイツ語を学ぶのが好きです。"},
+            {word:"küssen", pos:"動詞", meaning:"キスする", detail:"規則動詞", conjugation:"ich küsse, du küsst, er küsst", example:"Er küsst seine Frau.", translation:"彼は妻にキスをします。"},
+            {word:"lächeln", pos:"動詞", meaning:"微笑む", detail:"規則動詞", conjugation:"ich lächele, du lächelst, er lächelt", example:"Das Mädchen lächelt freundlich.", translation:"少女は親しげに微笑みます。"},
+            {word:"finden", pos:"動詞", meaning:"見つける、思う", detail:"規則(e挿入)", conjugation:"ich finde, du findest, er findet", example:"Ich finde das Buch interessant.", translation:"私はその本が面白いと思います。"},
+            // --- 副詞 ---
+            {word:"jetzt", pos:"副詞", meaning:"今", detail:"副詞", example:"Ich gehe jetzt nach Hause.", translation:"私は今、家へ帰ります。"},
+            {word:"heute", pos:"副詞", meaning:"今日", detail:"副詞", example:"Heute ist das Wetter schön.", translation:"今日は天気が良いです。"},
+            {word:"morgen", pos:"副詞", meaning:"明日", detail:"副詞", example:"Morgen komme ich wieder.", translation:"明日、私はまた来ます。"},
+            {word:"schön", pos:"副詞", meaning:"美しい、すばらしい", detail:"形容詞", example:"Er ist schon da.", translation:"彼はもうそこにいます。"},
+            {word:"noch", pos:"副詞", meaning:"まだ、さらに", detail:"副詞", example:"Ich brauche noch Zeit.", translation:"私にはまだ時間が必要です。"},
+            {word:"gern", pos:"副詞", meaning:"好んで、喜んで", detail:"副詞", example:"Ich trinke gern Kaffee.", translation:"私はコーヒーを飲むのが好きです。"},
+            {word:"sehr", pos:"副詞", meaning:"とても、大変", detail:"副詞", example:"Das Haus ist sehr groß.", translation:"その家はとても広いです。"},
+            {word:"gleich", pos:"副詞", meaning:"すぐに", detail:"副詞", example:"Der Bus kommt gleich.", translation:"バスがすぐ来ます。"},
+            {word:"dort", pos:"副詞", meaning:"そこに、あそこに", detail:"副詞", example:"Das Café ist dort.", translation:"カフェにあそこにあります。"},
+            {word:"wohin", pos:"副詞", meaning:"どこへ", detail:"副詞", example:"Wohin gehen Sie jetzt?", translation:"今どこへ行きますか？"},
+            {word:"wie", pos:"副詞", meaning:"どのように、どんなに", detail:"副詞", example:"Wie heißen Sie?", translation:"お名前は何とおっしゃいますか？"},
+            {word:"hier", pos:"副詞", meaning:"ここに", detail:"副詞", example:"Ich wohne seit zwei Jahren hier.", translation:"私は2年前からここに住んでいます。"},
+            {word:"da", pos:"副詞", meaning:"そこに、その時", detail:"副詞", example:"Herr Müller ist da.", translation:"ミュラーさんがそこにいます。"},
+            {word:"auch", pos:"副詞", meaning:"〜もまた", detail:"副詞", example:"Ich lerne auch Deutsch.", translation:"私もドイツ語を学んでいます。"},
+            {word:"leider", pos:"副詞", meaning:"あいにく、残念ながら", detail:"副詞", example:"Leider habe ich kein Geld.", translation:"あいにく私にはお金がありません。"},
+            {word:"gelegentlich", pos:"副詞", meaning:"たまに、折に触れて", detail:"副詞", example:"Er liest gelegentlich Comics.", translation:"彼はたまに漫画を読みます。"},
+            {word:"nicht", pos:"副詞", meaning:"〜ない", detail:"否定副詞", example:"Das Buch ist nicht teuer.", translation:"その本は高くありません。"},
+            {word:"mehr", pos:"副詞", meaning:"より多くの、もはや", detail:"副詞", example:"Er raucht nicht mehr.", translation:"彼はもうタバコを吸いません。"},
+            {word:"wo", pos:"副詞", meaning:"どこで", detail:"副詞", example:"Wo wohnen Sie?", translation:"どこに住んでいますか？"},
+            {word:"laut", pos:"副詞", meaning:"大声で", detail:"副詞", example:"Sprechen Sie bitte nicht so laut!", translation:"どうかそんなに大声で話さないでください！"},
+            {word:"sicher", pos:"副詞", meaning:"確実に", detail:"副詞", example:"Er kommt sicher heute.", translation:"彼はきっと今日来ます。"},
+            {word:"weit", pos:"副詞", meaning:"遠くに、広く", detail:"副詞", example:"Der Weg ist sehr weit.", translation:"道はとても遠いです。"},
+            {word:"meistens", pos:"副詞", meaning:"たいてい、大抵", detail:"副詞", example:"Meistens trinke ich Tee.", translation:"たいてい私は紅茶を飲みます。"},
+            {word:"selber", pos:"副詞", meaning:"自分自身で", detail:"副詞", example:"Ich mache das selber.", translation:"私は自らそれをします。"},
+            {word:"spät", pos:"副詞", meaning:"遅く", detail:"副詞", example:"Es ist schon spät.", translation:"もう遅いです。"},
+            {word:"wann", pos:"副詞", meaning:"いつ", detail:"副詞", example:"Wann kommt der Zug?", translation:"列車はいつ来ますか？"},
+            {word:"warum", pos:"副詞", meaning:"なぜ", detail:"副詞", example:"Warum lernst du Deutsch?", translation:"なぜあなたはドイツ語を勉強しているのですか？"},
+            {word:"woher", pos:"副詞", meaning:"どこから", detail:"副詞", example:"Woher kommen Sie?", translation:"どちらのご出身ですか？"},
+            {word:"lange", pos:"副詞", meaning:"長い間", detail:"副詞", example:"Wir warten schon lange.", translation:"私たちはもう長く待っています。"},
+            // --- 形容詞 ---
+            {word:"alt", pos:"形容詞", meaning:"古い、〜歳の", detail:"形容詞", example:"Der Mann ist sehr alt.", translation:"その男性はとても年老いています。"},
+            {word:"gut", pos:"形容詞", meaning:"良い、上手な", detail:"形容詞", example:"Das Essen ist gut.", translation:"食べ物は良いです。"},
+            {word:"frei", pos:"形容詞", meaning:"自由な、空いている", detail:"形容詞", example:"Ist dieser Stuhl frei?", translation:"この椅子は空いていますか？"},
+            {word:"groß", pos:"形容詞", meaning:"大きい、背が高い", detail:"形容詞", example:"Das Haus ist groß.", translation:"その家は大きいです。"},
+            {word:"schwer", pos:"形容詞", meaning:"難しい、重い", detail:"形容詞", example:"Der Koffer ist zu schwer.", translation:"そのスーツケースは重すぎます。"},
+            {word:"blau", pos:"形容詞", meaning:"青い", detail:"形容詞", example:"Der Himmel ist blau.", translation:"空は青いです。"},
+            {word:"rot", pos:"形容詞", meaning:"赤い", detail:"形容詞", example:"Die Rose ist rot.", translation:"バラは赤いです。"},
+            {word:"schön", pos:"形容詞", meaning:"美しい、すばらしい", detail:"形容詞", example:"Das Bild ist schön.", translation:"その絵は美しいです。"},
+            {word:"viel", pos:"形容詞", meaning:"多くの、たくさん", detail:"形容詞", example:"Er arbeitet viel.", translation:"彼はたくさん働きます。"},
+            {word:"sauer", pos:"形容詞", meaning:"酸っぱい、おこった", detail:"形容詞", example:"Die Milch ist sauer.", translation:"牛乳が酸っぱいです。"},
+            {word:"richtig", pos:"形容詞", meaning:"正しい", detail:"形容詞", example:"Die Antwort ist richtig.", translation:"その答えは正しいです。"},
+            {word:"reich", pos:"形容詞", meaning:"豊かな、金持ちの", detail:"形容詞", example:"Der Mann ist sehr reich.", translation:"その男性はとても金持ちです。"},
+            {word:"elegant", pos:"形容詞", meaning:"エレガントな、優雅な", detail:"形容詞", example:"Das Kleid ist elegant.", translation:"そのドレスはエレガントです。"},
+            {word:"neu", pos:"形容詞", meaning:"新しい", detail:"形容詞", example:"Das Auto ist ganz neu.", translation:"その車はまったく新しいです。"},
+            {word:"bekannt", pos:"形容詞", meaning:"有名な、知られている", detail:"形容詞", example:"Der Arzt ist bekannt.", translation:"その医師は有名です。"},
+            {word:"krank", pos:"形容詞", meaning:"病気の", detail:"形容詞", example:"Das Kind ist krank.", translation:"子供は病気です。"},
+            {word:"schlecht", pos:"形容詞", meaning:"悪い、不調な", detail:"形容詞", example:"Das Wetter ist heute schlecht.", translation:"今日の天気は悪いです。"},
+            {word:"hoch", pos:"形容詞", meaning:"高い", detail:"形容詞", example:"Der Turm ist sehr hoch.", translation:"その塔はとても高いです。"},
+            {word:"dunkel", pos:"形容詞", meaning:"暗い", detail:"形容詞", example:"In der Nacht ist es dunkel.", translation:"夜は暗いです。"},
+            {word:"teuer", pos:"形容詞", meaning:"高価な、値段が高い", detail:"形容詞", example:"Die Uhr ist sehr teuer.", translation:"その時計はとても高価です。"},
+            {word:"edel", pos:"形容詞", meaning:"高貴な、上品な", detail:"形容詞", example:"Der Wein ist edel.", translation:"そのワインは気品ある高品質なものです。"},
+            {word:"weise", pos:"形容詞", meaning:"賢い、賢明な", detail:"形容詞", example:"Der Mann ist weise.", translation:"その男性は賢明です。"},
+            {word:"fleißig", pos:"形容詞", meaning:"勤勉な、熱心な", detail:"形容詞", example:"Die Studentin ist fleißig.", translation:"その女子学生は熱心です。"},
+            {word:"nett", pos:"形容詞", meaning:"親切な、感じが良い", detail:"形容詞", example:"Meine Tante ist nett.", translation:"私の叔母は親切です。"},
+            {word:"schnell", pos:"形容詞", meaning:"速い", detail:"形容詞", example:"Das Auto fährt schnell.", translation:"その車は速く走ります。"},
+            {word:"schwarz", pos:"形容詞", meaning:"黒い", detail:"形容詞", example:"Die Tasche ist schwarz.", translation:"そのバッグは黒いです。"},
+            {word:"weiß", pos:"形容詞", meaning:"白い", detail:"形容詞", example:"Die Bluse ist weiß.", translation:"そのブラウスは白です。"},
+            {word:"gelb", pos:"形容詞", meaning:"黄色い", detail:"形容詞", example:"Die Lampe ist gelb.", translation:"そのランプは黄色です。"},
+            {word:"kalt", pos:"形容詞", meaning:"寒い、冷たい", detail:"形容詞", example:"Der Winter ist kalt.", translation:"冬は寒いです。"},
+            {word:"schick", pos:"形容詞", meaning:"おしゃれな", detail:"形容詞", example:"Das Kleid ist sehr schick.", translation:"そのドレスはとてもシックでおしゃれです。"},
+            {word:"klein", pos:"形容詞", meaning:"小さな", detail:"形容詞", example:"Das Zimmer ist klein.", translation:"その部屋は小さいです。"},
+            {word:"blond", pos:"形容詞", meaning:"ブロンドの、金髪の", detail:"形容詞", example:"Das Mädchen ist blond.", translation:"その少女は金髪です。"},
+            {word:"berühmt", pos:"形容詞", meaning:"有名な", detail:"形容詞", example:"Der Musiker ist berühmt.", translation:"その音楽家は有名です。"},
+            {word:"dick", pos:"形容詞", meaning:"太った、分厚い", detail:"形容詞", example:"Das Buch ist sehr thick.", translation:"その本はとても厚いです。"},
+            {word:"klug", pos:"形容詞", meaning:"賢い、頭が良い", detail:"形容詞", example:"Der Schüler ist klug.", translation:"その生徒は賢いです。"},
+            {word:"mild", pos:"形容詞", meaning:"マイルドな、穏やかな", detail:"形容詞", example:"Das Wetter ist mild.", translation:"気候が穏やかです。"},
+            {word:"kühl", pos:"形容詞", meaning:"涼しい、冷ややかな", detail:"形容詞", example:"Der Abend ist kühl.", translation:"夕方は涼しいです。"},
+            {word:"angenehm", pos:"形容詞", meaning:"心地よい、快適な", detail:"形容詞", example:"Die Atmosphäre ist angenehm.", translation:"雰囲気が心地よいです。"},
+            {word:"entfernt", pos:"形容詞", meaning:"離れた、遠い", detail:"形容詞", example:"Die Schule ist nicht weit entfernt.", translation:"学校は遠く離れていません。"},
+            {word:"ruhig", pos:"形容詞", meaning:"静かな、落ち着いた", detail:"形容詞", example:"Das Zimmer ist ruhig.", translation:"その部屋は静かです。"},
+            {word:"warm", pos:"形容詞", meaning:"暖かい", detail:"形容詞", example:"Der Sommer ist warm.", translation:"夏は暖かいです。"},
+            {word:"einzig", pos:"形容詞", meaning:"唯一の", detail:"形容詞", example:"Das ist mein einziges Buch.", translation:"これが私の唯一の本です。"},
+            {word:"interessant", pos:"形容詞", meaning:"面白い、興味深い", detail:"形容詞", example:"Der Film ist interessant.", translation:"その映画は面白いです。"},
+            {word:"verwandt", pos:"形容詞", meaning:"親戚の、親縁の", detail:"形容詞", example:"Wir sind verwandt.", translation:"私たちは親戚関係にあります。"},
+            {word:"ähnlich", pos:"形容詞", meaning:"似ている", detail:"形容詞", example:"Die Brüder sind ähnlich.", translation:"その兄弟たちは似ています。"},
+            {word:"hilfsbereit", pos:"形容詞", meaning:"親切な、助けになる", detail:"形容詞", example:"Mein Freund ist hilfsbereit.", translation:"私の友人は親切で助けになりたがります。"},
+            {word:"freundlich", pos:"形容詞", meaning:"親しみやすい、親切な", detail:"形容詞", example:"Die Lehrerin ist freundlich.", translation:"女性教師は親切です。"},
+            {word:"sportlich", pos:"形容詞", meaning:"スポーティーな、運動好きな", detail:"形容詞", example:"Der Student ist sportlich.", translation:"学生はスポーツが得意です。"},
+            {word:"fröhlich", pos:"形容詞", meaning:"陽気な、楽しそうな", detail:"形容詞", example:"Die Kinder sind fröhlich.", translation:"子供たちは陽気です。"},
+            {word:"süß", pos:"形容詞", meaning:"甘い、かわいい", detail:"形容詞", example:"Die Bonbons sind süß.", translation:"そのキャンディーは甘いです。"},
+            {word:"hübsch", pos:"形容詞", meaning:"かわいい、きれいな", detail:"形容詞", example:"Das Mädchen ist hübsch.", translation:"その少女は可愛いです。"},
+            {word:"heiter", pos:"形容詞", meaning:"晴れやかな、陽気な", detail:"形容詞", example:"Das Wetter ist heiter.", translation:"天気が晴れやかです。"},
+            {word:"kreativ", pos:"形容詞", meaning:"創造的な", detail:"形容詞", example:"Die Frau ist kreativ.", translation:"その女性は創造的です。"},
+            {word:"traditionell", pos:"形容詞", meaning:"伝統的な", detail:"形容詞", example:"Das Restaurant ist traditionell.", translation:"そのレストランは伝統的です。"},
+            {word:"lecker", pos:"形容詞", meaning:"美味しい", detail:"形容詞", example:"Das Essen ist lecker.", translation:"その料理は美味しいです。"},
+            {word:"faul", pos:"形容詞", meaning:"怠惰な、なまけている", detail:"形容詞", example:"Der Hund ist faul.", translation:"その犬は怠け者です。"},
+            {word:"ausgezeichnet", pos:"形容詞", meaning:"優れた、素晴らしい", detail:"形容詞", example:"Der Bericht ist ausgezeichnet.", translation:"その報告書は優秀です。"},
+            {word:"englisch", pos:"形容詞", meaning:"英語の、イギリスの", detail:"形容詞", example:"Das ist ein englisches Buch.", translation:"これは英語の本です。"},
+            {word:"deutsch", pos:"形容詞", meaning:"ドイツの", detail:"形容詞", example:"Das ist ein deutsches Wort.", translation:"これはドイツ語の単語です。"},
+            {word:"japanisch", pos:"形容詞", meaning:"日本の、日本語の", detail:"形容詞", example:"Das ist ein japanisches Essen.", translation:"これは日本の料理です。"},
+            {word:"italienisch", pos:"形容詞", meaning:"イタリアの、イタリア語の", detail:"形容詞", example:"Das ist ein italienischer Wein.", translation:"これはイタリアのワインです。"},
+            {word:"glücklich", pos:"形容詞", meaning:"幸せな、幸運な", detail:"形容詞", example:"Die Familie ist glücklich.", translation:"その家族は幸せです。"},
+            {word:"betrunken", pos:"形容詞", meaning:"酔っ払った", detail:"形容詞", example:"Der Mann ist betrunken.", translation:"その男性は酔っ払っています。"},
+            {word:"wild", pos:"形容詞", meaning:"野生の、激しい", detail:"形容詞", example:"Das Tier ist wild.", translation:"その動物は野生です。"},
+            {word:"müde", pos:"形容詞", meaning:"疲れた、眠い", detail:"形容詞", example:"Ich bin sehr müde.", translation:"私はとても疲れています。"},
+            // --- 代名詞 ---
+            {word:"ich", pos:"代名詞", meaning:"私 (1格ich/3格mir/4格mich)", detail:"1人称単数", example:"Ich lerne Deutsch.", translation:"私はドイツ語を学んでいます。"},
+            {word:"du", pos:"代名詞", meaning:"君 (1格du/3格dir/4格dich)", detail:"2人称単数", example:"Lernst du Deutsch?", translation:"あなたはドイツ語を学んでいますか？"},
+            {word:"er", pos:"代名詞", meaning:"彼 (1格er/3格ihm/4格ihn)", detail:"3人称男性", example:"Er wohnt in Berlin.", translation:"彼はベルリンに住んでいます。"},
+            {word:"sie", pos:"代名詞", meaning:"彼女/それら (1・4格sie/3格ihr,ihnen)", detail:"3人称女性/複数", example:"Sie kocht die Suppe.", translation:"彼女はスープを料理します。"},
+            {word:"es", pos:"代名詞", meaning:"それ (1・4格es/3格ihm)", detail:"3人称中性", example:"Es regnet heute.", translation:"今日は雨が降っています。"},
+            {word:"wir", pos:"代名詞", meaning:"私たち (1格wir/3・4格uns)", detail:"1人称複数", example:"Wir gehen zusammen ins Kino.", translation:"私たちは一緒に映画館へ行きます。"},
+            {word:"ihr", pos:"代名詞", meaning:"君たち/彼女の/それらの", detail:"2人称複数/所有", example:"Wo seid ihr?", translation:"君たちはどこにいますか？"},
+            {word:"Sie", pos:"代名詞", meaning:"あなた/あなた方 (3格Ihnen)", detail:"敬称", example:"Wo wohnen Sie?", translation:"どちらにお住まいですか？"},
+            {word:"mich", pos:"代名詞", meaning:"私を (4格)", detail:"1人称単数4格", example:"Er besucht mich heute.", translation:"彼は今日私を訪問します。"},
+            {word:"dich", pos:"代名詞", meaning:"君を (4格)", detail:"2人称単数4格", example:"Ich liebe dich.", translation:"私はあなたを愛しています。"},
+            {word:"ihn", pos:"代名詞", meaning:"彼を (4格)", detail:"3人称男性4格", example:"Ich kenne ihn gut.", translation:"私は彼をよく知っています。"},
+            {word:"uns", pos:"代名詞", meaning:"私たちに/を (3・4格)", detail:"1人称複数", example:"Er hilft uns.", translation:"彼は私たちを助けてくれます。"},
+            {word:"euch", pos:"代名詞", meaning:"君たちに/を (3・4格)", detail:"2人称複数", example:"Ich frage euch.", translation:"私は君たちに尋ねます。"},
+            {word:"Ihnen", pos:"代名詞", meaning:"あなた/あなた方に (3格)", detail:"敬称3格", example:"Ich danke Ihnen.", translation:"あなたに感謝いたします。"},
+            {word:"mir", pos:"代名詞", meaning:"私に (3格)", detail:"1人称単数3格", example:"Das Buch gehört mir.", translation:"その本は私のものです。"},
+            {word:"dir", pos:"代名詞", meaning:"君に (3格)", detail:"2人称単数3格", example:"Ich helfe dir gern.", translation:"私は喜んであなたを助けます。"},
+            {word:"ihm", pos:"代名詞", meaning:"彼に/それに (3格)", detail:"3人称男性/中性3格", example:"Ich gebe ihm das Geld.", translation:"私は彼にお金を渡します。"},
+            {word:"mein", pos:"代名詞", meaning:"私の", detail:"所有冠詞", example:"Das ist mein Vater.", translation:"これは私の父です。"},
+            {word:"dein", pos:"代名詞", meaning:"君の", detail:"所有冠詞", example:"Ist das dein Stuhl?", translation:"これはあなたの椅子ですか？"},
+            {word:"sein", pos:"代名詞", meaning:"彼の、それの", detail:"所有冠詞", example:"Das ist sein Auto.", translation:"これは彼の車です。"},
+            {word:"ihr(彼女の/彼らの)", pos:"代名詞", meaning:"彼女の、彼らの", detail:"所有冠詞", example:"Das ist ihr Koffer.", translation:"これは彼女の（彼らの）スーツケースです。"},
+            {word:"unser", pos:"代名詞", meaning:"私たちの", detail:"所有冠詞", example:"Das ist unser Haus.", translation:"私たちの家です。"},
+            {word:"euer", pos:"代名詞", meaning:"君たちの", detail:"所有冠詞", example:"Ist das euer Hund?", translation:"これは君たちの犬ですか？"},
+            {word:"Ihr", pos:"代名詞", meaning:"あなたの、あなた方の", detail:"所有冠詞（敬称）", example:"Ist das Ihr Regenschirm?", translation:"これはあなたの傘ですか？"},
+            {word:"kein", pos:"代名詞", meaning:"〜ない (否定冠詞)", detail:"否定冠詞", example:"Ich habe kein Geld.", translation:"私にはお金がありません。"},
+            {word:"dieser/diese/dieses", pos:"代名詞", meaning:"この〜", detail:"指示代名詞/冠詞（全性の変化形表記）", example:"Dieser Tisch ist neu.", translation:"このテーブルは新しいです。"},
+            {word:"welcher/welche/welches", pos:"代名詞", meaning:"どの〜", detail:"疑問代名詞/冠詞（全性の変化形表記）", example:"Welches Buch liest du?", translation:"あなたはどの本を読んでいますか？"},
+            {word:"jeder", pos:"代名詞", meaning:"すべての、各自の", detail:"不定代名詞/冠詞", example:"Jeder Student lernt viel.", translation:"すべての学生がたくさん勉強します。"},
+            {word:"aller", pos:"代名詞", meaning:"すべての", detail:"不定代名詞/冠詞", example:"Aller Anfang ist schwer.", translation:"すべての始まりは難解です。"},
+            {word:"was", pos:"代名詞", meaning:"何", detail:"疑問代名詞", example:"Was machen Sie?", translation:"何をされていますか？"},
+            {word:"wen", pos:"代名詞", meaning:"誰を (4格)", detail:"疑問代名詞4格", example:"Wen besuchen Sie?", translation:"誰を訪問されますか？"},
+            {word:"wem", pos:"代名詞", meaning:"誰に (3格)", detail:"疑問代名詞3格", example:"Wem gehört das Buch?", translation:"その本は誰のものですか？"},
+            {word:"man", pos:"代名詞", meaning:"人は（一般の人）", detail:"不定代名詞", example:"Hier darf man nicht rauchen.", translation:"ここではタバコを吸ってはいけません。"},
+            {word:"solcher/solche/solches", pos:"代名詞", meaning:"このような〜", detail:"指示代名詞（全性の変化形表記）", example:"Ein solcher Mann ist nett.", translation:"そのような男性は親切です。"},
+            {word:"mancher/manche/manches", pos:"代名詞", meaning:"いくつかの〜", detail:"不定代名詞（全性の変化形表記）", example:"Mancher Schüler lernt fleißig.", translation:"一部の生徒は熱心に勉強します。"},
+            {word:"wer", pos:"代名詞", meaning:"誰が (1格)", detail:"疑問代名詞1格", example:"Wer ist dieser Mann?", translation:"この男性は誰ですか？"},
+            {word:"wessen", pos:"代名詞", meaning:"誰の (2格)", detail:"疑問代名詞2格", example:"Wessen Buch ist das?", translation:"これは誰の本ですか？"},
+            // --- 前置詞 ---
+            {word:"mit", pos:"前置詞", meaning:"〜と一緒に、〜で", detail:"3格支配", example:"Ich fahre mit dem Bus.", translation:"私はバスで行きます。"},
+            {word:"bei", pos:"前置詞", meaning:"〜のところで", detail:"3格支配", example:"Er wohnt bei seinen Eltern.", translation:"彼は両親と同居しています。"},
+            {word:"von", pos:"前置詞", meaning:"〜から、〜の", detail:"3格支配", example:"Das ist ein Brief von meinem Vater.", translation:"これは父からの手紙です。"},
+            {word:"zu", pos:"前置詞", meaning:"〜へ", detail:"3格支配", example:"Ich gehe zur Schule.", translation:"私は学校へ行きます。"},
+            {word:"statt", pos:"前置詞", meaning:"〜の代わりに", detail:"2格支配", example:"Statt des Kaffees trinkt er Tee.", translation:"コーヒーの代わりに彼は紅茶を飲みます。"},
+            {word:"auf", pos:"前置詞", meaning:"〜の上に/へ", detail:"3格/4格支配", example:"Das Buch liegt auf dem Tisch.", translation:"本がテーブルの上に置いてあります。"},
+            {word:"vor", pos:"前置詞", meaning:"〜の前に/へ", detail:"3格/4格支配", example:"Der Hund steht vor der Tür.", translation:"犬がドアの前に立っています。"},
+            {word:"in", pos:"前置詞", meaning:"〜の中に/へ", detail:"3格/4格支配", example:"Wir wohnen in der Stadt.", translation:"私たちは街に住んでいます。"},
+            {word:"hinter", pos:"前置詞", meaning:"〜の後ろに/へ", detail:"3格/4格支配", example:"Der Garten liegt hinter dem Haus.", translation:"庭は家の裏にあります。"},
+            {word:"neben", pos:"前置詞", meaning:"〜の隣に/へ", detail:"3格/4格支配", example:"Der Stuhl steht neben dem Tisch.", translation:"椅子はテーブルの隣にあります。"},
+            {word:"an", pos:"前置詞", meaning:"〜に（接触して）", detail:"3格/4格支配", example:"Das Bild hängt an der Wand.", translation:"絵が壁にかかっています。"},
+            {word:"zwischen", pos:"前置詞", meaning:"〜の間に/へ", detail:"3格/4格支配", example:"Der Tisch steht zwischen zwei Stühlen.", translation:"テーブルは2個の椅子の間にあります。"},
+            {word:"über", pos:"前置詞", meaning:"〜の上(上方)に", detail:"3格/4格支配", example:"Die Lampe hängt über dem Tisch.", translation:"ランプがテーブルの上に吊り下がっています。"},
+            {word:"während", pos:"前置詞", meaning:"〜の間に", detail:"2格支配", example:"Während des Sommers fahren wir weg.", translation:"夏の間に私たちは旅行に出かけます。"},
+            {word:"trotz", pos:"前置詞", meaning:"〜にもかかわらず", detail:"2格支配", example:"Trotz des Regens gehen wir spazieren.", translation:"雨にもかかわらず、私たちは散歩に行きます。"},
+            {word:"wegen", pos:"前置詞", meaning:"〜の理由で", detail:"2格支配", example:"Wegen der Erkältung bleibe ich im Bett.", translation:"風邪のため、私はベッドにいます。"},
+            {word:"nach", pos:"前置詞", meaning:"〜へ、〜の後で", detail:"3格支配", example:"Nach dem Unterricht gehe ich nach Hause.", translation:"授業の後、私は家に帰ります。"},
+            {word:"seit", pos:"前置詞", meaning:"〜以来、〜前から", detail:"3格支配", example:"Seit einem Monat lerne ich Deutsch.", translation:"1ヶ月前から私はドイツ語を学んでいます。"},
+            {word:"um", pos:"前置詞", meaning:"〜の周りに、〜時に", detail:"4格支配", example:"Wir treffen uns um drei Uhr.", translation:"私たちは3時に会いましょう。"},
+            {word:"gegen", pos:"前置詞", meaning:"〜に向かって、〜に対して", detail:"4格支配", example:"Er ist gegen diesen Plan.", translation:"彼はこの計画に反対しています。"},
+            {word:"für", pos:"前置詞", meaning:"〜のために", detail:"4格支配", example:"Das Paket ist für dich.", translation:"その小包はあなたのためのものです。"},
+            {word:"aus", pos:"前置詞", meaning:"〜から（出身・外へ）", detail:"3格支配", example:"Er kommt aus Japan.", translation:"彼は日本出身です。"},
+            // --- 名詞 ---
+            {word:"Arzt", pos:"名詞", gender:"der", plural:"Ärzte", meaning:"医師、医者", example:"In der Zukunft werde ich Arzt.", translation:"将来、私は医師になるつもりです。"},
+            {word:"Arbeit", pos:"名詞", gender:"die", plural:"-", meaning:"仕事、労働", example:"Die Arbeitslosen suchen Arbeit.", translation:"失業者たちは仕事を探しています。"},
+            {word:"Baby", pos:"名詞", gender:"das", plural:"Babys", meaning:"赤ちゃん", example:"Das Baby schläft ruhig.", translation:"赤ちゃんは静かに眠っています。"},
+            {word:"Beruf", pos:"名詞", gender:"der", plural:"Berufe", meaning:"職業", example:"Er ist Ingenieur von Beruf.", translation:"彼は職業柄エンジニアです。"},
+            {word:"Besuch", pos:"名詞", gender:"der", plural:"Besuche", meaning:"訪問、来客", example:"Mein Freund kommt heute zu Besuch.", translation:"私の友人が今日遊びに来ます。"},
+            {word:"Butter", pos:"名詞", gender:"die", plural:"-", meaning:"バター", example:"Ich esse Brot mit Butter.", translation:"私はバターを塗ったパンを食べます。"},
+            {word:"Gold", pos:"名詞", gender:"das", plural:"-", meaning:"金", example:"Der Ring ist aus Gold.", translation:"その指輪は金製です。"},
+            {word:"Hand", pos:"名詞", gender:"die", plural:"Hände", meaning:"手", example:"Er hält das Paket in der Hand.", translation:"彼は手で小包を持っています。"},
+            {word:"Himmel", pos:"名詞", gender:"der", plural:"Himmel", meaning:"空、天", example:"Der Mond steht am Himmel.", translation:"月が空に出て（立って）います。"},
+            {word:"Holz", pos:"名詞", gender:"das", plural:"Hölzer", meaning:"木材", example:"Der Tisch ist aus Holz.", translation:"そのテーブルは木製です。"},
+            {word:"Labor", pos:"名詞", gender:"das", plural:"Labore", meaning:"研究室、実験室", example:"Der Physiker arbeitet im Labor.", translation:"その物理学者は研究所で働いています。"},
+            {word:"Menschen", pos:"名詞", gender:"die", plural:"-", meaning:"人間、人（複数）", detail:"Menschの複数形／男性弱変化 (-en/-en)", example:"Die Polizisten helfen den Menschen.", translation:"警察官たちは人々を助けます。"},
+            {word:"Rede", pos:"名詞", gender:"die", plural:"Reden", meaning:"演説、話", example:"Der Politiker hält eine Rede.", translation:"その政治家は演説を行います。"},
+            {word:"Regel", pos:"名詞", gender:"die", plural:"Regeln", meaning:"規則", example:"Der Lehrer erklärt die Regel.", translation:"教師は規則を説明します。"},
+            {word:"Rotwein", pos:"名詞", gender:"der", plural:"Rotweine", meaning:"赤ワイン", example:"Der Franzose trinkt Rotwein.", translation:"そのフランス人は赤ワインを飲みます。"},
+            {word:"Satz", pos:"名詞", gender:"der", plural:"Sätze", meaning:"文", example:"Der Schüler schreibt den Satz.", translation:"生徒はその文章を書きます。"},
+            {word:"Sport", pos:"名詞", gender:"der", plural:"-", meaning:"スポーツ", example:"In der Freizeit treibe ich Sport.", translation:"余暇に私はスポーツをします。"},
+            {word:"Suppe", pos:"名詞", gender:"die", plural:"Suppen", meaning:"スープ", example:"Meine Mutter kocht Suppe.", translation:"母はスープを料理します。"},
+            {word:"Tee", pos:"名詞", gender:"der", plural:"Tees", meaning:"お茶、紅茶", example:"Meistens trinke ich Tee.", translation:"たいてい私は紅茶を飲みます。"},
+            {word:"Wasser", pos:"名詞", gender:"das", plural:"-", meaning:"水", example:"Er trinkt ein Glas Wasser.", translation:"彼はコップ1杯の水を飲みます。"},
+            {word:"Winter", pos:"名詞", gender:"der", plural:"Winter", meaning:"冬", example:"Der Winter ist kalt.", translation:"冬は寒いです。"},
+            {word:"Zeitung", pos:"名詞", gender:"die", plural:"Zeitungen", meaning:"新聞", example:"Der Student liest eine Zeitung.", translation:"その学生は新聞を読んでいます。"},
+            {word:"Zug", pos:"名詞", gender:"der", plural:"Züge", meaning:"列車", example:"Wann kommt der Zug?", translation:"列車はいつ来ますか？"},
+            {word:"Samstag", pos:"名詞", gender:"der", plural:"Samstage", meaning:"土曜日", example:"Er spielt am Samstag Tennis.", translation:"彼は土曜日にテニスをします。"},
+            {word:"Sonntag", pos:"名詞", gender:"der", plural:"Sonntage", meaning:"日曜日", example:"Am Sonntag machen wir einen Ausflug.", translation:"日曜日に私たちは遠足/日帰り旅行をします。"},
+            // --- 動詞 ---
+            {word:"ankommen", pos:"動詞", meaning:"到着する", detail:"分離動詞", conjugation:"ich komme an, du kommst an, er kommt an", example:"Das Paket kommt heute an.", translation:"小包は今日届きます。"},
+            {word:"antworten", pos:"動詞", meaning:"答える", detail:"規則(e挿入)", conjugation:"ich antworte, du antwortest, er antwortet", example:"Der Professor antwortet freundlich.", translation:"教授は親切に答えます。"},
+            {word:"beginnen", pos:"動詞", meaning:"始まる、始める", detail:"不規則動詞", conjugation:"ich beginne, du beginnst, er beginnt", example:"Der Unterricht beginnt um acht Uhr.", translation:"授業は8時に始まります。"},
+            {word:"bestellen", pos:"動詞", meaning:"注文する", detail:"非分離動詞", conjugation:"ich bestelle, du bestellst, er bestellt", example:"Ich bestelle einen Salat.", translation:"私はサラダを注文します。"},
+            {word:"blühen", pos:"動詞", meaning:"咲く", detail:"規則動詞", conjugation:"es blüht, sie blühen", example:"Die Rose blüht im Garten.", translation:"バラが庭で咲いています。"},
+            {word:"einkaufen", pos:"動詞", meaning:"買い物する", detail:"分離動詞", conjugation:"ich kaufe ein, du kaufst ein, er kauft ein", example:"Ich kaufe im Supermarkt ein.", translation:"私はスーパーマーケットで買い物をします。"},
+            {word:"erklären", pos:"動詞", meaning:"説明する", detail:"非分離動詞", conjugation:"ich erkläre, du erklärst, er erklärt", example:"Die Lehrerin erklärt das Wort.", translation:"女性教師はその単語を説明します。"},
+            {word:"erzählen", pos:"動詞", meaning:"話す、語る", detail:"非分離動詞", conjugation:"ich erzähle, du erzählst, er erzählt", example:"Meine Großmutter erzählt Märchen.", translation:"私の祖母はメルヘン（童話）を語ります。"},
+            {word:"feiern", pos:"動詞", meaning:"祝う", detail:"規則動詞", conjugation:"ich feiere, du feierst, er feiert", example:"Heute feiert er seinen Geburtstag.", translation:"今日、彼は誕生日を祝います。"},
+            {word:"fliegen", pos:"動詞", meaning:"飛ぶ", detail:"不規則動詞", conjugation:"ich fliege, du fliegst, er fliegt", example:"Das Flugzeug fliegt nach Berlin.", translation:"その飛行機はベルリンへ飛びます。"},
+            {word:"fressen", pos:"動詞", meaning:"（動物が）食べる", detail:"幹母音変化(e→i)", conjugation:"ich fresse, du frisst, er frisst", example:"Das Schwein frisst viel.", translation:"その豚はたくさん食べます。"},
+            {word:"interessieren", pos:"動詞", meaning:"興味を持たせる（sich interessieren fürで〜に興味がある）", detail:"規則動詞", conjugation:"ich interessiere, du interessierst, er interessiert", example:"Er interessiert sich für Politik.", translation:"彼は政治に関心を持っています。"},
+            {word:"laufen", pos:"動詞", meaning:"走る、歩く", detail:"幹母音変化(au→äu)", conjugation:"ich laufe, du läufst, er läuft", example:"Das Pferd läuft schnell.", translation:"その馬は速く走ります。"},
+            {word:"leben", pos:"動詞", meaning:"生きる、住む", detail:"規則動詞", conjugation:"ich lebe, du lebst, er lebt", example:"Wir leben im 21. Jahrhundert.", translation:"私たちは21世紀に生きています。"},
+            {word:"lesen", pos:"動詞", meaning:"読む", detail:"幹母音変化(e→ie)", conjugation:"ich lese, du liest, er liest", example:"Mein Vater liest ein Buch.", translation:"私の父は本を読みます。"},
+            {word:"sagen", pos:"動詞", meaning:"言う", detail:"規則動詞", conjugation:"ich sage, du sagst, er sagt", example:"Er sagt immer die Wahrheit.", translation:"彼は常に真実を言います。"},
+            {word:"scheinen", pos:"動詞", meaning:"輝く、〜のようだ", detail:"不規則動詞", conjugation:"es scheint, sie scheinen", example:"Die Sonne scheint heute.", translation:"今日は太陽が輝いています。"},
+            {word:"schmecken", pos:"動詞", meaning:"味がする", detail:"規則動詞", conjugation:"es schmeckt, sie schmecken", example:"Das Essen schmeckt lecker.", translation:"料理は美味しいです。"},
+            {word:"stattfinden", pos:"動詞", meaning:"開催される", detail:"分離動詞", conjugation:"es findet statt, sie finden statt", example:"Die Hochzeit findet morgen statt.", translation:"結婚式は明日行われます。"},
+            {word:"studieren", pos:"動詞", meaning:"大学で勉強する", detail:"規則動詞", conjugation:"ich studiere, du studierst, er studiert", example:"Sie studiert an der Uni.", translation:"彼女は大学で学んでいます。"},
+            {word:"suchen", pos:"動詞", meaning:"探す", detail:"規則動詞", conjugation:"ich suche, du suchst, er sucht", example:"Die Arbeitslosen suchen Arbeit.", translation:"失業者たちは仕事を探しています。"},
+            {word:"tragen", pos:"動詞", meaning:"身につける、運ぶ", detail:"幹母音変化(a→ä)", conjugation:"ich trage, du trägst, er trägt", example:"Der Mann trägt einen Hut.", translation:"その男性は帽子をかぶっています。"},
+            {word:"treffen", pos:"動詞", meaning:"会う", detail:"幹母音変化(e→i)", conjugation:"ich treffe, du triffst, er trifft", example:"Wir treffen uns im Café.", translation:"私たちはカフェで会います。"},
+            {word:"treiben", pos:"動詞", meaning:"（スポーツを）する", detail:"不規則動詞", conjugation:"ich treibe, du treibst, er treibt", example:"In der Freizeit treibe ich Sport.", translation:"余暇に私はスポーツをします。"},
+            {word:"untersuchen", pos:"動詞", meaning:"検査する", detail:"非分離動詞", conjugation:"ich untersuche, du untersuchst, er untersucht", example:"Die Ärztin untersucht das Kind.", translation:"女性医師は子供を診察します。"},
+            {word:"verstehen", pos:"動詞", meaning:"理解する", detail:"非分離動詞", conjugation:"ich verstehe, du verstehst, er versteht", example:"Verstehen Sie dieses Wort?", translation:"この単語が理解できますか？"},
+            {word:"werfen", pos:"動詞", meaning:"投げる", detail:"幹母音変化(e→i)", conjugation:"ich werfe, du wirfst, er wirft", example:"Das Kind wirft den Ball.", translation:"子供はボールを投げます。"},
+            {word:"zeigen", pos:"動詞", meaning:"見せる、示す", detail:"規則動詞", conjugation:"ich zeige, du zeigst, er zeigt", example:"Zeigen Sie bitte Ihren Ausweis!", translation:"身分証明書を見せてください！"},
+            // --- 形容詞 ---
+            {word:"billig", pos:"形容詞", meaning:"安い", detail:"形容詞", example:"Die Zwiebeln sind billig.", translation:"玉ねぎは安いです。"},
+            {word:"breit", pos:"形容詞", meaning:"幅広い", detail:"形容詞", example:"Die Straße ist breit.", translation:"その道路は幅が広いです。"},
+            {word:"dunkelblau", pos:"形容詞", meaning:"濃紺の", detail:"形容詞", example:"Der Mantel ist dunkelblau.", translation:"そのコートは濃い青色です。"},
+            {word:"fertig", pos:"形容詞", meaning:"準備ができた、終わった", detail:"形容詞", example:"Das Frühstück ist fertig.", translation:"朝食の準備ができました。"},
+            {word:"frisch", pos:"形容詞", meaning:"新鮮な", detail:"形容詞", example:"Das Kind trinkt frische Milch.", translation:"子供は新鮮な牛乳を飲みます。"},
+            {word:"gefährlich", pos:"形容詞", meaning:"危険な", detail:"形容詞", example:"Die Krankheit ist gefährlich.", translation:"その病気は危険です。"},
+            {word:"gesund", pos:"形容詞", meaning:"健康な", detail:"形容詞", example:"Gemüse ist gesund.", translation:"野菜は健康に良いです。"},
+            {word:"grün", pos:"形容詞", meaning:"緑の", detail:"形容詞", example:"Der Garten ist grün und groß.", translation:"庭は緑豊かで広いです。"},
+            {word:"heiß", pos:"形容詞", meaning:"熱い", detail:"形容詞", example:"Sie trinkt heißen Kräutertee.", translation:"彼女は温かいハーブティーを飲みます。"},
+            {word:"hell", pos:"形容詞", meaning:"明るい", detail:"形容詞", example:"Das Zimmer ist ruhig und hell.", translation:"その部屋は静かで明るいです。"},
+            {word:"kurz", pos:"形容詞", meaning:"短い", detail:"形容詞", example:"Der Titel des Buches ist kurz.", translation:"その本のタイトルは短いです。"},
+            {word:"nah", pos:"形容詞", meaning:"近い", detail:"形容詞", example:"Der Bahnhof ist ganz nah.", translation:"駅は目と鼻の先にあります。"},
+            {word:"offen", pos:"形容詞", meaning:"開いている", detail:"形容詞", example:"Das Museum ist sonntags offen.", translation:"その美術館は日曜日に開館しています。"},
+            {word:"verschieden", pos:"形容詞", meaning:"様々な、異なる", detail:"形容詞", example:"Es gibt verschiedene Lebensstile.", translation:"さまざまなライフスタイルが存在します。"},
+            {word:"voll", pos:"形容詞", meaning:"いっぱいの", detail:"形容詞", example:"Die Flasche ist voll.", translation:"そのボトルは満杯です。"},
+            {word:"weich", pos:"形容詞", meaning:"柔らかい", detail:"形容詞", example:"Ihre Haut ist sehr weich.", translation:"彼女の肌はとても柔らかいです。"},
+            {word:"wichtig", pos:"形容詞", meaning:"重要な", detail:"形容詞", example:"Liebe ist sehr wichtig.", translation:"愛はとても大切です。"},
+            {word:"wunderschön", pos:"形容詞", meaning:"とても美しい", detail:"形容詞", example:"Der Pianist spielt wunderschön.", translation:"そのピアニストは素晴らしく演奏します。"},
+            // --- 副詞 ---
+            {word:"abends", pos:"副詞", meaning:"晩に、夜に", detail:"副詞", example:"Abends gehen wir ins Theater.", translation:"夜、私たちは劇場へ行きます。"},
+            {word:"bitte", pos:"副詞", meaning:"どうぞ、お願いします", detail:"副詞", example:"Eine Tasse Kaffee, bitte!", translation:"コーヒーを1杯ください！"},
+            {word:"doch", pos:"副詞", meaning:"しかし、でも（強調）", detail:"副詞", example:"Das ist doch Quatsch!", translation:"そんなのナンセンスだ！"},
+            {word:"einmal", pos:"副詞", meaning:"一度、かつて", detail:"副詞", example:"Ich versuche es noch einmal.", translation:"私はもう一度それを試してみます。"},
+            {word:"freitags", pos:"副詞", meaning:"金曜日ごとに", detail:"副詞", example:"Freitags essen wir Fisch.", translation:"金曜日に私たちは魚を食べます。"},
+            {word:"ganz", pos:"副詞", meaning:"全く、すっかり", detail:"副詞", example:"Der Computer ist ganz neu.", translation:"そのパソコンはまったく新しいです。"},
+            {word:"immer", pos:"副詞", meaning:"いつも", detail:"副詞", example:"Er sagt immer die Wahrheit.", translation:"彼は常に真実を言います。"},
+            {word:"morgens", pos:"副詞", meaning:"朝に", detail:"副詞", example:"Morgens trinke ich Kaffee.", translation:"朝、私はコーヒーを飲みます。"},
+            {word:"oft", pos:"副詞", meaning:"しばしば、よく", detail:"副詞", example:"Ich denke oft an dich.", translation:"私はよくあなたのことを考えています。"},
+            {word:"oben", pos:"副詞", meaning:"上に", detail:"副詞", example:"Der Aufzug fährt nach oben.", translation:"エレベーターが上に上がります。"},
+            {word:"so", pos:"副詞", meaning:"そのように、そんなに", detail:"副詞", example:"Sprechen Sie bitte nicht so laut!", translation:"どうかそんなに大声で話さないでください！"},
+            {word:"sonntags", pos:"副詞", meaning:"日曜日ごとに", detail:"副詞", example:"Das Museum ist sonntags offen.", translation:"その美術館は日曜日に開館しています。"},
+            // --- 接続詞 ---
+            {word:"und", pos:"接続詞", meaning:"そして、〜と", detail:"接続詞", example:"Der Pullover ist warm und schön.", translation:"そのセーターは暖かくて美しいです。"},
+            // --- 副詞 ---
+            {word:"wieder", pos:"副詞", meaning:"再び", detail:"副詞", example:"Morgen komme ich wieder.", translation:"明日、私はまた来ます。"},
+            {word:"zusammen", pos:"副詞", meaning:"一緒に", detail:"副詞", example:"Wir essen zusammen in der Mensa.", translation:"私たちは学食で一緒に食べます。"},
+            // --- 前置詞 ---
+            {word:"ohne", pos:"前置詞", meaning:"〜なしで", detail:"4格支配", example:"Ohne Strom gibt es kein Licht.", translation:"電気がなければ光はありません。"},
+            {word:"unter", pos:"前置詞", meaning:"〜の下に/へ", detail:"3格/4格支配", example:"Der Hund schläft unter dem Tisch.", translation:"犬がテーブルの下で眠っています。"},
+            // --- 名詞 ---
+            {word:"Abend", pos:"名詞", gender:"der", plural:"Abende", meaning:"晩、夕方", example:"Guten Abend, Herr Müller!", translation:"こんばんは、ミュラーさん！"},
+            {word:"Bäckerei", pos:"名詞", gender:"die", plural:"Bäckereien", meaning:"パン屋", example:"Ich kaufe Brot in der Bäckerei.", translation:"私はパン屋でパンを買います。"},
+            {word:"Bank", pos:"名詞", gender:"die", plural:"Bänke", meaning:"ベンチ / 銀行", example:"Die Bank steht im Park.", translation:"ベンチが公園の中にあります。"},
+            {word:"Erdbeere", pos:"名詞", gender:"die", plural:"Erdbeeren", meaning:"イチゴ", example:"Die Erdbeere ist süß und rot.", translation:"そのイチゴは甘くて赤いです。"},
+            {word:"Fehler", pos:"名詞", gender:"der", plural:"Fehler", meaning:"間違い、ミス", example:"Er macht einen Fehler.", translation:"彼は間違いを犯します。"},
+            {word:"Feuer", pos:"名詞", gender:"das", plural:"Feuer", meaning:"火", example:"Das Feuer ist sehr warm.", translation:"その火はとても暖かいです。"},
+            {word:"Geburt", pos:"名詞", gender:"die", plural:"Geburten", meaning:"出産、誕生", example:"Vor der Geburt bleibt sie zu Hause.", translation:"ご出産の前に彼女は家に残ります。"},
+            {word:"Hauptbahnhof", pos:"名詞", gender:"der", plural:"Hauptbahnhöfe", meaning:"中央駅", example:"Der Bus fährt zum Hauptbahnhof.", translation:"バスは中央駅へ行きます。"},
+            {word:"Herr", pos:"名詞", gender:"der", plural:"Herren", meaning:"〜氏、男性", detail:"男性弱変化 (-n/-en)", example:"Herr Müller wohnt in Berlin.", translation:"ミュラーさんはベルリンに住んでいます。"},
+            {word:"Hochzeitsreise", pos:"名詞", gender:"die", plural:"Hochzeitsreisen", meaning:"新婚旅行", example:"Wir machen eine Hochzeitsreise nach Japan.", translation:"私たちは日本へ新婚旅行に行きます。"},
+            {word:"Hündin", pos:"名詞", gender:"die", plural:"Hündinnen", meaning:"雌犬", example:"Die Hündin schläft unter dem Tisch.", translation:"メス犬がテーブルの下で眠っています。"},
+            {word:"Kopf", pos:"名詞", gender:"der", plural:"Köpfe", meaning:"頭", example:"Er hält seinen Kopf.", translation:"彼は頭を押さえています。"},
+            {word:"Kopfschmerzen", pos:"名詞", gender:"die", plural:"-", meaning:"頭痛", detail:"Pl.のみ (複数形で使用)", example:"Ich habe heute Kopfschmerzen.", translation:"私は今日、頭痛があります。"},
+            {word:"Krebs", pos:"名詞", gender:"der", plural:"Krebse", meaning:"カニ、がん", example:"Das Kind sieht einen Krebs.", translation:"子供がカニを見ています。"},
+            {word:"Luft", pos:"名詞", gender:"die", plural:"Lüfte", meaning:"空気", example:"Die Luft im Wald ist frisch.", translation:"森の空気は新鮮です。"},
+            {word:"Markt", pos:"名詞", gender:"der", plural:"Märkte", meaning:"市場", example:"Ich kaufe Gemüse auf dem Markt.", translation:"私は市場で野菜を買います。"},
+            {word:"Mitarbeiter", pos:"名詞", gender:"der", plural:"Mitarbeiter", meaning:"同僚、従業員", example:"Der Mitarbeiter arbeitet in der Firma.", translation:"その社員は会社で働いています。"},
+            {word:"Mittag", pos:"名詞", gender:"der", plural:"Mittage", meaning:"正午、昼", example:"Am Mittag essen wir Reis.", translation:"昼に私たちはご飯を食べます。"},
+            {word:"Mittwoch", pos:"名詞", gender:"der", plural:"Mittwoche", meaning:"水曜日", example:"Am Mittwoch habe ich keine Zeit.", translation:"水曜日に私は時間がありません。"},
+            {word:"Möbel", pos:"名詞", gender:"die", plural:"Möbel", meaning:"家具", detail:"通常複数形で使用", example:"Die Möbel sind neu und schön.", translation:"その家具は新しくて美しいです。"},
+            {word:"Muße", pos:"名詞", gender:"die", plural:"-", meaning:"余暇、暇", example:"In der Muße liest er ein Buch.", translation:"ひまな時間に彼は本を読みます。"},
+            {word:"Nachricht", pos:"名詞", gender:"die", plural:"Nachrichten", meaning:"知らせ、メッセージ", example:"Ich schreibe eine Nachricht an meine Freundin.", translation:"私はガールフレンドにメッセージを書きます。"},
+            {word:"Papier", pos:"名詞", gender:"das", plural:"Papiere", meaning:"紙", example:"Ich brauche ein Papier.", translation:"私には紙が必要です。"},
+            {word:"Pfirsich", pos:"名詞", gender:"der", plural:"Pfirsiche", meaning:"桃", example:"Der Pfirsich ist rot und süß.", translation:"そのモモは赤くて甘いです。"},
+            {word:"Problem", pos:"名詞", gender:"das", plural:"Probleme", meaning:"問題", example:"Wir haben kein Problem.", translation:"私達には問題はありません。"},
+            {word:"Reise", pos:"名詞", gender:"die", plural:"Reisen", meaning:"旅行", example:"Die Reise nach Berlin macht Spaß.", translation:"ベルリンへの旅行は楽しいです。"},
+            {word:"Saft", pos:"名詞", gender:"der", plural:"Säfte", meaning:"ジュース", example:"Das Kind trinkt süßen Saft.", translation:"子供は甘いジュースを飲みます。"},
+            {word:"Schlag", pos:"名詞", gender:"der", plural:"Schläge", meaning:"打撃", example:"Das ist ein schwerer Schlag.", translation:"それは大きな打撃です。"},
+            {word:"Schokolade", pos:"名詞", gender:"die", plural:"Schokoladen", meaning:"チョコレート", example:"Kinder essen gern Schokolade.", translation:"子供たちはお菓子/チョコを喜んで食べます。"},
+            {word:"Schrank", pos:"名詞", gender:"der", plural:"Schränke", meaning:"戸棚、タンス", example:"Der Schrank steht im Zimmer.", translation:"タンスが部屋の中に置いてあります。"},
+            {word:"Schülerin", pos:"名詞", gender:"die", plural:"Schülerinnen", meaning:"生徒（女性）", example:"Die Schülerin lernt fleißig Deutsch.", translation:"その女子生徒は熱心にドイツ語を勉強します。"},
+            {word:"Tag", pos:"名詞", gender:"der", plural:"Tage", meaning:"日、1日", example:"Guten Tag! Wie heißen Sie?", translation:"こんにちは！お名前は何とおっしゃいますか？"},
+            {word:"Telefon", pos:"名詞", gender:"das", plural:"Telefone", meaning:"電話", example:"Das Telefon steht auf dem Schreibtisch.", translation:"電話が机の上に置いてあります。"},
+            {word:"Tomate", pos:"名詞", gender:"die", plural:"Tomaten", meaning:"トマト", example:"Ich kaufe frische Tomaten.", translation:"私は新鮮なトマトを買います。"},
+            {word:"Universität", pos:"名詞", gender:"die", plural:"Universitäten", meaning:"大学", example:"Sie studiert an der Universität.", translation:"彼女は大学で学んでいます。"},
+            {word:"Verlag", pos:"名詞", gender:"der", plural:"Verlage", meaning:"出版社", example:"Er arbeitet bei einem Verlag.", translation:"彼は出版社で働いています。"},
+            {word:"Welt", pos:"名詞", gender:"die", plural:"Welten", meaning:"世界", example:"Die Welt ist groß und schön.", translation:"世界は広くて美しいです。"},
+            {word:"Wochenstunde", pos:"名詞", gender:"die", plural:"Wochenstunden", meaning:"週あたりの授業時間", example:"Wir haben drei Wochenstunden Deutsch.", translation:"私たちは週に3時間のドイツ語授業があります。"},
+            {word:"Wurst", pos:"名詞", gender:"die", plural:"Würste", meaning:"ソーセージ", example:"Ich esse Brot mit Wurst.", translation:"私はソーセージを添えたパンを食べます。"},
+            {word:"Zahn", pos:"名詞", gender:"der", plural:"Zähne", meaning:"歯", example:"Der Zahn ist gesund.", translation:"その歯は健康です。"},
+            // --- 動詞 ---
+            {word:"bezahlen", pos:"動詞", meaning:"支払う", detail:"非分離動詞", conjugation:"ich bezahle, du bezahlst, er bezahlt", example:"Ich bezahle den Kaffee.", translation:"私はコーヒー代を支払います。"},
+            {word:"einladen", pos:"動詞", meaning:"招待する", detail:"分離動詞+幹母音変化(a→ä)", conjugation:"ich lade ein, du lädst ein, er lädt ein", example:"Er lädt seinen Freund ein.", translation:"彼は友人を招待します。"},
+            {word:"nennen", pos:"動詞", meaning:"名づける、呼ぶ", detail:"混合動詞", conjugation:"ich nenne, du nennst, er nennt", example:"Wie nennen Sie dieses Wort?", translation:"この単語を何と呼びますか？"},
+            {word:"schauen", pos:"動詞", meaning:"見る", detail:"規則動詞", conjugation:"ich schaue, du schaust, er schaut", example:"Das Kind schaut aus dem Fenster.", translation:"子供が窓から外を見ています。"},
+            {word:"vergessen", pos:"動詞", meaning:"忘れる", detail:"幹母音変化(e→i)", conjugation:"ich vergesse, du vergisst, er vergisst", example:"Er vergisst seinen Ausweis.", translation:"彼は身分証明書を忘れます。"},
+            {word:"zählen", pos:"動詞", meaning:"数える", detail:"規則動詞", conjugation:"ich zähle, du zählst, er zählt", example:"Er zählt das Geld.", translation:"彼はそのお金を数えます。"},
+            // --- 形容詞 ---
+            {word:"bequem", pos:"形容詞", meaning:"快適な", detail:"形容詞", example:"Der Stuhl ist sehr bequem.", translation:"その椅子はとても快適です。"},
+            {word:"bestimmt", pos:"形容詞", meaning:"きっと、確かに", detail:"形容詞", example:"Er kommt bestimmt heute.", translation:"彼はきっと今日来ます。"},
+            {word:"furchtbar", pos:"形容詞", meaning:"ひどい、恐ろしい", detail:"形容詞", example:"Das Wetter ist heute furchtbar.", translation:"今日の天気は恐ろしくひどいです。"},
+            {word:"schwierig", pos:"形容詞", meaning:"難しい", detail:"形容詞", example:"Die Prüfung ist sehr schwierig.", translation:"その試験はとても難しいです。"},
+            {word:"traurig", pos:"形容詞", meaning:"悲しい", detail:"形容詞", example:"Das Mädchen ist traurig.", translation:"その少女は悲しんでいます。"},
+            // --- 冠詞 ---
+            {word:"der", pos:"冠詞", meaning:"（男性1格）定冠詞", detail:"冠詞", example:"Der Mann ist sehr freundlich.", translation:"その男性はとても親切です。"},
+            {word:"die", pos:"冠詞", meaning:"（女性/複数1格）定冠詞", detail:"冠詞", example:"Die Frau wohnt in Berlin.", translation:"その女性はベルリンに住んでいます。"},
+            {word:"das", pos:"冠詞", meaning:"（中性1格）定冠詞", detail:"冠詞", example:"Das Kind spielt im Garten.", translation:"その子供は庭で遊んでいます。"},
+            {word:"den", pos:"冠詞", meaning:"（男性4格）定冠詞", detail:"冠詞", example:"Ich kenne den Mann gut.", translation:"私はその男性をよく知っています。"},
+            {word:"dem", pos:"冠詞", meaning:"（男性/中性3格）定冠詞", detail:"冠詞", example:"Das Buch liegt auf dem Tisch.", translation:"本はテーブルの上に置いてあります。"},
+            {word:"des", pos:"冠詞", meaning:"（男性/中性2格）定冠詞", detail:"冠詞", example:"Trotz des Regens gehen wir aus.", translation:"雨にもかかわらず私たちは外出します。"},
+            {word:"ein", pos:"冠詞", meaning:"（男性/中性1格）不定冠詞", detail:"冠詞", example:"Das ist ein altes Buch.", translation:"これは古い本です。"},
+            {word:"eine", pos:"冠詞", meaning:"（女性1格）不定冠詞", detail:"冠詞", example:"Sie kauft eine schöne Bluse.", translation:"彼女は美しいブラウスを買います。"},
+            {word:"einen", pos:"冠詞", meaning:"（男性4格）不定冠詞", detail:"冠詞", example:"Er schreibt einen Brief.", translation:"彼は手紙を書きます。"},
+            {word:"einem", pos:"冠詞", meaning:"（男性/中性3格）不定冠詞", detail:"冠詞", example:"Er hilft einem Kind.", translation:"彼は一人の子供を助けます。"},
+            {word:"einer", pos:"冠詞", meaning:"（女性3格・2格）不定冠詞", detail:"冠詞", example:"Er arbeitet bei einer Firma.", translation:"彼はある会社で働いています。"},
+            {word:"eines", pos:"冠詞", meaning:"（男性/中性2格）不定冠詞", detail:"冠詞", example:"Die Lage eines Hauses ist wichtig.", translation:"家の立地は重要です。"},
+            // --- 前置詞 ---
+            {word:"am", pos:"前置詞", meaning:"〜(時間)に、〜のところで", detail:"an+demの融合形", example:"Wir sitzen am Esstisch.", translation:"私たちは食卓に座っています。"},
+            {word:"im", pos:"前置詞", meaning:"〜の中で", detail:"in+demの融合形", example:"Im Sommer ist es warm.", translation:"夏は暖かいです。"},
+            {word:"ins", pos:"前置詞", meaning:"〜の中へ", detail:"in+dasの融合形", example:"Gehen wir heute ins Kino?", translation:"今日、映画館に行きましょうか？"},
+            {word:"zum", pos:"前置詞", meaning:"〜へ", detail:"zu+demの融合形", example:"Der Weg zum Bahnhof ist weit.", translation:"駅への道は遠いです。"},
+            {word:"zur", pos:"前置詞", meaning:"〜へ", detail:"zu+derの融合形", example:"Die Kinder gehen zur Schule.", translation:"子供たちは学校に行きます。"},
+            // --- 数詞 ---
+            {word:"zwei", pos:"数詞", meaning:"2、二つの", detail:"数詞", example:"Ich habe zwei Geschwister.", translation:"私には兄弟姉妹が2人います。"},
+            {word:"drei", pos:"数詞", meaning:"3、三つの", detail:"数詞", example:"Er kauft drei Bücher.", translation:"彼は本を3冊買います。"},
+            {word:"sechs", pos:"数詞", meaning:"6、六つの", detail:"数詞", example:"Ich bin um sechs Uhr zu Hause.", translation:"私は6時に家にいます。"},
+            {word:"sieben", pos:"数詞", meaning:"7、七つの", detail:"数詞", example:"Das Konzert beginnt um sieben Uhr.", translation:"コンサートは7時に始まります。"},
+            {word:"acht", pos:"数詞", meaning:"8、八つの", detail:"数詞", example:"Der Unterricht beginnt um acht Uhr.", translation:"授業は8時に始まります。"},
+            {word:"neun", pos:"数詞", meaning:"9、九つの", detail:"数詞", example:"Der Bus kommt um neun Uhr.", translation:"バスは9時に来ます。"},
+            {word:"zwölf", pos:"数詞", meaning:"12、十二の", detail:"数詞", example:"Um zwölf Uhr gibt es Mittagessen.", translation:"12時に昼食があります。"},
+            {word:"zwanzig", pos:"数詞", meaning:"20、二十の", detail:"数詞", example:"Er ist zwanzig Jahre alt.", translation:"彼は20歳です。"},
+            {word:"ersten", pos:"数詞", meaning:"最初の（序数）", detail:"数詞", example:"Er wohnt im ersten Stock.", translation:"彼は2階（最初の階層）に住んでいます。"},
+            // --- 代名詞 ---
+            {word:"sich", pos:"代名詞", meaning:"自分自身を/に", detail:"再帰代名詞", example:"Er interessiert sich für Politik.", translation:"彼は政治に関心を持っています。"},
+            // --- 固有名詞 ---
+            {word:"Berlin", pos:"固有名詞", meaning:"ベルリン（地名）", detail:"固有名詞", example:"Meine Schwester wohnt in Berlin.", translation:"私の姉妹はベルリンに住んでいます。"},
+            {word:"Tokio", pos:"固有名詞", meaning:"東京（地名）", detail:"固有名詞", example:"Meine Familie lebt in Tokio.", translation:"私の家族は東京に住んでいます。"},
+            {word:"Japan", pos:"固有名詞", meaning:"日本（国名）", detail:"固有名詞", example:"In Japan benutzt man Stäbchen.", translation:"日本では人々は箸を使います。"},
+            {word:"Müller", pos:"固有名詞", meaning:"ミュラー（人名・姓）", detail:"固有名詞", example:"Herr Müller kommt aus Berlin.", translation:"ミュラーさんはベルリン出身です。"},
+            // --- 形容詞 ---
+            {word:"geschlossen", pos:"形容詞", meaning:"閉まっている", detail:"形容詞", example:"Das Fenster ist geschlossen.", translation:"窓は閉まっています。"},
+            {word:"gekocht", pos:"形容詞", meaning:"調理された、ゆでた", detail:"形容詞", example:"Wir essen gekochte Kartoffeln.", translation:"私たちはゆでたジャガイモを食べます。"},
+            // --- 動詞 ---
+            {word:"spazieren", pos:"動詞", meaning:"散歩する（spazieren gehen）", detail:"規則動詞", conjugation:"ich spaziere, du spazierst, er spaziert", example:"Wir gehen im Park spazieren.", translation:"私たちは公園で散歩をします。"},
+            // --- 形容詞 ---
+            {word:"lang", pos:"形容詞", meaning:"長い", detail:"形容詞", example:"Er schreibt einen langen Bericht.", translation:"彼は長い報告書を書きます。"},
         ];
 
-        // クイズ用問題データ
+        // 文法選択問題 (全90問：Lektion 1〜8、指示人称はドイツ語主格表記)
         const grammarQuestions = [
-            { cat: 'grammar', q: "Er _____ sehr gut Deutsch sprechen.", ja: "彼はとても上手にドイツ語を話すことができます。", hint: "können の er (3人称単数) 現在形活用", options: ["kann", "kannst", "können", "könnt"], answer: 0, exp: "er に対する können の現在形は「kann」です。" },
-            { cat: 'grammar', q: "Heute Abend _____ ich zu Hause bleiben.", ja: "今晩、私は家にいなければなりません。", hint: "müssen の ich (1人称単数) 活用", options: ["muss", "musst", "müssen", "müsst"], answer: 0, exp: "ich に対する müssen の現在形は「muss」です。" },
-            { cat: 'grammar', q: "_____ du morgen zu mir kommen?", ja: "明日、私のところに来られますか？", hint: "können の du (2人称単数) 疑問文活用", options: ["Kannst", "Kann", "Können", "Könnt"], answer: 0, exp: "du に対する können の活用は「Kannst」です。" },
-            { cat: 'grammar', q: "Du _____ hier nicht tanzen.", ja: "ここで踊ってはいけません。", hint: "dürfen (許可・禁止) の du 活用", options: ["darfst", "darf", "dürfen", "dürft"], answer: 0, exp: "du に対する dürfen の活用は「darfst」です。" },
-            { cat: 'grammar', q: "Mein Bruder _____ eine Brille.", ja: "私の兄は眼鏡をかけています。", hint: "tragen の 3人称単数幹母音変化 (a -> ä)", options: ["trägt", "tragt", "tragen", "trägst"], answer: 0, exp: "tragen の 3人称単数形は「trägt」です。" },
-            { cat: 'grammar', q: "Petra _____ gern japanisch.", ja: "ペトラは日本料理を好んで食べます。", hint: "essen の 3人称単数幹母音変化 (e -> i)", options: ["isst", "esst", "essen", "isse"], answer: 0, exp: "essen の 3人称単数形は「isst」です。" },
-            { cat: 'grammar', q: "Der Zug _____ etwa eine Stunde Verspätung haben.", ja: "その列車は1時間ほど遅れるだろう。", hint: "推量 werden の 3人称単数活用", options: ["wird", "werde", "wirst", "werden"], answer: 0, exp: "Der Zug (er) に対する werden は「wird」です。" },
-            { cat: 'grammar', q: "Er _____ heute eine neue Bluse kaufen.", ja: "彼は今日、新しいブラウスを買うつもりです。", hint: "wollen の er 活用", options: ["will", "willst", "wollen", "wollt"], answer: 0, exp: "er に対する wollen は「will」です。" },
-            { cat: 'grammar', q: "Wir _____ am Wochenende unsere Großmutter besuchen.", ja: "私たちは週末、祖母を訪ねたいです。", hint: "möchten の wir 活用", options: ["möchten", "möchte", "möchtest", "mögst"], answer: 0, exp: "wir に対する möchten は「möchten」のままです。" },
-            { cat: 'grammar', q: "_____ ihr morgen Zeit?", ja: "君たちは明日時間がありますか？", hint: "haben の ihr 活用", options: ["Habt", "Hast", "Haben", "Hat"], answer: 0, exp: "ihr に対する haben は「Habt」です。" },
-            { cat: 'grammar', q: "Was _____ Sie von Beruf?", ja: "ご職業は何ですか？", hint: "sein の 敬称 Sie 活用", options: ["sind", "ist", "bist", "seid"], answer: 0, exp: "Sie に対する sein は「sind」です。" },
-            { cat: 'prep', q: "Wegen _____ Krankheit kommt er heute nicht.", ja: "病気のため、彼は今日来ません。", hint: "2格支配 wegen + die Krankheit (女性2格)", options: ["der", "des", "dem", "die"], answer: 0, exp: "wegen は2格支配。女性名詞 die の2格は「der」です。" },
-            { cat: 'prep', q: "Ich fahre mit _____ Freund nach Berlin.", ja: "私は友人と一緒にベルリンへ行きます。", hint: "3格支配 mit + mein Freund (男性3格)", options: ["meinem", "meinen", "meiner", "meines"], answer: 0, exp: "mit は3格支配。男性名詞の所有冠詞3格語尾は -em（meinem）です。" },
-            { cat: 'prep', q: "Das Buch liegt auf _____ Tisch.", ja: "その本は机の上にあります。", hint: "場所（静止＝3格） auf + der Tisch (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "静止を表す auf は3格。der Tisch の3格は「dem」です。" },
-            { cat: 'prep', q: "Sie geht in _____ Schule.", ja: "彼女は学校へ行きます。", hint: "方向（移動＝4格） in + die Schule (女性4格)", options: ["die", "der", "dem", "den"], answer: 0, exp: "移動を表す in は4格。die Schule の4格は「die」のままです。" },
-            { cat: 'prep', q: "Kannst du _____ kurz helfen?", ja: "あなたは【私を】少し手伝ってくれますか？", hint: "3格支配動詞 helfen + ich の 3格", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "helfen は3格をとります。ich の3格は「mir」です。" }
+            // Lektion 1: 動詞の現在人称変化(1) & 疑問文・定動詞2位
+            { cat: 'Lektion 1', q: "Mein Vater _____ gern Fisch und Gemüse.", ja: "私の父は好んで魚と野菜を食べます。", hint: "essen の 3人称単数幹母音変化 (e -> i)", options: ["isst", "esst", "essen", "isse"], answer: 0, exp: "Mein Vater (= er) に対する動詞 essen は幹母音変化をして isst となります。" },
+            { cat: 'Lektion 1', q: "_____ du morgen Zeit für einen Spaziergang?", ja: "明日散歩に行く時間はありますか？", hint: "haben の du 活用", options: ["Hast", "Habt", "Haben", "Hat"], answer: 0, exp: "du に対する haben の現在形活用は Hast です。" },
+            { cat: 'Lektion 1', q: "Wir _____ jeden Tag intensiv Deutsch.", ja: "私たちは毎日熱心にドイツ語を学びます。", hint: "lernen の wir 活用", options: ["lernen", "lernst", "lernt", "lerne"], answer: 0, exp: "wir に対する規則動詞 lernen の活用語尾は -en (lernen) です。" },
+            { cat: 'Lektion 1', q: "Wo _____ du, Peter?", ja: "ペーター、君はどこに住んでいますか？", hint: "wohnen の du 活用", options: ["wohnst", "wohne", "wohnt", "wohnen"], answer: 0, exp: "du に対する動詞 wohnen の活用語尾は -st (wohnst) です。" },
+            { cat: 'Lektion 1', q: "Ich _____ Student an der Uni Kyoto.", ja: "私は京都大学の学生です。", hint: "sein の ich 活用", options: ["bin", "bist", "ist", "sind"], answer: 0, exp: "ich に対する sein の活用は bin です。" },
+            { cat: 'Lektion 1', q: "_____ ihr morgen nach Tokio?", ja: "君たちは明日東京へ行きますか？", hint: "fahren の ihr 活用", options: ["Fahrt", "Fährst", "Fährt", "Fahren"], answer: 0, exp: "幹母音変化(a->ä)は du と er/sie/es のみ。ihr に対する fahren は fahrt です。" },
+            { cat: 'Lektion 1', q: "Frau Müller _____ sehr fleißig in der Firma.", ja: "ミュラーさんは会社でとても勤勉に働いています。", hint: "arbeiten の 3人称単数 (語幹末尾-tのためe挿入)", options: ["arbeitet", "arbeite", "arbeitst", "arbeiten"], answer: 0, exp: "語幹が -t で終わる arbeiten は、er/sie/es に対して e が挿入され arbeitet となります。" },
+            { cat: 'Lektion 1', q: "Wie _____ Sie, bitte?", ja: "お名前は何とおっしゃいますか？", hint: "heißen の 敬称 Sie 活用", options: ["heißen", "heißt", "heiße", "heißst"], answer: 0, exp: "敬称 Sie に対する動詞 heißen は原形と同じ heißen です。" },
+            { cat: 'Lektion 1', q: "Heute _____ ich keine Zeit.", ja: "今日、私は時間がありません。", hint: "定動詞2位の規則（時間副詞が1位に来るため動詞が2位）", options: ["habe", "haben", "hast", "hat"], answer: 0, exp: "時間副詞 Heute が文頭（第1位置）に来るため、動詞 habe が第2位置に配置されます。" },
+            { cat: 'Lektion 1', q: "_____ du Tee oder Kaffee?", ja: "君は紅茶を飲む、それともコーヒー？", hint: "trinken の du 活用", options: ["Trinkst", "Trinke", "Trinkt", "Trinken"], answer: 0, exp: "du に対する trinken の活用は Trinkst です。" },
+
+            // Lektion 2: 名詞・冠詞 (格変化 1〜4格)
+            { cat: 'Lektion 2', q: "Ich kaufe einen neuen _____.", ja: "私は新しい机を1つ買います。", hint: "男性4格 (einen) に続く男性名詞", options: ["Tisch", "Buch", "Lampe", "Haus"], answer: 0, exp: "einen は男性名詞4格の不定冠詞です。選択肢の中で男性名詞は Tisch (der Tisch) です。" },
+            { cat: 'Lektion 2', q: "Er besucht _____ Onkel in Berlin.", ja: "彼はベルリンのおじさんを訪問する。", hint: "訪問する(besuchen) + 男性4格(Onkel)", options: ["seinen", "seinem", "seiner", "seines"], answer: 0, exp: "besuchen は4格目的語をとります。男性名詞 Onkel の4格所有冠詞は seinen です。" },
+            { cat: 'Lektion 2', q: "Das ist das Haus _____ Lehrers.", ja: "これは先生の家です。", hint: "2格（〜の）：男性2格冠詞 des + 名詞語尾 -s/-es", options: ["des", "dem", "den", "der"], answer: 0, exp: "男性名詞 Lehrer の2格定冠詞は des となります。" },
+            { cat: 'Lektion 2', q: "Sie hilft _____ alten Frau.", ja: "彼女はそのおばあさんを助けます。", hint: "helfen (3格支配) + 女性3格 (die Frau -> der)", options: ["der", "die", "dem", "den"], answer: 0, exp: "動詞 helfen は3格目的語をとります。女性名詞 Frau の3格定冠詞は der です。" },
+            { cat: 'Lektion 2', q: "_____ Vater arbeitet im Büro.", ja: "私の父はオフィスで働いています。", hint: "男性1格 (主語)：mein", options: ["Mein", "Meinen", "Meinem", "Meines"], answer: 0, exp: "主語（1格）で男性名詞 Vater につく所有冠詞は Mein です。" },
+            { cat: 'Lektion 2', q: "Ich schenke _____ Kind einen Ball.", ja: "私はその子供にボールをプレゼントする。", hint: "与える(schenken) + 中性3格(Kind)", options: ["dem", "das", "den", "des"], answer: 0, exp: "「〜に」にあたる3格目的語。中性名詞 Kind の3格定冠詞は dem です。" },
+            { cat: 'Lektion 2', q: "Die Farbe _____ Autos ist rot.", ja: "その車の色は赤です。", hint: "中性2格 (das Auto -> des)", options: ["des", "dem", "das", "den"], answer: 0, exp: "「車の」という所有を表す2格。中性名詞 Auto の2格定冠詞は des です。" },
+
+            // Lektion 3: 名詞の複数形・人称代名詞の格変化
+            { cat: 'Lektion 3', q: "Wie geht es _____?", ja: "お元気ですか？（Sieのご機嫌はいかがですか？）", hint: "Wie geht es + 3格 (Sie の3格)", options: ["Ihnen", "Sie", "Ihr", "Ihn"], answer: 0, exp: "「Wie geht es + 3格?」の表現。敬称 Sie の3格形は Ihnen です。" },
+            { cat: 'Lektion 3', q: "Die _____ spielen fröhlich im Garten.", ja: "子供たちが庭で楽しそうに遊んでいます。", hint: "Kind の複数主格 (1格)", options: ["Kinder", "Kind", "Kindern", "Kindes"], answer: 0, exp: "Kind（中性名詞）の複数形は die Kinder です。" },
+            { cat: 'Lektion 3', q: "Ich kenne _____ schon seit vielen Jahren.", ja: "私は彼を何年も前から知っています。", hint: "動詞 kennen + er の4格", options: ["ihn", "ihm", "er", "sein"], answer: 0, exp: "kennen は4格目的語をとります。er の4格形は ihn です。" },
+            { cat: 'Lektion 3', q: "Gefällt _____ das neue Buch?", ja: "君はこの新しい本が気に入りましたか？", hint: "gefallen (3格支配) + du の3格", options: ["dir", "dich", "du", "dein"], answer: 0, exp: "gefallen は3格目的語をとります。du の3格形は dir です。" },
+            { cat: 'Lektion 3', q: "Wir danken _____ für die Einladung.", ja: "私たちはあなたに招待を感謝します。", hint: "danken (3格支配) + Sie の3格", options: ["Ihnen", "Sie", "Ihr", "Ihn"], answer: 0, exp: "danken は3格支配動詞です。Sie の3格は Ihnen です。" },
+            { cat: 'Lektion 3', q: "Er gibt _____ (ich) einen Apfel.", ja: "彼は私にリンゴをひとつくれる。", hint: "ich の 3格", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "「私に」を表す 1人称単数 (ich) の3格形は mir です。" },
+            { cat: 'Lektion 3', q: "Ich liebe _____ (du) sehr.", ja: "私は君をとても愛している。", hint: "du の 4格", options: ["dich", "dir", "du", "dein"], answer: 0, exp: "「君を」を表す 2人称単数 (du) の4格形は dich です。" },
+            { cat: 'Lektion 3', q: "Gehört dieser Schirm _____ (er)?", ja: "この傘は彼のもの（彼に属するもの）ですか？", hint: "gehören (3格支配) + er の3格", options: ["ihm", "ihn", "er", "sein"], answer: 0, exp: "gehören は3格支配動詞です。er の3格形は ihm です。" },
+
+            // Lektion 4: 冠詞類・否定表現
+            { cat: 'Lektion 4', q: "Ich habe heute _____ Geld dabei.", ja: "私は今日、お金を持ち合わせていません。", hint: "無冠詞名詞 (Geld) の否定には kein", options: ["kein", "nicht", "keine", "keinem"], answer: 0, exp: "無冠詞名詞 Geld（中性名詞）の否定には否定冠詞 kein を用います。" },
+            { cat: 'Lektion 4', q: "_____ Buch ist sehr interessant.", ja: "この本はとても面白いです。", hint: "指示冠詞 dieser (中性1格: Buch)", options: ["Dieses", "Dieser", "Diese", "Diesem"], answer: 0, exp: "Buch は中性名詞です。中性1格の指示冠詞は Dieses となります。" },
+            { cat: 'Lektion 4', q: "Er kommt heute _____ zur Schule.", ja: "彼は今日学校に来ない。", hint: "動詞文の否定には nicht", options: ["nicht", "kein", "keine", "keinen"], answer: 0, exp: "動詞や文全体を否定する場合は nicht を使用します。" },
+            { cat: 'Lektion 4', q: "_____ Mantel gehört dir?", ja: "どのコートが君のものですか？", hint: "疑問冠詞 welcher (男性1格: Mantel)", options: ["Welcher", "Welches", "Welche", "Welchem"], answer: 0, exp: "Mantel は男性名詞です。男性1格の疑問冠詞は Welcher です。" },
+            { cat: 'Lektion 4', q: "Jeder Student _____ eine Prüfung machen.", ja: "どの学生も試験を受けなければならない。", hint: "Jeder + 単数名詞 -> 3人称単数(er/sie/es)扱い", options: ["muss", "müssen", "müsst", "musst"], answer: 0, exp: "Jeder (〜の誰もが) に続く名詞は単数扱いとなるため、müssen は 3人称単数 muss となります。" },
+
+            // Lektion 5: 動詞の現在人称変化(2)[幹母音変化・分離/非分離]・命令表現
+            { cat: 'Lektion 5', q: "_____ du das neue Auto dort?", ja: "あそこにある新しい車が見えますか？", hint: "sehen の du 活用 (幹母音変化 e -> ie)", options: ["Siehst", "Sieht", "Sehen", "Sehst"], answer: 0, exp: "sehen は du に対して幹母音 e が ie に変化し Siehst になります。" },
+            { cat: 'Lektion 5', q: "_____ leise, bitte!", ja: "静かにしてください！（du に対する命令）", hint: "sein の du 命令形", options: ["Sei", "Bist", "Sein", "Seid"], answer: 0, exp: "sein の du に対する命令形は不規則で Sei となります。" },
+            { cat: 'Lektion 5', q: "_____ Sie bitte das Fenster!", ja: "窓を開けてください！（Sie に対する命令）", hint: "敬称 Sie に対する命令表現", options: ["Öffnen", "Öffnet", "Öffne", "Öffnest"], answer: 0, exp: "Sie に対する命令表現は「動詞原形 + Sie」の語順になります。" },
+            { cat: 'Lektion 5', q: "Der Zug _____ um 8 Uhr ab.", ja: "列車は8時に発車する。", hint: "分離動詞 abfahren の 3人称単数 (幹母音 a -> ä)", options: ["fährt", "fahre", "fahrt", "fahren"], answer: 0, exp: "分離動詞 abfahren の定動詞部分は fährt (幹母音変化) となり、前綴り ab は文末へ行きます。" },
+            { cat: 'Lektion 5', q: "Er _____ ein langes Buch.", ja: "彼は長い本を読んでいる。", hint: "lesen の 3人称単数 (幹母音 e -> ie)", options: ["liest", "lest", "lesen", "lieste"], answer: 0, exp: "lesen の er に対する活用は幹母音変化をして liest となります。" },
+            { cat: 'Lektion 5', q: "_____ jetzt nicht so viel!", ja: "今そんなにたくさん食べるな！（du に対する命令）", hint: "essen の du 命令形 (幹母音 e -> i, 語尾-st削除)", options: ["Iss", "Esst", "Essen", "Isst"], answer: 0, exp: "du に対する命令形では幹母音変化(e->i)が反映され、-st が除かれて Iss となります。" },
+
+            // Lektion 6: 前置詞 (2格・3格・4格・3/4格支配)
+            { cat: 'Lektion 6', q: "Er fährt jeden Morgen mit _____ Bus zur Uni.", ja: "彼は毎朝バスで大学へ行きます。", hint: "3格支配前置詞 mit + der Bus (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "前置詞 mit は常に3格支配です。男性名詞 der Bus の3格は dem です。" },
+            { cat: 'Lektion 6', q: "Das schöne Bild hängt an _____ Wand.", ja: "美しい絵が壁に掛かっています。", hint: "場所・静止(3格) an + die Wand (女性3格)", options: ["der", "die", "dem", "den"], answer: 0, exp: "状態（場所）を表す an は3格支配です。女性名詞 die Wand の3格は der です。" },
+            { cat: 'Lektion 6', q: "Das Geburtstagsgeschenk ist für _____ Mutter.", ja: "その誕生日プレゼントは母のためのものです。", hint: "4格支配前置詞 für + meine Mutter (女性4格)", options: ["meine", "meiner", "meinem", "meines"], answer: 0, exp: "für は常に4格支配です。女性名詞の所有冠詞4格は meine です。" },
+            { cat: 'Lektion 6', q: "Er stellt das Glas auf _____ Tisch.", ja: "彼はグラスをテーブルの上に置く（動作・移動）。", hint: "移動・方向(4格) auf + der Tisch (男性4格)", options: ["den", "dem", "der", "des"], answer: 0, exp: "動作・移動を表す auf は4格支配です。男性名詞 der Tisch の4格は den です。" },
+            { cat: 'Lektion 6', q: "Wir gehen nach _____ Unterricht nach Hause.", ja: "授業の後、私たちは帰宅します。", hint: "3格支配前置詞 nach + der Unterricht (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "前置詞 nach は常に3格支配です。男性名詞 Unterricht の3格は dem です。" },
+
+            // Lektion 7: 形容詞の付加詞的用法（形容詞変化）
+            { cat: 'Lektion 7', q: "Das ist ein _____ Haus.", ja: "これは大きな家です。", hint: "不定冠詞 (ein) + 中性1格の形容詞混合変化 (-es)", options: ["großes", "große", "großer", "großen"], answer: 0, exp: "中性1格の不定冠詞 ein に続く形容詞語尾は -es (ein großes Haus) となります。" },
+            { cat: 'Lektion 7', q: "Der _____ Mann trinkt einen heißen Kaffee.", ja: "その年老いた男性は温かいコーヒーを飲んでいます。", hint: "定冠詞 (der) + 男性1格の形容詞弱変化 (-e)", options: ["alte", "alter", "alten", "altes"], answer: 0, exp: "定冠詞 der に続く男性1格形容詞の語尾は -e (der alte Mann) となります。" },
+
+            // Lektion 8: 話法の助動詞 & 未来形 (werden + 原形)
+            { cat: 'Lektion 8', q: "Hier _____ man nicht rauchen.", ja: "ここではタバコを吸ってはいけません。", hint: "許可・禁止の dürfen + man (3人称単数扱い)", options: ["darf", "darfst", "dürfen", "dürft"], answer: 0, exp: "不定代名詞 man に対する dürfen の活用は darf です。" },
+            { cat: 'Lektion 8', q: "Nächstes Jahr _____ er nach Deutschland reisen.", ja: "来年、彼はドイツへ旅行する予定です。", hint: "未来形 (werden + 動詞原形) の er 活用", options: ["wird", "werde", "wirst", "werden"], answer: 0, exp: "未来形を表す werden の er に対する活用は wird です。" },
+            { cat: 'Lektion 8', q: "Ich _____ heute Abend gut schlafen.", ja: "私は今晩ぐっすり眠るだろう（推量・未来）。", hint: "werden の ich 活用", options: ["werde", "wirst", "wird", "werden"], answer: 0, exp: "ich に対する werden の活用は werde です。" },
+            { cat: 'Lektion 8', q: "_____ du mir bitte helfen?", ja: "私を助けてくれますか？ (能力・可能)", options: ["Kannst", "Kann", "Können", "Könnt"], answer: 0, exp: "du に対する können の活用は Kannst です。" },
+
+            // ミックス強化問題
+            { cat: 'Lektion 1', q: "_____ du Deutsch oder Französisch?", ja: "君はドイツ語を話しますか、それともフランス語？", hint: "sprechen (幹母音 e -> i)", options: ["Sprichst", "Sprecht", "Sprechen", "Spricht"], answer: 0, exp: "sprechen の du 活用は幹母音変化をして Sprichst となります。" },
+            { cat: 'Lektion 2', q: "Ich sehe _____ Hund im Garten.", ja: "私は庭に1匹の犬が見えます。", hint: "見かける(sehen) + 男性4格(einen Hund)", options: ["einen", "ein", "einem", "einer"], answer: 0, exp: "Hund は男性名詞です。4格目的語なので不定冠詞は einen です。" },
+            { cat: 'Lektion 3', q: "Sie gibt _____ (ich) das Buch.", ja: "彼女は私にその本をくれる。", hint: "ich の 3格", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "「私に」は ich の 3格 mir です。" },
+            { cat: 'Lektion 4', q: "Das ist _____ Auto, sondern ein Fahrrad.", ja: "これは車ではなく自転車です。", hint: "名詞句の否定 ... sondern (〜ではなく)", options: ["kein", "nicht", "keine", "keines"], answer: 0, exp: "Auto (中性名詞) の否定には kein を用います。" },
+            { cat: 'Lektion 5', q: "_____ du morgen zum Unterricht?", ja: "明日授業に来ますか？", hint: "kommen の du 活用", options: ["Kommst", "Kommt", "Kommen", "Komme"], answer: 0, exp: "du に対する kommen は Kommst です。" },
+            { cat: 'Lektion 6', q: "Er kommt aus _____ Schweiz.", ja: "彼はスイス出身です。", hint: "3格支配 aus + 女性国名 (die Schweiz -> der)", options: ["der", "die", "dem", "den"], answer: 0, exp: "前置詞 aus は3格支配。女性国名 die Schweiz の3格は der です。" },
+            { cat: 'Lektion 7', q: "Er kauft ein _____ Fahrrad.", ja: "彼は新しい自転車を買う。", hint: "不定冠詞 (ein) + 中性4格の形容詞混合変化 (-es)", options: ["neues", "neue", "neuer", "neuen"], answer: 0, exp: "中性4格の不定冠詞 ein に続く形容詞語尾は -es です。" },
+            { cat: 'Lektion 8', q: "Ich _____ morgen den Arzt besuchen.", ja: "私は明日医者を訪問するつもりだ（未来）。", hint: "werden の ich 活用", options: ["werde", "wirst", "wird", "werden"], answer: 0, exp: "ich に対する werden は werde です。" },
+            { cat: 'Lektion 1', q: "_____ ihr heute Zeit?", ja: "君たちは今日時間がありますか？", hint: "haben の ihr 活用", options: ["Habt", "Hast", "Haben", "Hat"], answer: 0, exp: "ihr に対する haben は Habt です。" },
+            { cat: 'Lektion 2', q: "Der Bleistift gehört _____ Lehrer.", ja: "その鉛筆は先生のもの（先生に属する）です。", hint: "gehören (3格支配) + 男性3格 (dem)", options: ["dem", "den", "der", "des"], answer: 0, exp: "gehören は3格支配です。男性 Lehrer の3格は dem です。" },
+            { cat: 'Lektion 3', q: "Wir laden _____ (ihr) herzlich ein.", ja: "私たちは君たちを心から招待します。", hint: "ihr の 4格", options: ["euch", "ihr", "euer", "ihnen"], answer: 0, exp: "「君たちを」を表す 2人称複数 (ihr) の4格形は euch です。" },
+            { cat: 'Lektion 4', q: "_____ Frau ist meine Lehrerin.", ja: "あの（この）女性は私の先生です。", hint: "指示冠詞 dieser (女性1格: Diese)", options: ["Diese", "Dieser", "Dieses", "Diesem"], answer: 0, exp: "Frau は女性名詞です。1格は Diese です。" },
+            { cat: 'Lektion 5', q: "Er _____ den Schlüssel auf den Tisch.", ja: "彼は鍵をテーブルの上に置く。", hint: "legen (置く) 3人称単数", options: ["legt", "legst", "legen", "lege"], answer: 0, exp: "er に対する legen は legt です。" },
+            { cat: 'Lektion 6', q: "Die Katze liegt unter _____ Bett.", ja: "猫はベッドの下に横たわっている（静止）。", hint: "場所・静止(3格) unter + das Bett (中性3格: dem)", options: ["dem", "das", "den", "des"], answer: 0, exp: "静止を表す unter は3格支配です。das Bett の3格は dem です。" },
+            { cat: 'Lektion 7', q: "Ein _____ Hund bellt im Garten.", ja: "大きな犬が庭で吠えている。", hint: "不定冠詞 ein + 男性1格の形容詞混合変化 (-er)", options: ["großer", "große", "großes", "großen"], answer: 0, exp: "男性1格 (ein) に続く形容詞語尾は -er (großer) です。" },
+            { cat: 'Lektion 8', q: "_____ ich hier mein Auto parken?", ja: "ここで車を駐車してもいいですか？ (許可)", hint: "dürfen の ich 活用", options: ["Darf", "Darfst", "Dürfen", "Dürft"], answer: 0, exp: "ich に対する dürfen は Darf です。" },
+            { cat: 'Lektion 1', q: "Woher _____ du?", ja: "君はどこから来ましたか（出身はどこですか）？", hint: "kommen の du 活用", options: ["kommst", "komme", "kommt", "kommen"], answer: 0, exp: "du に対する kommen は kommst です。" },
+            { cat: 'Lektion 2', q: "Das Buch _____ Kindes liegt hier.", ja: "その子供の本がここにある。", hint: "2格 (Kindes) に合う中性2格冠詞 (des)", options: ["des", "dem", "das", "den"], answer: 0, exp: "中性名詞 Kind の2格定冠詞は des です。" },
+            { cat: 'Lektion 3', q: "Er hilft _____ (sie) bei den Hausaufgaben.", ja: "彼は彼女の宿題を手伝う。", hint: "sie (彼女) の 3格", options: ["ihr", "sie", "ihnen", "ihre"], answer: 0, exp: "「彼女に」を表す 3人称単数女性 (sie) の3格形は ihr です。" },
+            { cat: 'Lektion 4', q: "_____ Kind spielt im Park?", ja: "どの子が公園で遊んでいますか？", hint: "疑問冠詞 welcher (中性1格: Welches)", options: ["Welches", "Welcher", "Welche", "Welchem"], answer: 0, exp: "Kind は中性名詞です。1格は Welches です。" },
+            { cat: 'Lektion 5', q: "_____ du gerne Apfelsaft?", ja: "君は好んでリンゴジュースを飲みますか？", hint: "trinken の du 活用", options: ["Trinkst", "Trinke", "Trinkt", "Trinken"], answer: 0, exp: "du に対する trinken は Trinkst です。" },
+            { cat: 'Lektion 6', q: "Wir gehen in _____ Kino.", ja: "私たちは映画館へ行きます（移動）。", hint: "方向・移動(4格) in + das Kino (中性4格: das)", options: ["das", "dem", "den", "des"], answer: 0, exp: "移動を表す in は4格支配です。das Kino の4格は das です。" },
+            { cat: 'Lektion 7', q: "Die _____ Blumen blühen im Frühling.", ja: "美しい花々が春に咲く。", hint: "定冠詞 die (複数1格) + 形容詞弱変化 (-en)", options: ["schönen", "schöne", "schöner", "schönes"], answer: 0, exp: "複数1格の定冠詞 die に続く形容詞語尾は -en です。" },
+            { cat: 'Lektion 8', q: "Du _____ deine Hausaufgaben machen.", ja: "君は宿題をしなければならない。", hint: "müssen の du 活用", options: ["musst", "muss", "müssen", "müsst"], answer: 0, exp: "du に対する müssen は musst です。" },
+            { cat: 'Lektion 1', q: "Er _____ Herr Schmidt.", ja: "彼はシュミット氏という名前です。", hint: "heißen の 3人称単数", options: ["heißt", "heiße", "heißen", "heißst"], answer: 0, exp: "er に対する heißen は heißt です。" },
+            { cat: 'Lektion 2', q: "Sie kauft eine _____ Tasche.", ja: "彼女は鞄を買う。", hint: "女性4格 (eine Tasche)", options: ["Tasche", "Tisch", "Buch", "Stuhl"], answer: 0, exp: "eine は女性名詞につく不定冠詞です。選択肢の中で女性名詞は Tasche です。" },
+            { cat: 'Lektion 3', q: "Gefällt es _____ (Sie)?", ja: "あなた方はそれが気に入りましたか？", hint: "Sie (敬称) の 3格", options: ["Ihnen", "Sie", "Ihr", "Ihn"], answer: 0, exp: "敬称 (Sie) の 3格形は Ihnen です。" },
+            { cat: 'Lektion 4', q: "Ich habe _____ Hunger.", ja: "私はお腹が空いていません（空腹がない）。", hint: "無冠詞名詞 Hunger の否定 (keinen)", options: ["keinen", "nicht", "kein", "keine"], answer: 0, exp: "Hunger は男性名詞です。4格の否定冠詞は keinen です。" },
+            { cat: 'Lektion 5', q: "_____ bitte nicht laut! (ihr に対する命令)", ja: "騒がしくしないでください！（君たちへ）", hint: "sein の ihr 命令形 (Seid!)", options: ["Seid", "Sei", "Sein", "Sind"], answer: 0, exp: "ihr (君たち) に対する sein の命令形は Seid! です。" },
+            { cat: 'Lektion 6', q: "Das Buch liegt auf _____ Tisch.", ja: "本はテーブルの上にある（静止）。", hint: "場所・静止(3格) auf + der Tisch (男性3格: dem)", options: ["dem", "den", "der", "des"], answer: 0, exp: "静止を表す auf は3格支配です。der Tisch の3格は dem です。" },
+            { cat: 'Lektion 7', q: "Er trinkt _____ Tee.", ja: "彼は温かい紅茶を飲む。", hint: "無冠詞 + 男性4格の形容詞強変化 (heißen)", options: ["heißen", "heißer", "heiße", "heißes"], answer: 0, exp: "無冠詞の男性4格修飾は語尾 -en (heißen) です。" },
+            { cat: 'Lektion 8', q: "Wir _____ im Sommer nach Deutschland reisen.", ja: "私たちは夏にドイツへ旅行するつもりだ。", hint: "wollen の wir 活用", options: ["wollen", "will", "wollt", "willst"], answer: 0, exp: "wir に対する wollen は wollen です。" },
+            { cat: 'Lektion 1', q: "Was _____ du beruflich?", ja: "君の職業は何ですか（何をしているのですか）？", hint: "machen の du 活用", options: ["machst", "mache", "macht", "machen"], answer: 0, exp: "du に対する machen は machst です。" },
+            { cat: 'Lektion 2', q: "Ich gebe _____ Mann den Schlüssel.", ja: "私はその男性に鍵を渡す。", hint: "男性3格 (dem)", options: ["dem", "den", "der", "des"], answer: 0, exp: "男性名詞 Mann の3格定冠詞は dem です。" },
+            { cat: 'Lektion 3', q: "Er schreibt _____ (ich) einen Brief.", ja: "彼は私に手紙を書く。", hint: "ich の 3格 (mir)", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "「私に」は ich の 3格 mir です。" },
+            { cat: 'Lektion 4', q: "_____ Auto gehört dem Professor.", ja: "この車は教授のものです。", hint: "指示冠詞 dieser (中性1格: Dieses)", options: ["Dieses", "Dieser", "Diese", "Diesem"], answer: 0, exp: "Auto は中性名詞です。1格指示冠詞は Dieses です。" },
+            { cat: 'Lektion 5', q: "Er _____ den Mantel an.", ja: "彼はコートを着る（身につける）。", hint: "分離動詞 anziehen の 3人称単数 (zieht)", options: ["zieht", "ziehe", "ziehtst", "ziehen"], answer: 0, exp: "分離動詞 anziehen の定動詞形は zieht です。" },
+            { cat: 'Lektion 6', q: "Er geht hinter _____ Haus.", ja: "彼は家の後ろへ行く（移動）。", hint: "移動(4格) hinter + das Haus (中性4格: das)", options: ["das", "dem", "den", "des"], answer: 0, exp: "移動を表す hinter は4格支配です。das Haus の4格は das です。" },
+            { cat: 'Lektion 7', q: "Guten _____! (良い一日を！)", ja: "こんにちは！ / 良い一日を！", hint: "男性4格 (einen guten Tag)", options: ["Tag", "Tage", "Tages", "Tagen"], answer: 0, exp: "Ich wünsche Ihnen einen guten Tag! の省略型です。" },
+            { cat: 'Lektion 8', q: "_____ du gut Deutsch sprechen?", ja: "君は上手にドイツ語を話せますか？", hint: "können の du 活用 (Kannst)", options: ["Kannst", "Kann", "Können", "Könnt"], answer: 0, exp: "du に対する können は Kannst です。" },
+            { cat: 'Lektion 1', q: "Am Sonntag _____ wir ins Museum.", ja: "日曜日に私たちは博物館へ行く。", hint: "定動詞2位の規則（Am Sonntagが1位のため動詞が2位）", options: ["gehen", "gehst", "geht", "gehe"], answer: 0, exp: "Am Sonntag (第1位置) + gehen (第2位置) + wir (主語倒置) です。" },
+            { cat: 'Lektion 2', q: "Das ist die Tasche _____ Mutter.", ja: "これは母の鞄です。", hint: "女性2格 (der)", options: ["der", "die", "dem", "des"], answer: 0, exp: "女性名詞 Mutter の2格定冠詞は der です。" },
+            { cat: 'Lektion 3', q: "Ich bringe _____ (er) das Buch.", ja: "私は彼に本を持っていく。", hint: "er の 3格 (ihm)", options: ["ihm", "ihn", "er", "sein"], answer: 0, exp: "「彼に」を表す er の3格形は ihm です。" },
+            { cat: 'Lektion 4', q: "Er trinkt _____ Alkohol.", ja: "彼はアルコール（お酒）を飲まない。", hint: "無冠詞名詞の否定 (keinen)", options: ["keinen", "nicht", "kein", "keine"], answer: 0, exp: "Alkohol は男性名詞です。4格否定冠詞は keinen です。" },
+            { cat: 'Lektion 5', q: "_____ Sie bitte hier! (Sie に対する命令)", ja: "どうぞここにお待ちください！", hint: "Warten Sie!", options: ["Warten", "Wartet", "Warte", "Wartest"], answer: 0, exp: "Sie に対する命令表現は Warten Sie! です。" },
+            { cat: 'Lektion 6', q: "Sie sitzt neben _____ Freundin.", ja: "彼女は友人の隣に座っている（静止）。", hint: "静止(3格) neben + ihre Freundin (女性3格: ihrer)", options: ["ihrer", "ihre", "ihrem", "ihres"], answer: 0, exp: "静止を表す neben は3格支配です。女性3格所有冠詞は ihrer です。" },
+            { cat: 'Lektion 7', q: "Das ist ein _____ Computer.", ja: "これは新しいコンピュータです。", hint: "不定冠詞 ein + 男性1格形容詞語尾 (-er)", options: ["neuer", "neue", "neues", "neuen"], answer: 0, exp: "男性1格 (ein) に続く形容詞語尾は -er (neuer) です。" },
+            { cat: 'Lektion 8', q: "Im nächsten Jahr _____ sie 20 Jahre alt.", ja: "来年、彼女は20歳になるでしょう（未来）。", hint: "werden の 3人称単数 (wird)", options: ["wird", "werde", "wirst", "werden"], answer: 0, exp: "sie (3人称単数) に対する werden は wird です。" }
         ];
 
+        // 単語並び替え問題 (全60問：Lektion 1〜8の学習範囲)
         const sentenceOrderingQuestions = [
+            { ja: "今夜、私は美味しいスープを作ります。", words: ["Heute", "Abend", "koche", "ich", "eine", "leckere", "Suppe"], exp: "時間(Heute Abend)が第1位置に来るため、動詞 koche が第2位置で主語 ich は倒置されます。" },
+            { ja: "学生は図書館で面白い本を読んでいます。", words: ["Der", "Student", "liest", "ein", "interessantes", "Buch", "in", "der", "Bibliothek"], exp: "主語 Der Student + 動詞2位 liest + 目的語 + 前置詞句 の構造です。" },
+            { ja: "朝食後、私はコーヒーを一杯飲みます。", words: ["Nach", "dem", "Frühstück", "trinke", "ich", "einen", "Kaffee"], exp: "前置詞句（Nach dem Frühstück）が第1位置、動詞 trinke が第2位置です。" },
+            { ja: "私の父は毎朝歩いて駅まで行きます。", words: ["Mein", "Vater", "geht", "jeden", "Morgen", "zu", "Fuß", "zum", "Bahnhof"], exp: "主語 + 動詞2位(geht) + 時間句(jeden Morgen) + 前置詞句 の順になります。" },
+            { ja: "残念ながら彼女は今日、時間を持っていません。", words: ["Leider", "hat", "sie", "heute", "keine", "Zeit"], exp: "副詞(Leider)が1位、動詞(hat)が2位となり、無冠詞名詞(Zeit)の否定には keine を用います。" },
+            { ja: "私はその男性を前から知っています。", words: ["Ich", "kenne", "diesen", "Mann", "schon", "lange"], exp: "主語 Ich + 動詞2位 kenne + 指示冠詞4格 diesen Mann の配置です。" },
+            { ja: "どうぞここに座って（お席をお取り）ください！", words: ["Nehmen", "Sie", "bitte", "hier", "Platz"], exp: "Sie に対する命令文では動詞原形(Nehmen)が文頭に来ます。" },
+            { ja: "月曜日に生徒は宿題を提出しなければならない。", words: ["Am", "Montag", "muss", "der", "Schüler", "die", "Hausaufgaben", "abgeben"], exp: "時(Am Montag)が1位、助動詞 muss が2位、文末に分離動詞原形 abgeben です。" },
+            { ja: "彼女は新しい本をカバンの中に入れます。", words: ["Sie", "steckt", "das", "neue", "Buch", "in", "die", "Tasche"], exp: "移動・方向を表す前置詞 in は4格支配(in die Tasche)となります。" },
+            { ja: "彼らは公園の大きな木の下で休みます。", words: ["Sie", "rasten", "unter", "dem", "großen", "Baum", "im", "Park"], exp: "場所・静止を表す unter は3格支配(unter dem großen Baum)です。" },
+            { ja: "小さな子供たちが庭で楽しそうに歌っています。", words: ["Kleine", "Kinder", "singen", "fröhlich", "im", "Garten"], exp: "無冠詞複数名詞を修飾する形容詞の強変化語尾は -e (Kleine Kinder) です。" },
+            { ja: "兄は私に面白い本を送ってくれました。", words: ["Mein", "Bruder", "schickt", "mir", "ein", "interessantes", "Buch"], exp: "3格目的語(mir)が4格目的語(ein interesantes Buch)の前に配置されます。" },
+            { ja: "明日の晩、私たちは家で美味しいピザを食べるでしょう。", words: ["Morgen", "Abend", "werden", "wir", "zu", "Hause", "eine", "leckere", "Pizza", "essen"], exp: "時(Morgen Abend)が1位、未来の助動詞(werden)が2位、本動詞原形(essen)が文末に来ます。" },
+            { ja: "今日、私は友人と映画館に行きたいです。", words: ["Heute", "möchte", "ich", "mit", "meinem", "Freund", "ins", "Kino", "gehen"], exp: "時間(Heute)が文頭に来るため定動詞(möchte)が2位、主語(ich)が倒置されます。本動詞原形(gehen)は文末です。" },
+            { ja: "彼は美しい花瓶をテーブルの上に置きます。", words: ["Er", "stellt", "die", "schöne", "Vase", "auf", "den", "Tisch"], exp: "移動を表す前置詞 auf は4格支配（auf den Tisch）です。" },
+            { ja: "私たちは週末にハイキングに行きたいです。", words: ["Wir", "möchten", "am", "Wochenende", "einen", "Ausflug", "machen"], exp: "話法の助動詞（möchten）が2位、本動詞原形（machen）が文末に置かれます。" },
+            { ja: "母はスーパーで新鮮な野菜を買います。", words: ["Meine", "Mutter", "kauft", "im", "Supermarkt", "frisches", "Gemüse"], exp: "主語 + 動詞2位（kauft）+ 場所 + 目的語 の語順です。" },
+            { ja: "悪天候のため、私たちは家に留まります。", words: ["Wegen", "des", "schlechten", "Wetters", "bleiben", "wir", "zu", "Hause"], exp: "理由の前置詞句（Wegen...）が第1位置のため、動詞 bleiben が2位に来ます。" },
+            { ja: "子供は庭で犬と遊んでいます。", words: ["Das", "Kind", "spielt", "mit", "dem", "Hund", "im", "Garten"], exp: "主語 + 動詞2位（spielt）+ 前置詞句 の配置です。" },
+            { ja: "台所で祖母がケーキを焼いています。", words: ["In", "der", "Küche", "backt", "die", "Großmutter", "einen", "Kuchen"], exp: "場所（In der Küche）が第1位置、動詞 backt が第2位置で倒置されています。" },
+            { ja: "彼女はバスで駅へ行きます。", words: ["Sie", "fährt", "mit", "dem", "Bus", "zum", "Bahnhof"], exp: "移動の動詞 fahren (幹母音変化 fährt) + 前置詞句 です。" },
             { ja: "私は今、京都に住んでいます。", words: ["Ich", "wohne", "jetzt", "in", "Kyoto"], exp: "定動詞2位の原則（Ich + wohne）です。" },
-            { ja: "ハンスは毎日コーヒーを飲みます。", words: ["Hans", "trinkt", "jeden", "Tag", "Kaffee"], exp: "主語 Hans + 動詞2位 trinkt + 時間 + 目的語 の配置です。" },
-            { ja: "彼はとても上手にドイツ語を話すことができます。", words: ["Er", "kann", "sehr", "gut", "Deutsch", "sprechen"], exp: "話法の助動詞（kann）が2位、本動詞原形（sprechen）が文末です。" },
-            { ja: "授業の後、私はすぐに帰宅します。", words: ["Nach", "dem", "Unterricht", "gehe", "ich", "sofort", "nach", "Hause"], exp: "前置詞句が第1位置に来るため、動詞 gehe が第2位置で主語 ich は倒置されます。" },
-            { ja: "病気のため、彼は今日来ません。", words: ["Wegen", "der", "Krankheit", "kommt", "er", "heute", "nicht"], exp: "理由（Wegen der Krankheit）が先頭に来るため動詞 kommt が2位です。" }
+            { ja: "彼はとても上手にドイツ語を話すことができます。", words: ["Er", "kann", "sehr", "gut", "Deutsch", "sprechen"], exp: "助動詞 kann が2位、原形 sprechen が文末の枠構造です。" },
+            { ja: "なぜ君は今日学校に行きたくないのですか？", words: ["Warum", "willst", "du", "heute", "nicht", "in", "die", "Schule", "gehen"], exp: "疑問詞 Warum + 助動詞2位 willst + 主語 du + 本動詞原形 gehen です。" },
+            { ja: "ウェイターは客にコーヒーを一杯持ってきます。", words: ["Der", "Kellner", "bringt", "dem", "Gast", "eine", "Tasse", "Kaffee"], exp: "主語 + 動詞2位 bringt + 3格目的語 (dem Gast) + 4格目的語 です。" },
+            { ja: "仕事の後、彼は友人とビールを飲みに行きます。", words: ["Nach", "der", "Arbeit", "geht", "er", "mit", "seinen", "Freunden", "ein", "Bier", "trinken"], exp: "前置詞句 Nach der Arbeit が1位、動詞 geht が2位で主語 er は倒置されます。" },
+            { ja: "夏に私たちは車でドイツへ行くつもりです。", words: ["Im", "Sommer", "wollen", "wir", "mit", "dem", "Auto", "nach", "Deutschland", "fahren"], exp: "時 Im Sommer が1位、助動詞 wollen が2位、文末に fahren です。" },
+            { ja: "風邪にもかかわらず、彼は今日オフィスで働かなければならない。", words: ["Trotz", "der", "Erkältung", "muss", "er", "heute", "im", "Büro", "arbeiten"], exp: "2格前置詞句 Trotz der Erkältung が1位、助動詞 muss が2位です。" },
+            { ja: "私の妹/姉は毎日1時間ヴァイオリンを練習します。", words: ["Meine", "Schwester", "spielt", "jeden", "Tag", "eine", "Stunde", "Geige"], exp: "主語 + 動詞2位 spielt + 時間句 + 目的語 です。" },
+            { ja: "壁には家族の美しい写真が掛かっています。", words: ["An", "der", "Wand", "hängt", "ein", "schönes", "Bild", "von", "der", "Familie"], exp: "場所 An der Wand が1位、動詞 hängt が2位で主語は倒置されます。" },
+            { ja: "警察官は通りでお年寄りを助けます。", words: ["Der", "Polizist", "hilft", "dem", "alten", "Mann", "auf", "der", "Straße"], exp: "主語 + 動詞2位 hilft (幹母音変化) + 3格目的語 です。" },
+            { ja: "明日一日中雨が降るだろう。", words: ["Morgen", "wird", "es", "den", "ganzen", "Tag", "regnen"], exp: "時 Morgen が1位、推量の助動詞 wird が2位、文末に原形 regnen です。" },
+            { ja: "彼は新しい新聞を食卓の上に置きます。", words: ["Er", "legt", "die", "neue", "Zeitung", "auf", "den", "Esstisch"], exp: "主語 + 動詞2位 legt + 目的語 + 移動の4格前置詞句（auf den Esstisch）です。" },
+            { ja: "何時に君は明日起きなければなりませんか？", words: ["Um", "wie", "viel", "Uhr", "musst", "du", "morgen", "aufstehen"], exp: "疑問フレーズが1位、助動詞 musst が2位、文末に aufstehen です。" },
+            { ja: "女子学生は教授の報告書を注意深く読みます。", words: ["Die", "Studentin", "liest", "den", "Bericht", "des", "Professors", "sehr", "aufmerksam"], exp: "主語 + 動詞2位 liest (幹母音変化) + 目的語 です。" },
+            { ja: "交通渋滞のため、バスは今日遅れて来ます。", words: ["Wegen", "des", "Verkehrs", "kommt", "der", "Bus", "heute", "zu", "spät"], exp: "2格理由句 Wegen des Verkehrs が1位、動詞 kommt が2位です。" },
+            { ja: "医師は病院で病気の患者を診察します。", words: ["Der", "Arzt", "untersucht", "den", "kranken", "Patienten", "im", "Krankenhaus"], exp: "主語 Der Arzt + 動詞2位 untersucht + 目的語 + 場所句 です。" },
+            { ja: "ここで私の自転車を止めてもいいですか？", words: ["Darf", "ich", "hier", "mein", "Fahrrad", "abstellen"], exp: "疑問文のため助動詞 Darf が先頭、文末に動詞原形 abstellen です。" },
+            { ja: "誕生日に父親は息子に新しい時計を贈ります。", words: ["Zum", "Geburtstag", "schenkt", "der", "Vater", "seinem", "Sohn", "eine", "neue", "Uhr"], exp: "時 Zum Geburtstag が1位、動詞 schenkt が2位で主語 der Vater は倒置です。" },
+            { ja: "私たちは今晩レストランで美味しい魚を食べたい。", words: ["Wir", "wollen", "heute", "Abend", "im", "Restaurant", "einen", "leckeren", "Fisch", "essen"], exp: "主語 + 助動詞 wollen + 時間・場所・目的語 + 文末原形 essen です。" },
+            { ja: "事務机の上に新しいボールペンがあります（横たわっている）。", words: ["Auf", "dem", "Schreibtisch", "liegt", "ein", "neuer", "Kugelschreiber"], exp: "場所句 Auf dem Schreibtisch が1位、動詞 liegt が2位です。" },
+            { ja: "1ヶ月前からエンジニアはベルリンでドイツ語を学んでいる。", words: ["Seit", "einem", "Monat", "lernt", "der", "Ingenieur", "in", "Berlin", "Deutsch"], exp: "前置詞句 Seit einem Monat が1位、動詞 lernt が2位で主語は倒置です。" },
+            { ja: "明日の朝、私は図書館で勉強します。", words: ["Morgen", "Früh", "lerne", "ich", "in", "der", "Bibliothek"], exp: "時 Morgen Früh が1位、動詞 lerne が2位です。" },
+            { ja: "彼らは古い家を買いたいと思っています。", words: ["Sie", "wollen", "ein", "altes", "Haus", "kaufen"], exp: "助動詞 wollen が2位、文末に原形 kaufen です。" },
+            { ja: "静かにしてください！(敬称 Sie)", words: ["Seien", "Sie", "bitte", "sehr", "leise"], exp: "sein の Sie に対する命令形は Seien Sie です。" },
+            { ja: "彼女は毎朝リンゴを1つ食べます。", words: ["Sie", "isst", "jeden", "Morgen", "einen", "Apfel"], exp: "動詞 isst (幹母音変化) が2位です。" },
+            { ja: "私の母は美味しいケーキを焼くことができる。", words: ["Meine", "Mutter", "kann", "einen", "leckeren", "Kuchen", "backen"], exp: "助動詞 kann が2位、文末に原形 backen です。" },
+            { ja: "雨にもかかわらず、子供たちは外で遊んでいる。", words: ["Trotz", "des", "Regens", "spielen", "die", "Kinder", "draußen"], exp: "2格前置詞句 Trotz des Regens が1位、動詞 spielen が2位です。" },
+            { ja: "君は私に本当のことを言わなければならない。", words: ["Du", "musst", "mir", "die", "Wahrheit", "sagen"], exp: "助動詞 musst が2位、3格目的語 mir、文末に原形 sagen です。" },
+            { ja: "彼は明日病院へ行くだろう（未来）。", words: ["Er", "wird", "morgen", "ins", "Krankenhaus", "gehen"], exp: "未来の助動詞 wird が2位、文末に原形 gehen です。" },
+            { ja: "教授は学生に難しい質問をする。", words: ["Der", "Professor", "stellt", "dem", "Studenten", "eine", "schwere", "Frage"], exp: "3格目的語 (dem Studenten: 男性弱変化) + 4格目的語 です。" },
+            { ja: "私たちは今晩お酒を飲んではいけません。", words: ["Wir", "dürfen", "heute", "Abend", "keinen", "Alkohol", "trinken"], exp: "助動詞 dürfen が2位、文末に原形 trinken です。" },
+            { ja: "犬はベッドの上に飛び乗る（移動）。", words: ["Der", "Hund", "springt", "auf", "das", "Bett"], exp: "移動の auf は4格支配 (auf das Bett) です。" },
+            { ja: "新しい車が市役所の前に止まっている。", words: ["Ein", "neues", "Auto", "steht", "vor", "dem", "Rathaus"], exp: "静止の vor は3格支配 (vor dem Rathaus) です。" },
+            { ja: "彼女は毎日友達に手紙を書きます。", words: ["Sie", "schreibt", "jeden", "Tag", "ihrer", "Freundin", "einen", "Brief"], exp: "3格目的語 (ihrer Freundin) + 4格目的語 です。" },
+            { ja: "ここでタバコを吸うことは許されていません。", words: ["Man", "darf", "hier", "nicht", "rauchen"], exp: "Man + 助動詞 darf が2位、文末に rauchen です。" },
+            { ja: "来年、彼は大学で物理学を勉強する予定です。", words: ["Nächstes", "Jahr", "wird", "er", "an", "der", "Uni", "Physik", "studieren"], exp: "時 Nächstes Jahr が1位、助動詞 wird が2位、文末に studieren です。" },
+            { ja: "どうぞこの本をお読みください！", words: ["Lesen", "Sie", "bitte", "dieses", "Buch"], exp: "Sie に対する命令文 Lesen Sie です。" },
+            { ja: "その少女は猫に温かいミルクをあげる。", words: ["Das", "Mädchen", "gibt", "der", "Katze", "warme", "Milch"], exp: "3格目的語 (der Katze) + 4格目的語 (warme Milch) です。" },
+            { ja: "朝食の前に彼は新聞を読みます。", words: ["Vor", "dem", "Frühstück", "liest", "er", "die", "Zeitung"], exp: "前置詞句 Vor dem Frühstück が1位、動詞 liest が2位です。" }
         ];
 
-        // クイズ状態管理変数
+        // QUIZ STATE
         let currentQuizQueue = [];
         let userAnswersState = [];
         let currentQuestionIndex = 0;
@@ -608,6 +1197,22 @@
 
         let userSelectedOrderWords = [];
         let availablePoolWords = [];
+
+        // 文頭の単語だけ大文字化されていると答えがバレてしまうため、
+        // 単語プールに並べる時だけ先頭の1文字を小文字にする
+        function decapFirst(str) {
+            if (!str) return str;
+            return str.charAt(0).toLowerCase() + str.slice(1);
+        }
+        function capFirst(str) {
+            if (!str) return str;
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+        function buildShuffledPool(words) {
+            if (!Array.isArray(words)) return [];
+            const disguised = words.map((w, idx) => idx === 0 ? decapFirst(w) : w);
+            return shuffle([...disguised]).map((w, id) => ({ id: id, text: w }));
+        }
 
         let activeDictCategory = 'ALL';
         let activeDictView = 'cards';
@@ -686,6 +1291,50 @@
 
             const found = wordList.find(w => w.word.toLowerCase() === tokenLower || (w.plural && w.plural.toLowerCase() === tokenLower));
             if (found) return found;
+
+            // 動詞の活用形 (conjugationフィールドに記載の ich/du/er 形など) から探す
+            // 例: 「kaufe」「isst」「hilft」→ conjugation欄に載っている活用形を検索
+            const conjFound = wordList.find(w => {
+                if (!w.conjugation) return false;
+                const forms = w.conjugation.toLowerCase().split(/[^a-zäöüß]+/).filter(Boolean);
+                return forms.includes(tokenLower);
+            });
+            if (conjFound) return conjFound;
+
+            // conjugation欄に載っていない規則変化形 (wir/ihr/sie形など) は
+            // 語尾を外して原形を推測する 例:「kauft」→「kauf」→「kaufen」
+            const verbEndings = ['est', 'st', 'et', 'en', 'e', 't'];
+            for (const ending of verbEndings) {
+                if (tokenLower.length > ending.length + 2 && tokenLower.endsWith(ending)) {
+                    const stem = tokenLower.slice(0, tokenLower.length - ending.length);
+                    const stemFound = wordList.find(w => w.pos === '動詞' &&
+                        (w.word.toLowerCase() === stem + 'en' || w.word.toLowerCase() === stem + 'n'));
+                    if (stemFound) return stemFound;
+                }
+            }
+
+            // 形容詞の格変化語尾 (-e/-en/-em/-er/-es) を外して原形を探す
+            // 例:「neuen」「schönen」「alten」→ 語尾を外して「neu」「schön」「alt」を検索
+            const adjEndings = ['esten', 'este', 'em', 'er', 'es', 'en', 'e'];
+            for (const ending of adjEndings) {
+                if (tokenLower.length > ending.length + 1 && tokenLower.endsWith(ending)) {
+                    const stem = tokenLower.slice(0, tokenLower.length - ending.length);
+                    const adjFound = wordList.find(w => w.pos === '形容詞' && w.word.toLowerCase() === stem);
+                    if (adjFound) return adjFound;
+                }
+            }
+
+            // 名詞の格変化語尾 (2格 -s/-es、3格複数 -n、弱変化名詞 -en/-n など) を外して探す
+            // 例:「Lehrers」→「Lehrer」、「Kindern」→ 複数形「Kinder」、「Studenten」→「Student」
+            const nounEndings = ['es', 'en', 'er', 's', 'n', 'e'];
+            for (const ending of nounEndings) {
+                if (tokenLower.length > ending.length + 1 && tokenLower.endsWith(ending)) {
+                    const stem = tokenLower.slice(0, tokenLower.length - ending.length);
+                    const nounFound = wordList.find(w => w.pos === '名詞' &&
+                        (w.word.toLowerCase() === stem || (w.plural && w.plural.toLowerCase() === stem)));
+                    if (nounFound) return nounFound;
+                }
+            }
 
             const commonMappings = {
                 "kann": { word: "können", pos: "助動詞", meaning: "〜できる (1/3単数)" },
@@ -778,7 +1427,13 @@
                             exp: `<b>【単数】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> die ${item.plural}`
                         };
                     } else {
-                        const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.meaning);
+                        // 【改修】問題の品詞と同じ品詞から間違え選択肢を作成
+                        const samePosWords = wordList.filter(w => w.pos === item.pos && w.word !== item.word && w.meaning !== item.meaning);
+                        let wrongList = shuffle(samePosWords).slice(0, 3).map(w => w.meaning);
+                        if (wrongList.length < 3) {
+                            const fallbackList = shuffle(wordList.filter(w => w.word !== item.word && w.meaning !== item.meaning && !wrongList.includes(w.meaning))).slice(0, 3 - wrongList.length).map(w => w.meaning);
+                            wrongList = [...wrongList, ...fallbackList];
+                        }
                         const options = shuffle([item.meaning, ...wrongList]);
                         let nounInfo = (item.pos === '名詞' && item.gender) ? `<br><b>【定冠詞】</b> ${item.gender} ${item.word}` : '';
                         return {
@@ -804,8 +1459,8 @@
                     const unrevealedSentence = q.q.replace('_____', '...');
                     return {
                         type: 'choice',
-                        title: q.cat === 'grammar' ? "動詞活用・助動詞" : "前置詞・格変化",
-                        badge: "文法",
+                        title: `${q.cat} 文法クイズ`,
+                        badge: q.cat,
                         q: q.q,
                         sub: "",
                         hint: q.hint || "",
@@ -997,11 +1652,7 @@
                     currentSpeakerWord = qData.correctSentence || '';
                 } else {
                     userSelectedOrderWords = [];
-                    if (Array.isArray(qData.correctWords)) {
-                        availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
-                    } else {
-                        availablePoolWords = [];
-                    }
+                    availablePoolWords = buildShuffledPool(qData.correctWords);
 
                     const btnCheck = document.getElementById('btn-check-order');
                     if (btnCheck) {
@@ -1084,7 +1735,8 @@
                 userSelectedOrderWords.forEach((item, index) => {
                     const chip = document.createElement('button');
                     chip.className = "px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 flex items-center gap-1.5 touch-manipulation";
-                    chip.innerHTML = `<span>${item.text}</span> <i class="fa-solid fa-xmark text-xs text-amber-200"></i>`;
+                    const displayText = index === 0 ? capFirst(item.text) : item.text;
+                    chip.innerHTML = `<span>${displayText}</span> <i class="fa-solid fa-xmark text-xs text-amber-200"></i>`;
                     chip.onclick = () => deselectOrderWord(index);
                     if (userBox) userBox.appendChild(chip);
                 });
@@ -1117,7 +1769,7 @@
             const qData = currentQuizQueue[currentQuestionIndex];
             if (!qData || !Array.isArray(qData.correctWords)) return;
             userSelectedOrderWords = [];
-            availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
+            availablePoolWords = buildShuffledPool(qData.correctWords);
             renderOrderingBoxes();
         }
 
@@ -1130,7 +1782,8 @@
             }
 
             const userSentence = userSelectedOrderWords.map(w => w.text).join(" ");
-            const isCorrect = (userSentence === qData.correctSentence);
+            // 単語プールでは先頭単語の大文字を隠しているため、大文字小文字を区別せず判定する
+            const isCorrect = (userSentence.toLowerCase() === qData.correctSentence.toLowerCase());
 
             userAnswersState[currentQuestionIndex] = {
                 ...(userAnswersState[currentQuestionIndex] || {}),
@@ -1283,8 +1936,10 @@
                 let matchCategory = false;
                 if (activeDictCategory === 'ALL') {
                     matchCategory = true;
-                } else if (activeDictCategory === '代名詞・冠詞') {
-                    matchCategory = (item.pos === '代名詞・冠詞');
+                } else if (activeDictCategory === '名詞') {
+                    matchCategory = (item.pos === '名詞' || item.pos === '固有名詞');
+                } else if (activeDictCategory === 'その他') {
+                    matchCategory = ['前置詞', '代名詞', '冠詞', '数詞', '接続詞'].includes(item.pos);
                 } else {
                     matchCategory = (item.pos === activeDictCategory);
                 }
@@ -1292,7 +1947,9 @@
                 const matchSearch = item.word.toLowerCase().includes(searchVal) || 
                                     item.meaning.includes(searchVal) ||
                                     (item.plural && item.plural.toLowerCase().includes(searchVal)) ||
-                                    (item.conjugation && item.conjugation.toLowerCase().includes(searchVal));
+                                    (item.conjugation && item.conjugation.toLowerCase().includes(searchVal)) ||
+                                    (item.example && item.example.toLowerCase().includes(searchVal)) ||
+                                    (item.translation && item.translation.includes(searchVal));
                 return matchCategory && matchSearch;
             });
 
@@ -1344,8 +2001,16 @@
                     genderColor = 'bg-sky-50 border-sky-200 text-sky-900';
                 } else if (item.pos === '前置詞') {
                     genderColor = 'bg-orange-50 border-orange-200 text-orange-900';
-                } else if (item.pos === '代名詞・冠詞') {
+                } else if (item.pos === '代名詞') {
                     genderColor = 'bg-teal-50 border-teal-200 text-teal-900';
+                } else if (item.pos === '冠詞') {
+                    genderColor = 'bg-cyan-50 border-cyan-200 text-cyan-900';
+                } else if (item.pos === '数詞') {
+                    genderColor = 'bg-lime-50 border-lime-200 text-lime-900';
+                } else if (item.pos === '固有名詞') {
+                    genderColor = 'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-900';
+                } else if (item.pos === '接続詞') {
+                    genderColor = 'bg-stone-100 border-stone-300 text-stone-800';
                 }
 
                 const pluralText = (item.plural && item.plural !== '-') ? `複数: die ${item.plural}` : '';
@@ -1356,7 +2021,7 @@
                     conjHtml = `
                         <div class="mt-1.5 pt-1.5 border-t border-sky-200/60">
                             <button onclick="toggleVerbConjugation('vcard-${idx}', event)" class="inline-flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 transition bg-white/80 px-2 py-0.5 rounded border border-sky-300">
-                                ⚡️ 活用を見る/閉じる <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                                活用を見る/閉じる <i class="fa-solid fa-chevron-down text-[10px]"></i>
                             </button>
                             <div id="conj-vcard-${idx}" class="hidden mt-1 p-2 bg-white/90 rounded border border-sky-200 text-xs font-mono text-slate-800 leading-relaxed animate-fade-in">
                                 ${item.conjugation}
@@ -1374,8 +2039,13 @@
                             ${detailNote.includes('弱変化') ? `<span class="text-xs font-bold bg-amber-200 text-amber-900 px-1.5 py-0.5 rounded">${detailNote}</span>` : ''}
                         </div>
                         <div class="text-xs sm:text-sm font-bold text-slate-800">${item.meaning}</div>
-                        ${pluralText ? `<div class="text-xs text-slate-600 mt-0.5">📌 ${pluralText}</div>` : ''}
+                        ${pluralText ? `<div class="text-xs text-slate-600 mt-0.5">${pluralText}</div>` : ''}
                         ${conjHtml}
+                        ${(item.example || item.translation) ? `
+                        <div class="mt-1.5 pt-1.5 border-t border-slate-300/50 text-xs leading-snug">
+                            <div class="text-slate-700 italic">${item.example || ''}</div>
+                            <div class="text-slate-500 mt-0.5">→ ${item.translation || ''}</div>
+                        </div>` : ''}
                     </div>
                     <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-600 p-1 shrink-0 ml-1">
                         <i class="fa-solid fa-volume-high text-sm"></i>
@@ -1418,6 +2088,15 @@
             } else {
                 conjElem.classList.add('hidden');
                 conjElem.innerText = '';
+            }
+
+            const exampleElem = document.getElementById('fc-back-example');
+            if (item.example || item.translation) {
+                exampleElem.classList.remove('hidden');
+                document.getElementById('fc-back-example-de').innerText = `${item.example || ''}`;
+                document.getElementById('fc-back-example-ja').innerText = `→ ${item.translation || ''}`;
+            } else {
+                exampleElem.classList.add('hidden');
             }
 
             const inner = document.getElementById('flashcard-inner');
@@ -1465,7 +2144,7 @@
             return array;
         }
 
-        // Initialize Page
+        // Page Init
         showSection('home');
     </script>
 </body>
