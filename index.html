@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ドイツ語マスタークイズ & 単語帳</title>
-    <!-- 検索エンジンインデックス設定（必要に応じて変更） -->
+    <!-- 検索エンジンインデックス設定 -->
     <meta name="robots" content="index, follow">
     <meta name="description" content="ドイツ語の初学者向け無料学習Webアプリ。名詞の性(der/die/das)・複数形、動詞活用、前置詞の格変化、日本語例文からの語順並び替え問題を収録。">
     
@@ -37,7 +37,7 @@
                     <p class="text-[10px] sm:text-xs text-amber-300 truncate">問題集クイズ & 単語帳</p>
                 </div>
             </div>
-            <!-- Navigation Buttons (折り返し防止指定) -->
+            <!-- Navigation Buttons -->
             <nav class="flex space-x-1.5 sm:space-x-2 text-xs sm:text-sm font-medium shrink-0">
                 <button onclick="showSection('home')" id="nav-home" class="px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition flex items-center gap-1 whitespace-nowrap shrink-0">
                     <i class="fa-solid fa-house text-xs"></i> ホーム
@@ -58,7 +58,7 @@
                 <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-100 rounded-full opacity-50 blur-xl pointer-events-none"></div>
                 <h2 class="text-2xl font-bold text-slate-800 mb-2">ドイツ語文法・語彙クイズ</h2>
                 <p class="text-slate-600 text-sm max-w-xl mx-auto">
-                    問題集に含まれる250以上の名詞（性と複数形）、80以上の動詞、前置詞・語順・格変化から出題されます。
+                    問題集に含まれる250以上の名詞（性と複数形）、動詞、前置詞・語順・格変化から出題されます。
                 </p>
             </div>
 
@@ -72,7 +72,7 @@
                     <div class="flex-1">
                         <h3 class="font-bold text-lg text-slate-800 group-hover:text-amber-600 transition">1. 名詞の性・定冠詞 & 複数形</h3>
                         <p class="text-xs text-slate-500 mt-1">der/die/dasの性判別、および名詞の複数形を選ぶ問題</p>
-                        <span class="inline-block mt-2 text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">性 & 複数形特訓</span>
+                        <span class="inline-block mt-2 text-xs font-semibold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">定冠詞 & 複数形特訓</span>
                     </div>
                 </div>
 
@@ -95,7 +95,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg text-slate-800 group-hover:text-emerald-600 transition">3. 動詞活用・話法の助動詞</h3>
-                        <p class="text-xs text-slate-500 mt-1">人称変化（können, müssen, fahren等）の穴埋め</p>
+                        <p class="text-xs text-slate-500 mt-1">人称変化（können, müssen, werden等）の穴埋め</p>
                         <span class="inline-block mt-2 text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">ヒント表示あり</span>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="font-bold text-lg text-slate-800 group-hover:text-purple-600 transition">4. 前置詞と格変化</h3>
-                        <p class="text-xs text-slate-500 mt-1">3格/4格支配、2格支配前置詞、縮約形クイズ</p>
+                        <p class="text-xs text-slate-500 mt-1">3格/4格支配、2格支配前置詞、代名詞格変化</p>
                         <span class="inline-block mt-2 text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-0.5 rounded">ヒント表示あり</span>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                     <span id="quiz-counter" class="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-1 rounded-full whitespace-nowrap">1 / 10</span>
                 </div>
 
-                <!-- Right Top: Next Question Button (Appears on Answer) -->
+                <!-- Right Top: Next Question Button -->
                 <button id="btn-next-header" onclick="nextQuestion()" class="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-white bg-amber-500 hover:bg-amber-600 rounded-lg shadow-sm transition flex items-center gap-1 opacity-0 pointer-events-none whitespace-nowrap shrink-0">
                     次の問題 <i class="fa-solid fa-chevron-right text-xs"></i>
                 </button>
@@ -171,9 +171,9 @@
                     </div>
                 </div>
 
-                <!-- Audio Button (Word only) -->
+                <!-- Audio Button -->
                 <button id="btn-audio" onclick="speakCurrentWord()" class="mb-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-700 rounded-lg text-xs font-semibold transition">
-                    <i class="fa-solid fa-volume-high"></i> 単語の発音を聞く
+                    <i class="fa-solid fa-volume-high"></i> 発音を聞く
                 </button>
 
                 <!-- TYPE 1: Choices Grid -->
@@ -213,13 +213,13 @@
                         <!-- Icon & Result -->
                     </div>
                     
-                    <!-- Japanese Translation Area -->
+                    <!-- Japanese / Target Translation Area -->
                     <div id="explanation-ja-box" class="hidden mb-3 p-2.5 bg-white/70 border border-slate-200 rounded-lg text-xs sm:text-sm font-semibold text-slate-700">
                         <!-- Japanese Translation -->
                     </div>
 
-                    <!-- Grammar Explanation Area -->
-                    <div id="explanation-exp-box" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    <!-- Grammar & Noun Detail Explanation Area -->
+                    <div id="explanation-exp-box" class="text-xs sm:text-sm text-slate-700 leading-relaxed space-y-1">
                         <!-- Explanation Text -->
                     </div>
 
@@ -300,7 +300,7 @@
 
     <!-- App Data & Logic -->
     <script>
-        // MASTER WORD LIST DATA
+        // MASTER WORD LIST DATA (With Plurals)
         const wordList = [
             // 名詞 (性と複数形)
             { word: "Anfang", pos: "名詞", gender: "der", plural: "Anfänge", detail: "m. (男性)", meaning: "開始、はじめ" },
@@ -464,6 +464,7 @@
 
         // CATEGORY 3 & 4 GRAMMAR QUESTIONS
         const grammarQuestions = [
+            // 動詞活用・話法の助動詞・未来形
             {
                 cat: 'grammar',
                 q: "Er _____ sehr gut Deutsch sprechen.",
@@ -494,7 +495,7 @@
             {
                 cat: 'grammar',
                 q: "Du _____ hier nicht tanzen.",
-                ja: "ここで踊ってはいけません。",
+                ja: "ここで踊してはいけません。",
                 hint: "許可・禁止の助動詞 dürfen (〜してもよい) + nicht (〜してはいけない)。主語は du。",
                 options: ["darfst", "darf", "dürfen", "dürft"],
                 answer: 0,
@@ -518,6 +519,62 @@
                 answer: 0,
                 exp: "essen は e -> i の幹母音変化動詞です。3人称単数形は「isst」となります。"
             },
+            {
+                cat: 'grammar',
+                q: "Der Zug _____ etwa eine Stunde Verspätung haben.",
+                ja: "その列車は1時間ほど遅れるだろう。",
+                hint: "推量の助動詞 werden の 3人称単数（Der Zug = er）に対する活用。",
+                options: ["wird", "werde", "wirst", "werden"],
+                answer: 0,
+                exp: "助動詞 werden の 3人称単数形（er / sie / es / Der Zug）は「wird」となります。"
+            },
+            {
+                cat: 'grammar',
+                q: "_____ du mir kurz helfen?",
+                ja: "手伝ってくれますか？",
+                hint: "können (〜できる) の du に対する疑問文活用形。",
+                options: ["Kannst", "Kann", "Könnt", "Können"],
+                answer: 0,
+                exp: "du（2人称単数）に対する können の活用形は「Kannst」です。"
+            },
+            {
+                cat: 'grammar',
+                q: "Er _____ heute eine neue Bluse kaufen.",
+                ja: "彼は今日、新しいブラウスを買うつもりです。",
+                hint: "意志の助動詞 wollen (〜するつもりだ) の er に対する現在形活用。",
+                options: ["will", "willst", "wollen", "wollt"],
+                answer: 0,
+                exp: "wollen の 1人称・3人称単数現在形は「will」になります。"
+            },
+            {
+                cat: 'grammar',
+                q: "Wir _____ am Wochenende unsere Großmutter besuchen.",
+                ja: "私たちは週末、祖母を訪ねたいです。",
+                hint: "願望の助動詞 möchten (〜したい) の wir に対する活用。",
+                options: ["möchten", "möchte", "möchtest", "mögst"],
+                answer: 0,
+                exp: "wir に対する 助動詞 möchten は「möchten」のまま変化しません。"
+            },
+            {
+                cat: 'grammar',
+                q: "_____ ihr morgen Zeit?",
+                ja: "君たちは明日時間がありますか？",
+                hint: "動詞 haben (持っている・ある) の ihr (2人称複数) に対する活用。",
+                options: ["Habt", "Hast", "Haben", "Hat"],
+                answer: 0,
+                exp: "ihr（君たち）に対する haben の活用形は「Habt」です。"
+            },
+            {
+                cat: 'grammar',
+                q: "Was _____ Sie von Beruf?",
+                ja: "ご職業は何ですか？",
+                hint: "Be動詞 sein の 敬称 Sie に対する現在形活用。",
+                options: ["sind", "ist", "bist", "seid"],
+                answer: 0,
+                exp: "敬称 Sie に対する Be動詞 sein の活用形は「sind」となります。"
+            },
+
+            // 前置詞・格変化・代名詞
             {
                 cat: 'prep',
                 q: "Wegen _____ Krankheit kommt er heute nicht.",
@@ -553,6 +610,60 @@
                 options: ["die", "der", "dem", "den"],
                 answer: 0,
                 exp: "「〜の中へ（行く）」という移動・方向を表す in は4格をとります。女性名詞 die の4格は「die」のままです。"
+            },
+            {
+                cat: 'prep',
+                q: "Der Junge spielt mit sein_____ Schwester.",
+                ja: "その男の子は彼の姉/妹と遊んでいる。",
+                hint: "3格支配の前置詞 mit + seine Schwester (女性名詞3格)。",
+                options: ["er", "em", "en", "es"],
+                answer: 0,
+                exp: "mit は3格支配です。女性名詞の所有冠詞 3格語尾は -er（seiner）となります。"
+            },
+            {
+                cat: 'prep',
+                q: "Der Garten liegt zwischen dem Haus und _____ Wald.",
+                ja: "庭は家と森の間に位置している。",
+                hint: "場所（静止＝3格支配） zwischen + der Wald (男性名詞3格)。",
+                options: ["dem", "den", "der", "des"],
+                answer: 0,
+                exp: "位置・静止を表す zwischen は3格をとります。男性名詞 der Wald の3格定冠詞は「dem」です。"
+            },
+            {
+                cat: 'prep',
+                q: "Das Geschenk ist für _____ Mutter.",
+                ja: "そのプレゼントは私の母のためです。",
+                hint: "4格支配の前置詞 für + meine Mutter (女性名詞4格)。",
+                options: ["meine", "meiner", "meinem", "meines"],
+                answer: 0,
+                exp: "前置詞 für は4格支配です。女性名詞の所有冠詞4格は「meine」のまま変化しません。"
+            },
+            {
+                cat: 'prep',
+                q: "Er schenkt _____ ein Buch.",
+                ja: "彼は彼女に一冊の本を贈ります。",
+                hint: "「彼女に」を表す人称代名詞3格 (sie -> ?)",
+                options: ["ihr", "sie", "ihnen", "ihm"],
+                answer: 0,
+                exp: "人称代名詞 sie（彼女）の3格（〜に）は「ihr」となります。"
+            },
+            {
+                cat: 'prep',
+                q: "Kannst du _____ kurz helfen?",
+                ja: "私を少し手伝ってくれますか？",
+                hint: "動詞 helfen は3格をとるため、「私に」を表す人称代名詞3格 (ich -> ?)",
+                options: ["mir", "mich", "ich", "mein"],
+                answer: 0,
+                exp: "helfen は3格支配動詞です。1人称単数 ich の3格は「mir」になります。"
+            },
+            {
+                cat: 'prep',
+                q: "Während _____ Sommers reisen viele Menschen.",
+                ja: "夏の間、多くの人が旅行します。",
+                hint: "2格支配の前置詞 während + der Sommer (男性名詞2格)。",
+                options: ["des", "der", "dem", "den"],
+                answer: 0,
+                exp: "前置詞 während は2格を支配します。男性名詞 der の2格定冠詞は「des」です。（Sommersと-sが付く）"
             }
         ];
 
@@ -609,14 +720,29 @@
                 exp: "動詞 danken（感謝する）は常に【3格目的語】をとります。男性名詞 Mann の3格不定冠詞は einem となります。"
             },
             {
-                ja: "少し手伝ってくれますか？",
-                words: ["Kannst", "du", "mir", "kurz", "helfen?"],
-                exp: "疑問文のため助動詞 Kannst が先頭に来ます。動詞 helfen は3格をとるため代名詞 mir（私に）が使われます。"
+                ja: "君は自転車を持っているかい？ — いいや、でも僕はバイクを持っているよ。",
+                words: ["Hast", "du", "ein", "Fahrrad?", "-", "Nein,", "aber", "ich", "habe", "ein", "Motorrad."],
+                exp: "疑問文は動詞 Hast で始まり、後半は並列接続詞 aber の直後に通常の S+V 語順（ich habe）が続きます。"
             },
             {
                 ja: "この本はその先生のものです。",
                 words: ["Das", "Buch", "gehört", "dem", "Lehrer."],
                 exp: "動詞 gehören（〜のものである）は3格支配です。男性名詞 Lehrer の3格定冠詞 dem と組み合わさります。"
+            },
+            {
+                ja: "病気のため、彼は今日来ません。",
+                words: ["Wegen", "der", "Krankheit", "kommt", "er", "heute", "nicht."],
+                exp: "理由（Wegen der Krankheit: 2格）が先頭にあるため、定動詞 kommt が第2位、主語 er が倒置されます。"
+            },
+            {
+                ja: "母は今夜、魚を料理します。",
+                words: ["Meine", "Mutter", "kocht", "heute", "Abend", "Fisch."],
+                exp: "主語 Meine Mutter + 動詞2位 kocht + 時間 heute Abend + 目的語 Fisch の配置です。"
+            },
+            {
+                ja: "その少女は美しい童話を読んでいます。",
+                words: ["Das", "Mädchen", "liest", "ein", "schönes", "Märchen."],
+                exp: "主語 Das Mädchen + 幹母音変化動詞 liest + 目的語 ein schönes Märchen の基本的な語順です。"
             }
         ];
 
@@ -627,6 +753,7 @@
         let score = 0;
         let currentCategory = 'all';
         let currentSpeakerWord = '';
+        let isCurrentWordOnlySpeak = false;
 
         // ORDERING STATE
         let userSelectedOrderWords = [];
@@ -635,23 +762,91 @@
         // UI NAVIGATION
         function showSection(secId) {
             ['sec-home', 'sec-quiz', 'sec-result', 'sec-dictionary'].forEach(id => {
-                document.getElementById(id).classList.add('hidden');
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
             });
-            document.getElementById('sec-' + secId).classList.remove('hidden');
+            const targetSec = document.getElementById('sec-' + secId);
+            if (targetSec) targetSec.classList.remove('hidden');
 
-            document.getElementById('nav-home').className = secId === 'home' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
-            document.getElementById('nav-dictionary').className = secId === 'dictionary' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            const navHome = document.getElementById('nav-home');
+            const navDict = document.getElementById('nav-dictionary');
+            
+            if (navHome) navHome.className = secId === 'home' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            if (navDict) navDict.className = secId === 'dictionary' ? 'px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 sm:px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
 
             if (secId === 'dictionary') {
                 renderDictionary();
             }
         }
 
+        // DYNAMIC PLAUSIBLE PLURAL DISTRACTOR GENERATOR
+        function generatePluralDistractors(word, correctPlural) {
+            const distractors = new Set();
+            
+            function addUmlaut(str) {
+                if (str.includes('äu') || str.includes('ä') || str.includes('ö') || str.includes('ü')) return str;
+                if (str.includes('au')) return str.replace('au', 'äu');
+                if (str.includes('a')) return str.replace('a', 'ä');
+                if (str.includes('o')) return str.replace('o', 'ö');
+                if (str.includes('u')) return str.replace('u', 'ü');
+                return str;
+            }
+            
+            function removeUmlaut(str) {
+                return str.replace(/äu/g, 'au')
+                          .replace(/ä/g, 'a')
+                          .replace(/ö/g, 'o')
+                          .replace(/ü/g, 'u');
+            }
+
+            const stem = word;
+            const umlautStem = addUmlaut(stem);
+            const nonUmlautStem = removeUmlaut(stem);
+
+            const endings = ['', 'e', 'er', 'en', 'n', 's'];
+            
+            [stem, umlautStem, nonUmlautStem].forEach(st => {
+                endings.forEach(end => {
+                    let cand = st;
+                    if (end === 'n' && st.endsWith('e')) cand = st + 'n';
+                    else if (end === 'en') {
+                        cand = st.endsWith('e') ? st + 'n' : st + 'en';
+                    } else if (end !== '') {
+                        cand = st + end;
+                    }
+                    if (cand !== correctPlural && cand !== '') {
+                        distractors.add(cand);
+                    }
+                });
+            });
+
+            if (correctPlural.match(/[äöü]/i)) {
+                distractors.add(removeUmlaut(correctPlural));
+            } else {
+                distractors.add(addUmlaut(correctPlural));
+            }
+
+            const validList = Array.from(distractors).filter(d => d !== correctPlural && d !== word && d.length > 0);
+            const selected = shuffle(validList).slice(0, 3);
+            
+            // Safety fallback if generated candidates are fewer than 3
+            const fallbackEndings = ['e', 'en', 'er', 's', 'n'];
+            let i = 0;
+            while (selected.length < 3 && i < fallbackEndings.length) {
+                const fb = word + fallbackEndings[i];
+                if (fb !== correctPlural && !selected.includes(fb)) {
+                    selected.push(fb);
+                }
+                i++;
+            }
+            
+            return selected;
+        }
+
         // QUIZ GENERATOR
         function startQuiz(type) {
             currentCategory = type;
             currentQuizQueue = [];
-            userAnswersState = [];
             currentQuestionIndex = 0;
             score = 0;
 
@@ -661,6 +856,8 @@
                 
                 currentQuizQueue = shuffled.map(n => {
                     const isPluralQuiz = (n.plural && n.plural !== '-' && Math.random() > 0.5);
+                    const pluralText = (n.plural && n.plural !== '-') ? `die ${n.plural}` : 'なし';
+
                     if (!isPluralQuiz) {
                         return {
                             type: 'choice',
@@ -669,15 +866,15 @@
                             q: `_____ ${n.word}`,
                             sub: `意味: ${n.meaning}`,
                             speaker: n.word,
+                            wordOnly: true,
                             options: ["der (男性)", "die (女性)", "das (中性)"],
                             answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
-                            ja: `単語: ${n.word}（${n.meaning}）`,
-                            exp: `正解は「${n.gender} ${n.word}」です。（${n.detail}）`
+                            ja: `【正解】 ${n.gender} ${n.word}`,
+                            exp: `<b>【定冠詞・単数形】</b> ${n.gender} ${n.word}<br><b>【複数形】</b> ${pluralText}<br><b>【意味】</b> ${n.meaning}`
                         };
                     } else {
-                        const wrongPlurals = shuffle(
-                            wordList.filter(w => w.pos === '名詞' && w.plural && w.plural !== '-' && w.plural !== n.plural)
-                        ).slice(0, 3).map(w => w.plural);
+                        // NEW: Plausible distractors for plural quiz
+                        const wrongPlurals = generatePluralDistractors(n.word, n.plural);
                         const options = shuffle([n.plural, ...wrongPlurals]);
 
                         return {
@@ -687,10 +884,11 @@
                             q: `【${n.word}】の複数形は？`,
                             sub: `単数: ${n.gender} ${n.word}（${n.meaning}）`,
                             speaker: n.word,
+                            wordOnly: true,
                             options: options,
                             answer: options.indexOf(n.plural),
-                            ja: `単数形: ${n.gender} ${n.word} / 複数形: die ${n.plural}`,
-                            exp: `【${n.word}】の複数形は「die ${n.plural}」です。`
+                            ja: `【正解】 die ${n.plural}`,
+                            exp: `<b>【定冠詞・単数形】</b> ${n.gender} ${n.word}<br><b>【複数形】</b> die ${n.plural}<br><b>【意味】</b> ${n.meaning}`
                         };
                     }
                 });
@@ -698,6 +896,13 @@
                 const shuffled = shuffle([...wordList]).slice(0, 10);
                 currentQuizQueue = shuffled.map(item => {
                     const isDeToJa = Math.random() > 0.5;
+                    
+                    let nounInfo = '';
+                    if (item.pos === '名詞' && item.gender) {
+                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
+                        nounInfo = `<br><b>【定冠詞・単数形】</b> ${item.gender} ${item.word}<br><b>【複数形】</b> ${pl}`;
+                    }
+
                     if (isDeToJa) {
                         const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.meaning);
                         const options = shuffle([item.meaning, ...wrongList]);
@@ -708,10 +913,11 @@
                             q: item.word,
                             sub: `品詞: ${item.detail || item.pos}`,
                             speaker: item.word,
+                            wordOnly: true,
                             options: options,
                             answer: options.indexOf(item.meaning),
                             ja: `単語: ${item.word}`,
-                            exp: `【${item.word}】の意味は「${item.meaning}」です。（${item.detail || item.pos}）`
+                            exp: `<b>【意味】</b> ${item.meaning}（${item.detail || item.pos}）${nounInfo}`
                         };
                     } else {
                         const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.word);
@@ -723,27 +929,29 @@
                             q: item.meaning,
                             sub: `該当するドイツ語を選んでください`,
                             speaker: item.word,
+                            wordOnly: true,
                             options: options,
                             answer: options.indexOf(item.word),
                             ja: `意味: ${item.meaning}`,
-                            exp: `「${item.meaning}」はドイツ語で【${item.word}】です。`
+                            exp: `<b>【正解】</b> 【${item.word}】${nounInfo}`
                         };
                     }
                 });
             } else if (type === 'grammar' || type === 'prep') {
-                const targetQuestions = grammarQuestions.filter(q => q.cat === type || (type === 'grammar' && q.cat === 'grammar') || (type === 'prep' && q.cat === 'prep'));
+                const targetQuestions = grammarQuestions.filter(q => q.cat === type);
                 currentQuizQueue = shuffle([...targetQuestions]).slice(0, 10).map(q => ({
                     type: 'choice',
                     title: type === 'grammar' ? "文法・動詞活用クイズ" : "前置詞・格変化クイズ",
                     badge: "文法",
                     q: q.q,
                     sub: "",
-                    hint: q.hint,
-                    speaker: q.q.replace('_____', q.options[q.answer]),
+                    hint: q.hint || "",
+                    speaker: q.q.replace('_____', q.options[q.answer] || ''),
+                    wordOnly: false,
                     options: q.options,
                     answer: q.answer,
-                    ja: q.ja,
-                    exp: q.exp
+                    ja: q.ja || "",
+                    exp: q.exp || ""
                 }));
             } else if (type === 'ordering') {
                 currentQuizQueue = shuffle([...sentenceOrderingQuestions]).slice(0, 10).map(q => ({
@@ -754,27 +962,68 @@
                     sub: "単語ブロックをタップして正しいドイツ語の文を完成させてください",
                     correctWords: q.words,
                     correctSentence: q.words.join(" "),
+                    speaker: q.words.join(" "),
+                    wordOnly: false,
                     ja: `【日本語訳】 ${q.ja}`,
                     exp: q.exp
                 }));
             } else if (type === 'all') {
-                startQuiz('gender');
-                const part1 = currentQuizQueue.slice(0, 2);
-                startQuiz('vocab');
-                const part2 = currentQuizQueue.slice(0, 3);
+                const qG = wordList.filter(w => w.pos === '名詞' && w.gender);
+                const part1 = shuffle([...qG]).slice(0, 2).map(n => {
+                    const pl = (n.plural && n.plural !== '-') ? `die ${n.plural}` : 'なし';
+                    return {
+                        type: 'choice',
+                        title: "名詞の性・定冠詞クイズ",
+                        badge: "性（Gender）",
+                        q: `_____ ${n.word}`,
+                        sub: `意味: ${n.meaning}`,
+                        speaker: n.word,
+                        wordOnly: true,
+                        options: ["der (男性)", "die (女性)", "das (中性)"],
+                        answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
+                        ja: `単語: ${n.word}`,
+                        exp: `<b>【定冠詞・単数形】</b> ${n.gender} ${n.word}<br><b>【複数形】</b> ${pl}<br><b>【意味】</b> ${n.meaning}`
+                    };
+                });
+
+                const part2 = shuffle([...wordList]).slice(0, 3).map(item => {
+                    const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.meaning);
+                    const options = shuffle([item.meaning, ...wrongList]);
+                    let nounInfo = '';
+                    if (item.pos === '名詞' && item.gender) {
+                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
+                        nounInfo = `<br><b>【定冠詞・単数形】</b> ${item.gender} ${item.word}<br><b>【複数形】</b> ${pl}`;
+                    }
+                    return {
+                        type: 'choice',
+                        title: "語彙意味クイズ",
+                        badge: item.pos,
+                        q: item.word,
+                        sub: `品詞: ${item.detail || item.pos}`,
+                        speaker: item.word,
+                        wordOnly: true,
+                        options: options,
+                        answer: options.indexOf(item.meaning),
+                        ja: `単語: ${item.word}`,
+                        exp: `<b>【意味】</b> ${item.meaning}${nounInfo}`
+                    };
+                });
+
                 const part3 = shuffle([...grammarQuestions]).slice(0, 3).map(q => ({
                     type: 'choice',
                     title: "文法・前置詞問題",
                     badge: "総合",
                     q: q.q,
                     sub: "",
-                    hint: q.hint,
-                    speaker: q.q.replace('_____', q.options[q.answer]),
+                    hint: q.hint || "",
+                    speaker: q.q.replace('_____', q.options[q.answer] || ''),
+                    wordOnly: false,
                     options: q.options,
                     answer: q.answer,
-                    ja: q.ja,
-                    exp: q.exp
+                    ja: q.ja || "",
+                    exp: q.exp || ""
                 }));
+
                 const part4 = shuffle([...sentenceOrderingQuestions]).slice(0, 2).map(q => ({
                     type: 'ordering',
                     title: "単語並び替えクイズ",
@@ -783,9 +1032,12 @@
                     sub: "単語ブロックをタップして正しいドイツ語の文を完成させてください",
                     correctWords: q.words,
                     correctSentence: q.words.join(" "),
+                    speaker: q.words.join(" "),
+                    wordOnly: false,
                     ja: `【日本語訳】 ${q.ja}`,
                     exp: q.exp
                 }));
+
                 currentQuizQueue = shuffle([...part1, ...part2, ...part3, ...part4]);
             }
 
@@ -794,42 +1046,66 @@
             renderQuestion();
         }
 
+        // SAFE RENDER QUESTION FUNCTION
         function renderQuestion() {
-            const qData = currentQuizQueue[currentQuestionIndex];
-            const state = userAnswersState[currentQuestionIndex];
-
-            // Header UI
-            document.getElementById('quiz-title-display').innerText = qData.title;
-            document.getElementById('quiz-counter').innerText = `${currentQuestionIndex + 1} / ${currentQuizQueue.length}`;
-            document.getElementById('badge-category').innerText = qData.badge;
-            document.getElementById('question-text').innerText = qData.q;
-            
-            // Prev Question Button state
-            const btnPrev = document.getElementById('btn-prev-question');
-            if (currentQuestionIndex > 0) {
-                btnPrev.classList.remove('opacity-40', 'cursor-not-allowed');
-                btnPrev.disabled = false;
-            } else {
-                btnPrev.classList.add('opacity-40', 'cursor-not-allowed');
-                btnPrev.disabled = true;
+            if (!currentQuizQueue || currentQuizQueue.length === 0 || currentQuestionIndex >= currentQuizQueue.length) {
+                finishQuiz();
+                return;
             }
 
-            // Next Question Header Button state
+            const qData = currentQuizQueue[currentQuestionIndex];
+            if (!qData) {
+                finishQuiz();
+                return;
+            }
+
+            const state = userAnswersState[currentQuestionIndex] || null;
+
+            // Safe Header & Title UI
+            const titleElem = document.getElementById('quiz-title-display');
+            const counterElem = document.getElementById('quiz-counter');
+            const badgeElem = document.getElementById('badge-category');
+            const questionElem = document.getElementById('question-text');
+
+            if (titleElem) titleElem.innerText = qData.title || "クイズ";
+            if (counterElem) counterElem.innerText = `${currentQuestionIndex + 1} / ${currentQuizQueue.length}`;
+            if (badgeElem) badgeElem.innerText = qData.badge || "問題";
+            if (questionElem) questionElem.innerText = qData.q || "";
+            
+            isCurrentWordOnlySpeak = !!qData.wordOnly;
+
+            // Prev Button State
+            const btnPrev = document.getElementById('btn-prev-question');
+            if (btnPrev) {
+                if (currentQuestionIndex > 0) {
+                    btnPrev.classList.remove('opacity-40', 'cursor-not-allowed');
+                    btnPrev.disabled = false;
+                } else {
+                    btnPrev.classList.add('opacity-40', 'cursor-not-allowed');
+                    btnPrev.disabled = true;
+                }
+            }
+
+            // Next Question Header Button State
             const btnNextHeader = document.getElementById('btn-next-header');
-            if (state && state.answered) {
-                btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                btnNextHeader.classList.add('opacity-0', 'pointer-events-none');
+            if (btnNextHeader) {
+                if (state && state.answered) {
+                    btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    btnNextHeader.classList.add('opacity-0', 'pointer-events-none');
+                }
             }
 
             // Subtext Handling
             const subtextElem = document.getElementById('question-subtext');
-            if (qData.sub && qData.sub.trim() !== '') {
-                subtextElem.innerText = qData.sub;
-                subtextElem.classList.remove('hidden');
-            } else {
-                subtextElem.innerText = '';
-                subtextElem.classList.add('hidden');
+            if (subtextElem) {
+                if (qData.sub && typeof qData.sub === 'string' && qData.sub.trim() !== '') {
+                    subtextElem.innerText = qData.sub;
+                    subtextElem.classList.remove('hidden');
+                } else {
+                    subtextElem.innerText = '';
+                    subtextElem.classList.add('hidden');
+                }
             }
             
             // Hint Handling
@@ -837,73 +1113,90 @@
             const btnShowHint = document.getElementById('btn-show-hint');
             const hintTextBox = document.getElementById('hint-text-box');
 
-            if (qData.hint) {
-                hintContainer.classList.remove('hidden');
-                if (state && state.hintRevealed) {
-                    btnShowHint.classList.add('hidden');
-                    hintTextBox.classList.remove('hidden');
+            if (hintContainer && btnShowHint && hintTextBox) {
+                if (qData.hint && typeof qData.hint === 'string' && qData.hint.trim() !== '') {
+                    hintContainer.classList.remove('hidden');
+                    if (state && state.hintRevealed) {
+                        btnShowHint.classList.add('hidden');
+                        hintTextBox.classList.remove('hidden');
+                    } else {
+                        btnShowHint.classList.remove('hidden');
+                        hintTextBox.classList.add('hidden');
+                    }
+                    hintTextBox.innerText = "💡 " + qData.hint;
                 } else {
-                    btnShowHint.classList.remove('hidden');
-                    hintTextBox.classList.add('hidden');
+                    hintContainer.classList.add('hidden');
                 }
-                hintTextBox.innerText = "💡 " + qData.hint;
-            } else {
-                hintContainer.classList.add('hidden');
             }
 
             // Explanation Box Reset
             const expBox = document.getElementById('explanation-box');
-            expBox.classList.add('hidden');
-            document.getElementById('btn-explanation-audio').classList.add('hidden');
+            if (expBox) expBox.classList.add('hidden');
+
+            const btnExpAudio = document.getElementById('btn-explanation-audio');
+            if (btnExpAudio) btnExpAudio.classList.add('hidden');
 
             const choicesContainer = document.getElementById('choices-container');
             const orderingContainer = document.getElementById('ordering-container');
             const btnAudio = document.getElementById('btn-audio');
 
             if (qData.type === 'choice') {
-                choicesContainer.classList.remove('hidden');
-                orderingContainer.classList.add('hidden');
-                btnAudio.classList.remove('hidden');
+                if (choicesContainer) choicesContainer.classList.remove('hidden');
+                if (orderingContainer) orderingContainer.classList.add('hidden');
+                if (btnAudio) btnAudio.classList.remove('hidden');
 
-                currentSpeakerWord = qData.speaker || qData.q;
-                choicesContainer.innerHTML = '';
-
-                qData.options.forEach((optText, idx) => {
-                    const btn = document.createElement('button');
-                    btn.className = "choice-btn w-full p-4 text-left border-2 border-slate-200 rounded-xl hover:border-amber-400 hover:bg-amber-50/50 font-semibold text-slate-700 transition flex justify-between items-center bg-white";
-                    btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
-                    btn.onclick = () => selectChoiceAnswer(idx);
-                    choicesContainer.appendChild(btn);
-                });
+                currentSpeakerWord = qData.speaker || qData.q || '';
+                
+                if (choicesContainer) {
+                    choicesContainer.innerHTML = '';
+                    if (Array.isArray(qData.options)) {
+                        qData.options.forEach((optText, idx) => {
+                            const btn = document.createElement('button');
+                            btn.className = "choice-btn w-full p-4 text-left border-2 border-slate-200 rounded-xl hover:border-amber-400 hover:bg-amber-50/50 font-semibold text-slate-700 transition flex justify-between items-center bg-white";
+                            btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
+                            btn.onclick = () => selectChoiceAnswer(idx);
+                            choicesContainer.appendChild(btn);
+                        });
+                    }
+                }
 
                 if (state && state.answered) {
                     restoreChoiceAnswerUI(state.selectedIdx);
                 }
 
             } else if (qData.type === 'ordering') {
-                choicesContainer.classList.add('hidden');
-                orderingContainer.classList.remove('hidden');
-                btnAudio.classList.add('hidden');
+                if (choicesContainer) choicesContainer.classList.add('hidden');
+                if (orderingContainer) orderingContainer.classList.remove('hidden');
+                if (btnAudio) btnAudio.classList.add('hidden');
 
                 if (state && state.answered) {
-                    userSelectedOrderWords = state.userWords;
-                    availablePoolWords = state.poolWords;
+                    userSelectedOrderWords = state.userWords || [];
+                    availablePoolWords = state.poolWords || [];
                     renderOrderingBoxes();
                     
                     const btnCheck = document.getElementById('btn-check-order');
-                    btnCheck.disabled = true;
-                    btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+                    if (btnCheck) {
+                        btnCheck.disabled = true;
+                        btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+                    }
 
-                    const jaText = `【正解】 ${qData.correctSentence}`;
-                    showExplanation(state.isCorrect, jaText, qData.exp);
-                    document.getElementById('btn-explanation-audio').classList.remove('hidden');
-                    currentSpeakerWord = qData.correctSentence;
+                    const jaText = `【正解】 ${qData.correctSentence || ''}`;
+                    showExplanation(state.isCorrect, jaText, qData.exp || '');
+                    if (btnExpAudio) btnExpAudio.classList.remove('hidden');
+                    currentSpeakerWord = qData.correctSentence || '';
                 } else {
                     userSelectedOrderWords = [];
-                    availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
+                    if (Array.isArray(qData.correctWords)) {
+                        availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
+                    } else {
+                        availablePoolWords = [];
+                    }
 
-                    document.getElementById('btn-check-order').disabled = false;
-                    document.getElementById('btn-check-order').className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1 whitespace-nowrap";
+                    const btnCheck = document.getElementById('btn-check-order');
+                    if (btnCheck) {
+                        btnCheck.disabled = false;
+                        btnCheck.className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-sm flex items-center justify-center gap-1 whitespace-nowrap";
+                    }
 
                     renderOrderingBoxes();
                 }
@@ -911,8 +1204,11 @@
         }
 
         function revealHint() {
-            document.getElementById('btn-show-hint').classList.add('hidden');
-            document.getElementById('hint-text-box').classList.remove('hidden');
+            const btnShowHint = document.getElementById('btn-show-hint');
+            const hintTextBox = document.getElementById('hint-text-box');
+            if (btnShowHint) btnShowHint.classList.add('hidden');
+            if (hintTextBox) hintTextBox.classList.remove('hidden');
+
             if (!userAnswersState[currentQuestionIndex]) {
                 userAnswersState[currentQuestionIndex] = {};
             }
@@ -922,6 +1218,8 @@
         // CHOICE ANSWER LOGIC
         function selectChoiceAnswer(selectedIndex) {
             const qData = currentQuizQueue[currentQuestionIndex];
+            if (!qData) return;
+
             const isCorrect = selectedIndex === qData.answer;
 
             userAnswersState[currentQuestionIndex] = {
@@ -932,29 +1230,35 @@
             };
 
             restoreChoiceAnswerUI(selectedIndex);
-            document.getElementById('btn-next-header').classList.remove('opacity-0', 'pointer-events-none');
-            speakGerman(currentSpeakerWord);
+            const btnNextHeader = document.getElementById('btn-next-header');
+            if (btnNextHeader) btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
+            
+            speakGerman(currentSpeakerWord, isCurrentWordOnlySpeak);
         }
 
         function restoreChoiceAnswerUI(selectedIndex) {
             const qData = currentQuizQueue[currentQuestionIndex];
+            if (!qData) return;
+
             const choiceButtons = document.querySelectorAll('.choice-btn');
 
             choiceButtons.forEach((btn, idx) => {
                 btn.disabled = true;
                 if (idx === qData.answer) {
                     btn.className = "choice-btn w-full p-4 text-left border-2 border-emerald-500 bg-emerald-50 text-emerald-800 font-bold rounded-xl flex justify-between items-center";
-                    btn.querySelector('i').className = "fa-solid fa-circle-check text-emerald-600";
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.className = "fa-solid fa-circle-check text-emerald-600";
                 } else if (idx === selectedIndex) {
                     btn.className = "choice-btn w-full p-4 text-left border-2 border-rose-400 bg-rose-50 text-rose-800 font-semibold rounded-xl flex justify-between items-center";
-                    btn.querySelector('i').className = "fa-solid fa-circle-xmark text-rose-500";
+                    const icon = btn.querySelector('i');
+                    if (icon) icon.className = "fa-solid fa-circle-xmark text-rose-500";
                 } else {
                     btn.className = "choice-btn w-full p-4 text-left border-2 border-slate-100 bg-slate-50 text-slate-400 rounded-xl opacity-60 flex justify-between items-center";
                 }
             });
 
             const isCorrect = selectedIndex === qData.answer;
-            showExplanation(isCorrect, qData.ja, qData.exp);
+            showExplanation(isCorrect, qData.ja || '', qData.exp || '');
         }
 
         // ORDERING QUIZ LOGIC
@@ -962,18 +1266,18 @@
             const userBox = document.getElementById('user-answer-box');
             const poolBox = document.getElementById('word-pool-box');
 
-            userBox.innerHTML = '';
-            poolBox.innerHTML = '';
+            if (userBox) userBox.innerHTML = '';
+            if (poolBox) poolBox.innerHTML = '';
 
             if (userSelectedOrderWords.length === 0) {
-                userBox.innerHTML = `<span class="text-xs text-slate-400 italic">下の単語をタップして文章を並べ替えてください</span>`;
+                if (userBox) userBox.innerHTML = `<span class="text-xs text-slate-400 italic">下の単語をタップして文章を並べ替えてください</span>`;
             } else {
                 userSelectedOrderWords.forEach((item, index) => {
                     const chip = document.createElement('button');
                     chip.className = "px-3 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm rounded-lg shadow-sm transition transform active:scale-95 flex items-center gap-1";
                     chip.innerHTML = `<span>${item.text}</span> <i class="fa-solid fa-xmark text-xs text-amber-200"></i>`;
                     chip.onclick = () => deselectOrderWord(index);
-                    userBox.appendChild(chip);
+                    if (userBox) userBox.appendChild(chip);
                 });
             }
 
@@ -982,7 +1286,7 @@
                 chip.className = "px-3 py-2 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-semibold text-sm rounded-lg shadow-sm transition transform active:scale-95";
                 chip.innerText = item.text;
                 chip.onclick = () => selectOrderWord(item);
-                poolBox.appendChild(chip);
+                if (poolBox) poolBox.appendChild(chip);
             });
         }
 
@@ -994,6 +1298,7 @@
 
         function deselectOrderWord(index) {
             const item = userSelectedOrderWords[index];
+            if (!item) return;
             userSelectedOrderWords.splice(index, 1);
             availablePoolWords.push(item);
             renderOrderingBoxes();
@@ -1001,6 +1306,7 @@
 
         function resetOrderingAnswer() {
             const qData = currentQuizQueue[currentQuestionIndex];
+            if (!qData || !Array.isArray(qData.correctWords)) return;
             userSelectedOrderWords = [];
             availablePoolWords = shuffle([...qData.correctWords]).map((w, id) => ({ id: id, text: w }));
             renderOrderingBoxes();
@@ -1008,6 +1314,8 @@
 
         function checkOrderingAnswer() {
             const qData = currentQuizQueue[currentQuestionIndex];
+            if (!qData) return;
+
             if (userSelectedOrderWords.length === 0) {
                 alert("単語を選択してください！");
                 return;
@@ -1025,20 +1333,26 @@
             };
 
             const btnCheck = document.getElementById('btn-check-order');
-            btnCheck.disabled = true;
-            btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+            if (btnCheck) {
+                btnCheck.disabled = true;
+                btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2.5 rounded-xl text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+            }
 
-            const jaText = `【正解】 ${qData.correctSentence}`;
-            showExplanation(isCorrect, jaText, qData.exp);
+            const jaText = `【正解】 ${qData.correctSentence || ''}`;
+            showExplanation(isCorrect, jaText, qData.exp || '');
 
-            document.getElementById('btn-next-header').classList.remove('opacity-0', 'pointer-events-none');
-            document.getElementById('btn-explanation-audio').classList.remove('hidden');
-            currentSpeakerWord = qData.correctSentence;
-            speakGerman(currentSpeakerWord);
+            const btnNextHeader = document.getElementById('btn-next-header');
+            if (btnNextHeader) btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
+            
+            const btnExpAudio = document.getElementById('btn-explanation-audio');
+            if (btnExpAudio) btnExpAudio.classList.remove('hidden');
+
+            currentSpeakerWord = qData.correctSentence || '';
+            speakGerman(currentSpeakerWord, false);
         }
 
         function speakCurrentAnswerSentence() {
-            speakGerman(currentSpeakerWord);
+            speakGerman(currentSpeakerWord, false);
         }
 
         // EXPLANATION UI
@@ -1048,26 +1362,35 @@
             const jaBox = document.getElementById('explanation-ja-box');
             const expBoxText = document.getElementById('explanation-exp-box');
 
+            if (!expBox) return;
             expBox.classList.remove('hidden');
 
             if (isCorrect) {
                 expBox.className = "mt-6 p-4 rounded-xl text-left border border-emerald-200 bg-emerald-50/50 animate-fade-in";
-                expStatus.className = "flex items-center gap-2 font-bold text-emerald-700 mb-2";
-                expStatus.innerHTML = `<i class="fa-solid fa-circle-check text-lg"></i> 正解！`;
+                if (expStatus) {
+                    expStatus.className = "flex items-center gap-2 font-bold text-emerald-700 mb-2";
+                    expStatus.innerHTML = `<i class="fa-solid fa-circle-check text-lg"></i> 正解！`;
+                }
             } else {
                 expBox.className = "mt-6 p-4 rounded-xl text-left border border-rose-200 bg-rose-50/50 animate-fade-in";
-                expStatus.className = "flex items-center gap-2 font-bold text-rose-700 mb-2";
-                expStatus.innerHTML = `<i class="fa-solid fa-circle-xmark text-lg"></i> 不正解...`;
+                if (expStatus) {
+                    expStatus.className = "flex items-center gap-2 font-bold text-rose-700 mb-2";
+                    expStatus.innerHTML = `<i class="fa-solid fa-circle-xmark text-lg"></i> 不正解...`;
+                }
             }
 
-            if (jaText) {
-                jaBox.classList.remove('hidden');
-                jaBox.innerText = jaText;
-            } else {
-                jaBox.classList.add('hidden');
+            if (jaBox) {
+                if (jaText) {
+                    jaBox.classList.remove('hidden');
+                    jaBox.innerText = jaText;
+                } else {
+                    jaBox.classList.add('hidden');
+                }
             }
 
-            expBoxText.innerHTML = `<strong>【解説】</strong><br>${expText}`;
+            if (expBoxText) {
+                expBoxText.innerHTML = expText;
+            }
         }
 
         function prevQuestion() {
@@ -1090,15 +1413,18 @@
             showSection('result');
             const total = currentQuizQueue.length;
             score = userAnswersState.filter(s => s && s.isCorrect).length;
-            document.getElementById('result-score-text').innerText = `${score} / ${total}`;
+            
+            const scoreText = document.getElementById('result-score-text');
+            if (scoreText) scoreText.innerText = `${score} / ${total}`;
 
-            const percentage = (score / total) * 100;
+            const percentage = total > 0 ? (score / total) * 100 : 0;
             let feedback = "引き続き練習しましょう！";
             if (percentage === 100) feedback = "パーフェクト！完璧です 🎉";
             else if (percentage >= 80) feedback = "素晴らしい成績です！この調子！ 👍";
             else if (percentage >= 60) feedback = "合格ラインです。復習でさらに伸ばしましょう！";
 
-            document.getElementById('result-feedback').innerText = feedback;
+            const feedbackElem = document.getElementById('result-feedback');
+            if (feedbackElem) feedbackElem.innerText = feedback;
         }
 
         function retryCurrentQuiz() {
@@ -1111,11 +1437,15 @@
             }
         }
 
-        // SPEECH SYNTHESIS (TTS) - SPEAKS ONLY GERMAN TEXT WITHOUT ARTICLES
-        function speakGerman(text) {
+        // SPEECH SYNTHESIS (TTS)
+        function speakGerman(text, wordOnly = false) {
+            if (!text || typeof text !== 'string') return;
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                let cleanText = text.replace(/^(der|die|das)\s+/i, '');
+                let cleanText = text;
+                if (wordOnly) {
+                    cleanText = text.replace(/^(der|die|das)\s+/i, '');
+                }
                 const u = new SpeechSynthesisUtterance(cleanText);
                 u.lang = 'de-DE';
                 u.rate = 0.85;
@@ -1124,7 +1454,7 @@
         }
 
         function speakCurrentWord() {
-            speakGerman(currentSpeakerWord);
+            speakGerman(currentSpeakerWord, isCurrentWordOnlySpeak);
         }
 
         // DICTIONARY LOGIC
@@ -1132,8 +1462,10 @@
 
         function renderDictionary() {
             const tbody = document.getElementById('dict-tbody');
-            const searchVal = document.getElementById('dict-search').value.toLowerCase().trim();
+            const searchElem = document.getElementById('dict-search');
+            if (!tbody || !searchElem) return;
 
+            const searchVal = searchElem.value.toLowerCase().trim();
             tbody.innerHTML = '';
 
             const filtered = wordList.filter(item => {
@@ -1170,7 +1502,7 @@
                     <td class="p-3 text-xs text-slate-500"><span class="bg-slate-100 px-2 py-0.5 rounded">${detailDisplay}</span></td>
                     <td class="p-3 text-slate-600">${item.meaning}</td>
                     <td class="p-3 text-center">
-                        <button onclick="speakGerman('${item.word}')" class="text-slate-400 hover:text-amber-500 p-1" title="単語のみ発音">
+                        <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-500 p-1" title="単語のみ発音">
                             <i class="fa-solid fa-volume-high"></i>
                         </button>
                     </td>
