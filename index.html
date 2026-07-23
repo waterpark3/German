@@ -3,224 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ドイツ語マスタークイズ & 単語帳</title>
+    <title>ドイツ語マスタークイズ & 単語帳（完全網羅版）</title>
     <!-- 検索エンジンインデックス設定 -->
     <meta name="robots" content="index, follow">
-    <meta name="description" content="ドイツ語の初学者向け無料学習Webアプリ。名詞の性(der/die/das)・複数形、動詞活用、前置詞の格変化、日本語例文からの語順並び替え問題を収録。">
+    <meta name="description" content="ドイツ語の初学者向け無料学習Webアプリ。名詞の性(der/die/das)・複数形・男性弱変化、動詞活用、話法の助動詞、前置詞格変化、語順並び替え問題を収録。">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Noto Sans JP', 'Poppins', sans-serif;
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* Flashcard Flip CSS */
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .transform-style-3d {
-            transform-style: preserve-3d;
-        }
-        .backface-hidden {
-            backface-visibility: hidden;
-        }
-        .rotate-y-180 {
-            transform: rotateY(180deg);
-        }
+        body { font-family: 'Noto Sans JP', 'Poppins', sans-serif; font-size: 16px; }
+        .animate-fade-in { animation: fadeIn 0.2s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        .touch-manipulation { touch-action: manipulation; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-amber-200" onclick="handleGlobalClick(event)">
 
     <!-- Header -->
     <header class="bg-gradient-to-r from-slate-900 via-zinc-800 to-amber-900 text-white shadow-md sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-3 py-2 flex justify-between items-center gap-2">
+        <div class="max-w-4xl mx-auto px-4 py-2.5 flex justify-between items-center gap-2">
             <div class="flex items-center space-x-2 cursor-pointer min-w-0" onclick="showSection('home')">
-                <span class="text-lg sm:text-xl shrink-0">🇩🇪</span>
+                <span class="text-2xl shrink-0">🇩🇪</span>
                 <div class="min-w-0">
-                    <h1 class="font-bold text-sm sm:text-base leading-tight truncate">Deutsch Master</h1>
+                    <h1 class="font-bold text-base sm:text-lg leading-tight truncate">Deutsch Master</h1>
                 </div>
             </div>
-            <nav class="flex space-x-1 text-xs font-medium shrink-0">
-                <button onclick="showSection('home')" id="nav-home" class="px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 transition flex items-center gap-1 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-house text-[10px]"></i> ホーム
+            <nav class="flex space-x-1.5 text-xs sm:text-sm font-bold shrink-0">
+                <button onclick="showSection('home')" id="nav-home" class="px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold">
+                    <i class="fa-solid fa-house"></i> ホーム
                 </button>
-                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-2.5 py-1 rounded-md hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-book text-[10px]"></i> 単語帳
+                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-book"></i> 単語帳
                 </button>
             </nav>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="flex-grow max-w-4xl w-full mx-auto p-2 sm:p-4 flex flex-col justify-start">
+    <main class="flex-grow max-w-4xl w-full mx-auto p-3 sm:p-5 flex flex-col justify-start">
 
         <!-- HOME / MENU SECTION -->
-        <section id="sec-home" class="space-y-3 sm:space-y-4 animate-fade-in pt-1">
-            <div class="bg-white rounded-xl p-3.5 shadow-sm border border-slate-100 text-center relative overflow-hidden">
-                <h2 class="text-base sm:text-xl font-bold text-slate-800 mb-0.5">ドイツ語文法・語彙マスター</h2>
+        <section id="sec-home" class="space-y-4 animate-fade-in pt-1">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-slate-100 text-center relative overflow-hidden">
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-800 mb-1">ドイツ語学習マスター (完全網羅版)</h2>
                 <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-                    問題集全47枚＋プリント収録！250以上の名詞、全助動詞活用、格変化・語順演習。
+                    全400語超の全品詞単語帳（定冠詞・複数形・活用タップ表示・格支配）&amp; 実践クイズ！
                 </p>
             </div>
 
             <!-- Quiz Category Cards -->
-            <div class="grid sm:grid-cols-2 gap-2">
-                <div onclick="startQuiz('gender')" class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow transition cursor-pointer group flex items-center space-x-3">
-                    <div class="p-2.5 bg-amber-100 text-amber-700 rounded-lg group-hover:bg-amber-500 group-hover:text-white transition shrink-0 text-sm">
-                        <i class="fa-solid fa-venus-mars"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-amber-600 transition truncate">1. 名詞の性・定冠詞 & 複数形</h3>
-                        <p class="text-[11px] text-slate-500 truncate">der/die/das判別 & 複数形択一クイズ</p>
-                    </div>
-                </div>
-
-                <div onclick="startQuiz('vocab')" class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow transition cursor-pointer group flex items-center space-x-3">
-                    <div class="p-2.5 bg-blue-100 text-blue-700 rounded-lg group-hover:bg-blue-500 group-hover:text-white transition shrink-0 text-sm">
+            <div class="grid sm:grid-cols-2 gap-3">
+                <div onclick="startQuiz('vocab_all')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
+                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl group-hover:bg-amber-500 group-hover:text-white transition shrink-0 text-lg">
                         <i class="fa-solid fa-language"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-blue-600 transition truncate">2. 語彙・単語の意味</h3>
-                        <p class="text-[11px] text-slate-500 truncate">ドイツ語 ⇔ 日本語 相互意味クイズ</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-amber-600 transition truncate">1. 単語問題 (性・複数形・意味)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">der/die/das・複数形・全品詞意味4択</p>
                     </div>
                 </div>
 
-                <div onclick="startQuiz('grammar')" class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow transition cursor-pointer group flex items-center space-x-3">
-                    <div class="p-2.5 bg-emerald-100 text-emerald-700 rounded-lg group-hover:bg-emerald-500 group-hover:text-white transition shrink-0 text-sm">
+                <div onclick="startQuiz('grammar_all')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-emerald-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
+                    <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition shrink-0 text-lg">
                         <i class="fa-solid fa-sliders"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-emerald-600 transition truncate">3. 動詞活用・話法の助動詞 (25+問)</h3>
-                        <p class="text-[11px] text-slate-500 truncate">全助動詞人称変化・幹母音不規則変化</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-emerald-600 transition truncate">2. 文法問題 (活用・前置詞・格支配)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">助動詞人称変化・格支配・人称代名詞</p>
                     </div>
                 </div>
 
-                <div onclick="startQuiz('prep')" class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow transition cursor-pointer group flex items-start sm:items-center space-x-3">
-                    <div class="p-2.5 bg-purple-100 text-purple-700 rounded-lg group-hover:bg-purple-500 group-hover:text-white transition shrink-0 text-sm">
-                        <i class="fa-solid fa-link"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-purple-600 transition truncate">4. 前置詞と格変化 (25+問)</h3>
-                        <p class="text-[11px] text-slate-500 truncate">2/3/4格支配・人称代名詞(主格明示)</p>
-                    </div>
-                </div>
-
-                <div onclick="startQuiz('ordering')" class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm hover:shadow transition cursor-pointer group flex items-center space-x-3 sm:col-span-2">
-                    <div class="p-2.5 bg-rose-100 text-rose-700 rounded-lg group-hover:bg-rose-500 group-hover:text-white transition shrink-0 text-sm">
+                <div onclick="startQuiz('ordering')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-rose-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5 sm:col-span-2">
+                    <div class="p-3 bg-rose-100 text-rose-700 rounded-xl group-hover:bg-rose-500 group-hover:text-white transition shrink-0 text-lg">
                         <i class="fa-solid fa-arrow-down-short-wide"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-xs sm:text-sm text-slate-800 group-hover:text-rose-600 transition truncate">5. 単語並び替えクイズ (語順・作文)</h3>
-                        <p class="text-[11px] text-slate-500 truncate">定動詞2位・枠構造・倒置文の特訓</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-rose-600 transition truncate">3. 単語並び替えクイズ (語順・作文)</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">定動詞2位の原則・枠構造・倒置文の作文特訓</p>
                     </div>
                 </div>
             </div>
 
-            <button onclick="startQuiz('all')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold py-2.5 rounded-xl shadow transition flex items-center justify-center gap-2 text-xs sm:text-sm">
+            <button onclick="startQuiz('all')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold py-3.5 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm sm:text-base">
                 <i class="fa-solid fa-shuffle"></i> 全カテゴリからランダム10問テスト
             </button>
         </section>
 
         <!-- QUIZ SECTION -->
-        <section id="sec-quiz" class="hidden space-y-2 animate-fade-in pt-1">
-            <div class="bg-white px-3 py-1.5 rounded-lg shadow-sm border border-slate-200 flex justify-between items-center gap-2">
-                <button id="btn-prev-question" onclick="prevQuestion()" class="px-2 py-1 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded transition flex items-center gap-1 whitespace-nowrap shrink-0">
-                    <i class="fa-solid fa-chevron-left text-[10px]"></i> 前へ
+        <section id="sec-quiz" class="hidden space-y-2.5 animate-fade-in pt-1">
+            <div class="bg-white px-3.5 py-2 rounded-lg shadow-sm border border-slate-200 flex justify-between items-center gap-2">
+                <button id="btn-prev-question" onclick="prevQuestion()" class="px-2.5 py-1 text-xs sm:text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-md transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-chevron-left text-xs"></i> 前へ
                 </button>
 
                 <div class="flex items-center space-x-1.5 min-w-0 truncate">
-                    <span id="quiz-title-display" class="font-bold text-xs text-slate-700 truncate hidden sm:inline">クイズ</span>
-                    <span id="quiz-counter" class="text-xs font-bold bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full whitespace-nowrap">1/10</span>
+                    <span id="quiz-title-display" class="font-bold text-xs sm:text-sm text-slate-700 truncate hidden sm:inline">クイズ</span>
+                    <span id="quiz-counter" class="text-xs sm:text-sm font-bold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full whitespace-nowrap">1/10</span>
                 </div>
 
-                <button id="btn-next-header" onclick="nextQuestion()" class="px-2 py-1 text-xs font-bold text-white bg-amber-500 hover:bg-amber-600 rounded shadow-sm transition flex items-center gap-1 opacity-0 pointer-events-none whitespace-nowrap shrink-0">
-                    次へ <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                <button id="btn-next-header" onclick="nextQuestion()" class="px-2.5 py-1 text-xs sm:text-sm font-bold text-white bg-amber-500 hover:bg-amber-600 rounded-md shadow-sm transition flex items-center gap-1 opacity-0 pointer-events-none whitespace-nowrap shrink-0">
+                    次へ <i class="fa-solid fa-chevron-right text-xs"></i>
                 </button>
             </div>
 
-            <div class="bg-white p-3 sm:p-4 rounded-xl shadow-sm border border-slate-200 text-center relative">
-                <div class="flex items-center justify-between gap-2 mb-1">
-                    <span id="badge-category" class="text-[10px] sm:text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full whitespace-nowrap">
+            <div class="bg-white p-4 sm:p-5 rounded-xl shadow-sm border border-slate-200 text-center relative">
+                <div class="flex items-center justify-between gap-2 mb-1.5">
+                    <span id="badge-category" class="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full whitespace-nowrap">
                         カテゴリ
                     </span>
 
                     <div class="flex items-center gap-1.5">
                         <div id="hint-container" class="hidden">
-                            <button id="btn-show-hint" onclick="revealHint()" class="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 rounded text-[11px] font-semibold transition">
+                            <button id="btn-show-hint" onclick="revealHint()" class="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 rounded-md text-xs font-semibold transition">
                                 <i class="fa-solid fa-lightbulb"></i> ヒント
                             </button>
                         </div>
 
-                        <!-- Audio Button (ネタバレ防止修正済み) -->
-                        <button id="btn-audio" onclick="speakCurrentQuestionAudio()" class="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-700 rounded text-[11px] font-semibold transition">
+                        <button id="btn-audio" onclick="speakCurrentQuestionAudio()" class="inline-flex items-center gap-1 px-2.5 py-1 bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-700 rounded-md text-xs font-semibold transition">
                             <i class="fa-solid fa-volume-high"></i> 音声
                         </button>
                     </div>
                 </div>
 
-                <div id="hint-text-box" class="hidden my-1 p-2 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 leading-tight text-left"></div>
+                <div id="hint-text-box" class="hidden my-1.5 p-2.5 bg-amber-50 border border-amber-200 rounded-lg text-xs sm:text-sm text-amber-900 leading-snug text-left"></div>
 
-                <div id="question-text-container" class="text-base sm:text-lg font-bold text-slate-800 my-1 leading-snug"></div>
-                <p id="question-subtext" class="text-[11px] sm:text-xs text-slate-500 mb-1">補足説明</p>
+                <div id="question-text-container" class="text-lg sm:text-xl font-bold text-slate-800 my-1.5 leading-snug"></div>
+                <p id="question-subtext" class="text-xs sm:text-sm text-slate-500 mb-1.5">補足説明</p>
 
-                <!-- Interactive Word Meaning Popup (領域外タップで閉じる) -->
-                <div id="word-dict-popup" class="hidden my-1.5 p-2 bg-slate-800 text-white rounded-lg text-xs text-left animate-fade-in flex justify-between items-center shadow-md z-10" onclick="event.stopPropagation()">
+                <!-- Interactive Word Meaning Popup -->
+                <div id="word-dict-popup" class="hidden my-2 p-2.5 bg-slate-800 text-white rounded-lg text-xs sm:text-sm text-left animate-fade-in flex justify-between items-center shadow-md z-10" onclick="event.stopPropagation()">
                     <div>
                         <span id="popup-word-title" class="font-bold text-amber-300"></span> 
-                        <span id="popup-word-pos" class="text-[10px] bg-slate-700 px-1.5 py-0.5 rounded ml-1 text-slate-300"></span>
-                        <div id="popup-word-meaning" class="text-slate-100 mt-0.5"></div>
+                        <span id="popup-word-pos" class="text-xs bg-slate-700 px-1.5 py-0.5 rounded ml-1 text-slate-300"></span>
+                        <div id="popup-word-meaning" class="text-slate-100 mt-0.5 font-medium"></div>
                     </div>
-                    <button onclick="closeWordPopup()" class="text-slate-400 hover:text-white p-1 text-sm shrink-0 ml-2">
+                    <button onclick="closeWordPopup()" class="text-slate-400 hover:text-white p-1 text-base shrink-0 ml-2">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
-                <div id="choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2"></div>
+                <div id="choices-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-2.5"></div>
 
-                <div id="ordering-container" class="hidden text-left space-y-1.5 my-2">
+                <!-- Sentence Ordering Container -->
+                <div id="ordering-container" class="hidden text-left space-y-2 my-2.5">
                     <div>
-                        <div class="text-[10px] font-bold text-slate-400 mb-0.5">あなたの回答:</div>
-                        <div id="user-answer-box" class="min-h-[42px] p-1.5 bg-slate-50 border border-dashed border-slate-300 rounded-lg flex flex-wrap gap-1 items-center"></div>
+                        <div class="text-xs sm:text-sm font-bold text-slate-500 mb-1">あなたの回答:</div>
+                        <div id="user-answer-box" class="min-h-[56px] p-2 bg-slate-50 border-2 border-dashed border-slate-300 rounded-xl flex flex-wrap gap-2 items-center"></div>
                     </div>
 
                     <div>
-                        <div class="text-[10px] font-bold text-slate-400 mb-0.5">単語ブロック:</div>
-                        <div id="word-pool-box" class="min-h-[42px] p-1.5 bg-slate-100 rounded-lg flex flex-wrap gap-1 items-center"></div>
+                        <div class="text-xs sm:text-sm font-bold text-slate-500 mb-1">単語ブロック:</div>
+                        <div id="word-pool-box" class="min-h-[56px] p-2 bg-slate-100 rounded-xl flex flex-wrap gap-2 items-center"></div>
                     </div>
 
                     <div class="flex gap-2 pt-1">
-                        <button onclick="resetOrderingAnswer()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-1.5 rounded-lg transition text-xs flex items-center justify-center gap-1 whitespace-nowrap">
+                        <button onclick="resetOrderingAnswer()" class="w-1/3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl transition text-xs sm:text-sm flex items-center justify-center gap-1 whitespace-nowrap active:scale-95 touch-manipulation">
                             <i class="fa-solid fa-rotate-left"></i> リセット
                         </button>
-                        <button id="btn-check-order" onclick="checkOrderingAnswer()" class="w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 rounded-lg shadow-sm transition text-xs flex items-center justify-center gap-1 whitespace-nowrap">
+                        <button id="btn-check-order" onclick="checkOrderingAnswer()" class="w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl shadow-sm transition text-xs sm:text-sm flex items-center justify-center gap-1 whitespace-nowrap active:scale-95 touch-manipulation">
                             判定する <i class="fa-solid fa-check"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Explanation Box -->
-                <div id="explanation-box" class="hidden mt-2 p-2.5 rounded-lg text-left border animate-fade-in text-xs">
-                    <div class="flex items-center justify-between font-bold mb-1" id="explanation-status"></div>
+                <div id="explanation-box" class="hidden mt-2.5 p-3 rounded-lg text-left border animate-fade-in text-xs sm:text-sm">
+                    <div class="flex items-center justify-between font-bold mb-1 text-sm sm:text-base" id="explanation-status"></div>
                     
-                    <div id="explanation-ja-box" class="hidden mb-1 p-1.5 bg-white/80 border border-slate-200 rounded font-semibold text-slate-800"></div>
+                    <div id="explanation-ja-box" class="hidden mb-1.5 p-2 bg-white/80 border border-slate-200 rounded font-semibold text-slate-800"></div>
 
-                    <div id="explanation-exp-box" class="text-slate-700 leading-tight"></div>
+                    <div id="explanation-exp-box" class="text-slate-700 leading-snug"></div>
 
-                    <div class="flex items-center justify-between gap-2 mt-2 pt-1.5 border-t border-slate-200/60">
-                        <button id="btn-explanation-audio" onclick="speakCurrentAnswerSentence()" class="inline-flex items-center gap-1 px-2.5 py-1 bg-amber-100 text-amber-800 hover:bg-amber-200 rounded text-xs font-semibold transition">
+                    <div class="flex items-center justify-between gap-2 mt-2.5 pt-2 border-t border-slate-200/60">
+                        <button id="btn-explanation-audio" onclick="speakCurrentAnswerSentence()" class="inline-flex items-center gap-1 px-3 py-1.5 bg-amber-100 text-amber-800 hover:bg-amber-200 rounded-md text-xs font-semibold transition">
                             <i class="fa-solid fa-volume-high"></i> 全文発音
                         </button>
 
-                        <button onclick="nextQuestion()" class="flex-1 bg-slate-800 hover:bg-slate-900 text-white font-bold py-1.5 rounded-md transition text-xs flex items-center justify-center gap-1 shadow-sm">
-                            次の問題へ <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        <button onclick="nextQuestion()" class="flex-1 bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 rounded-md transition text-xs sm:text-sm flex items-center justify-center gap-1 shadow-sm">
+                            次の問題へ <i class="fa-solid fa-chevron-right text-xs"></i>
                         </button>
                     </div>
                 </div>
@@ -228,129 +193,101 @@
         </section>
 
         <!-- RESULT SECTION -->
-        <section id="sec-result" class="hidden text-center space-y-3 pt-2 animate-fade-in">
-            <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 max-w-md mx-auto">
-                <div class="w-14 h-14 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto text-xl mb-2">
+        <section id="sec-result" class="hidden text-center space-y-4 pt-2 animate-fade-in">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 max-w-md mx-auto">
+                <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
                     <i class="fa-solid fa-trophy"></i>
                 </div>
-                <h2 class="text-lg font-bold text-slate-800 mb-0.5">クイズ完了！</h2>
-                <p class="text-slate-500 text-xs mb-3">お疲れ様でした。結果は以下の通りです。</p>
+                <h2 class="text-xl font-bold text-slate-800 mb-1">クイズ完了！</h2>
+                <p class="text-slate-500 text-xs sm:text-sm mb-4">お疲れ様でした。結果は以下の通りです。</p>
 
-                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 mb-3">
-                    <div class="text-[10px] text-slate-400 font-bold uppercase mb-0.5">正解数</div>
-                    <div id="result-score-text" class="text-2xl font-extrabold text-amber-600">8 / 10</div>
-                    <p id="result-feedback" class="text-xs text-slate-600 mt-0.5 font-medium">素晴らしい結果です！</p>
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-4">
+                    <div class="text-xs text-slate-400 font-bold uppercase mb-0.5">正解数</div>
+                    <div id="result-score-text" class="text-3xl font-extrabold text-amber-600">8 / 10</div>
+                    <p id="result-feedback" class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">素晴らしい結果です！</p>
                 </div>
 
                 <div class="space-y-2">
-                    <button onclick="retryCurrentQuiz()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl shadow-sm transition text-xs">
+                    <button onclick="retryCurrentQuiz()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl shadow-sm transition text-xs sm:text-sm">
                         もう一度挑戦する
                     </button>
-                    <button onclick="showSection('home')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 rounded-xl transition text-xs">
+                    <button onclick="showSection('home')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl transition text-xs sm:text-sm">
                         ホームに戻る
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- DICTIONARY / WORD LIST SECTION (高ユーザビリティ版) -->
-        <section id="sec-dictionary" class="hidden space-y-2.5 animate-fade-in pt-1">
-            <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 space-y-2">
+        <!-- DICTIONARY SECTION -->
+        <section id="sec-dictionary" class="hidden space-y-3 animate-fade-in pt-1">
+            <div class="bg-white p-3.5 rounded-xl shadow-sm border border-slate-200 space-y-2.5">
                 <div class="flex flex-col sm:flex-row gap-2 justify-between items-center">
-                    <h2 class="font-bold text-xs sm:text-sm text-slate-800 flex items-center gap-1.5">
+                    <h2 class="font-bold text-sm sm:text-base text-slate-800 flex items-center gap-1.5">
                         <i class="fa-solid fa-book text-amber-500"></i> ドイツ語単語帳 (<span id="dict-count-badge">0</span>語)
                     </h2>
                     
-                    <!-- Search Box -->
                     <div class="relative w-full sm:w-64">
-                        <input type="text" id="dict-search" oninput="filterDictionary()" placeholder="単語または意味で検索..." class="w-full pl-7 pr-2 py-1 text-xs border border-slate-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400">
-                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-slate-400 text-[10px]"></i>
+                        <input type="text" id="dict-search" oninput="filterDictionary()" placeholder="単語または意味で検索..." class="w-full pl-8 pr-3 py-1.5 text-xs sm:text-sm border border-slate-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400">
+                        <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2.5 text-slate-400 text-xs"></i>
                     </div>
                 </div>
 
-                <!-- Display Mode Toggle Tabs -->
-                <div class="flex justify-between items-center border-t border-slate-100 pt-2 gap-2">
-                    <!-- Category Filters -->
+                <div class="flex justify-between items-center border-t border-slate-100 pt-2.5 gap-2">
                     <div class="flex overflow-x-auto space-x-1 pb-0.5 text-xs font-medium scrollbar-none min-w-0" id="dict-tabs">
-                        <button onclick="filterDictCategory('ALL')" class="dict-tab active px-2 py-0.5 rounded bg-amber-500 text-white whitespace-nowrap text-[11px]">すべて</button>
-                        <button onclick="filterDictCategory('名詞')" class="dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-[11px]">名詞</button>
-                        <button onclick="filterDictCategory('動詞')" class="dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-[11px]">動詞</button>
-                        <button onclick="filterDictCategory('形容詞')" class="dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-[11px]">形容詞</button>
-                        <button onclick="filterDictCategory('副詞')" class="dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-[11px]">副詞</button>
-                        <button onclick="filterDictCategory('前置詞')" class="dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-[11px]">前置詞</button>
+                        <button onclick="filterDictCategory('ALL')" class="dict-tab active px-2.5 py-1 rounded-md bg-amber-500 text-white whitespace-nowrap text-xs font-bold">すべて</button>
+                        <button onclick="filterDictCategory('名詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">名詞</button>
+                        <button onclick="filterDictCategory('動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">動詞</button>
+                        <button onclick="filterDictCategory('形容詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">形容詞</button>
+                        <button onclick="filterDictCategory('副詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">副詞</button>
+                        <button onclick="filterDictCategory('前置詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">前置詞</button>
+                        <button onclick="filterDictCategory('代名詞・冠詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">代名詞・冠詞</button>
                     </div>
 
-                    <!-- View Switcher -->
                     <div class="flex bg-slate-100 p-0.5 rounded-lg shrink-0 text-xs">
-                        <button onclick="switchDictView('cards')" id="btn-view-cards" class="px-2 py-0.5 rounded-md font-semibold bg-white text-slate-800 shadow-xs">
+                        <button onclick="switchDictView('cards')" id="btn-view-cards" class="px-2.5 py-1 rounded-md font-semibold bg-white text-slate-800 shadow-xs">
                             <i class="fa-solid fa-grip"></i> カード
                         </button>
-                        <button onclick="switchDictView('flashcards')" id="btn-view-flashcards" class="px-2 py-0.5 rounded-md font-semibold text-slate-500 hover:text-slate-800">
+                        <button onclick="switchDictView('flashcards')" id="btn-view-flashcards" class="px-2.5 py-1 rounded-md font-semibold text-slate-500 hover:text-slate-800">
                             <i class="fa-solid fa-clone"></i> 暗記
-                        </button>
-                        <button onclick="switchDictView('table')" id="btn-view-table" class="px-2 py-0.5 rounded-md font-semibold text-slate-500 hover:text-slate-800">
-                            <i class="fa-solid fa-list"></i> 一覧
                         </button>
                     </div>
                 </div>
             </div>
 
-            <!-- VIEW 1: Cards View (Smartphone Friendly) -->
-            <div id="dict-view-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[500px] overflow-y-auto pr-0.5">
-                <!-- Cards injected dynamically -->
-            </div>
+            <!-- MODE 1: Cards View -->
+            <div id="dict-view-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[520px] overflow-y-auto pr-0.5"></div>
 
-            <!-- VIEW 2: Flashcards (暗記モード) -->
+            <!-- MODE 2: Flashcards View -->
             <div id="dict-view-flashcards" class="hidden flex flex-col items-center justify-center p-4 bg-white rounded-xl shadow-sm border border-slate-200 text-center space-y-3">
-                <div class="text-xs text-slate-400 font-semibold">
+                <div class="text-xs sm:text-sm text-slate-500 font-bold">
                     <span id="flashcard-counter">1 / 100</span> (カードをタップで裏返し)
                 </div>
 
-                <!-- Flashcard Flip Box -->
-                <div onclick="flipFlashcard()" class="w-full max-w-sm h-48 perspective-1000 cursor-pointer">
-                    <div id="flashcard-inner" class="w-full h-full relative transform-style-3d transition-transform duration-300 rounded-2xl shadow-md border-2 border-amber-200 bg-amber-50/30 flex items-center justify-center p-4">
-                        <!-- Front side -->
+                <div onclick="flipFlashcard()" class="w-full max-w-sm h-56 perspective-1000 cursor-pointer">
+                    <div id="flashcard-inner" class="w-full h-full relative transform-style-3d transition-transform duration-300 rounded-2xl shadow-md border-2 border-amber-200 bg-amber-50/40 flex items-center justify-center p-4">
                         <div class="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-4 text-center">
                             <span id="fc-front-gender" class="text-xs font-bold text-slate-400 mb-1"></span>
-                            <h3 id="fc-front-word" class="text-2xl font-bold text-slate-800">Word</h3>
-                            <span class="text-[10px] text-amber-600 bg-amber-100 px-2 py-0.5 rounded mt-2">タップして意味を表示</span>
+                            <h3 id="fc-front-word" class="text-2xl sm:text-3xl font-bold text-slate-800">Word</h3>
+                            <span class="text-xs text-amber-600 bg-amber-100 px-2 py-0.5 rounded mt-2">タップして意味を表示</span>
                         </div>
-                        <!-- Back side -->
                         <div class="absolute inset-0 backface-hidden rotate-y-180 bg-white rounded-2xl p-4 flex flex-col items-center justify-center text-center">
-                            <h4 id="fc-back-meaning" class="text-lg font-bold text-slate-800 mb-1">意味</h4>
-                            <p id="fc-back-detail" class="text-xs text-slate-500"></p>
+                            <h4 id="fc-back-meaning" class="text-lg sm:text-xl font-bold text-slate-800 mb-1">意味</h4>
+                            <p id="fc-back-detail" class="text-xs sm:text-sm text-slate-600 leading-snug"></p>
+                            <div id="fc-back-conj" class="hidden mt-2 p-1.5 bg-amber-50 border border-amber-200 rounded text-xs font-mono text-amber-900"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Controls -->
                 <div class="flex items-center gap-3 w-full max-w-sm pt-2">
-                    <button onclick="prevFlashcard()" class="w-1/2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1">
+                    <button onclick="prevFlashcard()" class="w-1/2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1">
                         <i class="fa-solid fa-arrow-left"></i> 前の単語
                     </button>
-                    <button onclick="speakGerman(currentFlashcardWord, true)" class="p-2 bg-amber-100 text-amber-700 rounded-full hover:bg-amber-200">
+                    <button onclick="speakGerman(currentFlashcardWord, true)" class="p-2.5 bg-amber-100 text-amber-700 rounded-full hover:bg-amber-200">
                         <i class="fa-solid fa-volume-high"></i>
                     </button>
-                    <button onclick="nextFlashcard()" class="w-1/2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl text-xs flex items-center justify-center gap-1">
+                    <button onclick="nextFlashcard()" class="w-1/2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1">
                         次の単語 <i class="fa-solid fa-arrow-right"></i>
                     </button>
-                </div>
-            </div>
-
-            <!-- VIEW 3: Table View (Classic List) -->
-            <div id="dict-view-table" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                <div class="max-h-[480px] overflow-y-auto">
-                    <table class="w-full text-left text-xs">
-                        <thead class="bg-slate-50 text-slate-500 text-[10px] uppercase sticky top-0 border-b border-slate-200">
-                            <tr>
-                                <th class="p-2">単語 (基本形)</th>
-                                <th class="p-2">品詞 / 性・複数形</th>
-                                <th class="p-2">日本語訳</th>
-                                <th class="p-2 text-center">音声</th>
-                            </tr>
-                        </thead>
-                        <tbody id="dict-tbody" class="divide-y divide-slate-100"></tbody>
-                    </table>
                 </div>
             </div>
         </section>
@@ -359,172 +296,282 @@
 
     <!-- App Data & Logic -->
     <script>
-        // MASTER WORD LIST DATA
+        // データ構造定義関数
+        function N(w,g,p,m,d=""){ return {word:w, pos:"名詞", gender:g, plural:p, detail:d||(g==="der"?"m. (男性)":g==="die"?"f. (女性)":"n. (中性)"), meaning:m}; }
+        function V(w,m,c,d="一般動詞"){ return {word:w, pos:"動詞", detail:d, conjugation:c, meaning:m}; }
+        function A(w,m,d="形容詞"){ return {word:w, pos:"形容詞", detail:d, meaning:m}; }
+        function ADV(w,m,d="副詞"){ return {word:w, pos:"副詞", detail:d, meaning:m}; }
+        function P(w,m,d="前置詞"){ return {word:w, pos:"前置詞", detail:d, meaning:m}; }
+        function PR(w,m,d="代名詞・冠詞"){ return {word:w, pos:"代名詞・冠詞", detail:d, meaning:m}; }
+
+        // 単語リスト全抽出・完全統合マスターデータ
         const wordList = [
-            { word: "Anfang", pos: "名詞", gender: "der", plural: "Anfänge", detail: "m. (男性)", meaning: "開始、はじめ" },
-            { word: "Antwort", pos: "名詞", gender: "die", plural: "Antworten", detail: "f. (女性)", meaning: "答、返事" },
-            { word: "Apfel", pos: "名詞", gender: "der", plural: "Äpfel", detail: "m. (男性)", meaning: "リンゴ" },
-            { word: "Appetit", pos: "名詞", gender: "der", plural: "-", detail: "m. (男性)", meaning: "食欲" },
-            { word: "Arzt", pos: "名詞", gender: "der", plural: "Ärzte", detail: "m. (男性)", meaning: "医師、医者" },
-            { word: "Ausflug", pos: "名詞", gender: "der", plural: "Ausflüge", detail: "m. (男性)", meaning: "遠足、ハイキング" },
-            { word: "Ausstellung", pos: "名詞", gender: "die", plural: "Ausstellungen", detail: "f. (女性)", meaning: "展覧会、展示" },
-            { word: "Ausweis", pos: "名詞", gender: "der", plural: "Ausweise", detail: "m. (男性)", meaning: "身分証明書" },
-            { word: "Auto", pos: "名詞", gender: "das", plural: "Autos", detail: "n. (中性)", meaning: "自動車、車" },
-            { word: "Baum", pos: "名詞", gender: "der", plural: "Bäume", detail: "m. (男性)", meaning: "木" },
-            { word: "Bericht", pos: "名詞", gender: "der", plural: "Berichte", detail: "m. (男性)", meaning: "報告書" },
-            { word: "Bett", pos: "名詞", gender: "das", plural: "Betten", detail: "n. (中性)", meaning: "ベッド" },
-            { word: "Bibliothek", pos: "名詞", gender: "die", plural: "Bibliotheken", detail: "f. (女性)", meaning: "図書館" },
-            { word: "Bier", pos: "名詞", gender: "das", plural: "Biere", detail: "n. (中性)", meaning: "ビール" },
-            { word: "Bild", pos: "名詞", gender: "das", plural: "Bilder", detail: "n. (中性)", meaning: "絵、写真" },
-            { word: "Bleistift", pos: "名詞", gender: "der", plural: "Bleistifte", detail: "m. (男性)", meaning: "鉛筆" },
-            { word: "Blume", pos: "名詞", gender: "die", plural: "Blumen", detail: "f. (女性)", meaning: "花" },
-            { word: "Bluse", pos: "名詞", gender: "die", plural: "Blusen", detail: "f. (女性)", meaning: "ブラウス" },
-            { word: "Botschaft", pos: "名詞", gender: "die", plural: "Botschaften", detail: "f. (女性)", meaning: "大使館" },
-            { word: "Brief", pos: "名詞", gender: "der", plural: "Briefe", detail: "m. (男性)", meaning: "手紙" },
-            { word: "Briefträger", pos: "名詞", gender: "der", plural: "Briefträger", detail: "m. (男性)", meaning: "郵便配達員" },
-            { word: "Brille", pos: "名詞", gender: "die", plural: "Brillen", detail: "f. (女性)", meaning: "眼鏡" },
-            { word: "Bruder", pos: "名詞", gender: "der", plural: "Brüder", detail: "m. (男性)", meaning: "兄、弟" },
-            { word: "Buch", pos: "名詞", gender: "das", plural: "Bücher", detail: "n. (中性)", meaning: "本" },
-            { word: "Bürgermeister", pos: "名詞", gender: "der", plural: "Bürgermeister", detail: "m. (男性)", meaning: "市長" },
-            { word: "Büro", pos: "名詞", gender: "das", plural: "Büros", detail: "n. (中性)", meaning: "事務所、オフィス" },
-            { word: "Café", pos: "名詞", gender: "das", plural: "Cafés", detail: "n. (中性)", meaning: "カフェ" },
-            { word: "Ecke", pos: "名詞", gender: "die", plural: "Ecken", detail: "f. (女性)", meaning: "角、コーナー" },
-            { word: "Eltern", pos: "名詞", gender: "die", plural: "Eltern", detail: "Pl. (複数)", meaning: "両親" },
-            { word: "Erkältung", pos: "名詞", gender: "die", plural: "Erkältungen", detail: "f. (女性)", meaning: "風邪" },
-            { word: "Erfolg", pos: "名詞", gender: "der", plural: "Erfolge", detail: "m. (男性)", meaning: "成功" },
-            { word: "Esstisch", pos: "名詞", gender: "der", plural: "Esstische", detail: "m. (男性)", meaning: "食卓" },
-            { word: "Essen", pos: "名詞", gender: "das", plural: "Essen", detail: "n. (中性)", meaning: "食事" },
-            { word: "Fahrrad", pos: "名詞", gender: "das", plural: "Fahrräder", detail: "n. (中性)", meaning: "自転車" },
-            { word: "Familie", pos: "名詞", gender: "die", plural: "Familien", detail: "f. (女性)", meaning: "家族" },
-            { word: "Farbe", pos: "名詞", gender: "die", plural: "Farben", detail: "f. (女性)", meaning: "色" },
-            { word: "Fenster", pos: "名詞", gender: "das", plural: "Fenster", detail: "n. (中性)", meaning: "窓" },
-            { word: "Fieber", pos: "名詞", gender: "das", plural: "-", detail: "n. (中性)", meaning: "熱、発熱" },
-            { word: "Film", pos: "名詞", gender: "der", plural: "Filme", detail: "m. (男性)", meaning: "映画" },
-            { word: "Finger", pos: "名詞", gender: "der", plural: "Finger", detail: "m. (男性)", meaning: "指" },
-            { word: "Fisch", pos: "名詞", gender: "der", plural: "Fische", detail: "m. (男性)", meaning: "魚" },
-            { word: "Flugzeug", pos: "名詞", gender: "das", plural: "Flugzeuge", detail: "n. (中性)", meaning: "飛行機" },
-            { word: "Frage", pos: "名詞", gender: "die", plural: "Fragen", detail: "f. (女性)", meaning: "質問、問い" },
-            { word: "Frau", pos: "名詞", gender: "die", plural: "Frauen", detail: "f. (女性)", meaning: "女性、妻、〜夫人" },
-            { word: "Freizeit", pos: "名詞", gender: "die", plural: "-", detail: "f. (女性)", meaning: "余暇、自由時間" },
-            { word: "Freund", pos: "名詞", gender: "der", plural: "Freunde", detail: "m. (男性)", meaning: "友人（男性）、彼氏" },
-            { word: "Freundin", pos: "名詞", gender: "die", plural: "Freundinnen", detail: "f. (女性)", meaning: "友人（女性）、彼女" },
-            { word: "Fußball", pos: "名詞", gender: "der", plural: "Fußbälle", detail: "m. (男性)", meaning: "サッカー" },
-            { word: "Garten", pos: "名詞", gender: "der", plural: "Gärten", detail: "m. (男性)", meaning: "庭" },
-            { word: "Gast", pos: "名詞", gender: "der", plural: "Gäste", detail: "m. (男性)", meaning: "客、ゲスト" },
-            { word: "Geburtstag", pos: "名詞", gender: "der", plural: "Geburtstage", detail: "m. (男性)", meaning: "誕生日" },
-            { word: "Geburtstagsgeschenk", pos: "名詞", gender: "das", plural: "Geburtstagsgeschenke", detail: "n. (中性)", meaning: "誕生日プレゼント" },
-            { word: "Geige", pos: "名詞", gender: "die", plural: "Geigen", detail: "f. (女性)", meaning: "ヴァイオリン" },
-            { word: "Geld", pos: "名詞", gender: "das", plural: "Gelder", detail: "n. (中性)", meaning: "お金" },
-            { word: "Geschäft", pos: "名詞", gender: "das", plural: "Geschäfte", detail: "n. (中性)", meaning: "店、店舗" },
-            { word: "Glas", pos: "名詞", gender: "das", plural: "Gläser", detail: "n. (中性)", meaning: "グラス、コップ" },
-            { word: "Großmutter", pos: "名詞", gender: "die", plural: "Großmütter", detail: "f. (女性)", meaning: "祖母" },
-            { word: "Großvater", pos: "名詞", gender: "der", plural: "Großväter", detail: "m. (男性)", meaning: "祖父" },
-            { word: "Haus", pos: "名詞", gender: "das", plural: "Häuser", detail: "n. (中性)", meaning: "家" },
-            { word: "Hausaufgabe", pos: "名詞", gender: "die", plural: "Hausaufgaben", detail: "f. (女性)", meaning: "宿題" },
-            { word: "Hut", pos: "名詞", gender: "der", plural: "Hüte", detail: "m. (男性)", meaning: "帽子" },
-            { word: "Hund", pos: "名詞", gender: "der", plural: "Hunde", detail: "m. (男性)", meaning: "犬" },
-            { word: "Kaffee", pos: "名詞", gender: "der", plural: "Kaffees", detail: "m. (男性)", meaning: "コーヒー" },
-            { word: "Kartoffel", pos: "名詞", gender: "die", plural: "Kartoffeln", detail: "f. (女性)", meaning: "ジャガイモ" },
-            { word: "Käse", pos: "名詞", gender: "der", plural: "Käse", detail: "m. (男性)", meaning: "チーズ" },
-            { word: "Katze", pos: "名詞", gender: "die", plural: "Katzen", detail: "f. (女性)", meaning: "猫" },
-            { word: "Kind", pos: "名詞", gender: "das", plural: "Kinder", detail: "n. (中性)", meaning: "子供" },
-            { word: "Kirche", pos: "名詞", gender: "die", plural: "Kirchen", detail: "f. (女性)", meaning: "教会" },
-            { word: "Klavier", pos: "名詞", gender: "das", plural: "Klaviere", detail: "n. (中性)", meaning: "ピアノ" },
-            { word: "Kugelschreiber", pos: "名詞", gender: "der", plural: "Kugelschreiber", detail: "m. (男性)", meaning: "ボールペン" },
-            { word: "Kühlschrank", pos: "名詞", gender: "der", plural: "Kühlschränke", detail: "m. (男性)", meaning: "冷蔵庫" },
-            { word: "Lampe", pos: "名詞", gender: "die", plural: "Lampen", detail: "f. (女性)", meaning: "ランプ、電球" },
-            { word: "Lehrer", pos: "名詞", gender: "der", plural: "Lehrer", detail: "m. (男性)", meaning: "教師（男性）" },
-            { word: "Lehrerin", pos: "名詞", gender: "die", plural: "Lehrerinnen", detail: "f. (女性)", meaning: "教師（女性）" },
-            { word: "Mädchen", pos: "名詞", gender: "das", plural: "Mädchen", detail: "n. (中性)", meaning: "少女、女の子" },
-            { word: "Mann", pos: "名詞", gender: "der", plural: "Männer", detail: "m. (男性)", meaning: "男性、夫" },
-            { word: "Milch", pos: "名詞", gender: "die", plural: "-", detail: "f. (女性)", meaning: "牛乳、ミルク" },
-            { word: "Mutter", pos: "名詞", gender: "die", plural: "Mütter", detail: "f. (女性)", meaning: "母、母親" },
-            { word: "Onkel", pos: "名詞", gender: "der", plural: "Onkel", detail: "m. (男性)", meaning: "叔父、伯父" },
-            { word: "Park", pos: "名詞", gender: "der", plural: "Parks", detail: "m. (男性)", meaning: "公園" },
-            { word: "Regenschirm", pos: "名詞", gender: "der", plural: "Regenschirme", detail: "m. (男性)", meaning: "傘" },
-            { word: "Schule", pos: "名詞", gender: "die", plural: "Schulen", detail: "f. (女性)", meaning: "学校" },
-            { word: "Sohn", pos: "名詞", gender: "der", plural: "Söhne", detail: "m. (男性)", meaning: "息子" },
-            { word: "Stadt", pos: "名詞", gender: "die", plural: "Städte", detail: "f. (女性)", meaning: "都市、町" },
-            { word: "Student", pos: "名詞", gender: "der", plural: "Studenten", detail: "m. (男性)", meaning: "大学生（男性）" },
-            { word: "Studentin", pos: "名詞", gender: "die", plural: "Studentinnen", detail: "f. (女性)", meaning: "大学生（女性）" },
-            { word: "Tante", pos: "名詞", gender: "die", plural: "Tanten", detail: "f. (女性)", meaning: "叔母、伯母" },
-            { word: "Tasse", pos: "名詞", gender: "die", plural: "Tassen", detail: "f. (女性)", meaning: "カップ" },
-            { word: "Tisch", pos: "名詞", gender: "der", plural: "Tische", detail: "m. (男性)", meaning: "机、テーブル" },
-            { word: "Tochter", pos: "名詞", gender: "die", plural: "Töchter", detail: "f. (女性)", meaning: "娘" },
-            { word: "Uhr", pos: "名詞", gender: "die", plural: "Uhren", detail: "f. (女性)", meaning: "時計" },
-            { word: "Vater", pos: "名詞", gender: "der", plural: "Väter", detail: "m. (男性)", meaning: "父、父親" },
-            { word: "Wagen", pos: "名詞", gender: "der", plural: "Wagen", detail: "m. (男性)", meaning: "車、自動車" },
-            { word: "Wohnung", pos: "名詞", gender: "die", plural: "Wohnungen", detail: "f. (女性)", meaning: "住居、アパート" },
-            { word: "Zimmer", pos: "名詞", gender: "das", plural: "Zimmer", detail: "n. (中性)", meaning: "部屋" },
+            // ==================== 名詞 ====================
+            N("Abend","der","Abende","晩、夕方"), N("Anfang","der","Anfänge","開始、はじめ"), N("Antwort","die","Antworten","答、返事"),
+            N("Apfel","der","Äpfel","リンゴ"), N("Appetit","der","-","食欲"), N("Arzt","der","Ärzte","医師、医者"),
+            N("Ausflug","der","Ausflüge","遠足、ハイキング"), N("Ausstellung","die","Ausstellungen","展覧会、展示"), N("Ausweis","der","Ausweise","身分証明書"),
+            N("Auto","das","Autos","自動車、車"), N("Bäckerei","die","Bäckereien","パン屋"), N("Bahnhof","der","Bahnhöfe","駅"),
+            N("Bank","die","Bänke","ベンチ / 銀行"), N("Baum","der","Bäume","木"), N("Bericht","der","Berichte","報告書"),
+            N("Beruf","der","Berufe","職業"), N("Bett","das","Betten","ベッド"), N("Bibliothek","die","Bibliotheken","図書館"),
+            N("Bier","das","Biere","ビール"), N("Bild","das","Bilder","絵、写真"), N("Bleistift","der","Bleistifte","鉛筆"),
+            N("Blume","die","Blumen","花"), N("Bluse","die","Blusen","ブラウス"), N("Botschaft","die","Botschaften","大使館"),
+            N("Brief","der","Briefe","手紙"), N("Briefträger","der","Briefträger","郵便配達員"), N("Brille","die","Brillen","眼鏡"),
+            N("Brot","das","Brote","パン"), N("Brötchen","das","Brötchen","小型パン"), N("Bruder","der","Brüder","兄、弟"),
+            N("Buch","das","Bücher","本"), N("Bürgermeister","der","Bürgermeister","市長"), N("Büro","das","Büros","事務所、オフィス"),
+            N("Bus","der","Busse","バス"), N("Café","das","Cafés","カフェ"), N("Computer","der","Computer","コンピュータ"),
+            N("Deutschland","das","-","ドイツ","n. (国名)"), N("Ecke","die","Ecken","角、コーナー"), N("Eltern","die","Eltern","両親","Pl. (複数形のみ)"),
+            N("Erkältung","die","Erkältungen","風邪"), N("Erfolg","der","Erfolge","成功"), N("Esstisch","der","Esstische","食卓"),
+            N("Essen","das","Essen","食事"), N("Etage","die","Etagen","階"), N("Fahrkarte","die","Fahrkarten","乗車券、切符"),
+            N("Fahrrad","das","Fahrräder","自転車"), N("Familie","die","Familien","家族"), N("Farbe","die","Farben","色"),
+            N("Fenster","das","Fenster","窓"), N("Fieber","das","-","熱、発熱"), N("Film","der","Filme","映画"),
+            N("Finger","der","Finger","指"), N("Fisch","der","Fische","魚"), N("Flasche","die","Flaschen","瓶、ボトル"),
+            N("Flugzeug","das","Flugzeuge","飛行機"), N("Franzose","der","Franzosen","フランス人男性","⚡️男性弱変化 (-n/-n)"), N("Frau","die","Frauen","女性、妻、〜夫人"),
+            N("Freizeit","die","-","余暇、自由時間"), N("Freund","der","Freunde","友人（男性）、彼氏"), N("Freundin","die","Freundinnen","友人（女性）、彼女"),
+            N("Fußball","der","Fußbälle","サッカー"), N("Garten","der","Gärten","庭"), N("Gast","der","Gäste","客、ゲスト"),
+            N("Geburtstag","der","Geburtstage","誕生日"), N("Geburtstagsgeschenk","das","Geburtstagsgeschenke","誕生日プレゼント"), N("Geige","die","Geigen","ヴァイオリン"),
+            N("Geld","das","Gelder","お金"), N("Geschäft","das","Geschäfte","店、店舗"), N("Glas","das","Gläser","グラス、コップ"),
+            N("Großmutter","die","Großmütter","祖母"), N("Großvater","der","Großväter","祖父"), N("Hand","die","Hände","手"),
+            N("Handtasche","die","Handtaschen","ハンドバッグ"), N("Handy","das","Handys","携帯電話、スマホ"), N("Hauptbahnhof","der","Hauptbahnhöfe","中央駅"),
+            N("Haus","das","Häuser","家"), N("Hausaufgabe","die","Hausaufgaben","宿題"), N("Heimat","die","-","故郷"),
+            N("Herr","der","Herren","〜氏、男性","⚡️男性弱変化 (-n/-en)"), N("Hut","der","Hüte","帽子"), N("Hund","der","Hunde","犬"),
+            N("Junge","der","Jungen","少年、男の子","⚡️男性弱変化 (-n/-n)"), N("Kaffee","der","Kaffees","コーヒー"), N("Kartoffel","die","Kartoffeln","ジャガイモ"),
+            N("Käse","der","Käse","チーズ"), N("Katze","die","Katzen","猫"), N("Kellner","der","Kellner","ウェイター"),
+            N("Kind","das","Kinder","子供"), N("Kino","das","Kinos","映画館"), N("Kirche","die","Kirchen","教会"),
+            N("Klavier","das","Klaviere","ピアノ"), N("Kollege","der","Kollegen","同僚（男性）","⚡️男性弱変化 (-n/-n)"), N("Krankheit","die","Krankheiten","病気"),
+            N("Kuchen","der","Kuchen","ケーキ"), N("Kugelschreiber","der","Kugelschreiber","ボールペン"), N("Kühlschrank","der","Kühlschränke","冷蔵庫"),
+            N("Lampe","die","Lampen","ランプ、電球"), N("Lehrer","der","Lehrer","教師（男性）"), N("Lehrerin","die","Lehrerinnen","教師（女性）"),
+            N("Lektion","die","Lektionen","課、レッスン"), N("Löffel","der","Löffel","スプーン"), N("Mädchen","das","Mädchen","少女、女の子"),
+            N("Mann","der","Männer","男性、夫"), N("Märchen","das","Märchen","童話"), N("Mensch","der","Menschen","人間、人","⚡️男性弱変化 (-en/-en)"),
+            N("Milch","die","-","牛乳、ミルク"), N("Monat","der","Monate","月(1ヶ月)"), N("Motorrad","das","Motorräder","オートバイ"),
+            N("Museum","das","Museen","博物館"), N("Mutter","die","Mütter","母、母親"), N("Nacht","die","Nächte","夜"),
+            N("Nachbar","der","Nachbarn","隣人（男性）","⚡️男性弱変化 (-n/-n)"), N("Name","der","Namen","名前","⚡️男性弱変化(特殊)"), N("Onkel","der","Onkel","叔父、伯父"),
+            N("Park","der","Parks","公園"), N("Präsident","der","Präsidenten","大統領","⚡️男性弱変化 (-en/-en)"), N("Prüfung","die","Prüfungen","試験"),
+            N("Regenschirm","der","Regenschirme","傘"), N("Schule","die","Schulen","学校"), N("Schüler","der","Schüler","生徒（男性）"),
+            N("Schwester","die","Schwestern","姉、妹"), N("Sohn","der","Söhne","息子"), N("Sommer","der","Sommer","夏"),
+            N("Stadt","die","Städte","都市、町"), N("Student","der","Studenten","大学生（男性）","⚡️男性弱変化 (-en/-en)"), N("Studentin","die","Studentinnen","大学生（女性）"),
+            N("Tante","die","Tanten","叔母、伯母"), N("Tasse","die","Tassen","カップ"), N("Tisch","der","Tische","机、テーブル"),
+            N("Tochter","die","Töchter","娘"), N("Tür","die","Türen","ドア"), N("Uhr","die","Uhren","時計"),
+            N("Vater","der","Väter","父、父親"), N("Wagen","der","Wagen","車、自動車"), N("Wald","der","Wälder","森林、森"),
+            N("Wand","die","Wände","壁"), N("Wohnung","die","Wohnungen","住居、アパート"), N("Wörterbuch","das","Wörterbücher","辞書"),
+            N("Zeit","die","Zeiten","時間"), N("Zeitung","die","Zeitungen","新聞"), N("Zimmer","das","Zimmer","部屋"), N("Zug","der","Züge","列車、電車"),
 
-            // 動詞
-            { word: "arbeiten", pos: "動詞", detail: "一般動詞", meaning: "働く" },
-            { word: "besuchen", pos: "動詞", detail: "一般動詞", meaning: "訪問する、見学する" },
-            { word: "bleiben", pos: "動詞", detail: "一般動詞", meaning: "留まる、滞在する" },
-            { word: "bringen", pos: "動詞", detail: "一般動詞", meaning: "持ってくる" },
-            { word: "danken", pos: "動詞", detail: "一般動詞", meaning: "感謝する" },
-            { word: "dürfen", pos: "動詞", detail: "話法の助動詞", meaning: "〜してもよい" },
-            { word: "essen", pos: "動詞", detail: "一般動詞", meaning: "食べる" },
-            { word: "fahren", pos: "動詞", detail: "一般動詞", meaning: "行く、乗る" },
-            { word: "gefallen", pos: "動詞", detail: "一般動詞", meaning: "気に入る" },
-            { word: "gehen", pos: "動詞", detail: "一般動詞", meaning: "行く" },
-            { word: "gehören", pos: "動詞", detail: "一般動詞", meaning: "〜のものである" },
-            { word: "haben", pos: "動詞", detail: "一般動詞/助動詞", meaning: "持っている、〜がある" },
-            { word: "helfen", pos: "動詞", detail: "一般動詞", meaning: "助ける、手伝う" },
-            { word: "kaufen", pos: "動詞", detail: "一般動詞", meaning: "買う" },
-            { word: "kennen", pos: "動詞", detail: "一般動詞", meaning: "知っている" },
-            { word: "kommen", pos: "動詞", detail: "一般動詞", meaning: "来る" },
-            { word: "können", pos: "動詞", detail: "話法の助動詞", meaning: "〜できる" },
-            { word: "lernen", pos: "動詞", detail: "一般動詞", meaning: "学ぶ、勉強する" },
-            { word: "lesen", pos: "動詞", detail: "一般動詞", meaning: "読む" },
-            { word: "lieben", pos: "動詞", detail: "一般動詞", meaning: "愛する" },
-            { word: "machen", pos: "動詞", detail: "一般動詞", meaning: "する、作る" },
-            { word: "mögen", pos: "動詞", detail: "話法の助動詞", meaning: "〜が好きだ、〜かもしれない" },
-            { word: "möchten", pos: "動詞", detail: "話法の助動詞", meaning: "〜したい" },
-            { word: "müssen", pos: "動詞", detail: "話法の助動詞", meaning: "〜しなければならない" },
-            { word: "schenken", pos: "動詞", detail: "一般動詞", meaning: "贈る、プレゼントする" },
-            { word: "schreiben", pos: "動詞", detail: "一般動詞", meaning: "書く" },
-            { word: "sein", pos: "動詞", detail: "Be動詞", meaning: "〜である" },
-            { word: "sollen", pos: "動詞", detail: "話法の助動詞", meaning: "〜すべきである" },
-            { word: "spielen", pos: "動詞", detail: "一般動詞", meaning: "遊ぶ、演奏する" },
-            { word: "sprechen", pos: "動詞", detail: "一般動詞", meaning: "話す" },
-            { word: "trinken", pos: "動詞", detail: "一般動詞", meaning: "飲む" },
-            { word: "werden", pos: "動詞", detail: "助動詞/動詞", meaning: "〜になる" },
-            { word: "wohnen", pos: "動詞", detail: "一般動詞", meaning: "住む" },
-            { word: "wollen", pos: "動詞", detail: "話法の助動詞", meaning: "〜するつもりである" },
+            // 抽出全追加名詞
+            N("Pullover","der","Pullover","セーター"), N("Vase","die","Vasen","花瓶"), N("Stuhl","der","Stühle","椅子"),
+            N("Schreibtisch","der","Schreibtische","机、事務机"), N("Stäbchen","das","Stäbchen","箸"), N("Politik","die","-","政治"),
+            N("Straße","die","Straßen","通り、道路"), N("Regen","der","-","雨"), N("Spaziergang","der","Spaziergänge","散歩"),
+            N("Strom","der","Ströme","電気、電流"), N("Unterricht","der","-","授業"), N("Urlaub","der","Urlaube","休暇、旅行"),
+            N("Weg","der","Wege","道、道のり"), N("Post","die","-","郵便、郵便局"), N("Genie","das","Genies","天才"),
+            N("Wissenschaftler","der","Wissenschaftler","科学者"), N("Theater","das","Theater","劇場"), N("Koffer","der","Koffer","スーツケース"),
+            N("Villa","die","Villen","別荘、邸宅"), N("Teil","der","Teile","部分、部品"), N("Lage","die","Lagen","位置、状況"),
+            N("Taxi","das","Taxis","タクシー"), N("Platz","der","Plätze","場所、広場、席"), N("Sänger","der","Sänger","歌手（男性）"),
+            N("Vogel","der","Vögel","鳥"), N("Frage","die","Fragen","質問"), N("Rose","die","Rosen","バラ"),
+            N("Politiker","der","Politiker","政治家"), N("Paket","das","Pakete","小包、小荷物"), N("Wein","der","Weine","ワイン"),
+            N("Liebe","die","-","愛"), N("Tier","das","Tiere","動物"), N("Heft","das","Hefte","ノート"),
+            N("Pferd","das","Pferde","馬"), N("Aufzug","der","Aufzüge","エレベーター"), N("Person","die","Personen","人、人物"),
+            N("Zukunft","die","-","未来、将来"), N("Krankenhaus","das","Krankenhäuser","病院"), N("Süßigkeit","die","Süßigkeiten","お菓子、甘いもの"),
+            N("Referat","das","Referate","研究発表、レポート"), N("Physiker","der","Physiker","物理学者"), N("Puppe","die","Puppen","人形"),
+            N("Party","die","Partys","パーティー"), N("Kerze","die","Kerzen","ローソク"), N("Ahnung","die","Ahnungen","予感、心当たり"),
+            N("Rathaus","das","Rathäuser","市役所"), N("Wetter","das","-","天気"), N("Ring","der","Ringe","指輪"),
+            N("Niveau","das","Niveaus","水準、レベル"), N("Turm","der","Türme","塔"), N("Mantel","der","Mäntel","コート"),
+            N("Arbeitslose","der","Arbeitslosen","失業者","形容詞由来名詞"), N("Angestellte","der","Angestellten","会社員、従業員","形容詞由来名詞"),
+            N("Reisende","der","Reisenden","旅行者","形容詞由来名詞"), N("Kranke","der","Kranken","病人","形容詞由来名詞"),
+            N("Wahrheit","die","Wahrheiten","真実"), N("Tasche","die","Taschen","鞄、ポケット"), N("Rock","der","Röcke","スカート"),
+            N("Kleid","das","Kleider","ドレス、ワンピース"), N("Schuh","der","Schuhe","靴"), N("Geheimnis","das","Geheimnisse","秘密"),
+            N("Haut","die","Häute","皮膚、肌"), N("Ernährung","die","-","栄養、食事"), N("Insekt","das","Insekten","昆虫"),
+            N("Eingang","der","Eingänge","入り口"), N("Schloss","das","Schlösser","城、鍵"), N("Schauspieler","der","Schauspieler","俳優"),
+            N("Schwein","das","Schweine","豚"), N("Tennis","das","-","テニス"), N("Viertel","das","Viertel","4分の1、地区"),
+            N("Restaurant","das","Restaurants","レストラン"), N("Gras","das","Gräser","草、芝生"), N("Schatten","der","Schatten","影"),
+            N("Wind","der","Winde","風"), N("Licht","das","Lichter","光、明かり"), N("Natur","die","-","自然"),
+            N("Ball","der","Bälle","ボール、舞踏会"), N("Stimme","die","Stimmen","声"), N("Atmosphäre","die","Atmosphären","雰囲気"),
+            N("Lebensstil","der","Lebensstile","ライフスタイル"), N("Generation","die","Generationen","世代"), N("Gefühl","das","Gefühle","感情、感覚"),
+            N("Zufriedenheit","die","-","満足"), N("Ohr","das","Ohren","耳"), N("Jahrhundert","das","Jahrhunderte","世紀"),
+            N("Stock","der","Stockwerke","階"), N("Oper","die","Opern","オペラ"), N("Alphabet","das","Alphabete","アルファベット"),
+            N("Kräutertee","der","Kräutertees","ハーブティー"), N("Firma","die","Firmen","会社"), N("Sofa","das","Sofas","ソファ"),
+            N("Frühstück","das","-","朝食"), N("Mittagessen","das","Mittagessen","昼食"), N("Abendessen","das","Abendessen","夕食"),
+            N("Müsli","das","Müslis","ミューズリー"), N("Joghurt","der","Joghurts","ヨーグルト"), N("Honig","der","-","ハチミツ"),
+            N("Getränk","das","Getränke","飲み物"), N("Salat","der","Salate","サラダ"), N("Gemüse","das","-","野菜"),
+            N("Fleisch","das","-","肉"), N("Schinken","der","Schinken","ハム"), N("Reis","der","-","米、ご飯"),
+            N("Mensa","die","Mensen","学食"), N("Wochenende","das","Wochenenden","週末"), N("Küche","die","Küchen","台所、キッチン"),
+            N("Polizist","der","Polizisten","警察官","⚡️男性弱変化 (-en/-en)"), N("Musiker","der","Musiker","音楽家"), N("Comic","der","Comics","漫画"),
+            N("Karotte","die","Karotten","ニンジン"), N("Zwiebel","die","Zwiebeln","タマネギ"), N("Sellerie","der","-","セロリ"),
+            N("Avocado","die","Avocados","アボカド"), N("Rezept","das","Rezepte","レシピ、処方箋"), N("Sushi","das","-","寿司"),
+            N("Supermarkt","der","Supermärkte","スーパーマーケット"), N("Konzert","das","Konzerte","コンサート"), N("Uni","die","Unis","大学（略称）"),
+            N("Berg","der","Berge","山"), N("Geschwister","die","Geschwister","兄弟姉妹","Pl. (複数形のみ)"), N("Ingenieur","der","Ingenieure","エンジニア、技師"),
+            N("Ärztin","die","Ärztinnen","女医"), N("Quatsch","der","-","くだらないこと、ナンセンス"), N("Cousin","der","Cousins","従兄弟（男性）"),
+            N("Spaß","der","-","楽しみ、面白さ"), N("Wort","das","Wörter","単語、言葉"), N("Durst","der","-","喉の渇き"),
+            N("Lust","die","-","意欲、やる気"), N("Ei","das","Eier","卵"), N("Hochzeit","die","Hochzeiten","結婚式"),
+            N("Bonbon","der","Bonbons","キャンディー"), N("Blumenstrauß","der","Blumensträuße","花束"), N("Jacke","die","Jacken","上着、ジャケット"),
+            N("Hemd","das","Hemden","シャツ"), N("Titel","der","Titel","タイトル、称号"), N("Professor","der","Professoren","教授"),
+            N("Zucker","der","-","砂糖"), N("Sonne","die","Sonnen","太陽"), N("Mond","der","Monde","月"),
+            N("Pianist","der","Pianisten","ピアニスト","⚡️男性弱変化 (-en/-en)"), N("Japaner","der","Japaner","日本人（男性）"), N("Bisschen","das","-","少し"),
 
-            // 形容詞・副詞・前置詞
-            { word: "alt", pos: "形容詞", detail: "形容詞", meaning: "古い、〜歳の" },
-            { word: "groß", pos: "形容詞", detail: "形容詞", meaning: "大きい" },
-            { word: "gut", pos: "形容詞", detail: "形容詞", meaning: "良い、上手な" },
-            { word: "neu", pos: "形容詞", detail: "形容詞", meaning: "新しい" },
-            { word: "schön", pos: "形容詞", detail: "形容詞", meaning: "美しい、すばらしい" },
-            { word: "schwer", pos: "形容詞", detail: "形容詞", meaning: "難しい、重い" },
-            { word: "heute", pos: "副詞", detail: "副詞", meaning: "今日" },
-            { word: "morgen", pos: "副詞", detail: "副詞", meaning: "明日" },
-            { word: "jetzt", pos: "副詞", detail: "副詞", meaning: "今" },
-            { word: "leider", pos: "副詞", detail: "副詞", meaning: "あいにく、残念ながら" },
-            { word: "sehr", pos: "副詞", detail: "副詞", meaning: "とても" },
-            { word: "aus", pos: "前置詞", detail: "3格支配", meaning: "〜から（出身・外へ）" },
-            { word: "bei", pos: "前置詞", detail: "3格支配", meaning: "〜のところで" },
-            { word: "mit", pos: "前置詞", detail: "3格支配", meaning: "〜と一緒に、〜で" },
-            { word: "nach", pos: "前置詞", detail: "3格支配", meaning: "〜へ、〜の後で" },
-            { word: "von", pos: "前置詞", detail: "3格支配", meaning: "〜から、〜の" },
-            { word: "zu", pos: "前置詞", detail: "3格支配", meaning: "〜へ" },
-            { word: "für", pos: "前置詞", detail: "4格支配", meaning: "〜のために" },
-            { word: "durch", pos: "前置詞", detail: "4格支配", meaning: "〜を通って" },
-            { word: "wegen", pos: "前置詞", detail: "2格支配", meaning: "〜の理由で" },
-            { word: "während", pos: "前置詞", detail: "2格支配", meaning: "〜の間に" },
-            { word: "in", pos: "前置詞", detail: "3格/4格支配", meaning: "〜の中に/へ" },
-            { word: "an", pos: "前置詞", detail: "3格/4格支配", meaning: "〜に（接触して）" },
-            { word: "auf", pos: "前置詞", detail: "3格/4格支配", meaning: "〜の上に/へ" }
+            // ==================== 動詞 ====================
+            V("arbeiten","働く","ich arbeite, du arbeitest, er arbeitet","規則(e挿入)"),
+            V("besuchen","訪問する、見学する","ich besuche, du besuchst, er besucht","非分離動詞"),
+            V("bleiben","留まる、滞在する","ich bleibe, du bleibst, er bleibt","規則動詞"),
+            V("bringen","持ってくる","ich bringe, du bringst, er bringt","混合動詞"),
+            V("danken","感謝する","ich danke, du dankst, er dankt","3格支配"),
+            V("dürfen","〜してもよい","ich darf, du darfst, er darf, wir dürfen","話法の助動詞"),
+            V("essen","食べる","ich esse, du isst, er isst, wir essen","幹母音変化(e→i)"),
+            V("fahren","行く、乗る","ich fahre, du fährst, er fährt","幹母音変化(a→ä)"),
+            V("gefallen","気に入る","es gefällt, sie gefallen","3格支配(a→ä)"),
+            V("gehen","行く","ich gehe, du gehst, er geht","規則動詞"),
+            V("gehören","〜のものである","es gehört, sie gehören","3格支配"),
+            V("haben","持っている、〜がある","ich habe, du hast, er hat, ihr habt","不規則動詞"),
+            V("helfen","助ける、手伝う","ich helfe, du hilfst, er hilft","3格支配(e→i)"),
+            V("kaufen","買う","ich kaufe, du kaufst, er kauft","規則動詞"),
+            V("kennen","知っている","ich kenne, du kennst, er kennt","規則動詞"),
+            V("kommen","来る","ich komme, du kommst, er kommt","規則動詞"),
+            V("können","〜できる","ich kann, du kannst, er kann, wir können","話法の助動詞"),
+            V("lernen","学ぶ、勉強する","ich lerne, du lernst, er lernt","規則動詞"),
+            V("lesen","読む","ich lese, du liest, er liest","幹母音変化(e→ie)"),
+            V("lieben","愛する","ich liebe, du liebst, er liebt","規則動詞"),
+            V("machen","する、作る","ich mache, du machst, er macht","規則動詞"),
+            V("mögen","〜が好きだ、〜かもしれない","ich mag, du magst, er mag, wir mögen","話法の助動詞"),
+            V("möchten","〜したい","ich möchte, du möchtest, er möchte","話法の助動詞"),
+            V("müssen","〜しなければならない","ich muss, du musst, er muss, wir müssen","話法の助動詞"),
+            V("schenken","贈る、プレゼントする","ich schenke, du schenkst, er schenkt","3格人+4格物"),
+            V("schreiben","書く","ich schreibe, du schreibst, er schreibt","規則動詞"),
+            V("sein","〜である","ich bin, du bist, er ist, wir sind, ihr seid","Be動詞(不規則)"),
+            V("sollen","〜すべきである","ich soll, du sollst, er soll, wir sollen","話法の助動詞"),
+            V("spielen","遊ぶ、演奏する","ich spiele, du spielst, er spielt","規則動詞"),
+            V("sprechen","話す","ich spreche, du sprichst, er spricht","幹母音変化(e→i)"),
+            V("tragen","身につける、運ぶ","ich trage, du trägst, er trägt","幹母音変化(a→ä)"),
+            V("trinken","飲む","ich trinke, du trinkst, er trinkt","規則動詞"),
+            V("werden","〜になる・〜だろう","ich werde, du wirst, er wird, wir werden","不規則(e→i)"),
+            V("wohnen","住む","ich wohne, du wohnst, er wohnt","規則動詞"),
+            V("wollen","〜するつもりである","ich will, du willst, er will, wir wollen","話法の助動詞"),
+
+            // 抽出全追加動詞
+            V("bekommen","手に入れる、受け取る","ich bekomme, du bekommst, er bekommt","非分離動詞"),
+            V("stehen","立っている","ich stehe, du stehst, er steht","規則動詞"),
+            V("stellen","立てて置く","ich stelle, du stellst, er stellt","規則動詞"),
+            V("legen","横にして置く","ich lege, du legst, er legt","規則動詞"),
+            V("sitzen","座っている","ich sitze, du sitzt, er sitzt","不規則動詞"),
+            V("setzen","座らせる、置く","ich setze, du setzt, er setzt","規則動詞"),
+            V("hängen","掛かっている/掛ける","ich hänge, du hängst, er hängt","規則/不規則"),
+            V("liegen","横たわっている","ich liege, du liegst, er liegt","不規則動詞"),
+            V("diskutieren","議論する","ich diskutiere, du diskutierst, er diskutiert","規則動詞"),
+            V("schwimmen","泳ぐ","ich schwimme, du schwimmst, er schwimmt","不規則動詞"),
+            V("warten","待つ","ich warte, du wartest, er wartet","規則(e挿入)"),
+            V("fragen","質問する、尋ねる","ich frage, du fragst, er fragt","規則動詞"),
+            V("schicken","送る","ich schicke, du schickst, er schickt","規則動詞"),
+            V("wünschen","望む、祈る","ich wünsche, du wünschst, er wünscht","規則動詞"),
+            V("geben","与える、あげる","ich gebe, du gibst, er gibt","幹母音変化(e→i)"),
+            V("rauchen","タバコを吸う","ich rauche, du rauchst, er raucht","規則動詞"),
+            V("abgeben","提出する、渡す","ich gebe ab, du gibst ab, er gibt ab","分離動詞(e→i)"),
+            V("stehlen","盗む","ich stehle, du stiehlst, er stiehlt","幹母音変化(e→ie)"),
+            V("heißen","〜という名前である","ich heiße, du heißt, er heißt","規則動詞"),
+            V("brauchen","必要とする","ich brauche, du brauchst, er braucht","規則動詞"),
+            V("verbringen","（時間を）過ごす","ich verbringe, du verbringst, er verbringt","非分離動詞"),
+            V("singen","歌う","ich singe, du singst, er singt","不規則動詞"),
+            V("beantworten","答える","ich beantworte, du beantwortest, er beantwortet","非分離動詞"),
+            V("kochen","料理する、沸かす","ich koche, du kochst, er kocht","規則動詞"),
+            V("leihen","貸す、借りる","ich leihe, du leihst, er leiht","不規則動詞"),
+            V("lachen","笑う","ich lache, du lachst, er lacht","規則動詞"),
+            V("schließen","閉める、閉じる","ich schließe, du schließt, er schließt","不規則動詞"),
+            V("benutzen","使う、利用する","ich benutze, du benutzt, er benutzt","規則動詞"),
+            V("sterben","死ぬ","ich sterbe, du stirbst, er stirbt","幹母音変化(e→i)"),
+            V("tanzen","踊る","ich tanze, du tanzt, er tanzt","規則動詞"),
+            V("ehren","尊敬する、称える","ich ehre, du ehrst, er ehrt","規則動詞"),
+            V("töten","殺す","ich töte, du tötest, er tötet","規則(e挿入)"),
+            V("versuchen","試みる、やってみる","ich versuche, du versuchst, er versucht","非分離動詞"),
+            V("fotografieren","写真を撮る","ich fotografiere, du fotografierst, er fotografiert","規則動詞"),
+            V("denken","考える、思う","ich denke, du denkst, er denkt","混合動詞"),
+            V("sehen","見る、会う","ich sehe, du siehst, er sieht","幹母音変化(e→ie)"),
+            V("schlafen","眠る","ich schlafe, du schläfst, er schläft","幹母音変化(a→ä)"),
+            V("nehmen","取る、選ぶ","ich nehme, du nimmst, er nimmt","幹母音変化(e→i)"),
+            V("backen","焼く","ich backe, du bäckst, er bäckt","幹母音変化(a→ä)"),
+            V("halten","止まる、保つ","ich halte, du hältst, er hält","幹母音変化(a→ä)"),
+            V("wissen","（知識として）知っている","ich weiß, du weißt, er weiß, wir wissen","不規則動詞"),
+            V("heiraten","結婚する","ich heirate, du heiratest, er heiratet","規則(e挿入)"),
+            V("picknicken","ピクニックする","ich picknicke, du picknickst, er picknickt","規則動詞"),
+            V("genießen","楽しむ、味わう","ich genieße, du genießt, er genießt","不規則動詞"),
+            V("klingen","（〜のように）響く・聞こえる","es klingt, sie klingen","不規則動詞"),
+            V("bestehen","合格する、存在する","ich bestehe, du bestehst, er besteht","非分離動詞"),
+            V("küssen","キスする","ich küsse, du küsst, er küsst","規則動詞"),
+            V("lächeln","微笑む","ich lächele, du lächelst, er lächelt","規則動詞"),
+            V("finden","見つける、思う","ich finde, du findest, er findet","規則(e挿入)"),
+
+            // ==================== 形容詞 ====================
+            A("alt","古い、〜歳の"), A("ähnlich","似ている"), A("ausgezeichnet","優れた、素晴らしい"),
+            A("bekannt","有名な、知られている"), A("blau","青い"), A("deutsch","ドイツの"),
+            A("drei","3つの","数詞"), A("englisch","英語の、イギリスの"), A("faul","怠惰な、なまけている"),
+            A("fleißig","勤勉な、熱心な"), A("frei","自由な、空いている"), A("fröhlich","陽気な、楽しそうな"),
+            A("fünf","5つの","数詞"), A("groß","大きい、背が高い"), A("gut","良い、上手な"),
+            A("hübsch","かわいい、きれいな"), A("interessant","面白い、興味深い"), A("japanisch","日本の、日本語の"),
+            A("krank","病気の"), A("kurz","短い、少しの間"), A("laut","大声の、騒がしい"),
+            A("müde","疲れた、眠い"), A("nett","親切な、感じが良い"), A("neu","新しい"),
+            A("reich","豊かな、金持ちの"), A("rot","赤い"), A("schön","美しい、すばらしい"),
+            A("schwarz","黒い"), A("schwer","難しい、重い"), A("sicher","確実な、安全な"),
+            A("warm","暖かい"), A("weiß","白い"), A("zwei","2つの","数詞"), A("klein","小さな"),
+            A("schnell","速い"), A("langsam","遅い、ゆっくりした"), A("einfach","簡単な、単純な"),
+
+            // 抽出全追加形容詞
+            A("viel","多くの、たくさん"), A("sauer","酸っぱい、おこった"), A("richtig","正しい"),
+            A("elegant","エレガントな、優雅な"), A("schlecht","悪い、不調な"), A("hoch","高い"),
+            A("dunkel","暗い"), A("teuer","高価な、値段が高い"), A("edel","高貴な、上品な"),
+            A("weise","賢い、賢明な"), A("gelb","黄色い"), A("kalt","寒い、冷たい"),
+            A("schick","おしゃれな"), A("blond","ブロンドの、金髪の"), A("berühmt","有名な"),
+            A("dick","太った、分厚い"), A("klug","賢い、頭が良い"), A("mild","マイルドな、穏やかな"),
+            A("kühl","涼しい、冷ややかな"), A("angenehm","心地よい、快適な"), A("entfernt","離れた、遠い"),
+            A("ruhig","静かな、落ち着いた"), A("einzig","唯一の"), A("verwandt","親戚の、親縁の"),
+            A("hilfsbereit","親切な、助けになる"), A("freundlich","親しみやすい、親切な"), A("sportlich","スポーティーな、運動好きな"),
+            A("süß","甘い、かわいい"), A("heiter","晴れやかな、陽気な"), A("kreativ","創造的な"),
+            A("traditionell","伝統的な"), A("lecker","美味しい"), A("italienisch","イタリアの、イタリア語の"),
+            A("glücklich","幸せな、幸運な"), A("betrunken","酔っ払った"), A("wild","野生の、激しい"),
+
+            // ==================== 副詞 ====================
+            ADV("aber","しかし、だが","接続詞/副詞"), ADV("allein","一人で"), ADV("auch","〜もまた"),
+            ADV("bald","もうすぐ"), ADV("bitte","どうぞ、お願いします"), ADV("dann","それから、そうすれば"),
+            ADV("etwa","およそ、約"), ADV("gern","好んで、喜んで"), ADV("gleich","すぐに"),
+            ADV("heute","今日"), ADV("hier","ここに"), ADV("immer","いつも"), ADV("jetzt","今"),
+            ADV("leider","あいにく、残念ながら"), ADV("morgen","明日"), ADV("nicht","〜ない","否定副詞"),
+            ADV("noch","まだ、さらに"), ADV("oft","しばしば、よく"), ADV("schon","すでに、もう"),
+            ADV("sehr","とても、大変"), ADV("sofort","すぐに、即座に"), ADV("zusammen","一緒に"),
+            ADV("ja","はい","応答詞"), ADV("nein","いいえ","応答詞"), ADV("vielleicht","ひょっとすると"),
+
+            // 抽出全追加副詞
+            ADV("dort","そこに、あそこに"), ADV("wohin","どこへ"), ADV("wie","どのように、どんなに"),
+            ADV("da","そこに、その時"), ADV("gelegentlich","たまに、折に触れて"), ADV("mehr","より多くの、もはや"),
+            ADV("wo","どこで"), ADV("weit","遠くに、広く"), ADV("meistens","たいてい、大抵"),
+            ADV("selber","自分自身で"), ADV("spät","遅く"), ADV("wann","いつ"),
+            ADV("warum","なぜ"), ADV("woher","どこから"), ADV("lange","長い間"),
+
+            // ==================== 前置詞 ====================
+            P("aus","〜から（出身・外へ）","3格支配"), P("bei","〜のところで","3格支配"), P("mit","〜と一緒に、〜で","3格支配"),
+            P("nach","〜へ、〜の後で","3格支配"), P("von","〜から、〜の","3格支配"), P("zu","〜へ","3格支配"),
+            P("für","〜のために","4格支配"), P("durch","〜を通って","4格支配"), P("wegen","〜の理由で","2格支配"),
+            P("während","〜の間に","2格支配"), P("in","〜の中に/へ","3格/4格支配"), P("an","〜に（接触して）","3格/4格支配"),
+            P("auf","〜の上に/へ","3格/4格支配"), P("zwischen","〜の間に/へ","3格/4格支配"), P("über","〜の上(上方)に","3格/4格支配"),
+
+            // 抽出全追加前置詞
+            P("statt","〜の代わりに","2格支配"), P("vor","〜の前に/へ","3格/4格支配"), P("hinter","〜の後ろに/へ","3格/4格支配"),
+            P("neben","〜の隣に/へ","3格/4格支配"), P("trotz","〜にもかかわらず","2格支配"), P("seit","〜以来、〜前から","3格支配"),
+            P("um","〜の周りに、〜時に","4格支配"), P("gegen","〜に向かって、〜に対して","4格支配"),
+
+            // ==================== 代名詞・冠詞 ====================
+            PR("ich","私 (1格ich/3格mir/4格mich)","1人称単数"), PR("du","君 (1格du/3格dir/4格dich)","2人称単数"),
+            PR("er","彼 (1格er/3格ihm/4格ihn)","3人称男性"), PR("sie","彼女/それら (1・4格sie/3格ihr,ihnen)","3人称女性/複数"),
+            PR("es","それ (1・4格es/3格ihm)","3人称中性"), PR("wir","私たち (1格wir/3・4格uns)","1人称複数"),
+            PR("ihr","君たち/彼女の/それらの","2人称複数/所有"), PR("Sie","あなた/あなた方 (3格Ihnen)","敬称"),
+            PR("mein","私の","所有冠詞"), PR("dein","君の","所有冠詞"), PR("sein","彼の、それの","所有冠詞"), PR("unser","私たちの","所有冠詞"),
+
+            // 抽出全追加代名詞
+            PR("mich","私を (4格)","1人称単数4格"), PR("dich","君を (4格)","2人称単数4格"), PR("ihn","彼を (4格)","3人称男性4格"),
+            PR("uns","私たちに/を (3・4格)","1人称複数"), PR("euch","君たちに/を (3・4格)","2人称複数"), PR("Ihnen","あなた/あなた方に (3格)","敬称3格"),
+            PR("mir","私に (3格)","1人称単数3格"), PR("dir","君に (3格)","2人称単数3格"), PR("ihm","彼に/それに (3格)","3人称男性/中性3格"),
+            PR("euer","君たちの","所有冠詞"), PR("kein","〜ない (否定冠詞)","否定冠詞"), PR("dieser","この〜 (dieser/diese/dieses)","指示代名詞/冠詞"),
+            PR("welcher","どの〜 (welcher/welche/welches)","疑問代名詞/冠詞"), PR("jeder","すべての、各自の","不定代名詞/冠詞"), PR("aller","すべての","不定代名詞/冠詞"),
+            PR("was","何","疑問代名詞"), PR("wen","誰を (4格)","疑問代名詞4格"), PR("wem","誰に (3格)","疑問代名詞3格"),
+            PR("man","人は（一般の人）","不定代名詞"), PR("solcher","このような〜 (solcher/solche/solches)","指示代名詞"), PR("mancher","いくつかの〜 (mancher/manche/manches)","不定代名詞"),
+            PR("wer","誰が (1格)","疑問代名詞1格"), PR("wessen","誰の (2格)","疑問代名詞2格")
         ];
 
-        // CATEGORY 3 & 4 GRAMMAR QUESTIONS (50問以上収録)
+        // クイズ用問題データ
         const grammarQuestions = [
-            // --- 3. 動詞活用・助動詞 ---
             { cat: 'grammar', q: "Er _____ sehr gut Deutsch sprechen.", ja: "彼はとても上手にドイツ語を話すことができます。", hint: "können の er (3人称単数) 現在形活用", options: ["kann", "kannst", "können", "könnt"], answer: 0, exp: "er に対する können の現在形は「kann」です。" },
-            { cat: 'grammar', q: "Heute Abend _____ ich zu Hause bleiben.", ja: "今晩、私は家にいなければなりません。", hint: "müssen の ich (1人称単数) 活用", options: ["müssen", "muss", "musst", "müsst"], answer: 1, exp: "ich に対する müssen の現在形は「muss」です。" },
+            { cat: 'grammar', q: "Heute Abend _____ ich zu Hause bleiben.", ja: "今晩、私は家にいなければなりません。", hint: "müssen の ich (1人称単数) 活用", options: ["muss", "musst", "müssen", "müsst"], answer: 0, exp: "ich に対する müssen の現在形は「muss」です。" },
             { cat: 'grammar', q: "_____ du morgen zu mir kommen?", ja: "明日、私のところに来られますか？", hint: "können の du (2人称単数) 疑問文活用", options: ["Kannst", "Kann", "Können", "Könnt"], answer: 0, exp: "du に対する können の活用は「Kannst」です。" },
             { cat: 'grammar', q: "Du _____ hier nicht tanzen.", ja: "ここで踊ってはいけません。", hint: "dürfen (許可・禁止) の du 活用", options: ["darfst", "darf", "dürfen", "dürft"], answer: 0, exp: "du に対する dürfen の活用は「darfst」です。" },
             { cat: 'grammar', q: "Mein Bruder _____ eine Brille.", ja: "私の兄は眼鏡をかけています。", hint: "tragen の 3人称単数幹母音変化 (a -> ä)", options: ["trägt", "tragt", "tragen", "trägst"], answer: 0, exp: "tragen の 3人称単数形は「trägt」です。" },
@@ -534,43 +581,22 @@
             { cat: 'grammar', q: "Wir _____ am Wochenende unsere Großmutter besuchen.", ja: "私たちは週末、祖母を訪ねたいです。", hint: "möchten の wir 活用", options: ["möchten", "möchte", "möchtest", "mögst"], answer: 0, exp: "wir に対する möchten は「möchten」のままです。" },
             { cat: 'grammar', q: "_____ ihr morgen Zeit?", ja: "君たちは明日時間がありますか？", hint: "haben の ihr 活用", options: ["Habt", "Hast", "Haben", "Hat"], answer: 0, exp: "ihr に対する haben は「Habt」です。" },
             { cat: 'grammar', q: "Was _____ Sie von Beruf?", ja: "ご職業は何ですか？", hint: "sein の 敬称 Sie 活用", options: ["sind", "ist", "bist", "seid"], answer: 0, exp: "Sie に対する sein は「sind」です。" },
-            { cat: 'grammar', q: "Ich _____ morgen nach Berlin fahren.", ja: "私は明日ベルリンへ行くつもりです。", hint: "wollen の ich 活用", options: ["will", "willst", "wollen", "wollt"], answer: 0, exp: "ich に対する wollen は「will」です。" },
-            { cat: 'grammar', q: "_____ du den Weg?", ja: "その道を知っていますか？", hint: "kennen の du 活用", options: ["Kennst", "Kenne", "Kennt", "Kennen"], answer: 0, exp: "du に対する kennen は「Kennst」です。" },
-            { cat: 'grammar', q: "Ich _____ noch nicht gut Deutsch.", ja: "私はまだ十分にドイツ語を話せません。", hint: "sprechen の ich 活用", options: ["spreche", "sprichst", "spricht", "sprechen"], answer: 0, exp: "ich に対する sprechen は「spreche」です。" },
-            { cat: 'grammar', q: "Er _____ jeden Tag zwei Stunden.", ja: "彼は毎日2時間勉強します。", hint: "lernen の er 活用", options: ["lernt", "lerne", "lernst", "lernen"], answer: 0, exp: "er に対する lernen は「lernt」です。" },
-            { cat: 'grammar', q: "Maria _____ eine Tasse Kaffee.", ja: "マリアはコーヒーを一杯飲みます。", hint: "trinken の 3人称単数活用", options: ["trinkt", "trinke", "trinkst", "trinken"], answer: 0, exp: "Maria に対する trinken は「trinkt」です。" },
-
-            // --- 4. 前置詞・格変化・人称代名詞 (主格明記) ---
             { cat: 'prep', q: "Wegen _____ Krankheit kommt er heute nicht.", ja: "病気のため、彼は今日来ません。", hint: "2格支配 wegen + die Krankheit (女性2格)", options: ["der", "des", "dem", "die"], answer: 0, exp: "wegen は2格支配。女性名詞 die の2格は「der」です。" },
             { cat: 'prep', q: "Ich fahre mit _____ Freund nach Berlin.", ja: "私は友人と一緒にベルリンへ行きます。", hint: "3格支配 mit + mein Freund (男性3格)", options: ["meinem", "meinen", "meiner", "meines"], answer: 0, exp: "mit は3格支配。男性名詞の所有冠詞3格語尾は -em（meinem）です。" },
             { cat: 'prep', q: "Das Buch liegt auf _____ Tisch.", ja: "その本は机の上にあります。", hint: "場所（静止＝3格） auf + der Tisch (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "静止を表す auf は3格。der Tisch の3格は「dem」です。" },
             { cat: 'prep', q: "Sie geht in _____ Schule.", ja: "彼女は学校へ行きます。", hint: "方向（移動＝4格） in + die Schule (女性4格)", options: ["die", "der", "dem", "den"], answer: 0, exp: "移動を表す in は4格。die Schule の4格は「die」のままです。" },
-            { cat: 'prep', q: "Der Junge spielt mit sein_____ Schwester.", ja: "その男の子は彼の妹と遊んでいる。", hint: "3格支配 mit + seine Schwester (女性3格)", options: ["er", "em", "en", "es"], answer: 0, exp: "mit は3格支配。女性名詞の所有冠詞3格語尾は -er（seiner）です。" },
-            { cat: 'prep', q: "Der Garten liegt zwischen dem Haus und _____ Wald.", ja: "庭は家と森の間に位置している。", hint: "場所（静止＝3格） zwischen + der Wald (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "zwischen（静止）は3格。男性名詞 der の3格は「dem」です。" },
-            { cat: 'prep', q: "Das Geschenk ist für _____ Mutter.", ja: "そのプレゼントは私の母のためです。", hint: "4格支配 für + meine Mutter (女性4格)", options: ["meine", "meiner", "meinem", "meines"], answer: 0, exp: "für は4格支配。女性名詞の所有冠詞4格は「meine」です。" },
-            { cat: 'prep', q: "Er schenkt _____ ein Buch.", ja: "彼は【彼女に】一冊の本を贈ります。(対象: sie / 1格: 彼女)", hint: "人称代名詞 sie (彼女) の 3格", options: ["ihr", "sie", "ihnen", "ihm"], answer: 0, exp: "sie（彼女）の3格（〜に）は「ihr」です。" },
-            { cat: 'prep', q: "Kannst du _____ kurz helfen?", ja: "あなたは【私を】少し手伝ってくれますか？ (対象: ich / 1格: 私)", hint: "3格支配動詞 helfen + ich (私) の 3格", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "helfen は3格をとります。ich の3格は「mir」です。" },
-            { cat: 'prep', q: "Ich kenne _____ gut.", ja: "私は【彼を】よく知っています。(対象: er / 1格: 彼)", hint: "4格支配動詞 kennen + er (彼) の 4格", options: ["ihn", "ihm", "er", "sein"], answer: 0, exp: "kennen は4格をとります。er の4格は「ihn」です。" },
-            { cat: 'prep', q: "Gefällt _____ das Bild?", ja: "【君は】その絵が気に入りましたか？ (対象: du / 1格: 君)", hint: "3格支配動詞 gefallen + du の 3格", options: ["dir", "dich", "du", "dein"], answer: 0, exp: "gefallen は「（3格に）気に入る」。du の3格は「dir」です。" },
-            { cat: 'prep', q: "Das Auto gehört _____ Vater.", ja: "その車は【私の父】のものです。", hint: "3格支配動詞 gehören + mein Vater (男性3格)", options: ["meinem", "meinen", "meiner", "meines"], answer: 0, exp: "gehören は3格支配。男性名詞3格は「meinem」です。" },
-            { cat: 'prep', q: "Wir danken _____ Lehrerin.", ja: "私たちは【先生（女性）に】感謝します。", hint: "3格支配動詞 danken + die Lehrerin (女性3格)", options: ["der", "die", "dem", "des"], answer: 0, exp: "danken は3格支配。女性名詞 die の3格は「der」です。" }
+            { cat: 'prep', q: "Kannst du _____ kurz helfen?", ja: "あなたは【私を】少し手伝ってくれますか？", hint: "3格支配動詞 helfen + ich の 3格", options: ["mir", "mich", "ich", "mein"], answer: 0, exp: "helfen は3格をとります。ich の3格は「mir」です。" }
         ];
 
-        // CATEGORY 5 SENTENCE ORDERING QUIZ DATA
         const sentenceOrderingQuestions = [
-            { ja: "私は今、京都に住んでいます。", words: ["Ich", "wohne", "jetzt", "in", "Kyoto."], exp: "定動詞2位の原則（Ich + wohne）です。" },
-            { ja: "ハンスは毎日コーヒーを飲みます。", words: ["Hans", "trinkt", "jeden", "Tag", "Kaffee."], exp: "主語 Hans + 動詞2位 trinkt + 時間 + 目的語 の配置です。" },
-            { ja: "彼はとても上手にドイツ語を話すことができます。", words: ["Er", "kann", "sehr", "gut", "Deutsch", "sprechen."], exp: "話法の助動詞（kann）が2位、本動詞原形（sprechen）が文末です。" },
-            { ja: "授業の後、私はすぐに帰宅します。", words: ["Nach", "dem", "Unterricht", "gehe", "ich", "sofort", "nach", "Hause."], exp: "前置詞句が第1位置に来るため、動詞 gehe が第2位置で主語 ich は倒置されます。" },
-            { ja: "彼女は父親を助けます/手伝います。", words: ["Sie", "hilft", "ihrem", "Vater."], exp: "動詞 helfen は3格目的語（ihrem Vater）をとります。" },
-            { ja: "彼は彼女に一冊の本を贈ります。", words: ["Er", "schenkt", "ihr", "ein", "Buch."], exp: "schenken + 3格（ihr「彼女に」）+ 4格（ein Buch「本を」）の語順です。" },
-            { ja: "その花瓶はそのテーブルの上にあります。", words: ["Die", "Vase", "steht", "auf", "dem", "Tisch."], exp: "場所（静止）の auf は3格支配（auf dem Tisch）です。" },
-            { ja: "私たちは今日、母のところへ行きます。", words: ["Wir", "gehen", "heute", "zu", "unserer", "Mutter."], exp: "前置詞 zu は常に3格支配（zu unserer Mutter）です。" },
-            { ja: "私には5人の子供がいます。", words: ["Ich", "habe", "fünf", "Kinder."], exp: "haben + 数量 + 複数名詞 の基本文型です。" },
-            { ja: "彼女はある男性に感謝します。", words: ["Sie", "dankt", "einem", "Mann."], exp: "動詞 danken は3格目的語（einem Mann）をとります。" }
+            { ja: "私は今、京都に住んでいます。", words: ["Ich", "wohne", "jetzt", "in", "Kyoto"], exp: "定動詞2位の原則（Ich + wohne）です。" },
+            { ja: "ハンスは毎日コーヒーを飲みます。", words: ["Hans", "trinkt", "jeden", "Tag", "Kaffee"], exp: "主語 Hans + 動詞2位 trinkt + 時間 + 目的語 の配置です。" },
+            { ja: "彼はとても上手にドイツ語を話すことができます。", words: ["Er", "kann", "sehr", "gut", "Deutsch", "sprechen"], exp: "話法の助動詞（kann）が2位、本動詞原形（sprechen）が文末です。" },
+            { ja: "授業の後、私はすぐに帰宅します。", words: ["Nach", "dem", "Unterricht", "gehe", "ich", "sofort", "nach", "Hause"], exp: "前置詞句が第1位置に来るため、動詞 gehe が第2位置で主語 ich は倒置されます。" },
+            { ja: "病気のため、彼は今日来ません。", words: ["Wegen", "der", "Krankheit", "kommt", "er", "heute", "nicht"], exp: "理由（Wegen der Krankheit）が先頭に来るため動詞 kommt が2位です。" }
         ];
 
-        // QUIZ STATE
+        // クイズ状態管理変数
         let currentQuizQueue = [];
         let userAnswersState = [];
         let currentQuestionIndex = 0;
@@ -580,17 +606,14 @@
         let unrevealedSpeakerWord = '';
         let isCurrentWordOnlySpeak = false;
 
-        // ORDERING STATE
         let userSelectedOrderWords = [];
         let availablePoolWords = [];
 
-        // DICTIONARY STATE
         let activeDictCategory = 'ALL';
         let activeDictView = 'cards';
         let flashcardsList = [];
         let flashcardIndex = 0;
 
-        // UI NAVIGATION
         function showSection(secId) {
             ['sec-home', 'sec-quiz', 'sec-result', 'sec-dictionary'].forEach(id => {
                 const el = document.getElementById(id);
@@ -602,20 +625,16 @@
             const navHome = document.getElementById('nav-home');
             const navDict = document.getElementById('nav-dictionary');
             
-            if (navHome) navHome.className = secId === 'home' ? 'px-2.5 py-1 rounded-md bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 py-1 rounded-md hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
-            if (navDict) navDict.className = secId === 'dictionary' ? 'px-2.5 py-1 rounded-md bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-2.5 py-1 rounded-md hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            if (navHome) navHome.className = secId === 'home' ? 'px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            if (navDict) navDict.className = secId === 'dictionary' ? 'px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
 
             if (secId === 'dictionary') {
                 renderDictionary();
             }
         }
 
-        // GLOBAL CLICK TO CLOSE POPUP
-        function handleGlobalClick(e) {
-            closeWordPopup();
-        }
+        function handleGlobalClick(e) { closeWordPopup(); }
 
-        // DYNAMIC PLAUSIBLE PLURAL DISTRACTOR GENERATOR
         function generatePluralDistractors(word, correctPlural) {
             const distractors = new Set();
             function addUmlaut(str) {
@@ -661,7 +680,6 @@
             return selected;
         }
 
-        // WORD LOOKUP FOR INTERACTIVE QUESTION TEXT
         function findWordMeaning(cleanToken) {
             if (!cleanToken) return null;
             const tokenLower = cleanToken.toLowerCase();
@@ -670,35 +688,19 @@
             if (found) return found;
 
             const commonMappings = {
-                "kann": { word: "können", pos: "動詞", meaning: "〜できる (1/3単数)" },
-                "kannst": { word: "können", pos: "動詞", meaning: "〜できる (2単数)" },
-                "muss": { word: "müssen", pos: "動詞", meaning: "〜しなければならない" },
-                "darf": { word: "dürfen", pos: "動詞", meaning: "〜してもよい" },
-                "darfst": { word: "dürfen", pos: "動詞", meaning: "〜してもよい (2単数)" },
-                "will": { word: "wollen", pos: "動詞", meaning: "〜するつもりだ" },
-                "wird": { word: "werden", pos: "動詞", meaning: "〜になる・〜だろう" },
-                "trägt": { word: "tragen", pos: "動詞", meaning: "身につける、着用する" },
-                "isst": { word: "essen", pos: "動詞", meaning: "食べる" },
-                "hilft": { word: "helfen", pos: "動詞", meaning: "助ける、手伝う" },
-                "kocht": { word: "kochen", pos: "動詞", meaning: "料理する" },
-                "liest": { word: "lesen", pos: "動詞", meaning: "読む" },
-                "liegt": { word: "liegen", pos: "動詞", meaning: "横たわっている、ある" },
-                "gehört": { word: "gehören", pos: "動詞", meaning: "〜のものである" },
-                "schenkt": { word: "schenken", pos: "動詞", meaning: "贈る" },
-                "dankt": { word: "danken", pos: "動詞", meaning: "感謝する" },
-                "wohne": { word: "wohnen", pos: "動詞", meaning: "住む" },
-                "trinkt": { word: "trinken", pos: "動詞", meaning: "飲む" },
-                "gehe": { word: "gehen", pos: "動詞", meaning: "行く" },
-                "ihrem": { word: "ihr", pos: "所有冠詞", meaning: "彼女の (3格男性/中性)" },
-                "meinem": { word: "mein", pos: "所有冠詞", meaning: "私の (3格男性/中性)" },
-                "unserer": { word: "unser", pos: "所有冠詞", meaning: "私たちの (3格女性)" },
-                "wegen": { word: "wegen", pos: "前置詞", meaning: "〜の理由で (2格支配)" },
-                "zwischen": { word: "zwischen", pos: "前置詞", meaning: "〜の間に (3/4格支配)" }
+                "kann": { word: "können", pos: "助動詞", meaning: "〜できる (1/3単数)" },
+                "kannst": { word: "können", pos: "助動詞", meaning: "〜できる (2単数)" },
+                "muss": { word: "müssen", pos: "助動詞", meaning: "〜しなければならない (1/3単数)" },
+                "darf": { word: "dürfen", pos: "助動詞", meaning: "〜してもよい (1/3単数)" },
+                "will": { word: "wollen", pos: "助動詞", meaning: "〜するつもりだ (1/3単数)" },
+                "wird": { word: "werden", pos: "動詞/助動詞", meaning: "〜になる・〜だろう (3単数)" },
+                "mir": { word: "ich", pos: "代名詞", meaning: "私に (3格)" },
+                "mich": { word: "ich", pos: "代名詞", meaning: "私を (4格)" },
+                "dir": { word: "du", pos: "代名詞", meaning: "君に (3格)" },
+                "dich": { word: "du", pos: "代名詞", meaning: "君を (4格)" }
             };
 
-            if (commonMappings[tokenLower]) {
-                return commonMappings[tokenLower];
-            }
+            if (commonMappings[tokenLower]) return commonMappings[tokenLower];
             return null;
         }
 
@@ -719,7 +721,6 @@
                 meaningElem.innerText = wordData.meaning || '辞書未登録';
                 popup.classList.remove('hidden');
             } else {
-                // If not found in dict, don't show awkward message
                 closeWordPopup();
             }
         }
@@ -729,7 +730,6 @@
             if (popup) popup.classList.add('hidden');
         }
 
-        // QUIZ GENERATOR
         function startQuiz(type) {
             currentCategory = type;
             currentQuizQueue = [];
@@ -737,65 +737,53 @@
             score = 0;
             closeWordPopup();
 
-            if (type === 'gender') {
+            if (type === 'vocab_all') {
                 const nouns = wordList.filter(w => w.pos === '名詞' && w.gender);
-                const shuffled = shuffle([...nouns]).slice(0, 10);
-                
-                currentQuizQueue = shuffled.map(n => {
-                    const isPluralQuiz = (n.plural && n.plural !== '-' && Math.random() > 0.5);
-                    const pluralText = (n.plural && n.plural !== '-') ? `die ${n.plural}` : 'なし';
+                const allWords = [...wordList];
+                const pool = shuffle([...nouns, ...allWords]).slice(0, 10);
 
-                    if (!isPluralQuiz) {
+                currentQuizQueue = pool.map(item => {
+                    const mode = Math.floor(Math.random() * 3);
+                    if (mode === 0 && item.pos === '名詞' && item.gender) {
+                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
                         return {
                             type: 'choice',
                             title: "名詞の性・定冠詞",
-                            badge: "性（Gender）",
-                            q: `_____ ${n.word}`,
-                            sub: `意味: ${n.meaning}`,
-                            speaker: n.word,
-                            unrevealedSpeaker: n.word,
+                            badge: "性判別",
+                            q: `_____ ${item.word}`,
+                            sub: `意味: ${item.meaning}`,
+                            speaker: item.word,
+                            unrevealedSpeaker: item.word,
                             wordOnly: true,
                             options: ["der (男性)", "die (女性)", "das (中性)"],
-                            answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
-                            ja: `【正解】 ${n.gender} ${n.word}`,
-                            exp: `<b>【定冠詞】</b> ${n.gender} ${n.word} &nbsp;|&nbsp; <b>【複数】</b> ${pluralText}`
+                            answer: item.gender === "der" ? 0 : item.gender === "die" ? 1 : 2,
+                            ja: `【正解】 ${item.gender} ${item.word}`,
+                            exp: `<b>【定冠詞】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> ${pl}`
                         };
-                    } else {
-                        const wrongPlurals = generatePluralDistractors(n.word, n.plural);
-                        const options = shuffle([n.plural, ...wrongPlurals]);
-
+                    } else if (mode === 1 && item.pos === '名詞' && item.plural && item.plural !== '-') {
+                        const wrongPlurals = generatePluralDistractors(item.word, item.plural);
+                        const options = shuffle([item.plural, ...wrongPlurals]);
                         return {
                             type: 'choice',
                             title: "名詞の複数形",
                             badge: "複数形",
-                            q: `【${n.word}】の複数形は？`,
-                            sub: `単数: ${n.gender} ${n.word}（${n.meaning}）`,
-                            speaker: n.word,
-                            unrevealedSpeaker: n.word,
+                            q: `【${item.word}】の複数形は？`,
+                            sub: `単数: ${item.gender} ${item.word}（${item.meaning}）`,
+                            speaker: item.word,
+                            unrevealedSpeaker: item.word,
                             wordOnly: true,
                             options: options,
-                            answer: options.indexOf(n.plural),
-                            ja: `【正解】 die ${n.plural}`,
-                            exp: `<b>【単数】</b> ${n.gender} ${n.word} &nbsp;|&nbsp; <b>【複数】</b> die ${n.plural}`
+                            answer: options.indexOf(item.plural),
+                            ja: `【正解】 die ${item.plural}`,
+                            exp: `<b>【単数】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> die ${item.plural}`
                         };
-                    }
-                });
-            } else if (type === 'vocab') {
-                const shuffled = shuffle([...wordList]).slice(0, 10);
-                currentQuizQueue = shuffled.map(item => {
-                    const isDeToJa = Math.random() > 0.5;
-                    let nounInfo = '';
-                    if (item.pos === '名詞' && item.gender) {
-                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
-                        nounInfo = `<br><b>【定冠詞】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> ${pl}`;
-                    }
-
-                    if (isDeToJa) {
+                    } else {
                         const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.meaning);
                         const options = shuffle([item.meaning, ...wrongList]);
+                        let nounInfo = (item.pos === '名詞' && item.gender) ? `<br><b>【定冠詞】</b> ${item.gender} ${item.word}` : '';
                         return {
                             type: 'choice',
-                            title: "語彙意味 (独→日)",
+                            title: "語彙意味クイズ",
                             badge: item.pos,
                             q: item.word,
                             sub: `品詞: ${item.detail || item.pos}`,
@@ -807,33 +795,16 @@
                             ja: `単語: ${item.word}`,
                             exp: `<b>【意味】</b> ${item.meaning}${nounInfo}`
                         };
-                    } else {
-                        const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.word);
-                        const options = shuffle([item.word, ...wrongList]);
-                        return {
-                            type: 'choice',
-                            title: "語彙意味 (日→独)",
-                            badge: item.pos,
-                            q: item.meaning,
-                            sub: `該当するドイツ語を選んでください`,
-                            speaker: item.word,
-                            unrevealedSpeaker: item.word,
-                            wordOnly: true,
-                            options: options,
-                            answer: options.indexOf(item.word),
-                            ja: `意味: ${item.meaning}`,
-                            exp: `<b>【正解】</b> 【${item.word}】${nounInfo}`
-                        };
                     }
                 });
-            } else if (type === 'grammar' || type === 'prep') {
-                const targetQuestions = grammarQuestions.filter(q => q.cat === type);
-                currentQuizQueue = shuffle([...targetQuestions]).slice(0, 10).map(q => {
+
+            } else if (type === 'grammar_all') {
+                currentQuizQueue = shuffle([...grammarQuestions]).slice(0, 10).map(q => {
                     const fullSentence = q.q.replace('_____', q.options[q.answer] || '');
-                    const unrevealedSentence = q.q.replace('_____', '...'); // 答えを伏せた音声
+                    const unrevealedSentence = q.q.replace('_____', '...');
                     return {
                         type: 'choice',
-                        title: type === 'grammar' ? "動詞活用・助動詞" : "前置詞・格変化",
+                        title: q.cat === 'grammar' ? "動詞活用・助動詞" : "前置詞・格変化",
                         badge: "文法",
                         q: q.q,
                         sub: "",
@@ -847,13 +818,14 @@
                         exp: q.exp || ""
                     };
                 });
+
             } else if (type === 'ordering') {
                 currentQuizQueue = shuffle([...sentenceOrderingQuestions]).slice(0, 10).map(q => ({
                     type: 'ordering',
                     title: "単語並び替え (語順)",
                     badge: "語順",
                     q: q.ja,
-                    sub: "単語を順にタップして正しい文を作成",
+                    sub: "単語ブロックを順番にタップして正しい文を作成",
                     correctWords: q.words,
                     correctSentence: q.words.join(" "),
                     speaker: q.words.join(" "),
@@ -862,86 +834,16 @@
                     ja: `【訳】 ${q.ja}`,
                     exp: q.exp
                 }));
+
             } else if (type === 'all') {
-                const qG = wordList.filter(w => w.pos === '名詞' && w.gender);
-                const part1 = shuffle([...qG]).slice(0, 2).map(n => {
-                    const pl = (n.plural && n.plural !== '-') ? `die ${n.plural}` : 'なし';
-                    return {
-                        type: 'choice',
-                        title: "名詞の性・定冠詞",
-                        badge: "性",
-                        q: `_____ ${n.word}`,
-                        sub: `意味: ${n.meaning}`,
-                        speaker: n.word,
-                        unrevealedSpeaker: n.word,
-                        wordOnly: true,
-                        options: ["der (男性)", "die (女性)", "das (中性)"],
-                        answer: n.gender === "der" ? 0 : n.gender === "die" ? 1 : 2,
-                        ja: `単語: ${n.word}`,
-                        exp: `<b>【定冠詞】</b> ${n.gender} ${n.word} &nbsp;|&nbsp; <b>【複数】</b> ${pl}`
-                    };
-                });
+                startQuiz('vocab_all');
+                const p1 = currentQuizQueue.slice(0, 4);
+                startQuiz('grammar_all');
+                const p2 = currentQuizQueue.slice(0, 4);
+                startQuiz('ordering');
+                const p3 = currentQuizQueue.slice(0, 2);
 
-                const part2 = shuffle([...wordList]).slice(0, 3).map(item => {
-                    const wrongList = shuffle(wordList.filter(w => w.word !== item.word)).slice(0, 3).map(w => w.meaning);
-                    const options = shuffle([item.meaning, ...wrongList]);
-                    let nounInfo = '';
-                    if (item.pos === '名詞' && item.gender) {
-                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
-                        nounInfo = `<br><b>【定冠詞】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> ${pl}`;
-                    }
-                    return {
-                        type: 'choice',
-                        title: "語彙意味",
-                        badge: item.pos,
-                        q: item.word,
-                        sub: `品詞: ${item.detail || item.pos}`,
-                        speaker: item.word,
-                        unrevealedSpeaker: item.word,
-                        wordOnly: true,
-                        options: options,
-                        answer: options.indexOf(item.meaning),
-                        ja: `単語: ${item.word}`,
-                        exp: `<b>【意味】</b> ${item.meaning}${nounInfo}`
-                    };
-                });
-
-                const part3 = shuffle([...grammarQuestions]).slice(0, 3).map(q => {
-                    const fullSentence = q.q.replace('_____', q.options[q.answer] || '');
-                    const unrevealedSentence = q.q.replace('_____', '...');
-                    return {
-                        type: 'choice',
-                        title: "文法・前置詞",
-                        badge: "総合",
-                        q: q.q,
-                        sub: "",
-                        hint: q.hint || "",
-                        speaker: fullSentence,
-                        unrevealedSpeaker: unrevealedSentence,
-                        wordOnly: false,
-                        options: q.options,
-                        answer: q.answer,
-                        ja: q.ja || "",
-                        exp: q.exp || ""
-                    };
-                });
-
-                const part4 = shuffle([...sentenceOrderingQuestions]).slice(0, 2).map(q => ({
-                    type: 'ordering',
-                    title: "単語並び替え",
-                    badge: "語順",
-                    q: q.ja,
-                    sub: "単語を順にタップして正しい文を作成",
-                    correctWords: q.words,
-                    correctSentence: q.words.join(" "),
-                    speaker: q.words.join(" "),
-                    unrevealedSpeaker: "",
-                    wordOnly: false,
-                    ja: `【訳】 ${q.ja}`,
-                    exp: q.exp
-                }));
-
-                currentQuizQueue = shuffle([...part1, ...part2, ...part3, ...part4]);
+                currentQuizQueue = shuffle([...p1, ...p2, ...p3]);
             }
 
             userAnswersState = new Array(currentQuizQueue.length).fill(null);
@@ -949,7 +851,6 @@
             renderQuestion();
         }
 
-        // SAFE RENDER QUESTION FUNCTION
         function renderQuestion() {
             closeWordPopup();
             if (!currentQuizQueue || currentQuizQueue.length === 0 || currentQuestionIndex >= currentQuizQueue.length) {
@@ -958,10 +859,7 @@
             }
 
             const qData = currentQuizQueue[currentQuestionIndex];
-            if (!qData) {
-                finishQuiz();
-                return;
-            }
+            if (!qData) { finishQuiz(); return; }
 
             const state = userAnswersState[currentQuestionIndex] || null;
 
@@ -976,7 +874,7 @@
             
             if (questionContainer) {
                 const rawQ = qData.q || "";
-                if (qData.type === 'choice' && (currentCategory === 'grammar' || currentCategory === 'prep' || currentCategory === 'all')) {
+                if (qData.type === 'choice' && (currentCategory === 'grammar_all' || currentCategory === 'all')) {
                     const tokens = rawQ.split(" ");
                     questionContainer.innerHTML = tokens.map(tok => {
                         if (tok === '_____') {
@@ -1058,7 +956,6 @@
                 if (orderingContainer) orderingContainer.classList.add('hidden');
                 if (btnAudio) btnAudio.classList.remove('hidden');
 
-                // 音声用プロパティ（未回答時と回答後を分離）
                 currentSpeakerWord = qData.speaker || qData.q || '';
                 unrevealedSpeakerWord = qData.unrevealedSpeaker || qData.q || '';
                 
@@ -1067,8 +964,8 @@
                     if (Array.isArray(qData.options)) {
                         qData.options.forEach((optText, idx) => {
                             const btn = document.createElement('button');
-                            btn.className = "choice-btn w-full p-2.5 sm:p-3 text-left border border-slate-200 rounded-lg hover:border-amber-400 hover:bg-amber-50/50 font-semibold text-xs sm:text-sm text-slate-700 transition flex justify-between items-center bg-white";
-                            btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-300 text-xs"></i>`;
+                            btn.className = "choice-btn w-full p-3 sm:p-3.5 text-left border-2 border-slate-200 rounded-xl hover:border-amber-400 hover:bg-amber-50/50 font-bold text-sm sm:text-base text-slate-800 transition flex justify-between items-center bg-white touch-manipulation";
+                            btn.innerHTML = `<span>${optText}</span> <i class="fa-regular fa-circle text-slate-300 text-sm"></i>`;
                             btn.onclick = () => selectChoiceAnswer(idx);
                             choicesContainer.appendChild(btn);
                         });
@@ -1092,7 +989,7 @@
                     const btnCheck = document.getElementById('btn-check-order');
                     if (btnCheck) {
                         btnCheck.disabled = true;
-                        btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-1.5 rounded-lg text-xs flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+                        btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
                     }
 
                     const jaText = `【正解】 ${qData.correctSentence || ''}`;
@@ -1109,7 +1006,7 @@
                     const btnCheck = document.getElementById('btn-check-order');
                     if (btnCheck) {
                         btnCheck.disabled = false;
-                        btnCheck.className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-1.5 rounded-lg shadow-sm transition text-xs flex items-center justify-center gap-1 whitespace-nowrap";
+                        btnCheck.className = "w-2/3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl shadow-sm transition text-xs sm:text-sm flex items-center justify-center gap-1 whitespace-nowrap active:scale-95 touch-manipulation";
                     }
 
                     renderOrderingBoxes();
@@ -1129,7 +1026,6 @@
             userAnswersState[currentQuestionIndex].hintRevealed = true;
         }
 
-        // CHOICE ANSWER LOGIC
         function selectChoiceAnswer(selectedIndex) {
             const qData = currentQuizQueue[currentQuestionIndex];
             if (!qData) return;
@@ -1147,7 +1043,6 @@
             const btnNextHeader = document.getElementById('btn-next-header');
             if (btnNextHeader) btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
             
-            // 回答後は正解入りの全文を再生
             speakGerman(currentSpeakerWord, isCurrentWordOnlySpeak);
         }
 
@@ -1160,15 +1055,15 @@
             choiceButtons.forEach((btn, idx) => {
                 btn.disabled = true;
                 if (idx === qData.answer) {
-                    btn.className = "choice-btn w-full p-2.5 sm:p-3 text-left border-2 border-emerald-500 bg-emerald-50 text-emerald-800 font-bold rounded-lg text-xs sm:text-sm flex justify-between items-center";
+                    btn.className = "choice-btn w-full p-3 sm:p-3.5 text-left border-2 border-emerald-500 bg-emerald-50 text-emerald-800 font-bold rounded-xl text-sm sm:text-base flex justify-between items-center";
                     const icon = btn.querySelector('i');
-                    if (icon) icon.className = "fa-solid fa-circle-check text-emerald-600 text-xs";
+                    if (icon) icon.className = "fa-solid fa-circle-check text-emerald-600 text-sm";
                 } else if (idx === selectedIndex) {
-                    btn.className = "choice-btn w-full p-2.5 sm:p-3 text-left border-2 border-rose-400 bg-rose-50 text-rose-800 font-semibold rounded-lg text-xs sm:text-sm flex justify-between items-center";
+                    btn.className = "choice-btn w-full p-3 sm:p-3.5 text-left border-2 border-rose-400 bg-rose-50 text-rose-800 font-bold rounded-xl text-sm sm:text-base flex justify-between items-center";
                     const icon = btn.querySelector('i');
-                    if (icon) icon.className = "fa-solid fa-circle-xmark text-rose-500 text-xs";
+                    if (icon) icon.className = "fa-solid fa-circle-xmark text-rose-500 text-sm";
                 } else {
-                    btn.className = "choice-btn w-full p-2.5 sm:p-3 text-left border border-slate-100 bg-slate-50 text-slate-400 rounded-lg text-xs sm:text-sm opacity-60 flex justify-between items-center";
+                    btn.className = "choice-btn w-full p-3 sm:p-3.5 text-left border border-slate-100 bg-slate-50 text-slate-400 rounded-xl text-sm opacity-60 flex justify-between items-center";
                 }
             });
 
@@ -1176,7 +1071,6 @@
             showExplanation(isCorrect, qData.ja || '', qData.exp || '');
         }
 
-        // ORDERING QUIZ LOGIC
         function renderOrderingBoxes() {
             const userBox = document.getElementById('user-answer-box');
             const poolBox = document.getElementById('word-pool-box');
@@ -1185,12 +1079,12 @@
             if (poolBox) poolBox.innerHTML = '';
 
             if (userSelectedOrderWords.length === 0) {
-                if (userBox) userBox.innerHTML = `<span class="text-[11px] text-slate-400 italic">タップして文章を作成</span>`;
+                if (userBox) userBox.innerHTML = `<span class="text-xs sm:text-sm text-slate-400 italic p-1">下の単語ブロックを順にタップしてください</span>`;
             } else {
                 userSelectedOrderWords.forEach((item, index) => {
                     const chip = document.createElement('button');
-                    chip.className = "px-2.5 py-1 bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs rounded shadow-sm transition transform active:scale-95 flex items-center gap-1";
-                    chip.innerHTML = `<span>${item.text}</span> <i class="fa-solid fa-xmark text-[10px] text-amber-200"></i>`;
+                    chip.className = "px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 flex items-center gap-1.5 touch-manipulation";
+                    chip.innerHTML = `<span>${item.text}</span> <i class="fa-solid fa-xmark text-xs text-amber-200"></i>`;
                     chip.onclick = () => deselectOrderWord(index);
                     if (userBox) userBox.appendChild(chip);
                 });
@@ -1198,7 +1092,7 @@
 
             availablePoolWords.forEach((item) => {
                 const chip = document.createElement('button');
-                chip.className = "px-2.5 py-1 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-semibold text-xs rounded shadow-sm transition transform active:scale-95";
+                chip.className = "px-3.5 py-2 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 touch-manipulation";
                 chip.innerText = item.text;
                 chip.onclick = () => selectOrderWord(item);
                 if (poolBox) poolBox.appendChild(chip);
@@ -1232,7 +1126,6 @@
             if (!qData) return;
 
             if (userSelectedOrderWords.length === 0) {
-                alert("単語を選択してください！");
                 return;
             }
 
@@ -1250,10 +1143,10 @@
             const btnCheck = document.getElementById('btn-check-order');
             if (btnCheck) {
                 btnCheck.disabled = true;
-                btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-1.5 rounded-lg text-xs flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
+                btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
             }
 
-            const jaText = `【正解】 ${qData.correctSentence || ''}`;
+            const jaText = `【正解】 ${qData.correctSentence}`;
             showExplanation(isCorrect, jaText, qData.exp || '');
 
             const btnNextHeader = document.getElementById('btn-next-header');
@@ -1263,11 +1156,8 @@
             speakGerman(currentSpeakerWord, false);
         }
 
-        function speakCurrentAnswerSentence() {
-            speakGerman(currentSpeakerWord, false);
-        }
+        function speakCurrentAnswerSentence() { speakGerman(currentSpeakerWord, false); }
 
-        // EXPLANATION UI
         function showExplanation(isCorrect, jaText, expText) {
             const expBox = document.getElementById('explanation-box');
             const expStatus = document.getElementById('explanation-status');
@@ -1278,15 +1168,15 @@
             expBox.classList.remove('hidden');
 
             if (isCorrect) {
-                expBox.className = "mt-2 p-2.5 rounded-lg text-left border border-emerald-200 bg-emerald-50/50 animate-fade-in text-xs sm:text-sm";
+                expBox.className = "mt-2.5 p-3 rounded-lg text-left border border-emerald-200 bg-emerald-50/50 animate-fade-in text-xs sm:text-sm";
                 if (expStatus) {
-                    expStatus.className = "flex items-center gap-1.5 font-bold text-emerald-700 mb-0.5 text-xs sm:text-sm";
+                    expStatus.className = "flex items-center gap-1.5 font-bold text-emerald-700 mb-1 text-sm sm:text-base";
                     expStatus.innerHTML = `<span><i class="fa-solid fa-circle-check"></i> 正解！</span>`;
                 }
             } else {
-                expBox.className = "mt-2 p-2.5 rounded-lg text-left border border-rose-200 bg-rose-50/50 animate-fade-in text-xs sm:text-sm";
+                expBox.className = "mt-2.5 p-3 rounded-lg text-left border border-rose-200 bg-rose-50/50 animate-fade-in text-xs sm:text-sm";
                 if (expStatus) {
-                    expStatus.className = "flex items-center gap-1.5 font-bold text-rose-700 mb-0.5 text-xs sm:text-sm";
+                    expStatus.className = "flex items-center gap-1.5 font-bold text-rose-700 mb-1 text-sm sm:text-base";
                     expStatus.innerHTML = `<span><i class="fa-solid fa-circle-xmark"></i> 不正解...</span>`;
                 }
             }
@@ -1300,9 +1190,7 @@
                 }
             }
 
-            if (expBoxText) {
-                expBoxText.innerHTML = expText;
-            }
+            if (expBoxText) expBoxText.innerHTML = expText;
         }
 
         function prevQuestion() {
@@ -1339,17 +1227,8 @@
             if (feedbackElem) feedbackElem.innerText = feedback;
         }
 
-        function retryCurrentQuiz() {
-            startQuiz(currentCategory);
-        }
+        function retryCurrentQuiz() { startQuiz(currentCategory); }
 
-        function confirmExitQuiz() {
-            if (confirm("クイズを中断してホームに戻りますか？")) {
-                showSection('home');
-            }
-        }
-
-        // SPEECH SYNTHESIS (TTS)
         function speakGerman(text, wordOnly = false) {
             if (!text || typeof text !== 'string') return;
             if ('speechSynthesis' in window) {
@@ -1368,22 +1247,16 @@
         function speakCurrentQuestionAudio() {
             const state = userAnswersState[currentQuestionIndex];
             if (state && state.answered) {
-                // 回答後は正解入りの全文を再生
                 speakGerman(currentSpeakerWord, isCurrentWordOnlySpeak);
             } else {
-                // 未回答時は答えを伏せたテキストを再生（ネタバレ防止）
                 speakGerman(unrevealedSpeakerWord, isCurrentWordOnlySpeak);
             }
         }
 
-        function speakCurrentWord() {
-            speakCurrentQuestionAudio();
-        }
-
-        // DICTIONARY LOGIC (高ユーザビリティ)
+        // DICTIONARY LOGIC
         function switchDictView(view) {
             activeDictView = view;
-            ['cards', 'flashcards', 'table'].forEach(v => {
+            ['cards', 'flashcards'].forEach(v => {
                 const el = document.getElementById(`dict-view-${v}`);
                 const btn = document.getElementById(`btn-view-${v}`);
                 if (el) {
@@ -1391,8 +1264,8 @@
                     else el.classList.add('hidden');
                 }
                 if (btn) {
-                    if (v === view) btn.className = "px-2 py-0.5 rounded-md font-semibold bg-white text-slate-800 shadow-xs";
-                    else btn.className = "px-2 py-0.5 rounded-md font-semibold text-slate-500 hover:text-slate-800";
+                    if (v === view) btn.className = "px-2.5 py-1 rounded-md font-semibold bg-white text-slate-800 shadow-xs";
+                    else btn.className = "px-2.5 py-1 rounded-md font-semibold text-slate-500 hover:text-slate-800";
                 }
             });
             renderDictionary();
@@ -1407,14 +1280,22 @@
             const searchVal = searchElem.value.toLowerCase().trim();
 
             const filtered = wordList.filter(item => {
-                const matchCategory = (activeDictCategory === 'ALL') || (item.pos === activeDictCategory);
+                let matchCategory = false;
+                if (activeDictCategory === 'ALL') {
+                    matchCategory = true;
+                } else if (activeDictCategory === '代名詞・冠詞') {
+                    matchCategory = (item.pos === '代名詞・冠詞');
+                } else {
+                    matchCategory = (item.pos === activeDictCategory);
+                }
+
                 const matchSearch = item.word.toLowerCase().includes(searchVal) || 
                                     item.meaning.includes(searchVal) ||
-                                    (item.plural && item.plural.toLowerCase().includes(searchVal));
+                                    (item.plural && item.plural.toLowerCase().includes(searchVal)) ||
+                                    (item.conjugation && item.conjugation.toLowerCase().includes(searchVal));
                 return matchCategory && matchSearch;
             });
 
-            // Update badge count
             const badge = document.getElementById('dict-count-badge');
             if (badge) badge.innerText = filtered.length;
 
@@ -1424,8 +1305,14 @@
                 flashcardsList = shuffle([...filtered]);
                 flashcardIndex = 0;
                 renderFlashcard();
-            } else if (activeDictView === 'table') {
-                renderTableView(filtered);
+            }
+        }
+
+        function toggleVerbConjugation(wordId, e) {
+            if (e) e.stopPropagation();
+            const conjElem = document.getElementById(`conj-${wordId}`);
+            if (conjElem) {
+                conjElem.classList.toggle('hidden');
             }
         }
 
@@ -1435,36 +1322,63 @@
             container.innerHTML = '';
 
             if (list.length === 0) {
-                container.innerHTML = `<div class="col-span-full p-6 text-center text-slate-400 text-xs">該当する単語が見つかりませんでした。</div>`;
+                container.innerHTML = `<div class="col-span-full p-6 text-center text-slate-400 text-sm">該当する単語が見つかりませんでした。</div>`;
                 return;
             }
 
-            list.forEach(item => {
+            list.forEach((item, idx) => {
                 const card = document.createElement('div');
                 let genderColor = 'bg-slate-100 border-slate-200 text-slate-700';
                 let genderBadge = item.pos;
 
                 if (item.pos === '名詞' && item.gender) {
-                    if (item.gender === 'der') genderColor = 'bg-blue-50 border-blue-200 text-blue-800';
-                    else if (item.gender === 'die') genderColor = 'bg-rose-50 border-rose-200 text-rose-800';
-                    else if (item.gender === 'das') genderColor = 'bg-emerald-50 border-emerald-200 text-emerald-800';
+                    if (item.gender === 'der') genderColor = 'bg-blue-50 border-blue-200 text-blue-900';
+                    else if (item.gender === 'die') genderColor = 'bg-rose-50 border-rose-200 text-rose-900';
+                    else if (item.gender === 'das') genderColor = 'bg-emerald-50 border-emerald-200 text-emerald-900';
                     genderBadge = `${item.gender} (名詞)`;
+                } else if (item.pos === '形容詞') {
+                    genderColor = 'bg-amber-50 border-amber-200 text-amber-900';
+                } else if (item.pos === '副詞') {
+                    genderColor = 'bg-purple-50 border-purple-200 text-purple-900';
+                } else if (item.pos === '動詞') {
+                    genderColor = 'bg-sky-50 border-sky-200 text-sky-900';
+                } else if (item.pos === '前置詞') {
+                    genderColor = 'bg-orange-50 border-orange-200 text-orange-900';
+                } else if (item.pos === '代名詞・冠詞') {
+                    genderColor = 'bg-teal-50 border-teal-200 text-teal-900';
                 }
 
                 const pluralText = (item.plural && item.plural !== '-') ? `複数: die ${item.plural}` : '';
+                const detailNote = item.detail ? `${item.detail}` : '';
 
-                card.className = `p-2.5 rounded-xl border ${genderColor} shadow-2xs flex justify-between items-start`;
+                let conjHtml = '';
+                if (item.pos === '動詞' && item.conjugation) {
+                    conjHtml = `
+                        <div class="mt-1.5 pt-1.5 border-t border-sky-200/60">
+                            <button onclick="toggleVerbConjugation('vcard-${idx}', event)" class="inline-flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 transition bg-white/80 px-2 py-0.5 rounded border border-sky-300">
+                                ⚡️ 活用を見る/閉じる <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                            </button>
+                            <div id="conj-vcard-${idx}" class="hidden mt-1 p-2 bg-white/90 rounded border border-sky-200 text-xs font-mono text-slate-800 leading-relaxed animate-fade-in">
+                                ${item.conjugation}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.className = `p-3 rounded-xl border-2 ${genderColor} shadow-xs flex justify-between items-start`;
                 card.innerHTML = `
                     <div class="min-w-0 flex-1">
-                        <div class="flex items-center gap-1.5 mb-0.5">
-                            <span class="font-bold text-sm text-slate-900">${item.word}</span>
-                            <span class="text-[10px] font-semibold bg-white/80 px-1.5 py-0.2 rounded border border-slate-200/50">${genderBadge}</span>
+                        <div class="flex flex-wrap items-center gap-1.5 mb-1">
+                            <span class="font-bold text-base text-slate-900">${item.word}</span>
+                            <span class="text-xs font-bold bg-white/90 px-2 py-0.5 rounded border border-slate-300/60">${genderBadge}</span>
+                            ${detailNote.includes('弱変化') ? `<span class="text-xs font-bold bg-amber-200 text-amber-900 px-1.5 py-0.5 rounded">${detailNote}</span>` : ''}
                         </div>
-                        <div class="text-xs font-semibold text-slate-700">${item.meaning}</div>
-                        ${pluralText ? `<div class="text-[10px] text-slate-500 mt-0.5">${pluralText}</div>` : ''}
+                        <div class="text-xs sm:text-sm font-bold text-slate-800">${item.meaning}</div>
+                        ${pluralText ? `<div class="text-xs text-slate-600 mt-0.5">📌 ${pluralText}</div>` : ''}
+                        ${conjHtml}
                     </div>
-                    <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-600 p-1 shrink-0">
-                        <i class="fa-solid fa-volume-high text-xs"></i>
+                    <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-600 p-1 shrink-0 ml-1">
+                        <i class="fa-solid fa-volume-high text-sm"></i>
                     </button>
                 `;
                 container.appendChild(card);
@@ -1494,10 +1408,18 @@
             document.getElementById('fc-back-meaning').innerText = item.meaning;
 
             let detail = item.detail || item.pos;
-            if (item.plural && item.plural !== '-') detail += ` / 複数形: die ${item.plural}`;
+            if (item.plural && item.plural !== '-') detail += ` / 複数: die ${item.plural}`;
             document.getElementById('fc-back-detail').innerText = detail;
 
-            // Reset flip
+            const conjElem = document.getElementById('fc-back-conj');
+            if (item.pos === '動詞' && item.conjugation) {
+                conjElem.classList.remove('hidden');
+                conjElem.innerText = `活用: ${item.conjugation}`;
+            } else {
+                conjElem.classList.add('hidden');
+                conjElem.innerText = '';
+            }
+
             const inner = document.getElementById('flashcard-inner');
             if (inner) inner.classList.remove('rotate-y-180');
         }
@@ -1519,63 +1441,20 @@
             renderFlashcard();
         }
 
-        function renderTableView(list) {
-            const tbody = document.getElementById('dict-tbody');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-
-            if (list.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" class="p-6 text-center text-slate-400 text-xs">該当する単語が見つかりませんでした。</td></tr>`;
-                return;
-            }
-
-            list.forEach(item => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition";
-                
-                let wordDisplay = item.word;
-                let detailDisplay = item.detail || item.pos;
-
-                if (item.pos === '名詞' && item.gender) {
-                    const colorClass = item.gender === 'der' ? 'text-blue-600 font-bold' : item.gender === 'die' ? 'text-rose-600 font-bold' : 'text-amber-600 font-bold';
-                    wordDisplay = `<span class="${colorClass}">${item.gender}</span> ${item.word}`;
-                    
-                    if (item.plural) {
-                        detailDisplay += ` / 複数: die ${item.plural}`;
-                    }
-                }
-
-                tr.innerHTML = `
-                    <td class="p-2 font-semibold text-slate-800">${wordDisplay}</td>
-                    <td class="p-2 text-[11px] text-slate-500"><span class="bg-slate-100 px-1.5 py-0.5 rounded">${detailDisplay}</span></td>
-                    <td class="p-2 text-slate-600">${item.meaning}</td>
-                    <td class="p-2 text-center">
-                        <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-500 p-1" title="単語のみ発音">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function filterDictionary() {
-            renderDictionary();
-        }
+        function filterDictionary() { renderDictionary(); }
 
         function filterDictCategory(cat) {
             activeDictCategory = cat;
             document.querySelectorAll('.dict-tab').forEach(tab => {
                 if (tab.innerText === (cat === 'ALL' ? 'すべて' : cat)) {
-                    tab.className = 'dict-tab active px-2 py-0.5 rounded bg-amber-500 text-white whitespace-nowrap text-[11px] font-medium';
+                    tab.className = 'dict-tab active px-2.5 py-1 rounded bg-amber-500 text-white whitespace-nowrap text-xs font-bold';
                 } else {
-                    tab.className = 'dict-tab px-2 py-0.5 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-[11px] font-medium';
+                    tab.className = 'dict-tab px-2.5 py-1 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold';
                 }
             });
             renderDictionary();
         }
 
-        // UTILS
         function shuffle(array) {
             let currentIndex = array.length, randomIndex;
             while (currentIndex != 0) {
