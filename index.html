@@ -18,9 +18,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Fraunces', 'serif'],
+                        display: ['Fraunces', '"Shippori Mincho"', 'serif'],
                         sans: ['"Noto Sans JP"', 'sans-serif'],
-                        mono: ['"JetBrains Mono"', 'monospace'],
+                        mono: ['"Space Mono"', '"Noto Sans JP"', 'monospace'],
                     },
                     colors: {
                         // ベースの中立色（本文・枠線・背景）— ベージュ寄りの温かいインク色に統一
@@ -47,10 +47,10 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Shippori+Mincho:wght@500;600&family=Space+Mono:wght@400;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; }
-        .font-display { font-family: 'Fraunces', serif; font-feature-settings: 'ss01'; }
-        .font-mono, #question-text-container, #popup-word-title, #fc-front-word, #fc-back-example-de, .choice-btn, .word-chip, .de-word { font-family: 'JetBrains Mono', 'Noto Sans JP', monospace; }
+        .font-display { font-family: 'Fraunces', 'Shippori Mincho', serif; font-feature-settings: 'ss01'; }
+        .font-mono, #question-text-container, #popup-word-title, #fc-front-word, #fc-back-example-de, .choice-btn, .word-chip, .de-word { font-family: 'Space Mono', 'Noto Sans JP', monospace; letter-spacing: -0.01em; }
         .animate-fade-in { animation: fadeIn 0.2s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
         .perspective-1000 { perspective: 1000px; }
@@ -70,11 +70,9 @@
     <!-- Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-4 py-2.5 flex justify-between items-center gap-2">
-            <div class="flex items-center space-x-2.5 cursor-pointer min-w-0" onclick="showSection('home')">
-                <span class="shrink-0 w-8 h-8 flex items-center justify-center rounded border border-slate-300 text-slate-700 font-display font-semibold text-sm">DE</span>
-                <div class="min-w-0">
-                    <h1 class="font-display font-semibold text-base sm:text-lg leading-tight truncate tracking-wide text-slate-800">Deutsch Master</h1>
-                </div>
+            <div class="flex items-baseline gap-2 cursor-pointer min-w-0" onclick="showSection('home')">
+                <h1 class="font-display italic font-semibold text-lg sm:text-xl leading-tight truncate tracking-tight text-slate-800">Deutsch Master</h1>
+                <span class="hidden sm:inline text-[10px] tracking-[0.2em] text-slate-400 font-bold uppercase shrink-0">独語学習</span>
             </div>
             <nav class="flex space-x-1.5 text-xs sm:text-sm font-bold shrink-0">
                 <button onclick="showSection('home')" id="nav-home" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold">
