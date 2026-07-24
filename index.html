@@ -2053,6 +2053,15 @@
             const meaningElem = document.getElementById('popup-word-meaning');
 
             if (wordData) {
+                // タップされた単語が含まれる文（出題文 or 語順クイズの解答文）のすぐ下に
+                // ポップアップを移動してから表示する。これにより、解答文が画面の下の方にあっても
+                // ポップアップが離れた位置(出題文の下)に出てしまう違和感がなくなる。
+                if (popup && e && e.target && typeof e.target.closest === 'function') {
+                    const anchor = e.target.closest('#question-text-container, #explanation-ja-box');
+                    if (anchor) {
+                        anchor.insertAdjacentElement('afterend', popup);
+                    }
+                }
                 titleElem.innerText = wordData.word || cleanToken;
                 posElem.innerText = wordData.pos || '単語';
                 meaningElem.innerText = wordData.meaning || '辞書未登録';
@@ -2413,6 +2422,7 @@
             const isCorrect = selectedIndex === qData.answer;
             showExplanation(isCorrect, qData.ja || '', qData.exp || '');
         }
+
 
         function renderOrderingBoxes() {
             const userBox = document.getElementById('user-answer-box');
