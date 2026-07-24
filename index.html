@@ -18,7 +18,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        display: ['Fraunces', '"Shippori Mincho"', 'serif'],
+                        display: ['Fraunces', '"Noto Sans JP"', 'sans-serif'],
                         sans: ['"Noto Sans JP"', 'sans-serif'],
                         mono: ['"Space Mono"', '"Noto Sans JP"', 'monospace'],
                     },
@@ -47,9 +47,9 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Shippori+Mincho:wght@500;600&family=Space+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Space+Mono:wght@400;700&display=swap');
         body { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; }
-        .font-display { font-family: 'Fraunces', 'Shippori Mincho', serif; font-feature-settings: 'ss01'; }
+        .font-display { font-family: 'Fraunces', 'Noto Sans JP', sans-serif; font-feature-settings: 'ss01'; }
         .font-mono, #question-text-container, #popup-word-title, #fc-front-word, #fc-back-example-de, .choice-btn, .word-chip, .de-word { font-family: 'Space Mono', 'Noto Sans JP', monospace; letter-spacing: -0.01em; }
         .animate-fade-in { animation: fadeIn 0.2s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
@@ -503,7 +503,7 @@
             {word:"Mantel", pos:"名詞", gender:"der", plural:"Mäntel", meaning:"コート", example:"Der Mantel ist dunkelblau.", translation:"そのコートは濃い青色です。"},
             {word:"Arbeitslosen", pos:"名詞", gender:"die", plural:"-", meaning:"失業者たち", detail:"形容詞由来の名詞（複数形）", example:"Die Arbeitslosen suchen Arbeit.", translation:"失業者たちは仕事を探しています。"},
             {word:"Angestellte", pos:"名詞", gender:"die", plural:"Angestellten", meaning:"会社員、従業員（女性）", detail:"形容詞由来の名詞", example:"Die Angestellte arbeitet fleißig.", translation:"その女性会社員は熱心に働いています。"},
-            {word:"Reisender", pos:"名詞", gender:"der", plural:"Reisende", meaning:"旅行者", detail:"形容詞由来の名詞（無冠詞・強変化形）", example:"Der Reisender hat zwei Koffer.", translation:"その旅行者はスーツケースを2つ持っています。"},
+            {word:"Reisender", pos:"名詞", gender:"der", plural:"Reisende", meaning:"旅行者", detail:"形容詞由来の名詞（無冠詞・強変化形）", example:"Der Reisende hat zwei Koffer.", translation:"その旅行者はスーツケースを2つ持っています。"},
             {word:"Kranke", pos:"名詞", gender:"der", plural:"Kranken", meaning:"病人", detail:"形容詞由来の名詞", example:"Die Ärztin hilft dem Kranken.", translation:"医師は病人を助けます。"},
             {word:"Japanisch", pos:"名詞", gender:"das", plural:"-", meaning:"日本語", example:"Ich lerne seit drei Jahren Japanisch.", translation:"私は3年前から日本語を学んでいます。"},
             {word:"Kuchen", pos:"名詞", gender:"der", plural:"Kuchen", meaning:"ケーキ", example:"Die Mutter backt einen Kuchen.", translation:"母はケーキを焼きます。"},
@@ -1118,7 +1118,7 @@
             { cat: 'Lektion 6', q: "Das schöne Bild hängt an _____ Wand.", ja: "美しい絵が壁に掛かっています。", hint: "場所・静止(3格) an + die Wand (女性3格)", options: ["der", "die", "dem", "den"], answer: 0, exp: "状態（場所）を表す an は3格支配です。女性名詞 die Wand の3格は der です。" },
             { cat: 'Lektion 6', q: "Das Geburtstagsgeschenk ist für _____ Mutter.", ja: "その誕生日プレゼントは母のためのものです。", hint: "4格支配前置詞 für + meine Mutter (女性4格)", options: ["meine", "meiner", "meinem", "meines"], answer: 0, exp: "für は常に4格支配です。女性名詞の所有冠詞4格は meine です。" },
             { cat: 'Lektion 6', q: "Er stellt das Glas auf _____ Tisch.", ja: "彼はグラスをテーブルの上に置く（動作・移動）。", hint: "移動・方向(4格) auf + der Tisch (男性4格)", options: ["den", "dem", "der", "des"], answer: 0, exp: "動作・移動を表す auf は4格支配です。男性名詞 der Tisch の4格は den です。" },
-            { cat: 'Lektion 6', q: "Wir gehen nach _____ Unterricht nach Hause.", ja: "授業の後、私たちは帰宅します。", hint: "3格支配前置詞 nach + der Unterricht (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "前置詞 nach は常に3格支配です。男性名詞 Unterricht の3格は dem です。" },
+            { cat: 'Lektion 6', q: "Nach _____ Unterricht gehen wir nach Hause.", ja: "授業の後、私たちは帰宅します。", hint: "3格支配前置詞 nach + der Unterricht (男性3格)", options: ["dem", "den", "der", "des"], answer: 0, exp: "前置詞 nach は常に3格支配です。男性名詞 Unterricht の3格は dem です。" },
 
             // Lektion 7: 形容詞の付加詞的用法（形容詞変化）
             { cat: 'Lektion 7', q: "Das ist ein _____ Haus.", ja: "これは大きな家です。", hint: "不定冠詞 (ein) + 中性1格の形容詞混合変化 (-es)", options: ["großes", "große", "großer", "großen"], answer: 0, exp: "中性1格の不定冠詞 ein に続く形容詞語尾は -es (ein großes Haus) となります。" },
@@ -1485,7 +1485,7 @@
             { ja: "そのコートは濃い青色です。", words: ["Der", "Mantel", "ist", "dunkelblau"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "失業者たちは仕事を探しています。", words: ["Die", "Arbeitslosen", "suchen", "Arbeit"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "その女性会社員は熱心に働いています。", words: ["Die", "Angestellte", "arbeitet", "fleißig"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
-            { ja: "その旅行者はスーツケースを2つ持っています。", words: ["Der", "Reisender", "hat", "zwei", "Koffer"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
+            { ja: "その旅行者はスーツケースを2つ持っています。", words: ["Der", "Reisende", "hat", "zwei", "Koffer"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "医師は病人を助けます。", words: ["Die", "Ärztin", "hilft", "dem", "Kranken"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "私は3年前から日本語を学んでいます。", words: ["Ich", "lerne", "seit", "drei", "Jahren", "Japanisch"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "母はケーキを焼きます。", words: ["Die", "Mutter", "backt", "einen", "Kuchen"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
@@ -1537,7 +1537,7 @@
             { ja: "朝、私はミューズリーを食べます。", words: ["Morgens", "esse", "ich", "Müsli"], exp: "文頭に置かれた語句のため、定動詞が第2位置に来て主語はその後ろに置かれます（定動詞第2位の規則）。" },
             { ja: "ヨーグルトは新鮮です。", words: ["Der", "Joghurt", "ist", "frisch"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "ハチミツは甘いです。", words: ["Der", "Honig", "ist", "süß"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
-            { ja: "彼は冷たい飲み物を持ってきます。", words: ["Er", "bringt", "kaltes", "Getränke"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
+            { ja: "彼は冷たい飲み物を持ってきます。", words: ["Er", "bringt", "ein", "kaltes", "Getränk"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "そのリンゴは赤くて甘いです。", words: ["Der", "Apfel", "ist", "rot", "und", "süß"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "私はサラダを注文します。", words: ["Ich", "bestelle", "einen", "Salat"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "彼は肉を食べません。", words: ["Er", "isst", "kein", "Fleisch"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
@@ -1678,7 +1678,7 @@
             { ja: "私はコーヒーを飲むのが好きです。", words: ["Ich", "trinke", "gern", "Kaffee"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "その家はとても広いです。", words: ["Das", "Haus", "ist", "sehr", "groß"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "バスがすぐ来ます。", words: ["Der", "Bus", "kommt", "gleich"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
-            { ja: "カフェにあそこにあります。", words: ["Das", "Café", "ist", "dort"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
+            { ja: "そのカフェはあそこにあります。", words: ["Das", "Café", "ist", "dort"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "今どこへ行きますか？", words: ["Wohin", "gehen", "Sie", "jetzt"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "私は2年前からここに住んでいます。", words: ["Ich", "wohne", "seit", "zwei", "Jahren", "hier"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "ミュラーさんがそこにいます。", words: ["Herr", "Müller", "ist", "da"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
@@ -1725,7 +1725,7 @@
             { ja: "その部屋は小さいです。", words: ["Das", "Zimmer", "ist", "klein"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "その少女は金髪です。", words: ["Das", "Mädchen", "ist", "blond"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "その音楽家は有名です。", words: ["Der", "Musiker", "ist", "berühmt"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
-            { ja: "その本はとても厚いです。", words: ["Das", "Buch", "ist", "sehr", "thick"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
+            { ja: "その本はとても厚いです。", words: ["Das", "Buch", "ist", "sehr", "dick"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "その生徒は賢いです。", words: ["Der", "Schüler", "ist", "klug"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "気候が穏やかです。", words: ["Das", "Wetter", "ist", "mild"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
             { ja: "夕方は涼しいです。", words: ["Der", "Abend", "ist", "kühl"], exp: "主語が文頭（第1位置）に来て、定動詞が第2位置に置かれる基本語順です。" },
@@ -2645,8 +2645,8 @@
 
             const percentage = total > 0 ? (score / total) * 100 : 0;
             let feedback = "引き続き練習しましょう！";
-            if (percentage === 100) feedback = "パーフェクト！完璧です 🎉";
-            else if (percentage >= 80) feedback = "素晴らしい成績です！この調子！ 👍";
+            if (percentage === 100) feedback = "パーフェクト！完璧です";
+            else if (percentage >= 80) feedback = "素晴らしい成績です！この調子！";
             else if (percentage >= 60) feedback = "合格ラインです。復習でさらに伸ばしましょう！";
 
             const feedbackElem = document.getElementById('result-feedback');
