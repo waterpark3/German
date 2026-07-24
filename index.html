@@ -9,10 +9,48 @@
     <meta name="description" content="ドイツ語初級教科書（Lektion 1〜8）に対応した無料学習Webアプリ。名詞の性・複数形・人称代名詞・否定・動詞変化・前置詞・形容詞語尾・話法の助動詞・未来形・語順並び替え問題を大量収録。">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // カラーパレット：白とベージュを基調とし、グラデーション・原色を排除した配色に統一。
+        // 既存のクラス名（amber/emerald/rose/slate等）は一切変更せず、
+        // 実際に描画される色調のみを塗り替えることで、機能（querySelector等が参照するクラス名）を
+        // 完全に維持したまま見た目だけを刷新する。
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Fraunces', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        // ベースの中立色（本文・枠線・背景）— ベージュ寄りの温かいインク色に統一
+                        slate: { 50:'#FAF7F1', 100:'#F1EAD9', 200:'#E4D8BE', 300:'#CBB994', 400:'#A79878', 500:'#8C7B5E', 600:'#6B5B45', 700:'#544731', 800:'#3A3020', 900:'#241D12' },
+                        stone: { 100:'#F1EAD9', 300:'#CBB994', 800:'#3A3020' },
+                        // アクセント（ボタン・強調）— 落ち着いたタウプ/コーヒーブラウン
+                        amber:   { 50:'#F6F1E6', 100:'#EDE3CC', 200:'#DFCFA8', 300:'#CBB37E', 400:'#B0925A', 500:'#8B7355', 600:'#725D43', 700:'#5A4935', 800:'#453828', 900:'#332A1E' },
+                        // 正誤フィードバック（機能上必要な最小限の色。原色を避け、くすんだセージ／テラコッタに）
+                        emerald: { 50:'#F3F5EF', 100:'#E6ECE0', 200:'#CBDBC2', 400:'#8FAF80', 500:'#71976A', 600:'#5C7D57', 700:'#4A6547', 800:'#3B5039', 900:'#2E3F2D' },
+                        rose:    { 50:'#F7F0ED', 100:'#EEDED9', 200:'#DCBBB2', 400:'#BC8072', 500:'#A65B4B', 600:'#8B4B3E', 700:'#703C32', 800:'#583029', 900:'#432520' },
+                        // 品詞バッジ等で使われていた虹色（blue/purple/sky/...）はすべて同じ中立ベージュ階調に統合
+                        blue:    { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        purple:  { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        sky:     { 50:'#F1EAD9', 200:'#E4D8BE', 300:'#CBB994', 700:'#544731', 900:'#3A3020' },
+                        orange:  { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        teal:    { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        cyan:    { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        lime:    { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                        fuchsia: { 50:'#F1EAD9', 200:'#E4D8BE', 900:'#3A3020' },
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap');
-        body { font-family: 'Noto Sans JP', 'Poppins', sans-serif; font-size: 16px; }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@500;700&display=swap');
+        body { font-family: 'Noto Sans JP', sans-serif; font-size: 16px; }
+        .font-display { font-family: 'Fraunces', serif; font-feature-settings: 'ss01'; }
+        .font-mono, #question-text-container, #popup-word-title, #fc-front-word, #fc-back-example-de, .choice-btn, .word-chip, .de-word { font-family: 'JetBrains Mono', 'Noto Sans JP', monospace; }
         .animate-fade-in { animation: fadeIn 0.2s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
         .perspective-1000 { perspective: 1000px; }
@@ -20,24 +58,29 @@
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
         .touch-manipulation { touch-action: manipulation; }
+        /* 角丸・影を控えめに統一（シンプルな印象へ） */
+        .rounded-xl { border-radius: 0.625rem; }
+        .rounded-2xl { border-radius: 0.875rem; }
+        .shadow, .shadow-sm, .shadow-md { box-shadow: 0 1px 2px 0 rgb(30 41 46 / 0.06), 0 1px 1px 0 rgb(30 41 46 / 0.04); }
+        ::selection { background-color: #DFCFA8; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-amber-200" onclick="handleGlobalClick(event)">
 
     <!-- Header -->
-    <header class="bg-gradient-to-r from-slate-900 via-zinc-800 to-amber-900 text-white shadow-md sticky top-0 z-50">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-4 py-2.5 flex justify-between items-center gap-2">
-            <div class="flex items-center space-x-2 cursor-pointer min-w-0" onclick="showSection('home')">
-                <span class="text-2xl shrink-0">🇩🇪</span>
+            <div class="flex items-center space-x-2.5 cursor-pointer min-w-0" onclick="showSection('home')">
+                <span class="shrink-0 w-8 h-8 flex items-center justify-center rounded border border-slate-300 text-slate-700 font-display font-semibold text-sm">DE</span>
                 <div class="min-w-0">
-                    <h1 class="font-bold text-base sm:text-lg leading-tight truncate">Deutsch Master</h1>
+                    <h1 class="font-display font-semibold text-base sm:text-lg leading-tight truncate tracking-wide text-slate-800">Deutsch Master</h1>
                 </div>
             </div>
             <nav class="flex space-x-1.5 text-xs sm:text-sm font-bold shrink-0">
-                <button onclick="showSection('home')" id="nav-home" class="px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold">
+                <button onclick="showSection('home')" id="nav-home" class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold">
                     <i class="fa-solid fa-house"></i> ホーム
                 </button>
-                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0">
+                <button onclick="showSection('dictionary')" id="nav-dictionary" class="px-3 py-1.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition flex items-center gap-1 whitespace-nowrap shrink-0">
                     <i class="fa-solid fa-book"></i> 単語帳
                 </button>
             </nav>
@@ -50,47 +93,47 @@
         <!-- HOME / MENU SECTION -->
         <section id="sec-home" class="space-y-4 animate-fade-in pt-1">
             <div class="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-slate-100 text-center relative overflow-hidden">
-                <h2 class="text-lg sm:text-2xl font-bold text-slate-800 mb-1">ドイツ語学習マスター (全単語復元 & Lektion 1〜8)</h2>
-                <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto">
-                    名詞・動詞・形容詞・副詞・前置詞・代名詞300語超を完全収録！同品詞選択肢の単語クイズ＆文法選択184問＆並び替え590問！
+                <h2 class="font-display text-lg sm:text-2xl font-semibold text-slate-800 mb-1">ドイツ語学習マスター</h2>
+                <p class="text-slate-500 text-xs sm:text-sm max-w-xl mx-auto">
+                    Lektion 1〜8 対応。単語・文法・語順をクイズで身につける。
                 </p>
             </div>
 
             <!-- Quiz Category Cards -->
             <div class="grid sm:grid-cols-2 gap-3">
-                <div onclick="startQuiz('vocab_all')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-amber-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
-                    <div class="p-3 bg-amber-100 text-amber-700 rounded-xl group-hover:bg-amber-500 group-hover:text-white transition shrink-0 text-lg">
+                <div onclick="startQuiz('vocab_all')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
+                    <div class="w-11 h-11 flex items-center justify-center border border-slate-300 rounded-lg text-slate-600 group-hover:border-slate-500 group-hover:text-slate-800 transition shrink-0 text-base">
                         <i class="fa-solid fa-language"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-amber-600 transition truncate">1. 単語クイズ (性・複数形・同品詞意味)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">der/die/das・複数形・同品詞限定4択クイズ</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 transition truncate">単語クイズ</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">性・複数形・意味を4択で確認</p>
                     </div>
                 </div>
 
-                <div onclick="startQuiz('grammar_all')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-emerald-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
-                    <div class="p-3 bg-emerald-100 text-emerald-700 rounded-xl group-hover:bg-emerald-500 group-hover:text-white transition shrink-0 text-lg">
+                <div onclick="startQuiz('grammar_all')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
+                    <div class="w-11 h-11 flex items-center justify-center border border-slate-300 rounded-lg text-slate-600 group-hover:border-slate-500 group-hover:text-slate-800 transition shrink-0 text-base">
                         <i class="fa-solid fa-sliders"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-emerald-600 transition truncate">2. 文法選択問題 (全184問から10問)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">幹母音変化・前置詞・形容詞変化・助動詞・未来形</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 transition truncate">文法クイズ</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">語尾変化・前置詞・助動詞・未来形</p>
                     </div>
                 </div>
 
-                <div onclick="startQuiz('ordering')" class="bg-white p-4 rounded-xl border-2 border-slate-200 shadow-sm hover:border-rose-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5 sm:col-span-2">
-                    <div class="p-3 bg-rose-100 text-rose-700 rounded-xl group-hover:bg-rose-500 group-hover:text-white transition shrink-0 text-lg">
+                <div onclick="startQuiz('ordering')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5 sm:col-span-2">
+                    <div class="w-11 h-11 flex items-center justify-center border border-slate-300 rounded-lg text-slate-600 group-hover:border-slate-500 group-hover:text-slate-800 transition shrink-0 text-base">
                         <i class="fa-solid fa-arrow-down-short-wide"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm sm:text-base text-slate-800 group-hover:text-rose-600 transition truncate">3. 単語並び替え問題 (全590問から10問)</h3>
-                        <p class="text-xs text-slate-500 mt-0.5 truncate">定動詞2位・倒置・命令文・助動詞枠構造の作文特訓</p>
+                        <h3 class="font-bold text-sm sm:text-base text-slate-800 transition truncate">語順クイズ</h3>
+                        <p class="text-xs text-slate-500 mt-0.5 truncate">単語を正しい順序に並べ替える</p>
                     </div>
                 </div>
             </div>
 
-            <button onclick="startQuiz('all')" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold py-3.5 rounded-xl shadow transition flex items-center justify-center gap-2 text-sm sm:text-base">
-                <i class="fa-solid fa-shuffle"></i> 全カテゴリからランダム10問テスト
+            <button onclick="startQuiz('all')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl shadow-sm transition flex items-center justify-center gap-2 text-sm sm:text-base">
+                <i class="fa-solid fa-shuffle"></i> ランダム10問テスト
             </button>
         </section>
 
@@ -195,15 +238,13 @@
         <!-- RESULT SECTION -->
         <section id="sec-result" class="hidden text-center space-y-4 pt-2 animate-fade-in">
             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 max-w-md mx-auto">
-                <div class="w-16 h-16 bg-amber-100 text-amber-500 rounded-full flex items-center justify-center mx-auto text-2xl mb-3">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <h2 class="text-xl font-bold text-slate-800 mb-1">クイズ完了！</h2>
+                <span class="inline-block text-[10px] font-bold tracking-widest text-slate-400 uppercase border border-slate-200 rounded-full px-3 py-1 mb-3">Complete</span>
+                <h2 class="font-display text-xl font-semibold text-slate-800 mb-1">クイズ完了</h2>
                 <p class="text-slate-500 text-xs sm:text-sm mb-4">お疲れ様でした。結果は以下の通りです。</p>
 
                 <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100 mb-4">
                     <div class="text-xs text-slate-400 font-bold uppercase mb-0.5">正解数</div>
-                    <div id="result-score-text" class="text-3xl font-extrabold text-amber-600">8 / 10</div>
+                    <div id="result-score-text" class="font-display text-3xl font-semibold text-amber-700">8 / 10</div>
                     <p id="result-feedback" class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">素晴らしい結果です！</p>
                 </div>
 
@@ -1879,8 +1920,8 @@
             const navHome = document.getElementById('nav-home');
             const navDict = document.getElementById('nav-dictionary');
             
-            if (navHome) navHome.className = secId === 'home' ? 'px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
-            if (navDict) navDict.className = secId === 'dictionary' ? 'px-3 py-1.5 rounded-lg bg-white/20 text-amber-300 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg hover:bg-white/10 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            if (navHome) navHome.className = secId === 'home' ? 'px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition flex items-center gap-1 whitespace-nowrap shrink-0';
+            if (navDict) navDict.className = secId === 'dictionary' ? 'px-3 py-1.5 rounded-lg bg-slate-100 text-slate-900 transition flex items-center gap-1 whitespace-nowrap shrink-0 font-bold' : 'px-3 py-1.5 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-800 transition flex items-center gap-1 whitespace-nowrap shrink-0';
 
             if (secId === 'dictionary') {
                 renderDictionary();
@@ -2110,7 +2151,7 @@
                     const shuffled = shuffleOptionsWithAnswer(q.options, q.answer);
                     return {
                         type: 'choice',
-                        title: `${q.cat} 文法クイズ`,
+                        title: q.cat,
                         badge: q.cat,
                         q: q.q,
                         sub: "",
@@ -2128,7 +2169,7 @@
             } else if (type === 'ordering') {
                 currentQuizQueue = shuffle([...sentenceOrderingQuestions]).slice(0, 10).map(q => ({
                     type: 'ordering',
-                    title: "単語並び替え (語順)",
+                    title: "語順並び替え",
                     badge: "語順",
                     q: q.ja,
                     sub: "単語ブロックを順番にタップして正しい文を作成",
@@ -2395,11 +2436,11 @@
                     const isMatch = state.isCorrect || (correctWordAtPos && correctWordAtPos.toLowerCase() === item.text.toLowerCase());
                     const chip = document.createElement('div');
                     if (isMatch) {
-                        chip.className = "px-3.5 py-2 bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex items-center gap-1.5";
+                        chip.className = "word-chip px-3.5 py-2 bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex items-center gap-1.5";
                         chip.innerHTML = `<span>${displayText}</span> <i class="fa-solid fa-check text-xs"></i>`;
                     } else {
                         const correctDisplay = correctWordAtPos ? (index === 0 ? capFirst(correctWordAtPos) : correctWordAtPos) : '';
-                        chip.className = "px-3 py-1.5 bg-rose-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex flex-col items-center leading-tight";
+                        chip.className = "word-chip px-3 py-1.5 bg-rose-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex flex-col items-center leading-tight";
                         chip.innerHTML = `<span>${displayText}</span>${correctDisplay ? `<span class="text-[10px] font-normal text-rose-100 mt-0.5">→ ${correctDisplay}</span>` : ''}`;
                     }
                     if (userBox) userBox.appendChild(chip);
@@ -2407,7 +2448,7 @@
             } else {
                 userSelectedOrderWords.forEach((item, index) => {
                     const chip = document.createElement('button');
-                    chip.className = "px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 flex items-center gap-1.5 touch-manipulation";
+                    chip.className = "word-chip px-3.5 py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 flex items-center gap-1.5 touch-manipulation";
                     const displayText = index === 0 ? capFirst(item.text) : item.text;
                     chip.innerHTML = `<span>${displayText}</span> <i class="fa-solid fa-xmark text-xs text-amber-200"></i>`;
                     chip.onclick = () => deselectOrderWord(index);
@@ -2417,7 +2458,7 @@
 
             availablePoolWords.forEach((item) => {
                 const chip = document.createElement('button');
-                chip.className = "px-3.5 py-2 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 touch-manipulation";
+                chip.className = "word-chip px-3.5 py-2 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 touch-manipulation";
                 chip.innerText = item.text;
                 if (reviewMode) {
                     chip.disabled = true;
@@ -2719,32 +2760,11 @@
 
             list.forEach((item, idx) => {
                 const card = document.createElement('div');
-                let genderColor = 'bg-slate-100 border-slate-200 text-slate-700';
+                const genderColor = 'bg-white border-slate-200 text-slate-700';
                 let genderBadge = item.pos;
 
                 if (item.pos === '名詞' && item.gender) {
-                    if (item.gender === 'der') genderColor = 'bg-blue-50 border-blue-200 text-blue-900';
-                    else if (item.gender === 'die') genderColor = 'bg-rose-50 border-rose-200 text-rose-900';
-                    else if (item.gender === 'das') genderColor = 'bg-emerald-50 border-emerald-200 text-emerald-900';
                     genderBadge = `${item.gender} (名詞)`;
-                } else if (item.pos === '形容詞') {
-                    genderColor = 'bg-amber-50 border-amber-200 text-amber-900';
-                } else if (item.pos === '副詞') {
-                    genderColor = 'bg-purple-50 border-purple-200 text-purple-900';
-                } else if (item.pos === '動詞') {
-                    genderColor = 'bg-sky-50 border-sky-200 text-sky-900';
-                } else if (item.pos === '前置詞') {
-                    genderColor = 'bg-orange-50 border-orange-200 text-orange-900';
-                } else if (item.pos === '代名詞') {
-                    genderColor = 'bg-teal-50 border-teal-200 text-teal-900';
-                } else if (item.pos === '冠詞') {
-                    genderColor = 'bg-cyan-50 border-cyan-200 text-cyan-900';
-                } else if (item.pos === '数詞') {
-                    genderColor = 'bg-lime-50 border-lime-200 text-lime-900';
-                } else if (item.pos === '固有名詞') {
-                    genderColor = 'bg-fuchsia-50 border-fuchsia-200 text-fuchsia-900';
-                } else if (item.pos === '接続詞') {
-                    genderColor = 'bg-stone-100 border-stone-300 text-stone-800';
                 }
 
                 const pluralText = (item.plural && item.plural !== '-') ? `複数: die ${item.plural}` : '';
@@ -2755,22 +2775,22 @@
                 let conjHtml = '';
                 if (item.pos === '動詞' && item.conjugation) {
                     conjHtml = `
-                        <div class="mt-1.5 pt-1.5 border-t border-sky-200/60">
-                            <button onclick="toggleVerbConjugation('vcard-${idx}', event)" class="inline-flex items-center gap-1 text-xs font-bold text-sky-700 hover:text-sky-900 transition bg-white/80 px-2 py-0.5 rounded border border-sky-300">
+                        <div class="mt-1.5 pt-1.5 border-t border-slate-200">
+                            <button onclick="toggleVerbConjugation('vcard-${idx}', event)" class="inline-flex items-center gap-1 text-xs font-bold text-slate-600 hover:text-slate-900 transition bg-white/80 px-2 py-0.5 rounded border border-slate-300">
                                 活用を見る/閉じる <i class="fa-solid fa-chevron-down text-[10px]"></i>
                             </button>
-                            <div id="conj-vcard-${idx}" class="hidden mt-1 p-2 bg-white/90 rounded border border-sky-200 text-xs font-mono text-slate-800 leading-relaxed animate-fade-in">
+                            <div id="conj-vcard-${idx}" class="hidden mt-1 p-2 bg-white/90 rounded border border-slate-200 text-xs font-mono text-slate-800 leading-relaxed animate-fade-in">
                                 ${item.conjugation}
                             </div>
                         </div>
                     `;
                 }
 
-                card.className = `p-3 rounded-xl border-2 ${genderColor} shadow-xs flex justify-between items-start`;
+                card.className = `p-3 rounded-xl border ${genderColor} shadow-xs flex justify-between items-start`;
                 card.innerHTML = `
                     <div class="min-w-0 flex-1">
                         <div class="flex flex-wrap items-center gap-1.5 mb-1">
-                            <span class="font-bold text-base text-slate-900">${item.word}</span>
+                            <span class="de-word font-bold text-base text-slate-900">${item.word}</span>
                             <span class="text-xs font-bold bg-white/90 px-2 py-0.5 rounded border border-slate-300/60">${genderBadge}</span>
                             ${detailNote.includes('弱変化') ? `<span class="text-xs font-bold bg-amber-200 text-amber-900 px-1.5 py-0.5 rounded">${detailNote}</span>` : ''}
                             ${pluralOnlyMatch ? `<span class="text-xs font-bold bg-rose-200 text-rose-900 px-1.5 py-0.5 rounded">複数形のみ</span>` : ''}
