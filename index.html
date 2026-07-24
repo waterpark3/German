@@ -1515,6 +1515,7 @@
                     sub: "単語ブロックを順番にタップして正しい文を作成",
                     correctWords: q.words,
                     correctSentence: q.words.join(" "),
+                    altOrders: q.altOrders || [],
                     altSentences: (q.altOrders || []).map(w => w.join(" ")),
                     speaker: q.words.join(" "),
                     unrevealedSpeaker: "",
@@ -1762,8 +1763,28 @@
             if (userBox) userBox.innerHTML = '';
             if (poolBox) poolBox.innerHTML = '';
 
+            const state = userAnswersState[currentQuestionIndex];
+            const reviewMode = !!(state && state.answered);
+
             if (userSelectedOrderWords.length === 0) {
                 if (userBox) userBox.innerHTML = `<span class="text-xs sm:text-sm text-slate-400 italic p-1">下の単語ブロックを順にタップしてください</span>`;
+            } else if (reviewMode) {
+                const bestMatchWords = state.bestMatchWords || [];
+                userSelectedOrderWords.forEach((item, index) => {
+                    const displayText = index === 0 ? capFirst(item.text) : item.text;
+                    const correctWordAtPos = bestMatchWords[index];
+                    const isMatch = state.isCorrect || (correctWordAtPos && correctWordAtPos.toLowerCase() === item.text.toLowerCase());
+                    const chip = document.createElement('div');
+                    if (isMatch) {
+                        chip.className = "px-3.5 py-2 bg-emerald-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex items-center gap-1.5";
+                        chip.innerHTML = `<span>${displayText}</span> <i class="fa-solid fa-check text-xs"></i>`;
+                    } else {
+                        const correctDisplay = correctWordAtPos ? (index === 0 ? capFirst(correctWordAtPos) : correctWordAtPos) : '';
+                        chip.className = "px-3 py-1.5 bg-rose-500 text-white font-bold text-sm sm:text-base rounded-lg shadow-sm flex flex-col items-center leading-tight";
+                        chip.innerHTML = `<span>${displayText}</span>${correctDisplay ? `<span class="text-[10px] font-normal text-rose-100 mt-0.5">→ ${correctDisplay}</span>` : ''}`;
+                    }
+                    if (userBox) userBox.appendChild(chip);
+                });
             } else {
                 userSelectedOrderWords.forEach((item, index) => {
                     const chip = document.createElement('button');
@@ -1779,7 +1800,12 @@
                 const chip = document.createElement('button');
                 chip.className = "px-3.5 py-2 bg-white hover:bg-amber-100 border border-slate-300 text-slate-800 font-bold text-sm sm:text-base rounded-lg shadow-sm transition transform active:scale-95 touch-manipulation";
                 chip.innerText = item.text;
-                chip.onclick = () => selectOrderWord(item);
+                if (reviewMode) {
+                    chip.disabled = true;
+                    chip.className += " opacity-50 cursor-not-allowed";
+                } else {
+                    chip.onclick = () => selectOrderWord(item);
+                }
                 if (poolBox) poolBox.appendChild(chip);
             });
         }
@@ -1806,12 +1832,41 @@
             renderOrderingBoxes();
         }
 
+        function buildOrderingMismatchExp(qData, mismatchCount) {
+            const summary = mismatchCount > 0
+                ? `${mismatchCount}個のブロックが正しい位置と異なります（緑＝正しい位置、赤＝ズレている位置。赤いブロックの下に正しい単語を表示しています）。<br>`
+                : '';
+            return summary + (qData.exp || '');
+        }
+
         function buildOrderingAnswerText(qData) {
             let text = `【正解】 ${qData.correctSentence || ''}`;
             if (Array.isArray(qData.altSentences) && qData.altSentences.length > 0) {
                 text += qData.altSentences.map(alt => ` ／ 【別解】 ${alt}`).join('');
             }
             return text;
+        }
+
+        // ユーザーの解答が「正解」「別解」のどれに最も近いかを判定する。
+        // 完全一致するものがあればそれを、なければ最も一致度の高い候補を返す（誤答の位置説明に使用）。
+        function findMatchingCandidateWords(qData, userTextsLower) {
+            const candidates = [qData.correctWords, ...(qData.altOrders || [])].filter(Array.isArray);
+            for (const cand of candidates) {
+                if (cand.length === userTextsLower.length && cand.every((w, i) => w.toLowerCase() === userTextsLower[i])) {
+                    return cand;
+                }
+            }
+            let best = candidates[0] || [];
+            let bestScore = -1;
+            candidates.forEach(cand => {
+                let score = 0;
+                const len = Math.min(cand.length, userTextsLower.length);
+                for (let i = 0; i < len; i++) {
+                    if (cand[i].toLowerCase() === userTextsLower[i]) score++;
+                }
+                if (score > bestScore) { bestScore = score; best = cand; }
+            });
+            return best;
         }
 
         function checkOrderingAnswer() {
@@ -1822,19 +1877,32 @@
                 return;
             }
 
-            const userSentence = userSelectedOrderWords.map(w => w.text).join(" ");
+            const userTexts = userSelectedOrderWords.map(w => w.text);
+            const userSentence = userTexts.join(" ");
             // 単語プールでは先頭単語の大文字を隠しているため、大文字小文字を区別せず判定する
             // 副詞句の位置など、複数の正しい語順がありうる問題では altSentences も正解として扱う
+            const userTextsLower = userTexts.map(t => t.toLowerCase());
             const userSentenceLower = userSentence.toLowerCase();
             const isCorrect = (userSentenceLower === qData.correctSentence.toLowerCase()) ||
                 (Array.isArray(qData.altSentences) && qData.altSentences.some(alt => userSentenceLower === alt.toLowerCase()));
+
+            const bestMatchWords = findMatchingCandidateWords(qData, userTextsLower);
+            let mismatchCount = 0;
+            if (!isCorrect) {
+                const len = Math.min(bestMatchWords.length, userTextsLower.length);
+                for (let i = 0; i < len; i++) {
+                    if (bestMatchWords[i].toLowerCase() !== userTextsLower[i]) mismatchCount++;
+                }
+            }
 
             userAnswersState[currentQuestionIndex] = {
                 ...(userAnswersState[currentQuestionIndex] || {}),
                 answered: true,
                 userWords: [...userSelectedOrderWords],
                 poolWords: [...availablePoolWords],
-                isCorrect: isCorrect
+                isCorrect: isCorrect,
+                bestMatchWords: bestMatchWords,
+                mismatchCount: mismatchCount
             };
 
             const btnCheck = document.getElementById('btn-check-order');
@@ -1843,8 +1911,11 @@
                 btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
             }
 
+            renderOrderingBoxes();
+
             const jaText = buildOrderingAnswerText(qData);
-            showExplanation(isCorrect, jaText, qData.exp || '');
+            const expText = isCorrect ? (qData.exp || '') : buildOrderingMismatchExp(qData, mismatchCount);
+            showExplanation(isCorrect, jaText, expText);
 
             const btnNextHeader = document.getElementById('btn-next-header');
             if (btnNextHeader) btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
