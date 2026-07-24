@@ -1152,7 +1152,7 @@
             { cat: 'Lektion 3', q: "Er hilft _____ (sie) bei den Hausaufgaben.", ja: "彼は彼女の宿題を手伝う。", hint: "sie (彼女) の 3格", options: ["ihr", "sie", "ihnen", "ihre"], answer: 0, exp: "「彼女に」を表す 3人称単数女性 (sie) の3格形は ihr です。" },
             { cat: 'Lektion 4', q: "_____ Kind spielt im Park?", ja: "どの子が公園で遊んでいますか？", hint: "疑問冠詞 welcher (中性1格: Welches)", options: ["Welches", "Welcher", "Welche", "Welchem"], answer: 0, exp: "Kind は中性名詞です。1格は Welches です。" },
             { cat: 'Lektion 5', q: "_____ du gerne Apfelsaft?", ja: "君は好んでリンゴジュースを飲みますか？", hint: "trinken の du 活用", options: ["Trinkst", "Trinke", "Trinkt", "Trinken"], answer: 0, exp: "du に対する trinken は Trinkst です。" },
-            { cat: 'Lektion 6', q: "Wir gehen in _____ Kino.", ja: "私たちは映画館へ行きます（移動）。", hint: "方向・移動(4格) in + das Kino (中性4格: das)", options: ["das", "dem", "den", "des"], answer: 0, exp: "移動を表す in は4格支配です。das Kino の4格は das です。" },
+            { cat: 'Lektion 6', q: "Wir gehen in _____ Kino.", ja: "私たちは映画館へ行きます（移動）。", hint: "方向・移動(4格) in + das Kino (中性4格: das)", options: ["das", "dem", "den", "des"], answer: 0, exp: "移動を表す in は4格支配です。das Kino の4格は das です。なお、in と das は融合して ins となり、実際には Wir gehen ins Kino. の形でよく使われます。" },
             { cat: 'Lektion 7', q: "Die _____ Blumen blühen im Frühling.", ja: "美しい花々が春に咲く。", hint: "定冠詞 die (複数1格) + 形容詞弱変化 (-en)", options: ["schönen", "schöne", "schöner", "schönes"], answer: 0, exp: "複数1格の定冠詞 die に続く形容詞語尾は -en です。" },
             { cat: 'Lektion 8', q: "Du _____ deine Hausaufgaben machen.", ja: "君は宿題をしなければならない。", hint: "müssen の du 活用", options: ["musst", "muss", "müssen", "müsst"], answer: 0, exp: "du に対する müssen は musst です。" },
             { cat: 'Lektion 1', q: "Er _____ Herr Schmidt.", ja: "彼はシュミット氏という名前です。", hint: "heißen の 3人称単数", options: ["heißt", "heiße", "heißen", "heißst"], answer: 0, exp: "er に対する heißen は heißt です。" },
@@ -2340,7 +2340,7 @@
                     }
 
                     const jaText = buildOrderingAnswerText(qData);
-                    showExplanation(state.isCorrect, jaText, qData.exp || '');
+                    showExplanation(state.isCorrect, jaText, qData.exp || '', true);
                     currentSpeakerWord = qData.correctSentence || '';
                 } else {
                     userSelectedOrderWords = [];
@@ -2497,12 +2497,28 @@
             return summary + (qData.exp || '');
         }
 
+        // 語順クイズの正解文の各単語を、文法問題の出題文と同じ見た目・同じクリック挙動
+        // (clickQuestionWord経由でword-dict-popupに意味を表示)にする。
+        // 記号除去のロジックはrenderQuestion内のトークン化処理と同一にし、
+        // 意味が引けない単語は従来通りクリックしても popup が閉じるだけで、誤った意味は表示されない。
+        function wrapClickableGermanWords(sentence) {
+            if (!sentence) return '';
+            const tokens = sentence.split(' ');
+            return tokens.map(tok => {
+                const clean = tok.replace(/[^a-zA-ZäöüÄÖÜß]/g, '');
+                if (clean.length > 0) {
+                    return `<span onclick="clickQuestionWord('${clean}', event)" class="cursor-pointer underline decoration-dotted decoration-amber-400 hover:text-amber-600 active:bg-amber-100 rounded px-0.5">${tok}</span>`;
+                }
+                return tok;
+            }).join(' ');
+        }
+
         function buildOrderingAnswerText(qData) {
-            let text = `【正解】 ${qData.correctSentence || ''}`;
+            let html = `【正解】 ${wrapClickableGermanWords(qData.correctSentence || '')}`;
             if (Array.isArray(qData.altSentences) && qData.altSentences.length > 0) {
-                text += qData.altSentences.map(alt => ` ／ 【別解】 ${alt}`).join('');
+                html += qData.altSentences.map(alt => ` ／ 【別解】 ${wrapClickableGermanWords(alt)}`).join('');
             }
-            return text;
+            return html;
         }
 
         // ユーザーの解答が「正解」「別解」のどれに最も近いかを判定する。
@@ -2573,7 +2589,7 @@
 
             const jaText = buildOrderingAnswerText(qData);
             const expText = isCorrect ? (qData.exp || '') : buildOrderingMismatchExp(qData, mismatchCount);
-            showExplanation(isCorrect, jaText, expText);
+            showExplanation(isCorrect, jaText, expText, true);
 
             const btnNextHeader = document.getElementById('btn-next-header');
             if (btnNextHeader) btnNextHeader.classList.remove('opacity-0', 'pointer-events-none');
@@ -2584,7 +2600,7 @@
 
         function speakCurrentAnswerSentence() { speakGerman(currentSpeakerWord, false); }
 
-        function showExplanation(isCorrect, jaText, expText) {
+        function showExplanation(isCorrect, jaText, expText, jaIsHtml) {
             const expBox = document.getElementById('explanation-box');
             const expStatus = document.getElementById('explanation-status');
             const jaBox = document.getElementById('explanation-ja-box');
@@ -2610,7 +2626,11 @@
             if (jaBox) {
                 if (jaText) {
                     jaBox.classList.remove('hidden');
-                    jaBox.innerText = jaText;
+                    if (jaIsHtml) {
+                        jaBox.innerHTML = jaText;
+                    } else {
+                        jaBox.innerText = jaText;
+                    }
                 } else {
                     jaBox.classList.add('hidden');
                 }
