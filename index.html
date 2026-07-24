@@ -1144,54 +1144,54 @@
 
         // 単語並び替え問題 (全60問：Lektion 1〜8の学習範囲)
         const sentenceOrderingQuestions = [
-            { ja: "今夜、私は美味しいスープを作ります。", words: ["Heute", "Abend", "koche", "ich", "eine", "leckere", "Suppe"], exp: "時間(Heute Abend)が第1位置に来るため、動詞 koche が第2位置で主語 ich は倒置されます。" },
+            { ja: "今夜、私は美味しいスープを作ります。", words: ["Heute", "Abend", "koche", "ich", "eine", "leckere", "Suppe"], altOrders: [["Ich", "koche", "heute", "Abend", "eine", "leckere", "Suppe"]], exp: "時間(Heute Abend)が第1位置に来るため、動詞 koche が第2位置で主語 ich は倒置されます。" },
             { ja: "学生は図書館で面白い本を読んでいます。", words: ["Der", "Student", "liest", "ein", "interessantes", "Buch", "in", "der", "Bibliothek"], exp: "主語 Der Student + 動詞2位 liest + 目的語 + 前置詞句 の構造です。" },
-            { ja: "朝食後、私はコーヒーを一杯飲みます。", words: ["Nach", "dem", "Frühstück", "trinke", "ich", "einen", "Kaffee"], exp: "前置詞句（Nach dem Frühstück）が第1位置、動詞 trinke が第2位置です。" },
+            { ja: "朝食後、私はコーヒーを一杯飲みます。", words: ["Nach", "dem", "Frühstück", "trinke", "ich", "einen", "Kaffee"], altOrders: [["Ich", "trinke", "nach", "dem", "Frühstück", "einen", "Kaffee"]], exp: "前置詞句（Nach dem Frühstück）が第1位置、動詞 trinke が第2位置です。" },
             { ja: "私の父は毎朝歩いて駅まで行きます。", words: ["Mein", "Vater", "geht", "jeden", "Morgen", "zu", "Fuß", "zum", "Bahnhof"], exp: "主語 + 動詞2位(geht) + 時間句(jeden Morgen) + 前置詞句 の順になります。" },
-            { ja: "残念ながら彼女は今日、時間を持っていません。", words: ["Leider", "hat", "sie", "heute", "keine", "Zeit"], exp: "副詞(Leider)が1位、動詞(hat)が2位となり、無冠詞名詞(Zeit)の否定には keine を用います。" },
+            { ja: "残念ながら彼女は今日、時間を持っていません。", words: ["Leider", "hat", "sie", "heute", "keine", "Zeit"], altOrders: [["Sie", "hat", "heute", "leider", "keine", "Zeit"]], exp: "副詞(Leider)が1位、動詞(hat)が2位となり、無冠詞名詞(Zeit)の否定には keine を用います。" },
             { ja: "私はその男性を前から知っています。", words: ["Ich", "kenne", "diesen", "Mann", "schon", "lange"], exp: "主語 Ich + 動詞2位 kenne + 指示冠詞4格 diesen Mann の配置です。" },
             { ja: "どうぞここに座って（お席をお取り）ください！", words: ["Nehmen", "Sie", "bitte", "hier", "Platz"], exp: "Sie に対する命令文では動詞原形(Nehmen)が文頭に来ます。" },
-            { ja: "月曜日に生徒は宿題を提出しなければならない。", words: ["Am", "Montag", "muss", "der", "Schüler", "die", "Hausaufgaben", "abgeben"], exp: "時(Am Montag)が1位、助動詞 muss が2位、文末に分離動詞原形 abgeben です。" },
+            { ja: "月曜日に生徒は宿題を提出しなければならない。", words: ["Am", "Montag", "muss", "der", "Schüler", "die", "Hausaufgaben", "abgeben"], altOrders: [["Der", "Schüler", "muss", "am", "Montag", "die", "Hausaufgaben", "abgeben"]], exp: "時(Am Montag)が1位、助動詞 muss が2位、文末に分離動詞原形 abgeben です。" },
             { ja: "彼女は新しい本をカバンの中に入れます。", words: ["Sie", "steckt", "das", "neue", "Buch", "in", "die", "Tasche"], exp: "移動・方向を表す前置詞 in は4格支配(in die Tasche)となります。" },
             { ja: "彼らは公園の大きな木の下で休みます。", words: ["Sie", "rasten", "unter", "dem", "großen", "Baum", "im", "Park"], exp: "場所・静止を表す unter は3格支配(unter dem großen Baum)です。" },
             { ja: "小さな子供たちが庭で楽しそうに歌っています。", words: ["Kleine", "Kinder", "singen", "fröhlich", "im", "Garten"], exp: "無冠詞複数名詞を修飾する形容詞の強変化語尾は -e (Kleine Kinder) です。" },
             { ja: "兄は私に面白い本を送ってくれました。", words: ["Mein", "Bruder", "schickt", "mir", "ein", "interessantes", "Buch"], exp: "3格目的語(mir)が4格目的語(ein interesantes Buch)の前に配置されます。" },
-            { ja: "明日の晩、私たちは家で美味しいピザを食べるでしょう。", words: ["Morgen", "Abend", "werden", "wir", "zu", "Hause", "eine", "leckere", "Pizza", "essen"], exp: "時(Morgen Abend)が1位、未来の助動詞(werden)が2位、本動詞原形(essen)が文末に来ます。" },
+            { ja: "明日の晩、私たちは家で美味しいピザを食べるでしょう。", words: ["Morgen", "Abend", "werden", "wir", "zu", "Hause", "eine", "leckere", "Pizza", "essen"], altOrders: [["Wir", "werden", "morgen", "Abend", "zu", "Hause", "eine", "leckere", "Pizza", "essen"]], exp: "時(Morgen Abend)が1位、未来の助動詞(werden)が2位、本動詞原形(essen)が文末に来ます。" },
             { ja: "今日、私は友人と映画館に行きたいです。", words: ["Heute", "möchte", "ich", "mit", "meinem", "Freund", "ins", "Kino", "gehen"], exp: "時間(Heute)が文頭に来るため定動詞(möchte)が2位、主語(ich)が倒置されます。本動詞原形(gehen)は文末です。" },
             { ja: "彼は美しい花瓶をテーブルの上に置きます。", words: ["Er", "stellt", "die", "schöne", "Vase", "auf", "den", "Tisch"], exp: "移動を表す前置詞 auf は4格支配（auf den Tisch）です。" },
             { ja: "私たちは週末にハイキングに行きたいです。", words: ["Wir", "möchten", "am", "Wochenende", "einen", "Ausflug", "machen"], exp: "話法の助動詞（möchten）が2位、本動詞原形（machen）が文末に置かれます。" },
             { ja: "母はスーパーで新鮮な野菜を買います。", words: ["Meine", "Mutter", "kauft", "im", "Supermarkt", "frisches", "Gemüse"], exp: "主語 + 動詞2位（kauft）+ 場所 + 目的語 の語順です。" },
-            { ja: "悪天候のため、私たちは家に留まります。", words: ["Wegen", "des", "schlechten", "Wetters", "bleiben", "wir", "zu", "Hause"], exp: "理由の前置詞句（Wegen...）が第1位置のため、動詞 bleiben が2位に来ます。" },
+            { ja: "悪天候のため、私たちは家に留まります。", words: ["Wegen", "des", "schlechten", "Wetters", "bleiben", "wir", "zu", "Hause"], altOrders: [["Wir", "bleiben", "wegen", "des", "schlechten", "Wetters", "zu", "Hause"]], exp: "理由の前置詞句（Wegen...）が第1位置のため、動詞 bleiben が2位に来ます。" },
             { ja: "子供は庭で犬と遊んでいます。", words: ["Das", "Kind", "spielt", "mit", "dem", "Hund", "im", "Garten"], exp: "主語 + 動詞2位（spielt）+ 前置詞句 の配置です。" },
-            { ja: "台所で祖母がケーキを焼いています。", words: ["In", "der", "Küche", "backt", "die", "Großmutter", "einen", "Kuchen"], exp: "場所（In der Küche）が第1位置、動詞 backt が第2位置で倒置されています。" },
+            { ja: "台所で祖母がケーキを焼いています。", words: ["In", "der", "Küche", "backt", "die", "Großmutter", "einen", "Kuchen"], altOrders: [["Die", "Großmutter", "backt", "in", "der", "Küche", "einen", "Kuchen"]], exp: "場所（In der Küche）が第1位置、動詞 backt が第2位置で倒置されています。" },
             { ja: "彼女はバスで駅へ行きます。", words: ["Sie", "fährt", "mit", "dem", "Bus", "zum", "Bahnhof"], exp: "移動の動詞 fahren (幹母音変化 fährt) + 前置詞句 です。" },
             { ja: "私は今、京都に住んでいます。", words: ["Ich", "wohne", "jetzt", "in", "Kyoto"], exp: "定動詞2位の原則（Ich + wohne）です。" },
             { ja: "彼はとても上手にドイツ語を話すことができます。", words: ["Er", "kann", "sehr", "gut", "Deutsch", "sprechen"], exp: "助動詞 kann が2位、原形 sprechen が文末の枠構造です。" },
             { ja: "なぜ君は今日学校に行きたくないのですか？", words: ["Warum", "willst", "du", "heute", "nicht", "in", "die", "Schule", "gehen"], exp: "疑問詞 Warum + 助動詞2位 willst + 主語 du + 本動詞原形 gehen です。" },
             { ja: "ウェイターは客にコーヒーを一杯持ってきます。", words: ["Der", "Kellner", "bringt", "dem", "Gast", "eine", "Tasse", "Kaffee"], exp: "主語 + 動詞2位 bringt + 3格目的語 (dem Gast) + 4格目的語 です。" },
-            { ja: "仕事の後、彼は友人とビールを飲みに行きます。", words: ["Nach", "der", "Arbeit", "geht", "er", "mit", "seinen", "Freunden", "ein", "Bier", "trinken"], exp: "前置詞句 Nach der Arbeit が1位、動詞 geht が2位で主語 er は倒置されます。" },
-            { ja: "夏に私たちは車でドイツへ行くつもりです。", words: ["Im", "Sommer", "wollen", "wir", "mit", "dem", "Auto", "nach", "Deutschland", "fahren"], exp: "時 Im Sommer が1位、助動詞 wollen が2位、文末に fahren です。" },
-            { ja: "風邪にもかかわらず、彼は今日オフィスで働かなければならない。", words: ["Trotz", "der", "Erkältung", "muss", "er", "heute", "im", "Büro", "arbeiten"], exp: "2格前置詞句 Trotz der Erkältung が1位、助動詞 muss が2位です。" },
+            { ja: "仕事の後、彼は友人とビールを飲みに行きます。", words: ["Nach", "der", "Arbeit", "geht", "er", "mit", "seinen", "Freunden", "ein", "Bier", "trinken"], altOrders: [["Er", "geht", "nach", "der", "Arbeit", "mit", "seinen", "Freunden", "ein", "Bier", "trinken"]], exp: "前置詞句 Nach der Arbeit が1位、動詞 geht が2位で主語 er は倒置されます。" },
+            { ja: "夏に私たちは車でドイツへ行くつもりです。", words: ["Im", "Sommer", "wollen", "wir", "mit", "dem", "Auto", "nach", "Deutschland", "fahren"], altOrders: [["Wir", "wollen", "im", "Sommer", "mit", "dem", "Auto", "nach", "Deutschland", "fahren"]], exp: "時 Im Sommer が1位、助動詞 wollen が2位、文末に fahren です。" },
+            { ja: "風邪にもかかわらず、彼は今日オフィスで働かなければならない。", words: ["Trotz", "der", "Erkältung", "muss", "er", "heute", "im", "Büro", "arbeiten"], altOrders: [["Er", "muss", "heute", "trotz", "der", "Erkältung", "im", "Büro", "arbeiten"]], exp: "2格前置詞句 Trotz der Erkältung が1位、助動詞 muss が2位です。" },
             { ja: "私の妹/姉は毎日1時間ヴァイオリンを練習します。", words: ["Meine", "Schwester", "spielt", "jeden", "Tag", "eine", "Stunde", "Geige"], exp: "主語 + 動詞2位 spielt + 時間句 + 目的語 です。" },
-            { ja: "壁には家族の美しい写真が掛かっています。", words: ["An", "der", "Wand", "hängt", "ein", "schönes", "Bild", "von", "der", "Familie"], exp: "場所 An der Wand が1位、動詞 hängt が2位で主語は倒置されます。" },
+            { ja: "壁には家族の美しい写真が掛かっています。", words: ["An", "der", "Wand", "hängt", "ein", "schönes", "Bild", "von", "der", "Familie"], altOrders: [["Ein", "schönes", "Bild", "von", "der", "Familie", "hängt", "an", "der", "Wand"]], exp: "場所 An der Wand が1位、動詞 hängt が2位で主語は倒置されます。" },
             { ja: "警察官は通りでお年寄りを助けます。", words: ["Der", "Polizist", "hilft", "dem", "alten", "Mann", "auf", "der", "Straße"], exp: "主語 + 動詞2位 hilft (幹母音変化) + 3格目的語 です。" },
-            { ja: "明日一日中雨が降るだろう。", words: ["Morgen", "wird", "es", "den", "ganzen", "Tag", "regnen"], exp: "時 Morgen が1位、推量の助動詞 wird が2位、文末に原形 regnen です。" },
+            { ja: "明日一日中雨が降るだろう。", words: ["Morgen", "wird", "es", "den", "ganzen", "Tag", "regnen"], altOrders: [["Es", "wird", "morgen", "den", "ganzen", "Tag", "regnen"]], exp: "時 Morgen が1位、推量の助動詞 wird が2位、文末に原形 regnen です。" },
             { ja: "彼は新しい新聞を食卓の上に置きます。", words: ["Er", "legt", "die", "neue", "Zeitung", "auf", "den", "Esstisch"], exp: "主語 + 動詞2位 legt + 目的語 + 移動の4格前置詞句（auf den Esstisch）です。" },
             { ja: "何時に君は明日起きなければなりませんか？", words: ["Um", "wie", "viel", "Uhr", "musst", "du", "morgen", "aufstehen"], exp: "疑問フレーズが1位、助動詞 musst が2位、文末に aufstehen です。" },
             { ja: "女子学生は教授の報告書を注意深く読みます。", words: ["Die", "Studentin", "liest", "den", "Bericht", "des", "Professors", "sehr", "aufmerksam"], exp: "主語 + 動詞2位 liest (幹母音変化) + 目的語 です。" },
-            { ja: "交通渋滞のため、バスは今日遅れて来ます。", words: ["Wegen", "des", "Verkehrs", "kommt", "der", "Bus", "heute", "zu", "spät"], exp: "2格理由句 Wegen des Verkehrs が1位、動詞 kommt が2位です。" },
+            { ja: "交通渋滞のため、バスは今日遅れて来ます。", words: ["Wegen", "des", "Verkehrs", "kommt", "der", "Bus", "heute", "zu", "spät"], altOrders: [["Der", "Bus", "kommt", "heute", "wegen", "des", "Verkehrs", "zu", "spät"]], exp: "2格理由句 Wegen des Verkehrs が1位、動詞 kommt が2位です。" },
             { ja: "医師は病院で病気の患者を診察します。", words: ["Der", "Arzt", "untersucht", "den", "kranken", "Patienten", "im", "Krankenhaus"], exp: "主語 Der Arzt + 動詞2位 untersucht + 目的語 + 場所句 です。" },
             { ja: "ここで私の自転車を止めてもいいですか？", words: ["Darf", "ich", "hier", "mein", "Fahrrad", "abstellen"], exp: "疑問文のため助動詞 Darf が先頭、文末に動詞原形 abstellen です。" },
-            { ja: "誕生日に父親は息子に新しい時計を贈ります。", words: ["Zum", "Geburtstag", "schenkt", "der", "Vater", "seinem", "Sohn", "eine", "neue", "Uhr"], exp: "時 Zum Geburtstag が1位、動詞 schenkt が2位で主語 der Vater は倒置です。" },
+            { ja: "誕生日に父親は息子に新しい時計を贈ります。", words: ["Zum", "Geburtstag", "schenkt", "der", "Vater", "seinem", "Sohn", "eine", "neue", "Uhr"], altOrders: [["Der", "Vater", "schenkt", "seinem", "Sohn", "zum", "Geburtstag", "eine", "neue", "Uhr"]], exp: "時 Zum Geburtstag が1位、動詞 schenkt が2位で主語 der Vater は倒置です。" },
             { ja: "私たちは今晩レストランで美味しい魚を食べたい。", words: ["Wir", "wollen", "heute", "Abend", "im", "Restaurant", "einen", "leckeren", "Fisch", "essen"], exp: "主語 + 助動詞 wollen + 時間・場所・目的語 + 文末原形 essen です。" },
-            { ja: "事務机の上に新しいボールペンがあります（横たわっている）。", words: ["Auf", "dem", "Schreibtisch", "liegt", "ein", "neuer", "Kugelschreiber"], exp: "場所句 Auf dem Schreibtisch が1位、動詞 liegt が2位です。" },
-            { ja: "1ヶ月前からエンジニアはベルリンでドイツ語を学んでいる。", words: ["Seit", "einem", "Monat", "lernt", "der", "Ingenieur", "in", "Berlin", "Deutsch"], exp: "前置詞句 Seit einem Monat が1位、動詞 lernt が2位で主語は倒置です。" },
-            { ja: "明日の朝、私は図書館で勉強します。", words: ["Morgen", "Früh", "lerne", "ich", "in", "der", "Bibliothek"], exp: "時 Morgen Früh が1位、動詞 lerne が2位です。" },
+            { ja: "事務机の上に新しいボールペンがあります（横たわっている）。", words: ["Auf", "dem", "Schreibtisch", "liegt", "ein", "neuer", "Kugelschreiber"], altOrders: [["Ein", "neuer", "Kugelschreiber", "liegt", "auf", "dem", "Schreibtisch"]], exp: "場所句 Auf dem Schreibtisch が1位、動詞 liegt が2位です。" },
+            { ja: "1ヶ月前からエンジニアはベルリンでドイツ語を学んでいる。", words: ["Seit", "einem", "Monat", "lernt", "der", "Ingenieur", "in", "Berlin", "Deutsch"], altOrders: [["Der", "Ingenieur", "lernt", "seit", "einem", "Monat", "in", "Berlin", "Deutsch"]], exp: "前置詞句 Seit einem Monat が1位、動詞 lernt が2位で主語は倒置です。" },
+            { ja: "明日の朝、私は図書館で勉強します。", words: ["Morgen", "Früh", "lerne", "ich", "in", "der", "Bibliothek"], altOrders: [["Ich", "lerne", "morgen", "Früh", "in", "der", "Bibliothek"]], exp: "時 Morgen Früh が1位、動詞 lerne が2位です。" },
             { ja: "彼らは古い家を買いたいと思っています。", words: ["Sie", "wollen", "ein", "altes", "Haus", "kaufen"], exp: "助動詞 wollen が2位、文末に原形 kaufen です。" },
             { ja: "静かにしてください！(敬称 Sie)", words: ["Seien", "Sie", "bitte", "sehr", "leise"], exp: "sein の Sie に対する命令形は Seien Sie です。" },
             { ja: "彼女は毎朝リンゴを1つ食べます。", words: ["Sie", "isst", "jeden", "Morgen", "einen", "Apfel"], exp: "動詞 isst (幹母音変化) が2位です。" },
             { ja: "私の母は美味しいケーキを焼くことができる。", words: ["Meine", "Mutter", "kann", "einen", "leckeren", "Kuchen", "backen"], exp: "助動詞 kann が2位、文末に原形 backen です。" },
-            { ja: "雨にもかかわらず、子供たちは外で遊んでいる。", words: ["Trotz", "des", "Regens", "spielen", "die", "Kinder", "draußen"], exp: "2格前置詞句 Trotz des Regens が1位、動詞 spielen が2位です。" },
+            { ja: "雨にもかかわらず、子供たちは外で遊んでいる。", words: ["Trotz", "des", "Regens", "spielen", "die", "Kinder", "draußen"], altOrders: [["Die", "Kinder", "spielen", "trotz", "des", "Regens", "draußen"]], exp: "2格前置詞句 Trotz des Regens が1位、動詞 spielen が2位です。" },
             { ja: "君は私に本当のことを言わなければならない。", words: ["Du", "musst", "mir", "die", "Wahrheit", "sagen"], exp: "助動詞 musst が2位、3格目的語 mir、文末に原形 sagen です。" },
             { ja: "彼は明日病院へ行くだろう（未来）。", words: ["Er", "wird", "morgen", "ins", "Krankenhaus", "gehen"], exp: "未来の助動詞 wird が2位、文末に原形 gehen です。" },
             { ja: "教授は学生に難しい質問をする。", words: ["Der", "Professor", "stellt", "dem", "Studenten", "eine", "schwere", "Frage"], exp: "3格目的語 (dem Studenten: 男性弱変化) + 4格目的語 です。" },
@@ -1200,10 +1200,10 @@
             { ja: "新しい車が市役所の前に止まっている。", words: ["Ein", "neues", "Auto", "steht", "vor", "dem", "Rathaus"], exp: "静止の vor は3格支配 (vor dem Rathaus) です。" },
             { ja: "彼女は毎日友達に手紙を書きます。", words: ["Sie", "schreibt", "jeden", "Tag", "ihrer", "Freundin", "einen", "Brief"], exp: "3格目的語 (ihrer Freundin) + 4格目的語 です。" },
             { ja: "ここでタバコを吸うことは許されていません。", words: ["Man", "darf", "hier", "nicht", "rauchen"], exp: "Man + 助動詞 darf が2位、文末に rauchen です。" },
-            { ja: "来年、彼は大学で物理学を勉強する予定です。", words: ["Nächstes", "Jahr", "wird", "er", "an", "der", "Uni", "Physik", "studieren"], exp: "時 Nächstes Jahr が1位、助動詞 wird が2位、文末に studieren です。" },
+            { ja: "来年、彼は大学で物理学を勉強する予定です。", words: ["Nächstes", "Jahr", "wird", "er", "an", "der", "Uni", "Physik", "studieren"], altOrders: [["Er", "wird", "nächstes", "Jahr", "an", "der", "Uni", "Physik", "studieren"]], exp: "時 Nächstes Jahr が1位、助動詞 wird が2位、文末に studieren です。" },
             { ja: "どうぞこの本をお読みください！", words: ["Lesen", "Sie", "bitte", "dieses", "Buch"], exp: "Sie に対する命令文 Lesen Sie です。" },
             { ja: "その少女は猫に温かいミルクをあげる。", words: ["Das", "Mädchen", "gibt", "der", "Katze", "warme", "Milch"], exp: "3格目的語 (der Katze) + 4格目的語 (warme Milch) です。" },
-            { ja: "朝食の前に彼は新聞を読みます。", words: ["Vor", "dem", "Frühstück", "liest", "er", "die", "Zeitung"], exp: "前置詞句 Vor dem Frühstück が1位、動詞 liest が2位です。" }
+            { ja: "朝食の前に彼は新聞を読みます。", words: ["Vor", "dem", "Frühstück", "liest", "er", "die", "Zeitung"], altOrders: [["Er", "liest", "vor", "dem", "Frühstück", "die", "Zeitung"]], exp: "前置詞句 Vor dem Frühstück が1位、動詞 liest が2位です。" }
         ];
 
         // QUIZ STATE
@@ -1515,6 +1515,7 @@
                     sub: "単語ブロックを順番にタップして正しい文を作成",
                     correctWords: q.words,
                     correctSentence: q.words.join(" "),
+                    altSentences: (q.altOrders || []).map(w => w.join(" ")),
                     speaker: q.words.join(" "),
                     unrevealedSpeaker: "",
                     wordOnly: false,
@@ -1679,7 +1680,7 @@
                         btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
                     }
 
-                    const jaText = `【正解】 ${qData.correctSentence || ''}`;
+                    const jaText = buildOrderingAnswerText(qData);
                     showExplanation(state.isCorrect, jaText, qData.exp || '');
                     currentSpeakerWord = qData.correctSentence || '';
                 } else {
@@ -1805,6 +1806,14 @@
             renderOrderingBoxes();
         }
 
+        function buildOrderingAnswerText(qData) {
+            let text = `【正解】 ${qData.correctSentence || ''}`;
+            if (Array.isArray(qData.altSentences) && qData.altSentences.length > 0) {
+                text += qData.altSentences.map(alt => ` ／ 【別解】 ${alt}`).join('');
+            }
+            return text;
+        }
+
         function checkOrderingAnswer() {
             const qData = currentQuizQueue[currentQuestionIndex];
             if (!qData) return;
@@ -1815,7 +1824,10 @@
 
             const userSentence = userSelectedOrderWords.map(w => w.text).join(" ");
             // 単語プールでは先頭単語の大文字を隠しているため、大文字小文字を区別せず判定する
-            const isCorrect = (userSentence.toLowerCase() === qData.correctSentence.toLowerCase());
+            // 副詞句の位置など、複数の正しい語順がありうる問題では altSentences も正解として扱う
+            const userSentenceLower = userSentence.toLowerCase();
+            const isCorrect = (userSentenceLower === qData.correctSentence.toLowerCase()) ||
+                (Array.isArray(qData.altSentences) && qData.altSentences.some(alt => userSentenceLower === alt.toLowerCase()));
 
             userAnswersState[currentQuestionIndex] = {
                 ...(userAnswersState[currentQuestionIndex] || {}),
@@ -1831,7 +1843,7 @@
                 btnCheck.className = "w-2/3 bg-slate-300 text-slate-500 font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1 cursor-not-allowed whitespace-nowrap";
             }
 
-            const jaText = `【正解】 ${qData.correctSentence}`;
+            const jaText = buildOrderingAnswerText(qData);
             showExplanation(isCorrect, jaText, qData.exp || '');
 
             const btnNextHeader = document.getElementById('btn-next-header');
