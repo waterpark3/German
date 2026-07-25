@@ -97,6 +97,17 @@
                 </p>
             </div>
 
+            <!-- Favorites-only Quiz Toggle -->
+            <div class="bg-white rounded-xl px-4 py-3 shadow-sm border border-slate-200 flex items-center justify-between gap-2">
+                <label for="favorites-only-toggle" class="flex items-center gap-2 cursor-pointer select-none min-w-0">
+                    <input type="checkbox" id="favorites-only-toggle" onchange="toggleFavoritesOnlyQuiz(this.checked)" class="w-4 h-4 accent-amber-600 cursor-pointer shrink-0">
+                    <span class="text-xs sm:text-sm font-bold text-slate-700 flex items-center gap-1.5 truncate">
+                        <i class="fa-solid fa-star text-amber-500 shrink-0"></i> お気に入りの単語のみから出題
+                    </span>
+                </label>
+                <span id="favorites-only-count" class="text-[11px] sm:text-xs text-slate-400 shrink-0 whitespace-nowrap"></span>
+            </div>
+
             <!-- Quiz Category Cards -->
             <div class="grid sm:grid-cols-2 gap-3">
                 <div onclick="startQuiz('vocab_all')" class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition cursor-pointer group flex items-center space-x-3.5">
@@ -1847,6 +1858,7 @@
         let currentQuestionIndex = 0;
         let score = 0;
         let currentCategory = 'all';
+        let quizFavoritesOnly = false;
         let currentSpeakerWord = '';
         let unrevealedSpeakerWord = '';
         let isCurrentWordOnlySpeak = false;
@@ -1925,6 +1937,21 @@
             renderDictionary();
         }
 
+        // ---- お気に入りのみから出題するクイズ設定 ----
+        function toggleFavoritesOnlyQuiz(checked) {
+            quizFavoritesOnly = checked;
+            updateFavoritesOnlyCount();
+        }
+
+        function updateFavoritesOnlyCount() {
+            const countElem = document.getElementById('favorites-only-count');
+            const checkbox = document.getElementById('favorites-only-toggle');
+            if (checkbox) checkbox.checked = quizFavoritesOnly;
+            if (countElem) {
+                countElem.innerText = quizFavoritesOnly ? `お気に入り ${starredWords.size} 語` : '';
+            }
+        }
+
         function showSection(secId) {
             ['sec-home', 'sec-quiz', 'sec-result', 'sec-dictionary'].forEach(id => {
                 const el = document.getElementById(id);
@@ -1941,6 +1968,9 @@
 
             if (secId === 'dictionary') {
                 renderDictionary();
+            }
+            if (secId === 'home') {
+                updateFavoritesOnlyCount();
             }
         }
 
@@ -2119,6 +2149,12 @@
         }
 
         function startQuiz(type) {
+            // お気に入りのみ出題モードが有効な場合、対象語彙が0件なら開始せず案内する
+            if ((type === 'vocab_all' || type === 'all') && quizFavoritesOnly && wordList.filter(isStarred).length === 0) {
+                alert('お気に入りに登録されている単語がありません。単語帳で星マークをタップして、お気に入りを追加してから再度お試しください。');
+                return;
+            }
+
             currentCategory = type;
             currentQuizQueue = [];
             currentQuestionIndex = 0;
@@ -2126,8 +2162,9 @@
             closeWordPopup();
 
             if (type === 'vocab_all') {
-                const nouns = wordList.filter(w => w.pos === '名詞' && w.gender);
-                const allWords = [...wordList];
+                const vocabSource = quizFavoritesOnly ? wordList.filter(isStarred) : wordList;
+                const nouns = vocabSource.filter(w => w.pos === '名詞' && w.gender);
+                const allWords = [...vocabSource];
                 const pool = shuffle([...nouns, ...allWords]).slice(0, 10);
 
                 currentQuizQueue = pool.map(item => {
