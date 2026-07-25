@@ -2163,9 +2163,7 @@
 
             if (type === 'vocab_all') {
                 const vocabSource = quizFavoritesOnly ? wordList.filter(isStarred) : wordList;
-                const nouns = vocabSource.filter(w => w.pos === '名詞' && w.gender);
-                const allWords = [...vocabSource];
-                const pool = shuffle([...nouns, ...allWords]).slice(0, 10);
+                const pool = shuffle([...vocabSource]).slice(0, 10);
 
                 currentQuizQueue = pool.map(item => {
                     const isPluralOnlyEntry = item.pos === '名詞' && item.detail && item.detail.includes('の複数形');
