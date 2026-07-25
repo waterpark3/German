@@ -273,14 +273,15 @@
 
                 <div class="flex justify-between items-center border-t border-slate-100 pt-2.5 gap-2">
                     <div class="flex overflow-x-auto space-x-1 pb-0.5 text-xs font-medium scrollbar-none min-w-0" id="dict-tabs">
-                        <button onclick="filterDictCategory('ALL')" class="dict-tab active px-2.5 py-1 rounded-md bg-amber-500 text-white whitespace-nowrap text-xs font-bold">すべて</button>
-                        <button onclick="filterDictCategory('名詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">名詞</button>
-                        <button onclick="filterDictCategory('動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">動詞</button>
-                        <button onclick="filterDictCategory('助動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">助動詞</button>
-                        <button onclick="filterDictCategory('形容詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">形容詞</button>
-                        <button onclick="filterDictCategory('副詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">副詞</button>
-                        <button onclick="filterDictCategory('前置詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">前置詞</button>
-                        <button onclick="filterDictCategory('その他')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">その他</button>
+                        <button data-cat="ALL" onclick="filterDictCategory('ALL')" class="dict-tab active px-2.5 py-1 rounded-md bg-amber-500 text-white whitespace-nowrap text-xs font-bold">すべて</button>
+                        <button data-cat="FAVORITES" onclick="filterDictCategory('FAVORITES')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-amber-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold"><i class="fa-solid fa-star"></i> お気に入り</button>
+                        <button data-cat="名詞" onclick="filterDictCategory('名詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">名詞</button>
+                        <button data-cat="動詞" onclick="filterDictCategory('動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">動詞</button>
+                        <button data-cat="助動詞" onclick="filterDictCategory('助動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">助動詞</button>
+                        <button data-cat="形容詞" onclick="filterDictCategory('形容詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">形容詞</button>
+                        <button data-cat="副詞" onclick="filterDictCategory('副詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">副詞</button>
+                        <button data-cat="前置詞" onclick="filterDictCategory('前置詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">前置詞</button>
+                        <button data-cat="その他" onclick="filterDictCategory('その他')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">その他</button>
                     </div>
 
                     <div class="flex bg-slate-100 p-0.5 rounded-lg shrink-0 text-xs">
@@ -328,6 +329,9 @@
                     </button>
                     <button onclick="speakGerman(currentFlashcardWord, true)" class="p-2.5 bg-amber-100 text-amber-700 rounded-full hover:bg-amber-200">
                         <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <button id="fc-star-btn" onclick="toggleStarFlashcard(event)" class="p-2.5 bg-slate-100 text-slate-300 rounded-full hover:bg-amber-100">
+                        <i class="fa-solid fa-star"></i>
                     </button>
                     <button onclick="nextFlashcard()" class="w-1/2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1">
                         次の単語 <i class="fa-solid fa-arrow-right"></i>
@@ -1930,6 +1934,47 @@
         let flashcardsList = [];
         let flashcardIndex = 0;
 
+        // ---- お気に入り（星）機能 ----
+        function getWordKey(item) {
+            return item.word + '||' + item.meaning;
+        }
+
+        function loadStarredWords() {
+            try {
+                const raw = localStorage.getItem('starredWords');
+                return new Set(raw ? JSON.parse(raw) : []);
+            } catch (e) {
+                return new Set();
+            }
+        }
+
+        function saveStarredWords() {
+            try {
+                localStorage.setItem('starredWords', JSON.stringify([...starredWords]));
+            } catch (e) { /* localStorageが使えない環境では無視 */ }
+        }
+
+        let starredWords = loadStarredWords();
+
+        function isStarred(item) {
+            return starredWords.has(getWordKey(item));
+        }
+
+        function toggleStarState(key) {
+            if (starredWords.has(key)) {
+                starredWords.delete(key);
+            } else {
+                starredWords.add(key);
+            }
+            saveStarredWords();
+        }
+
+        function toggleStar(key, e) {
+            if (e) e.stopPropagation();
+            toggleStarState(key);
+            renderDictionary();
+        }
+
         function showSection(secId) {
             ['sec-home', 'sec-quiz', 'sec-result', 'sec-dictionary'].forEach(id => {
                 const el = document.getElementById(id);
@@ -2789,6 +2834,8 @@
                 let matchCategory = false;
                 if (activeDictCategory === 'ALL') {
                     matchCategory = true;
+                } else if (activeDictCategory === 'FAVORITES') {
+                    matchCategory = isStarred(item);
                 } else if (activeDictCategory === '名詞') {
                     matchCategory = (item.pos === '名詞' || item.pos === '固有名詞');
                 } else if (activeDictCategory === 'その他') {
@@ -2832,7 +2879,10 @@
             container.innerHTML = '';
 
             if (list.length === 0) {
-                container.innerHTML = `<div class="col-span-full p-6 text-center text-slate-400 text-sm">該当する単語が見つかりませんでした。</div>`;
+                const emptyMsg = (activeDictCategory === 'FAVORITES')
+                    ? 'まだお気に入りの単語がありません。単語カードの星アイコンをタップして追加しましょう。'
+                    : '該当する単語が見つかりませんでした。';
+                container.innerHTML = `<div class="col-span-full p-6 text-center text-slate-400 text-sm">${emptyMsg}</div>`;
                 return;
             }
 
@@ -2866,6 +2916,8 @@
                 }
 
                 card.className = `p-3 rounded-xl border ${genderColor} shadow-xs flex justify-between items-start`;
+                const starKey = getWordKey(item);
+                const starred = starredWords.has(starKey);
                 card.innerHTML = `
                     <div class="min-w-0 flex-1">
                         <div class="flex flex-wrap items-center gap-1.5 mb-1">
@@ -2885,9 +2937,14 @@
                             <div class="text-slate-500 mt-0.5">→ ${item.translation || ''}</div>
                         </div>` : ''}
                     </div>
-                    <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-600 p-1 shrink-0 ml-1">
-                        <i class="fa-solid fa-volume-high text-sm"></i>
-                    </button>
+                    <div class="flex flex-col items-center gap-1 shrink-0 ml-1">
+                        <button onclick="toggleStar('${starKey.replace(/'/g, "\\'")}', event)" class="${starred ? 'text-amber-500' : 'text-slate-300 hover:text-amber-400'} p-1">
+                            <i class="fa-solid fa-star text-sm"></i>
+                        </button>
+                        <button onclick="speakGerman('${item.word}', true)" class="text-slate-400 hover:text-amber-600 p-1">
+                            <i class="fa-solid fa-volume-high text-sm"></i>
+                        </button>
+                    </div>
                 `;
                 container.appendChild(card);
             });
@@ -2946,6 +3003,42 @@
 
             const inner = document.getElementById('flashcard-inner');
             if (inner) inner.classList.remove('rotate-y-180');
+
+            const starBtn = document.getElementById('fc-star-btn');
+            if (starBtn) {
+                if (starredWords.has(getWordKey(item))) {
+                    starBtn.className = 'p-2.5 bg-amber-100 text-amber-500 rounded-full hover:bg-amber-200';
+                } else {
+                    starBtn.className = 'p-2.5 bg-slate-100 text-slate-300 rounded-full hover:bg-amber-100';
+                }
+            }
+        }
+
+        function toggleStarFlashcard(e) {
+            if (e) e.stopPropagation();
+            if (flashcardsList.length === 0) return;
+            const item = flashcardsList[flashcardIndex];
+            toggleStarState(getWordKey(item));
+
+            if (activeDictCategory === 'FAVORITES' && !starredWords.has(getWordKey(item))) {
+                // お気に入り表示中に星を外した単語は、その場でリストから取り除く
+                flashcardsList.splice(flashcardIndex, 1);
+                const badge = document.getElementById('dict-count-badge');
+                if (badge) badge.innerText = flashcardsList.length;
+                if (flashcardIndex >= flashcardsList.length) {
+                    flashcardIndex = Math.max(0, flashcardsList.length - 1);
+                }
+                renderFlashcard();
+            } else {
+                const starBtn = document.getElementById('fc-star-btn');
+                if (starBtn) {
+                    if (starredWords.has(getWordKey(item))) {
+                        starBtn.className = 'p-2.5 bg-amber-100 text-amber-500 rounded-full hover:bg-amber-200';
+                    } else {
+                        starBtn.className = 'p-2.5 bg-slate-100 text-slate-300 rounded-full hover:bg-amber-100';
+                    }
+                }
+            }
         }
 
         function flipFlashcard() {
@@ -2970,7 +3063,7 @@
         function filterDictCategory(cat) {
             activeDictCategory = cat;
             document.querySelectorAll('.dict-tab').forEach(tab => {
-                if (tab.innerText === (cat === 'ALL' ? 'すべて' : cat)) {
+                if (tab.dataset.cat === cat) {
                     tab.className = 'dict-tab active px-2.5 py-1 rounded bg-amber-500 text-white whitespace-nowrap text-xs font-bold';
                 } else {
                     tab.className = 'dict-tab px-2.5 py-1 rounded bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold';
