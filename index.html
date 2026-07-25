@@ -341,18 +341,18 @@
         // 単語データ（統合リスト.xlsx 完全準拠・678語・例文/対訳付き）
         const wordList = [
             // --- 名詞 ---
-            {word:"Schwester", pos:"名詞", gender:"die", plural:"Schwestern", meaning:"姉、妹", example:"Meine Schwester wohnt in Berlin.", translation:"私の姉妹はベルリンに住んでいます。"},
-            {word:"Tante", pos:"名詞", gender:"die", plural:"Tanten", meaning:"叔母、伯母", example:"Meine Tante kocht sehr gut.", translation:"私の叔母はとても料理が上手です。"},
+            {word:"Schwester", pos:"名詞", gender:"die", plural:"Schwestern", meaning:"姉、妹", counterpart:"der Bruder（兄・弟）", example:"Meine Schwester wohnt in Berlin.", translation:"私の姉妹はベルリンに住んでいます。"},
+            {word:"Tante", pos:"名詞", gender:"die", plural:"Tanten", meaning:"叔母、伯母", counterpart:"der Onkel（叔父・伯父）", example:"Meine Tante kocht sehr gut.", translation:"私の叔母はとても料理が上手です。"},
             {word:"Brief", pos:"名詞", gender:"der", plural:"Briefe", meaning:"手紙", example:"Ich schreibe heute einen Brief.", translation:"私は今日、手紙を書きます。"},
-            {word:"Vater", pos:"名詞", gender:"der", plural:"Väter", meaning:"父、父親", example:"Mein Vater liest ein Buch.", translation:"私の父は本を読みます。"},
-            {word:"Mutter", pos:"名詞", gender:"die", plural:"Mütter", meaning:"母、母親", example:"Meine Mutter hilft mir gern.", translation:"私の母は喜んで私を助けてくれます。"},
+            {word:"Vater", pos:"名詞", gender:"der", plural:"Väter", meaning:"父、父親", counterpart:"die Mutter（母）", example:"Mein Vater liest ein Buch.", translation:"私の父は本を読みます。"},
+            {word:"Mutter", pos:"名詞", gender:"die", plural:"Mütter", meaning:"母、母親", counterpart:"der Vater（父）", example:"Meine Mutter hilft mir gern.", translation:"私の母は喜んで私を助けてくれます。"},
             {word:"Pullover", pos:"名詞", gender:"der", plural:"Pullover", meaning:"セーター", example:"Der Pullover ist warm und schön.", translation:"そのセーターは暖かくて美しいです。"},
-            {word:"Sohn", pos:"名詞", gender:"der", plural:"Söhne", meaning:"息子", example:"Sein Sohn spielt im Garten.", translation:"彼の息子は庭で遊んでいます。"},
-            {word:"Bruder", pos:"名詞", gender:"der", plural:"Brüder", meaning:"兄、弟", example:"Dein Bruder lernt Deutsch an der Uni.", translation:"あなたの兄弟は大学でドイツ語を学んでいます。"},
+            {word:"Sohn", pos:"名詞", gender:"der", plural:"Söhne", meaning:"息子", counterpart:"die Tochter（娘）", example:"Sein Sohn spielt im Garten.", translation:"彼の息子は庭で遊んでいます。"},
+            {word:"Bruder", pos:"名詞", gender:"der", plural:"Brüder", meaning:"兄、弟", counterpart:"die Schwester（姉・妹）", example:"Dein Bruder lernt Deutsch an der Uni.", translation:"あなたの兄弟は大学でドイツ語を学んでいます。"},
             {word:"Vase", pos:"名詞", gender:"die", plural:"Vasen", meaning:"花瓶", example:"Die Vase steht auf dem Tisch.", translation:"花瓶がテーブルの上に置いてあります。"},
             {word:"Tisch", pos:"名詞", gender:"der", plural:"Tische", meaning:"机、テーブル", example:"Der Tisch ist aus Holz.", translation:"そのテーブルは木製です。"},
             {word:"Esstisch", pos:"名詞", gender:"der", plural:"Esstische", meaning:"食卓", example:"Wir sitzen am Esstisch.", translation:"私たちは食卓に座っています。"},
-            {word:"Mann", pos:"名詞", gender:"der", plural:"Männer", meaning:"男性、夫", example:"Der Mann kennt diesen Weg.", translation:"その男性はこの道を知っています。"},
+            {word:"Mann", pos:"名詞", gender:"der", plural:"Männer", meaning:"男性、夫", counterpart:"die Frau（女性・妻）", example:"Der Mann kennt diesen Weg.", translation:"その男性はこの道を知っています。"},
             {word:"Fenster", pos:"名詞", gender:"das", plural:"Fenster", meaning:"窓", example:"Das Fenster ist geschlossen.", translation:"窓は閉まっています。"},
             {word:"Stuhl", pos:"名詞", gender:"der", plural:"Stühle", meaning:"椅子", example:"Auf dem Stuhl sitzt ein Kind.", translation:"椅子の上に子供が座っています。"},
             {word:"Schreibtisch", pos:"名詞", gender:"der", plural:"Schreibtische", meaning:"机、事務机", example:"Er arbeitet am Schreibtisch.", translation:"彼は机に向かって働いています。"},
@@ -364,8 +364,10 @@
             {word:"Stäbchen", pos:"名詞", gender:"das", plural:"Stäbchen", meaning:"箸", example:"In Japan benutzt man Stäbchen.", translation:"日本では人々は箸を使います。"},
             {word:"Büro", pos:"名詞", gender:"das", plural:"Büros", meaning:"事務所、オフィス", example:"Sie arbeitet im Büro.", translation:"彼女はオフィスで働いています。"},
             {word:"Kind", pos:"名詞", gender:"das", plural:"Kinder", meaning:"子供", example:"Das Kind schläft ruhig im Bett.", translation:"子供はベッドで静かに眠っています。"},
-            {word:"Bürgermeister", pos:"名詞", gender:"der", plural:"Bürgermeister", meaning:"市長", example:"Der Bürgermeister spricht heute.", translation:"市長が今日話します。"},
-            {word:"Präsident", pos:"名詞", gender:"der", plural:"Präsidenten", meaning:"大統領", detail:"男性弱変化 (-en/-en)", example:"Der Präsident besucht diese Stadt.", translation:"大統領はこの街を訪問します。"},
+            {word:"Bürgermeister", pos:"名詞", gender:"der", plural:"Bürgermeister", meaning:"市長", counterpart:"die Bürgermeisterin（女性）", example:"Der Bürgermeister spricht heute.", translation:"市長が今日話します。"},
+            {word:"Bürgermeisterin", pos:"名詞", gender:"die", plural:"Bürgermeisterinnen", meaning:"市長（女性）", counterpart:"der Bürgermeister（男性）", example:"Die Bürgermeisterin spricht heute.", translation:"女性市長が今日話します。"},
+            {word:"Präsident", pos:"名詞", gender:"der", plural:"Präsidenten", meaning:"大統領（男性）", detail:"男性弱変化 (-en/-en)", counterpart:"die Präsidentin（女性）", example:"Der Präsident besucht diese Stadt.", translation:"大統領はこの街を訪問します。"},
+            {word:"Präsidentin", pos:"名詞", gender:"die", plural:"Präsidentinnen", meaning:"大統領（女性）", counterpart:"der Präsident（男性）", example:"Die Präsidentin besucht diese Stadt.", translation:"女性大統領はこの街を訪問します。"},
             {word:"Lampe", pos:"名詞", gender:"die", plural:"Lampen", meaning:"ランプ、電球", example:"Die Lampe hängt über dem Tisch.", translation:"ランプがテーブルの上に吊り下がっています。"},
             {word:"Klavier", pos:"名詞", gender:"das", plural:"Klaviere", meaning:"ピアノ", example:"Meine Schwester spielt Klavier.", translation:"私の姉はピアノを弾きます。"},
             {word:"Ecke", pos:"名詞", gender:"die", plural:"Ecken", meaning:"角、コーナー", example:"Der Stuhl steht in der Ecke.", translation:"椅子は部屋の隅に置いてあります。"},
@@ -382,7 +384,7 @@
             {word:"Essen", pos:"名詞", gender:"das", plural:"Essen", meaning:"食事", example:"Das Essen schmeckt lecker.", translation:"料理は美味しいです。"},
             {word:"Kaffee", pos:"名詞", gender:"der", plural:"Kaffees", meaning:"コーヒー", example:"Morgens trinke ich Kaffee.", translation:"朝、私はコーヒーを飲みます。"},
             {word:"Monat", pos:"名詞", gender:"der", plural:"Monate", meaning:"月(1ヶ月)", example:"Seit einem Monat lernt er Deutsch.", translation:"1ヶ月前から彼はドイツ語を学んでいます。"},
-            {word:"Lehrerin", pos:"名詞", gender:"die", plural:"Lehrerinnen", meaning:"教師（女性）", example:"Die Lehrerin erklärt das Wort.", translation:"女性教師はその単語を説明します。"},
+            {word:"Lehrerin", pos:"名詞", gender:"die", plural:"Lehrerinnen", meaning:"教師（女性）", counterpart:"der Lehrer（男性）", example:"Die Lehrerin erklärt das Wort.", translation:"女性教師はその単語を説明します。"},
             {word:"Familie", pos:"名詞", gender:"die", plural:"Familien", meaning:"家族", example:"Meine Familie lebt in Tokio.", translation:"私の家族は東京に住んでいます。"},
             {word:"Spaziergang", pos:"名詞", gender:"der", plural:"Spaziergänge", meaning:"散歩", example:"Wir machen einen Spaziergang im Park.", translation:"私たちは公園で散歩をします。"},
             {word:"Strom", pos:"名詞", gender:"der", plural:"Ströme", meaning:"電気、電流", example:"Ohne Strom gibt es kein Licht.", translation:"電気がなければ光はありません。"},
@@ -390,10 +392,11 @@
             {word:"Unterricht", pos:"名詞", gender:"der", plural:"-", meaning:"授業", example:"Der Unterricht beginnt um acht Uhr.", translation:"授業は8時に始まります。"},
             {word:"Zimmer", pos:"名詞", gender:"das", plural:"Zimmer", meaning:"部屋", example:"Das Zimmer ist ruhig und hell.", translation:"その部屋は静かで明るいです。"},
             {word:"Urlaub", pos:"名詞", gender:"der", plural:"Urlaube", meaning:"休暇、旅行", example:"Im Urlaub fahren wir in die Berge.", translation:"休暇中に私たちは山へ行きます。"},
-            {word:"Freund", pos:"名詞", gender:"der", plural:"Freunde", meaning:"友人（男性）、彼氏", example:"Mein Freund kommt heute zu Besuch.", translation:"私の友人が今日遊びに来ます。"},
-            {word:"Freundin", pos:"名詞", gender:"die", plural:"Freundinnen", meaning:"友人（女性）、彼女", example:"Meine Freundin liest ein Buch.", translation:"私のガールフレンドは本を読んでいます。"},
+            {word:"Freund", pos:"名詞", gender:"der", plural:"Freunde", meaning:"友人（男性）、彼氏", counterpart:"die Freundin（女性）", example:"Mein Freund kommt heute zu Besuch.", translation:"私の友人が今日遊びに来ます。"},
+            {word:"Freundin", pos:"名詞", gender:"die", plural:"Freundinnen", meaning:"友人（女性）、彼女", counterpart:"der Freund（男性）", example:"Meine Freundin liest ein Buch.", translation:"私のガールフレンドは本を読んでいます。"},
             {word:"Weg", pos:"名詞", gender:"der", plural:"Wege", meaning:"道、道のり", example:"Der Weg zum Bahnhof ist weit.", translation:"駅への道は遠いです。"},
-            {word:"Kellner", pos:"名詞", gender:"der", plural:"Kellner", meaning:"ウェイター", example:"Der Kellner bringt das Getränk.", translation:"給仕が飲み物を持ってきます。"},
+            {word:"Kellner", pos:"名詞", gender:"der", plural:"Kellner", meaning:"ウェイター", counterpart:"die Kellnerin（女性）", example:"Der Kellner bringt das Getränk.", translation:"給仕が飲み物を持ってきます。"},
+            {word:"Kellnerin", pos:"名詞", gender:"die", plural:"Kellnerinnen", meaning:"ウェイトレス", counterpart:"der Kellner（男性）", example:"Die Kellnerin bringt das Getränk.", translation:"女性の給仕が飲み物を持ってきます。"},
             {word:"Glas", pos:"名詞", gender:"das", plural:"Gläser", meaning:"グラス、コップ", example:"Das Glas steht auf dem Tisch.", translation:"コップがテーブルの上に置いてあります。"},
             {word:"Bier", pos:"名詞", gender:"das", plural:"Biere", meaning:"ビール", example:"Er trinkt ein Glas Bier.", translation:"彼はビールを1杯飲みます。"},
             {word:"Geburtstag", pos:"名詞", gender:"der", plural:"Geburtstage", meaning:"誕生日", example:"Heute feiert er seinen Geburtstag.", translation:"今日、彼は誕生日を祝います。"},
@@ -401,7 +404,7 @@
             {word:"Blumen", pos:"名詞", gender:"die", plural:"-", meaning:"花（複数）", detail:"Blumeの複数形", example:"Er kauft schöne Blumen.", translation:"彼は美しい花を買います。"},
             {word:"Buch", pos:"名詞", gender:"das", plural:"Bücher", meaning:"本", example:"Das Buch liegt auf dem Schreibtisch.", translation:"本が机の上に置いてあります。"},
             {word:"Post", pos:"名詞", gender:"die", plural:"-", meaning:"郵便、郵便局", example:"Ich bringe den Brief zur Post.", translation:"私は手紙を郵便局へ持っていきます。"},
-            {word:"Hund", pos:"名詞", gender:"der", plural:"Hunde", meaning:"犬", example:"Der Hund schläft unter dem Tisch.", translation:"犬がテーブルの下で眠っています。"},
+            {word:"Hund", pos:"名詞", gender:"der", plural:"Hunde", meaning:"犬", counterpart:"die Hündin（雌犬）", example:"Der Hund schläft unter dem Tisch.", translation:"犬がテーブルの下で眠っています。"},
             {word:"Namen", pos:"名詞", gender:"die", plural:"-", meaning:"名前（複数）", detail:"Nameの複数形／男性弱変化(特殊)", example:"Wie ist Ihr Name?", translation:"お名前は何ですか？"},
             {word:"Milch", pos:"名詞", gender:"die", plural:"-", meaning:"牛乳、ミルク", example:"Das Kind trinkt frische Milch.", translation:"子供は新鮮な牛乳を飲みます。"},
             {word:"Kugelschreiber", pos:"名詞", gender:"der", plural:"Kugelschreiber", meaning:"ボールペン", example:"Der Kugelschreiber schreibt gut.", translation:"そのボールペンは書き味が良いです。"},
@@ -413,18 +416,19 @@
             {word:"Tasse", pos:"名詞", gender:"die", plural:"Tassen", meaning:"カップ", example:"Eine Tasse Kaffee, bitte!", translation:"コーヒーを1杯ください！"},
             {word:"Hause", pos:"名詞", gender:"das", plural:"-", meaning:"家（に）", detail:"Hausの与格：zu Hauseで「家で／に」", example:"Ich bin um sechs Uhr zu Hause.", translation:"私は6時に家にいます。"},
             {word:"Genie", pos:"名詞", gender:"das", plural:"Genies", meaning:"天才", example:"Dieser Wissenschaftler ist ein Genie.", translation:"この科学者は天才です。"},
-            {word:"Wissenschaftler", pos:"名詞", gender:"der", plural:"Wissenschaftler", meaning:"科学者", example:"Der Wissenschaftler arbeitet viel.", translation:"その科学者はよく働きます。"},
+            {word:"Wissenschaftler", pos:"名詞", gender:"der", plural:"Wissenschaftler", meaning:"科学者", counterpart:"die Wissenschaftlerin（女性）", example:"Der Wissenschaftler arbeitet viel.", translation:"その科学者はよく働きます。"},
+            {word:"Wissenschaftlerin", pos:"名詞", gender:"die", plural:"Wissenschaftlerinnen", meaning:"科学者（女性）", counterpart:"der Wissenschaftler（男性）", example:"Die Wissenschaftlerin arbeitet viel.", translation:"その女性科学者はよく働きます。"},
             {word:"Bericht", pos:"名詞", gender:"der", plural:"Berichte", meaning:"報告書", example:"Er schreibt einen langen Bericht.", translation:"彼は長い報告書を書きます。"},
             {word:"Park", pos:"名詞", gender:"der", plural:"Parks", meaning:"公園", example:"Kinder spielen im Park.", translation:"子供たちが公園で遊んでいます。"},
             {word:"Fußball", pos:"名詞", gender:"der", plural:"Fußbälle", meaning:"サッカー", example:"Am Wochenende spielen wir Fußball.", translation:"週末に私たちはサッカーをします。"},
             {word:"Theater", pos:"名詞", gender:"das", plural:"Theater", meaning:"劇場", example:"Abends gehen wir ins Theater.", translation:"夜、私たちは劇場へ行きます。"},
-            {word:"Frau", pos:"名詞", gender:"die", plural:"Frauen", meaning:"女性、妻、〜夫人", example:"Die Frau spricht freundlich.", translation:"その女性は親切に話します。"},
+            {word:"Frau", pos:"名詞", gender:"die", plural:"Frauen", meaning:"女性、妻、〜夫人", counterpart:"der Mann（男性・夫）", example:"Die Frau spricht freundlich.", translation:"その女性は親切に話します。"},
             {word:"Koffer", pos:"名詞", gender:"der", plural:"Koffer", meaning:"スーツケース", example:"Der Koffer ist zu schwer.", translation:"そのスーツケースは重すぎます。"},
             {word:"Ausweis", pos:"名詞", gender:"der", plural:"Ausweise", meaning:"身分証明書", example:"Zeigen Sie bitte Ihren Ausweis!", translation:"身分証明書を見せてください！"},
             {word:"Wörterbuch", pos:"名詞", gender:"das", plural:"Wörterbücher", meaning:"辞書", example:"Ich brauche ein deutsches Wörterbuch.", translation:"私にはドイツ語の辞書が必要です。"},
             {word:"Regenschirm", pos:"名詞", gender:"der", plural:"Regenschirme", meaning:"傘", example:"Nimm einen Regenschirm mit!", translation:"傘を持っていきなさい！"},
             {word:"Villa", pos:"名詞", gender:"die", plural:"Villen", meaning:"別荘、邸宅", example:"Die Villa steht am Wald.", translation:"その邸宅は森のそばに立っています。"},
-            {word:"Onkel", pos:"名詞", gender:"der", plural:"Onkel", meaning:"叔父、伯父", example:"Mein Onkel besucht uns morgen.", translation:"叔父が明日私たちを訪問します。"},
+            {word:"Onkel", pos:"名詞", gender:"der", plural:"Onkel", meaning:"叔父、伯父", counterpart:"die Tante（叔母・伯母）", example:"Mein Onkel besucht uns morgen.", translation:"叔父が明日私たちを訪問します。"},
             {word:"Auto", pos:"名詞", gender:"das", plural:"Autos", meaning:"自動車、車", example:"Das Auto fährt sehr schnell.", translation:"その車はとても速く走ります。"},
             {word:"Teil", pos:"名詞", gender:"der", plural:"Teile", meaning:"部分、部品", example:"Das ist ein wichtiger Teil.", translation:"これは重要な部分です。"},
             {word:"Flugzeug", pos:"名詞", gender:"das", plural:"Flugzeuge", meaning:"飛行機", example:"Das Flugzeug fliegt nach Berlin.", translation:"その飛行機はベルリンへ飛びます。"},
@@ -439,25 +443,29 @@
             {word:"Zeit", pos:"名詞", gender:"die", plural:"Zeiten", meaning:"時間", example:"Ich habe heute leider keine Zeit.", translation:"あいにく私は今日時間がありません。"},
             {word:"Märchen", pos:"名詞", gender:"das", plural:"Märchen", meaning:"童話", example:"Die Mutter liest ein Märchen vor.", translation:"母はメルヘン（童話）を読み聞かせます。"},
             {word:"Platz", pos:"名詞", gender:"der", plural:"Plätze", meaning:"場所、広場、席", example:"Ist dieser Platz frei?", translation:"この席は空いていますか？"},
-            {word:"Sänger", pos:"名詞", gender:"der", plural:"Sänger", meaning:"歌手（男性）", example:"Der Sänger singt schön.", translation:"その歌手は美しく歌います。"},
-            {word:"Studentin", pos:"名詞", gender:"die", plural:"Studentinnen", meaning:"大学生（女性）", example:"Die Studentin lernt fleißig.", translation:"その女子学生は熱心に勉強します。"},
+            {word:"Sänger", pos:"名詞", gender:"der", plural:"Sänger", meaning:"歌手（男性）", counterpart:"die Sängerin（女性）", example:"Der Sänger singt schön.", translation:"その歌手は美しく歌います。"},
+            {word:"Sängerin", pos:"名詞", gender:"die", plural:"Sängerinnen", meaning:"歌手（女性）", counterpart:"der Sänger（男性）", example:"Die Sängerin singt schön.", translation:"その女性歌手は美しく歌います。"},
+            {word:"Studentin", pos:"名詞", gender:"die", plural:"Studentinnen", meaning:"大学生（女性）", counterpart:"der Student（男性）", example:"Die Studentin lernt fleißig.", translation:"その女子学生は熱心に勉強します。"},
             {word:"Anfang", pos:"名詞", gender:"der", plural:"Anfänge", meaning:"開始、はじめ", example:"Aller Anfang ist schwer.", translation:"あらゆる始まりは難しい。（ことわざ）"},
-            {word:"Briefträger", pos:"名詞", gender:"der", plural:"Briefträger", meaning:"郵便配達員", example:"Der Briefträger bringt ein Paket.", translation:"郵便配達員が小包を持ってきます。"},
+            {word:"Briefträger", pos:"名詞", gender:"der", plural:"Briefträger", meaning:"郵便配達員（男性）", counterpart:"die Briefträgerin（女性）", example:"Der Briefträger bringt ein Paket.", translation:"郵便配達員が小包を持ってきます。"},
+            {word:"Briefträgerin", pos:"名詞", gender:"die", plural:"Briefträgerinnen", meaning:"郵便配達員（女性）", counterpart:"der Briefträger（男性）", example:"Die Briefträgerin bringt ein Paket.", translation:"女性の郵便配達員が小包を持ってきます。"},
             {word:"Söhne", pos:"名詞", gender:"die", plural:"-", meaning:"息子（複数）", detail:"Sohnの複数形", example:"Seine Söhne sind noch klein.", translation:"彼の息子たちはまだ小さいです。"},
-            {word:"Töchter", pos:"名詞", gender:"die", plural:"Töchter", meaning:"娘", detail:"※Tochterの複数形として掲載", example:"Ihre Töchter lernen Deutsch.", translation:"彼女の娘たちはドイツ語を学んでいます。"},
+            {word:"Tochter", pos:"名詞", gender:"die", plural:"Töchter", meaning:"娘", counterpart:"der Sohn（息子）", example:"Ihre Tochter lernt Deutsch.", translation:"彼女の娘はドイツ語を学んでいます。"},
+            {word:"Töchter", pos:"名詞", gender:"die", plural:"-", meaning:"娘（複数）", detail:"Tochterの複数形", example:"Ihre Töchter lernen Deutsch.", translation:"彼女の娘たちはドイツ語を学んでいます。"},
             {word:"Vogel", pos:"名詞", gender:"der", plural:"Vögel", meaning:"鳥", example:"Der Vogel singt schön.", translation:"その鳥は美しく歌います。"},
             {word:"Vögel", pos:"名詞", gender:"die", plural:"-", meaning:"鳥（複数）", detail:"Vogelの複数形", example:"Die Vögel singen im Garten.", translation:"鳥たちが庭で歌っています。"},
             {word:"Frauen", pos:"名詞", gender:"die", plural:"-", meaning:"女性、妻、〜夫人（複数）", detail:"Frauの複数形", example:"Die Frauen sprechen im Café.", translation:"女性たちがカフェで話をしています。"},
             {word:"Bücher", pos:"名詞", gender:"die", plural:"-", meaning:"本（複数）", detail:"Buchの複数形", example:"Er kauft drei Bücher.", translation:"彼は本を3冊買います。"},
-            {word:"Lehrer", pos:"名詞", gender:"der", plural:"Lehrer", meaning:"教師（男性）", example:"Der Lehrer erklärt die Regel.", translation:"教師は規則を説明します。"},
+            {word:"Lehrer", pos:"名詞", gender:"der", plural:"Lehrer", meaning:"教師（男性）", counterpart:"die Lehrerin（女性）", example:"Der Lehrer erklärt die Regel.", translation:"教師は規則を説明します。"},
             {word:"Frage", pos:"名詞", gender:"die", plural:"Fragen", meaning:"質問", example:"Ich habe eine Frage.", translation:"私には質問があります。"},
             {word:"Fragen", pos:"名詞", gender:"die", plural:"-", meaning:"質問（複数）", detail:"Frageの複数形", example:"Wir haben viele Fragen.", translation:"私達にはたくさんの質問があります。"},
-            {word:"Student", pos:"名詞", gender:"der", plural:"Studenten", meaning:"大学生（男性）", detail:"男性弱変化 (-en/-en)", example:"Der Student liest eine Zeitung.", translation:"その学生は新聞を読んでいます。"},
+            {word:"Student", pos:"名詞", gender:"der", plural:"Studenten", meaning:"大学生（男性）", detail:"男性弱変化 (-en/-en)", counterpart:"die Studentin（女性）", example:"Der Student liest eine Zeitung.", translation:"その学生は新聞を読んでいます。"},
             {word:"Kinder", pos:"名詞", gender:"die", plural:"-", meaning:"子供（複数）", detail:"Kindの複数形", example:"Die Kinder spielen fröhlich.", translation:"子供たちは楽しそうに遊んでいます。"},
             {word:"Rose", pos:"名詞", gender:"die", plural:"Rosen", meaning:"バラ", example:"Die Rose blüht im Garten.", translation:"バラが庭で咲いています。"},
-            {word:"Politiker", pos:"名詞", gender:"der", plural:"Politiker", meaning:"政治家", example:"Der Politiker hält eine Rede.", translation:"その政治家は演説を行います。"},
+            {word:"Politiker", pos:"名詞", gender:"der", plural:"Politiker", meaning:"政治家（男性）", counterpart:"die Politikerin（女性）", example:"Der Politiker hält eine Rede.", translation:"その政治家は演説を行います。"},
+            {word:"Politikerin", pos:"名詞", gender:"die", plural:"Politikerinnen", meaning:"政治家（女性）", counterpart:"der Politiker（男性）", example:"Die Politikerin hält eine Rede.", translation:"その女性政治家は演説を行います。"},
             {word:"Paket", pos:"名詞", gender:"das", plural:"Pakete", meaning:"小包、小荷物", example:"Das Paket kommt heute an.", translation:"小包は今日届きます。"},
-            {word:"Schüler", pos:"名詞", gender:"der", plural:"Schüler", meaning:"生徒（男性）", example:"Der Schüler schreibt den Satz.", translation:"生徒はその文章を書きます。"},
+            {word:"Schüler", pos:"名詞", gender:"der", plural:"Schüler", meaning:"生徒（男性）", counterpart:"die Schülerin（女性）", example:"Der Schüler schreibt den Satz.", translation:"生徒はその文章を書きます。"},
             {word:"Bleistift", pos:"名詞", gender:"der", plural:"Bleistifte", meaning:"鉛筆", example:"Ich brauche einen Bleistift.", translation:"私には鉛筆が必要です。"},
             {word:"Wein", pos:"名詞", gender:"der", plural:"Weine", meaning:"ワイン", example:"Trinken Sie gern Wein?", translation:"ワインを飲むのがお好きですか？"},
             {word:"Farbe", pos:"名詞", gender:"die", plural:"Farben", meaning:"色", example:"Welche Farbe gefällt dir?", translation:"どの色が好きですか？"},
@@ -489,7 +497,8 @@
             {word:"Nacht", pos:"名詞", gender:"die", plural:"Nächte", meaning:"夜", example:"In der Nacht ist es ruhig.", translation:"夜は静かです。"},
             {word:"Ausstellung", pos:"名詞", gender:"die", plural:"Ausstellungen", meaning:"展覧会、展示", example:"Die Ausstellung ist sehr bekannt.", translation:"その展覧会はとても有名です。"},
             {word:"Referat", pos:"名詞", gender:"das", plural:"Referate", meaning:"研究発表、レポート", example:"Er muss ein Referat halten.", translation:"彼はレポート発表をしなければなりません。"},
-            {word:"Physiker", pos:"名詞", gender:"der", plural:"Physiker", meaning:"物理学者", example:"Der Physiker arbeitet im Labor.", translation:"その物理学者は研究所で働いています。"},
+            {word:"Physiker", pos:"名詞", gender:"der", plural:"Physiker", meaning:"物理学者（男性）", counterpart:"die Physikerin（女性）", example:"Der Physiker arbeitet im Labor.", translation:"その物理学者は研究所で働いています。"},
+            {word:"Physikerin", pos:"名詞", gender:"die", plural:"Physikerinnen", meaning:"物理学者（女性）", counterpart:"der Physiker（男性）", example:"Die Physikerin arbeitet im Labor.", translation:"その女性物理学者は研究所で働いています。"},
             {word:"Puppe", pos:"名詞", gender:"die", plural:"Puppen", meaning:"人形", example:"Das Kind hat eine süße Puppe.", translation:"子供はかわいい人形を持っています。"},
             {word:"Party", pos:"名詞", gender:"die", plural:"Partys", meaning:"パーティー", example:"Die Party beginnt um acht.", translation:"パーティーは8時に始まります。"},
             {word:"Kerze", pos:"名詞", gender:"die", plural:"Kerzen", meaning:"ローソク", example:"Die Kerze brennt hell.", translation:"そのローソクは明るく燃えています。"},
@@ -521,7 +530,8 @@
             {word:"Insekten", pos:"名詞", gender:"die", plural:"-", meaning:"昆虫（複数）", detail:"Insektの複数形", example:"Im Sommer gibt es viele Insekten.", translation:"夏にはたくさんの昆虫がいます。"},
             {word:"Eingang", pos:"名詞", gender:"der", plural:"Eingänge", meaning:"入り口", example:"Der Eingang ist hier.", translation:"入口はこちらです。"},
             {word:"Schloss", pos:"名詞", gender:"das", plural:"Schlösser", meaning:"城、鍵", example:"Das Schloss ist sehr alt.", translation:"その城はとても古いです。"},
-            {word:"Schauspieler", pos:"名詞", gender:"der", plural:"Schauspieler", meaning:"俳優", example:"Der Schauspieler ist sehr berühmt.", translation:"その俳優はとても有名です。"},
+            {word:"Schauspieler", pos:"名詞", gender:"der", plural:"Schauspieler", meaning:"俳優", counterpart:"die Schauspielerin（女優）", example:"Der Schauspieler ist sehr berühmt.", translation:"その俳優はとても有名です。"},
+            {word:"Schauspielerin", pos:"名詞", gender:"die", plural:"Schauspielerinnen", meaning:"女優", counterpart:"der Schauspieler（俳優）", example:"Die Schauspielerin ist sehr berühmt.", translation:"その女優はとても有名です。"},
             {word:"Schwein", pos:"名詞", gender:"das", plural:"Schweine", meaning:"豚", example:"Das Schwein frisst viel.", translation:"その豚はたくさん食べます。"},
             {word:"Tennis", pos:"名詞", gender:"das", plural:"-", meaning:"テニス", example:"Er spielt am Samstag Tennis.", translation:"彼は土曜日にテニスをします。"},
             {word:"Viertel", pos:"名詞", gender:"das", plural:"Viertel", meaning:"4分の1、地区", example:"Es ist Viertel nach drei.", translation:"3時15分（3時15分過ぎ）です。"},
@@ -575,7 +585,8 @@
             {word:"Küche", pos:"名詞", gender:"die", plural:"Küchen", meaning:"台所、キッチン", example:"Die Mutter ist in der Küche.", translation:"母は台所にいます。"},
             {word:"Polizisten", pos:"名詞", gender:"die", plural:"-", meaning:"警察官（複数）", detail:"Polizistの複数形／男性弱変化 (-en/-en)", example:"Die Polizisten helfen den Menschen.", translation:"警察官たちは人々を助けます。"},
             {word:"Bahnhof", pos:"名詞", gender:"der", plural:"Bahnhöfe", meaning:"駅", example:"Der Bahnhof ist ganz nah.", translation:"駅は目と鼻の先にあります。"},
-            {word:"Musiker", pos:"名詞", gender:"der", plural:"Musiker", meaning:"音楽家", example:"Der Musiker spielt Geige.", translation:"その音楽家はバイオリンを弾きます。"},
+            {word:"Musiker", pos:"名詞", gender:"der", plural:"Musiker", meaning:"音楽家（男性）", counterpart:"die Musikerin（女性）", example:"Der Musiker spielt Geige.", translation:"その音楽家はバイオリンを弾きます。"},
+            {word:"Musikerin", pos:"名詞", gender:"die", plural:"Musikerinnen", meaning:"音楽家（女性）", counterpart:"der Musiker（男性）", example:"Die Musikerin spielt Geige.", translation:"その女性音楽家はバイオリンを弾きます。"},
             {word:"Comic", pos:"名詞", gender:"der", plural:"Comics", meaning:"漫画", example:"Das Kind liest einen Comic.", translation:"その子供は漫画を1冊読みます。"},
             {word:"Comics", pos:"名詞", gender:"die", plural:"-", meaning:"漫画（複数）", detail:"Comicの複数形", example:"Das Kind liest Comics.", translation:"その子供は漫画を読みます。"},
             {word:"Karotte", pos:"名詞", gender:"die", plural:"Karotten", meaning:"ニンジン", example:"Ich kaufe eine frische Karotte.", translation:"私は新鮮なニンジンを1本買います。"},
@@ -594,13 +605,15 @@
             {word:"Uni", pos:"名詞", gender:"die", plural:"Unis", meaning:"大学（略称）", example:"Sie studiert an der Uni.", translation:"彼女は大学で学んでいます。"},
             {word:"Berg", pos:"名詞", gender:"der", plural:"Berge", meaning:"山", example:"Der Berg ist sehr hoch.", translation:"その山はとても高いです。"},
             {word:"Berge", pos:"名詞", gender:"die", plural:"-", meaning:"山（複数）", detail:"Bergの複数形", example:"Die Berge sind sehr hoch.", translation:"山々はとても高いです。"},
-            {word:"Großmutter", pos:"名詞", gender:"die", plural:"Großmütter", meaning:"祖母", example:"Meine Großmutter ist sehr nett.", translation:"私の祖母はとても親切です。"},
-            {word:"Großvater", pos:"名詞", gender:"der", plural:"Großväter", meaning:"祖父", example:"Mein Großvater liest eine Zeitung.", translation:"私の祖父は新聞を読んでいます。"},
+            {word:"Großmutter", pos:"名詞", gender:"die", plural:"Großmütter", meaning:"祖母", counterpart:"der Großvater（祖父）", example:"Meine Großmutter ist sehr nett.", translation:"私の祖母はとても親切です。"},
+            {word:"Großvater", pos:"名詞", gender:"der", plural:"Großväter", meaning:"祖父", counterpart:"die Großmutter（祖母）", example:"Mein Großvater liest eine Zeitung.", translation:"私の祖父は新聞を読んでいます。"},
             {word:"Geschwister", pos:"名詞", gender:"die", plural:"Geschwister", meaning:"兄弟姉妹", detail:"Pl. (複数形のみ)", example:"Ich habe zwei Geschwister.", translation:"私には兄弟姉妹が2人います。"},
-            {word:"Ingenieur", pos:"名詞", gender:"der", plural:"Ingenieure", meaning:"エンジニア、技師", example:"Er ist Ingenieur von Beruf.", translation:"彼は職業柄エンジニアです。"},
-            {word:"Ärztin", pos:"名詞", gender:"die", plural:"Ärztinnen", meaning:"女医", example:"Die Ärztin untersucht das Kind.", translation:"女性医師は子供を診察します。"},
+            {word:"Ingenieur", pos:"名詞", gender:"der", plural:"Ingenieure", meaning:"エンジニア、技師（男性）", counterpart:"die Ingenieurin（女性）", example:"Er ist Ingenieur von Beruf.", translation:"彼は職業柄エンジニアです。"},
+            {word:"Ingenieurin", pos:"名詞", gender:"die", plural:"Ingenieurinnen", meaning:"エンジニア、技師（女性）", counterpart:"der Ingenieur（男性）", example:"Sie ist Ingenieurin von Beruf.", translation:"彼女は職業柄エンジニアです。"},
+            {word:"Ärztin", pos:"名詞", gender:"die", plural:"Ärztinnen", meaning:"女医", counterpart:"der Arzt（男性医師）", example:"Die Ärztin untersucht das Kind.", translation:"女性医師は子供を診察します。"},
             {word:"Quatsch", pos:"名詞", gender:"der", plural:"-", meaning:"くだらないこと、ナンセンス", example:"Das ist doch Quatsch!", translation:"そんなのナンセンスだ！"},
-            {word:"Cousin", pos:"名詞", gender:"der", plural:"Cousins", meaning:"従兄弟（男性）", example:"Mein Cousin wohnt in Berlin.", translation:"私のいとこ（男性）はベルリンに住んでいます。"},
+            {word:"Cousin", pos:"名詞", gender:"der", plural:"Cousins", meaning:"従兄弟（男性）", counterpart:"die Cousine（女性）", example:"Mein Cousin wohnt in Berlin.", translation:"私のいとこ（男性）はベルリンに住んでいます。"},
+            {word:"Cousine", pos:"名詞", gender:"die", plural:"Cousinen", meaning:"従姉妹（女性）", counterpart:"der Cousin（男性）", example:"Meine Cousine wohnt in Berlin.", translation:"私のいとこ（女性）はベルリンに住んでいます。"},
             {word:"Cousins", pos:"名詞", gender:"die", plural:"-", meaning:"従兄弟（男性）（複数）", detail:"Cousinの複数形", example:"Meine Cousins wohnen in Berlin.", translation:"私のいとこたちはベルリンに住んでいます。"},
             {word:"Spaß", pos:"名詞", gender:"der", plural:"-", meaning:"楽しみ、面白さ", example:"Das macht mir Spaß.", translation:"それは私にとって楽しいです。"},
             {word:"Handy", pos:"名詞", gender:"das", plural:"Handys", meaning:"スマホ", example:"Das Handy liegt auf dem Tisch.", translation:"スマホがテーブルの上に置いてあります。"},
@@ -609,6 +622,8 @@
             {word:"Fieber", pos:"名詞", gender:"das", plural:"-", meaning:"熱、発熱", example:"Das Kind hat Fieber.", translation:"子供は熱があります。"},
             {word:"Lust", pos:"名詞", gender:"die", plural:"-", meaning:"意欲、やる気", example:"Ich habe keine Lust.", translation:"私はやる気/気が乗りません。"},
             {word:"Ei", pos:"名詞", gender:"das", plural:"Eier", meaning:"卵", example:"Ich esse morgens ein Ei.", translation:"私は朝に卵を1個食べます。"},
+            {word:"Kollege", pos:"名詞", gender:"der", plural:"Kollegen", meaning:"同僚（男性）", detail:"男性弱変化 (-n/-n)", counterpart:"die Kollegin（女性）", example:"Mein Kollege ist sehr freundlich.", translation:"私の同僚（男性）はとても親切です。"},
+            {word:"Kollegin", pos:"名詞", gender:"die", plural:"Kolleginnen", meaning:"同僚（女性）", counterpart:"der Kollege（男性）", example:"Meine Kollegin ist sehr freundlich.", translation:"私の同僚（女性）はとても親切です。"},
             {word:"Kollegen", pos:"名詞", gender:"die", plural:"-", meaning:"同僚（男性）（複数）", detail:"Kollegeの複数形／男性弱変化 (-n/-n)", example:"Meine Kollegen sind nett.", translation:"私の同僚たちは親切です。"},
             {word:"Hochzeit", pos:"名詞", gender:"die", plural:"Hochzeiten", meaning:"結婚式", example:"Die Hochzeit findet morgen statt.", translation:"結婚式は明日行われます。"},
             {word:"Bonbon", pos:"名詞", gender:"das", plural:"Bonbons", meaning:"キャンディー", example:"Das Bonbon ist süß.", translation:"そのキャンディーは甘いです。"},
@@ -620,7 +635,8 @@
             {word:"Hut", pos:"名詞", gender:"der", plural:"Hüte", meaning:"帽子", example:"Der Mann trägt einen Hut.", translation:"その男性は帽子をかぶっています。"},
             {word:"Titel", pos:"名詞", gender:"der", plural:"Titel", meaning:"タイトル、称号", example:"Der Titel des Buches ist kurz.", translation:"その本のタイトルは短いです。"},
             {word:"Film", pos:"名詞", gender:"der", plural:"Filme", meaning:"映画", example:"Der Film ist sehr interessant.", translation:"その映画はとても興味深いです。"},
-            {word:"Professor", pos:"名詞", gender:"der", plural:"Professoren", meaning:"教授", example:"Der Professor antwortet freundlich.", translation:"教授は親切に答えます。"},
+            {word:"Professor", pos:"名詞", gender:"der", plural:"Professoren", meaning:"教授（男性）", counterpart:"die Professorin（女性）", example:"Der Professor antwortet freundlich.", translation:"教授は親切に答えます。"},
+            {word:"Professorin", pos:"名詞", gender:"die", plural:"Professorinnen", meaning:"教授（女性）", counterpart:"der Professor（男性）", example:"Die Professorin antwortet freundlich.", translation:"女性教授は親切に答えます。"},
             {word:"Motorrad", pos:"名詞", gender:"das", plural:"Motorräder", meaning:"オートバイ", example:"Er fährt ein altes Motorrad.", translation:"彼は古いオートバイに乗っています。"},
             {word:"Zucker", pos:"名詞", gender:"der", plural:"-", meaning:"砂糖", example:"Trinken Sie Kaffee mit Zucker?", translation:"砂糖入りでコーヒーを飲みますか？"},
             {word:"Sonne", pos:"名詞", gender:"die", plural:"Sonnen", meaning:"太陽", example:"Die Sonne scheint heute.", translation:"今日は太陽が輝いています。"},
@@ -628,18 +644,21 @@
             {word:"Deutsch", pos:"名詞", gender:"das", plural:"-", meaning:"ドイツ語", example:"Ich lerne seit einem Jahr Deutsch.", translation:"私は1年前からドイツ語を学んでいます。"},
             {word:"Englisch", pos:"名詞", gender:"das", plural:"-", meaning:"英語", example:"Er spricht gut Englisch.", translation:"彼は英語を上手に話します。"},
             {word:"Italienisch", pos:"名詞", gender:"das", plural:"-", meaning:"イタリア語", example:"Sie kocht gern Italienisch.", translation:"彼女はイタリア料理を作るのが好きです。"},
-            {word:"Pianist", pos:"名詞", gender:"der", plural:"Pianisten", meaning:"ピアニスト", detail:"男性弱変化 (-en/-en)", example:"Der Pianist spielt wunderschön.", translation:"そのピアニストは素晴らしく演奏します。"},
-            {word:"Japaner", pos:"名詞", gender:"der", plural:"Japaner", meaning:"日本人（男性）", example:"Der Japaner isst gerne Reis.", translation:"その日本人はご飯を喜んで食べます。"},
-            {word:"Franzose", pos:"名詞", gender:"der", plural:"Franzosen", meaning:"フランス人男性", detail:"男性弱変化 (-n/-n)", example:"Der Franzose trinkt Rotwein.", translation:"そのフランス人は赤ワインを飲みます。"},
+            {word:"Pianist", pos:"名詞", gender:"der", plural:"Pianisten", meaning:"ピアニスト（男性）", detail:"男性弱変化 (-en/-en)", counterpart:"die Pianistin（女性）", example:"Der Pianist spielt wunderschön.", translation:"そのピアニストは素晴らしく演奏します。"},
+            {word:"Pianistin", pos:"名詞", gender:"die", plural:"Pianistinnen", meaning:"ピアニスト（女性）", counterpart:"der Pianist（男性）", example:"Die Pianistin spielt wunderschön.", translation:"その女性ピアニストは素晴らしく演奏します。"},
+            {word:"Japaner", pos:"名詞", gender:"der", plural:"Japaner", meaning:"日本人（男性）", counterpart:"die Japanerin（女性）", example:"Der Japaner isst gerne Reis.", translation:"その日本人はご飯を喜んで食べます。"},
+            {word:"Japanerin", pos:"名詞", gender:"die", plural:"Japanerinnen", meaning:"日本人（女性）", counterpart:"der Japaner（男性）", example:"Die Japanerin isst gerne Reis.", translation:"その日本人女性はご飯を喜んで食べます。"},
+            {word:"Franzose", pos:"名詞", gender:"der", plural:"Franzosen", meaning:"フランス人（男性）", detail:"男性弱変化 (-n/-n)", counterpart:"die Französin（女性）", example:"Der Franzose trinkt Rotwein.", translation:"そのフランス人は赤ワインを飲みます。"},
+            {word:"Französin", pos:"名詞", gender:"die", plural:"Französinnen", meaning:"フランス人（女性）", counterpart:"der Franzose（男性）", example:"Die Französin trinkt Rotwein.", translation:"そのフランス人女性は赤ワインを飲みます。"},
             {word:"bisschen", pos:"名詞", gender:"das", plural:"-", meaning:"少し、少量", detail:"ein bisschenで「少し」", example:"Ich spreche ein bisschen Deutsch.", translation:"私は少しドイツ語を話します。"},
             // --- 動詞 ---
             {word:"spielen", pos:"動詞", meaning:"遊ぶ、演奏する", detail:"規則動詞", conjugation:"ich spiele, du spielst, er spielt", example:"Kinder spielen gerne im Park.", translation:"子供たちは公園で好んで遊んでいます。"},
             {word:"wohnen", pos:"動詞", meaning:"住む", detail:"規則動詞", conjugation:"ich wohne, du wohnst, er wohnt", example:"Wir wohnen in diesem Haus.", translation:"私たちはこの家に住んでいます。"},
             {word:"bekommen", pos:"動詞", meaning:"手に入れる、受け取る", detail:"非分離動詞", conjugation:"ich bekomme, du bekommst, er bekommt", example:"Er bekommt ein Geschenk.", translation:"彼はプレゼントを受け取ります。"},
-            {word:"gehen", pos:"動詞", meaning:"行く", detail:"規則動詞", conjugation:"ich gehe, du gehst, er geht", example:"Wir gehen nach Hause.", translation:"私たちは家に帰ります。"},
+            {word:"gehen", pos:"動詞", meaning:"行く", detail:"不規則動詞", conjugation:"ich gehe, du gehst, er geht", example:"Wir gehen nach Hause.", translation:"私たちは家に帰ります。"},
             {word:"kaufen", pos:"動詞", meaning:"買う", detail:"規則動詞", conjugation:"ich kaufe, du kaufst, er kauft", example:"Ich kaufe frisches Brot.", translation:"私は焼きたてのパンを買います。"},
-            {word:"kommen", pos:"動詞", meaning:"来る", detail:"規則動詞", conjugation:"ich komme, du kommst, er kommt", example:"Er kommt heute um sechs Uhr.", translation:"彼は今日6時に来ます。"},
-            {word:"stehen", pos:"動詞", meaning:"立っている", detail:"規則動詞", conjugation:"ich stehe, du stehst, er steht", example:"Die Vase steht auf dem Tisch.", translation:"花瓶がテーブルの上に立っています。"},
+            {word:"kommen", pos:"動詞", meaning:"来る", detail:"不規則動詞", conjugation:"ich komme, du kommst, er kommt", example:"Er kommt heute um sechs Uhr.", translation:"彼は今日6時に来ます。"},
+            {word:"stehen", pos:"動詞", meaning:"立っている", detail:"不規則動詞", conjugation:"ich stehe, du stehst, er steht", example:"Die Vase steht auf dem Tisch.", translation:"花瓶がテーブルの上に立っています。"},
             {word:"stellen", pos:"動詞", meaning:"立てて置く", detail:"規則動詞", conjugation:"ich stelle, du stellst, er stellt", example:"Er stellt die Tasse auf den Tisch.", translation:"彼はカップをテーブルの上に置きます。"},
             {word:"legen", pos:"動詞", meaning:"横にして置く", detail:"規則動詞", conjugation:"ich lege, du legst, er legt", example:"Sie legt das Buch auf den Schreibtisch.", translation:"彼女は本を机の上に置きます。"},
             {word:"arbeiten", pos:"動詞", meaning:"働く", detail:"規則(e挿入)", conjugation:"ich arbeite, du arbeitest, er arbeitet", example:"Mein Vater arbeitet viel.", translation:"私の父はたくさん働きます。"},
@@ -648,8 +667,8 @@
             {word:"hängen", pos:"動詞", meaning:"掛かっている/掛ける", detail:"規則/不規則", conjugation:"ich hänge, du hängst, er hängt", example:"Das Bild hängt an der Wand.", translation:"絵が壁にかかっています。"},
             {word:"liegen", pos:"動詞", meaning:"横たわっている", detail:"不規則動詞", conjugation:"ich liege, du liegst, er liegt", example:"Das Heft liegt auf dem Tisch.", translation:"ノートがテーブルの上に置いてあります。"},
             {word:"diskutieren", pos:"動詞", meaning:"議論する", detail:"規則動詞", conjugation:"ich diskutiere, du diskutierst, er diskutiert", example:"Wir diskutieren über Politik.", translation:"私たちは政治について議論します。"},
-            {word:"bleiben", pos:"動詞", meaning:"留まる、滞在する", detail:"規則動詞", conjugation:"ich bleibe, du bleibst, er bleibt", example:"Ich bleibe heute zu Hause.", translation:"私は今日家に残ります。"},
-            {word:"trinken", pos:"動詞", meaning:"飲む", detail:"規則動詞", conjugation:"ich trinke, du trinkst, er trinkt", example:"Er trinkt ein Glas Wasser.", translation:"彼はコップ1杯の水を飲みます。"},
+            {word:"bleiben", pos:"動詞", meaning:"留まる、滞在する", detail:"不規則動詞", conjugation:"ich bleibe, du bleibst, er bleibt", example:"Ich bleibe heute zu Hause.", translation:"私は今日家に残ります。"},
+            {word:"trinken", pos:"動詞", meaning:"飲む", detail:"不規則動詞", conjugation:"ich trinke, du trinkst, er trinkt", example:"Er trinkt ein Glas Wasser.", translation:"彼はコップ1杯の水を飲みます。"},
             {word:"sein", pos:"動詞", meaning:"彼の、それの", detail:"所有冠詞", example:"Das Wetter ist heute schön.", translation:"今日の天気は良いです。"},
             {word:"schwimmen", pos:"動詞", meaning:"泳ぐ", detail:"不規則動詞", conjugation:"ich schwimme, du schwimmst, er schwimmt", example:"Im Sommer schwimmen wir viel.", translation:"夏に私たちはたくさん泳ぎます。"},
             {word:"machen", pos:"動詞", meaning:"する、作る", detail:"規則動詞", conjugation:"ich mache, du machst, er macht", example:"Was machen Sie morgen?", translation:"明日は何をされますか？"},
@@ -657,7 +676,7 @@
             {word:"fragen", pos:"動詞", meaning:"質問する、尋ねる", detail:"規則動詞", conjugation:"ich frage, du fragst, er fragt", example:"Der Student fragt den Professor.", translation:"学生は教授に質問します。"},
             {word:"bringen", pos:"動詞", meaning:"持ってくる", detail:"混合動詞", conjugation:"ich bringe, du bringst, er bringt", example:"Der Kellner bringt das Essen.", translation:"給仕が料理を持ってきます。"},
             {word:"besuchen", pos:"動詞", meaning:"訪問する、見学する", detail:"非分離動詞", conjugation:"ich besuche, du besuchst, er besucht", example:"Wir besuchen unsere Großmutter.", translation:"私たちは祖母を訪問します。"},
-            {word:"kennen", pos:"動詞", meaning:"知っている", detail:"規則動詞", conjugation:"ich kenne, du kennst, er kennt", example:"Ich kenne diesen Mann gut.", translation:"私はこの男性をよく知っています。"},
+            {word:"kennen", pos:"動詞", meaning:"知っている", detail:"混合動詞", conjugation:"ich kenne, du kennst, er kennt", example:"Ich kenne diesen Mann gut.", translation:"私はこの男性をよく知っています。"},
             {word:"schenken", pos:"動詞", meaning:"贈る、プレゼントする", detail:"3格人+4格物", conjugation:"ich schenke, du schenkst, er schenkt", example:"Er schenkt ihr Blumen.", translation:"彼は彼女に花を贈ります。"},
             {word:"schicken", pos:"動詞", meaning:"送る", detail:"規則動詞", conjugation:"ich schicke, du schickst, er schickt", example:"Ich schicke einen Brief an meine Mutter.", translation:"私は母へ手紙を送ります。"},
             {word:"gehören", pos:"動詞", meaning:"〜のものである", detail:"3格支配", conjugation:"es gehört, sie gehören", example:"Das Buch gehört mir.", translation:"その本は私のものです。"},
@@ -676,7 +695,7 @@
             {word:"essen", pos:"動詞", meaning:"食べる", detail:"幹母音変化(e→i)", conjugation:"ich esse, du isst, er isst, wir essen", example:"Wir essen morgens Müsli.", translation:"私たちは朝にミューズリーを食べます。"},
             {word:"sollen", pos:"動詞", meaning:"〜すべきである", detail:"話法の助動詞", conjugation:"ich soll, du sollst, er soll, wir sollen", example:"Du sollst fleißig lernen.", translation:"あなたは熱心に勉強すべきです。"},
             {word:"helfen", pos:"動詞", meaning:"助ける、手伝う", detail:"3格支配(e→i)", conjugation:"ich helfe, du hilfst, er hilft", example:"Er hilft seinen Eltern.", translation:"彼は両親を助けます。"},
-            {word:"heißen", pos:"動詞", meaning:"〜という名前である", detail:"規則動詞", conjugation:"ich heiße, du heißt, er heißt", example:"Wie heißen Sie?", translation:"お名前は何とおっしゃいますか？"},
+            {word:"heißen", pos:"動詞", meaning:"〜という名前である", detail:"不規則動詞", conjugation:"ich heiße, du heißt, er heißt", example:"Wie heißen Sie?", translation:"お名前は何とおっしゃいますか？"},
             {word:"brauchen", pos:"動詞", meaning:"必要とする", detail:"規則動詞", conjugation:"ich brauche, du brauchst, er braucht", example:"Ich brauche deine Hilfe.", translation:"私にはあなたの助けが必要です。"},
             {word:"verbringen", pos:"動詞", meaning:"（時間を）過ごす", detail:"非分離動詞", conjugation:"ich verbringe, du verbringst, er verbringt", example:"Wir verbringen den Urlaub in Japan.", translation:"私たちは日本で休暇を過ごします。"},
             {word:"haben", pos:"動詞", meaning:"持っている、〜がある", detail:"不規則動詞", conjugation:"ich habe, du hast, er hat, ihr habt", example:"Ich habe heute viel Zeit.", translation:"私には今日たくさんの時間があります。"},
@@ -687,7 +706,7 @@
             {word:"lieben", pos:"動詞", meaning:"愛する", detail:"規則動詞", conjugation:"ich liebe, du liebst, er liebt", example:"Ich liebe meine Familie.", translation:"私は家族を愛しています。"},
             {word:"leihen", pos:"動詞", meaning:"貸す、借りる", detail:"不規則動詞", conjugation:"ich leihe, du leihst, er leiht", example:"Er leiht mir sein Wörterbuch.", translation:"彼は私に自身の辞書を貸してくれます。"},
             {word:"lachen", pos:"動詞", meaning:"笑う", detail:"規則動詞", conjugation:"ich lache, du lachst, er lacht", example:"Alle lachen fröhlich.", translation:"みんな楽しそうに笑っています。"},
-            {word:"schreiben", pos:"動詞", meaning:"書く", detail:"規則動詞", conjugation:"ich schreibe, du schreibst, er schreibt", example:"Sie schreibt eine Karte.", translation:"彼女はハガキを書きます。"},
+            {word:"schreiben", pos:"動詞", meaning:"書く", detail:"不規則動詞", conjugation:"ich schreibe, du schreibst, er schreibt", example:"Sie schreibt eine Karte.", translation:"彼女はハガキを書きます。"},
             {word:"schließen", pos:"動詞", meaning:"閉める、閉じる", detail:"不規則動詞", conjugation:"ich schließe, du schließt, er schließt", example:"Er schließt das Fenster.", translation:"彼は窓を閉めます。"},
             {word:"fahren", pos:"動詞", meaning:"行く、乗る", detail:"幹母音変化(a→ä)", conjugation:"ich fahre, du fährst, er fährt", example:"Wir fahren mit dem Auto.", translation:"私たちは車で行きます。"},
             {word:"benutzen", pos:"動詞", meaning:"使う、利用する", detail:"規則動詞", conjugation:"ich benutze, du benutzt, er benutzt", example:"Ich benutze den Computer.", translation:"私はパソコンを使います。"},
@@ -713,7 +732,7 @@
             {word:"lernen", pos:"動詞", meaning:"学ぶ、勉強する", detail:"規則動詞", conjugation:"ich lerne, du lernst, er lernt", example:"Ich lerne gern Deutsch.", translation:"私はドイツ語を学ぶのが好きです。"},
             {word:"küssen", pos:"動詞", meaning:"キスする", detail:"規則動詞", conjugation:"ich küsse, du küsst, er küsst", example:"Er küsst seine Frau.", translation:"彼は妻にキスをします。"},
             {word:"lächeln", pos:"動詞", meaning:"微笑む", detail:"規則動詞", conjugation:"ich lächele, du lächelst, er lächelt", example:"Das Mädchen lächelt freundlich.", translation:"少女は親しげに微笑みます。"},
-            {word:"finden", pos:"動詞", meaning:"見つける、思う", detail:"規則(e挿入)", conjugation:"ich finde, du findest, er findet", example:"Ich finde das Buch interessant.", translation:"私はその本が面白いと思います。"},
+            {word:"finden", pos:"動詞", meaning:"見つける、思う", detail:"不規則動詞(e挿入)", conjugation:"ich finde, du findest, er findet", example:"Ich finde das Buch interessant.", translation:"私はその本が面白いと思います。"},
             // --- 副詞 ---
             {word:"jetzt", pos:"副詞", meaning:"今", detail:"副詞", example:"Ich gehe jetzt nach Hause.", translation:"私は今、家へ帰ります。"},
             {word:"heute", pos:"副詞", meaning:"今日", detail:"副詞", example:"Heute ist das Wetter schön.", translation:"今日は天気が良いです。"},
@@ -872,7 +891,7 @@
             {word:"für", pos:"前置詞", meaning:"〜のために", detail:"4格支配", example:"Das Paket ist für dich.", translation:"その小包はあなたのためのものです。"},
             {word:"aus", pos:"前置詞", meaning:"〜から（出身・外へ）", detail:"3格支配", example:"Er kommt aus Japan.", translation:"彼は日本出身です。"},
             // --- 名詞 ---
-            {word:"Arzt", pos:"名詞", gender:"der", plural:"Ärzte", meaning:"医師、医者", example:"In der Zukunft werde ich Arzt.", translation:"将来、私は医師になるつもりです。"},
+            {word:"Arzt", pos:"名詞", gender:"der", plural:"Ärzte", meaning:"医師、医者", counterpart:"die Ärztin（女性医師）", example:"In der Zukunft werde ich Arzt.", translation:"将来、私は医師になるつもりです。"},
             {word:"Arbeit", pos:"名詞", gender:"die", plural:"-", meaning:"仕事、労働", example:"Die Arbeitslosen suchen Arbeit.", translation:"失業者たちは仕事を探しています。"},
             {word:"Baby", pos:"名詞", gender:"das", plural:"Babys", meaning:"赤ちゃん", example:"Das Baby schläft ruhig.", translation:"赤ちゃんは静かに眠っています。"},
             {word:"Beruf", pos:"名詞", gender:"der", plural:"Berufe", meaning:"職業", example:"Er ist Ingenieur von Beruf.", translation:"彼は職業柄エンジニアです。"},
@@ -977,13 +996,14 @@
             {word:"Hauptbahnhof", pos:"名詞", gender:"der", plural:"Hauptbahnhöfe", meaning:"中央駅", example:"Der Bus fährt zum Hauptbahnhof.", translation:"バスは中央駅へ行きます。"},
             {word:"Herr", pos:"名詞", gender:"der", plural:"Herren", meaning:"〜氏、男性", detail:"男性弱変化 (-n/-en)", example:"Herr Müller wohnt in Berlin.", translation:"ミュラーさんはベルリンに住んでいます。"},
             {word:"Hochzeitsreise", pos:"名詞", gender:"die", plural:"Hochzeitsreisen", meaning:"新婚旅行", example:"Wir machen eine Hochzeitsreise nach Japan.", translation:"私たちは日本へ新婚旅行に行きます。"},
-            {word:"Hündin", pos:"名詞", gender:"die", plural:"Hündinnen", meaning:"雌犬", example:"Die Hündin schläft unter dem Tisch.", translation:"メス犬がテーブルの下で眠っています。"},
+            {word:"Hündin", pos:"名詞", gender:"die", plural:"Hündinnen", meaning:"雌犬", counterpart:"der Hund（犬）", example:"Die Hündin schläft unter dem Tisch.", translation:"メス犬がテーブルの下で眠っています。"},
             {word:"Kopf", pos:"名詞", gender:"der", plural:"Köpfe", meaning:"頭", example:"Er hält seinen Kopf.", translation:"彼は頭を押さえています。"},
             {word:"Kopfschmerzen", pos:"名詞", gender:"die", plural:"-", meaning:"頭痛", detail:"Pl.のみ (複数形で使用)", example:"Ich habe heute Kopfschmerzen.", translation:"私は今日、頭痛があります。"},
             {word:"Krebs", pos:"名詞", gender:"der", plural:"Krebse", meaning:"カニ、がん", example:"Das Kind sieht einen Krebs.", translation:"子供がカニを見ています。"},
             {word:"Luft", pos:"名詞", gender:"die", plural:"Lüfte", meaning:"空気", example:"Die Luft im Wald ist frisch.", translation:"森の空気は新鮮です。"},
             {word:"Markt", pos:"名詞", gender:"der", plural:"Märkte", meaning:"市場", example:"Ich kaufe Gemüse auf dem Markt.", translation:"私は市場で野菜を買います。"},
-            {word:"Mitarbeiter", pos:"名詞", gender:"der", plural:"Mitarbeiter", meaning:"同僚、従業員", example:"Der Mitarbeiter arbeitet in der Firma.", translation:"その社員は会社で働いています。"},
+            {word:"Mitarbeiter", pos:"名詞", gender:"der", plural:"Mitarbeiter", meaning:"同僚、従業員（男性）", counterpart:"die Mitarbeiterin（女性）", example:"Der Mitarbeiter arbeitet in der Firma.", translation:"その社員は会社で働いています。"},
+            {word:"Mitarbeiterin", pos:"名詞", gender:"die", plural:"Mitarbeiterinnen", meaning:"同僚、従業員（女性）", counterpart:"der Mitarbeiter（男性）", example:"Die Mitarbeiterin arbeitet in der Firma.", translation:"その女性社員は会社で働いています。"},
             {word:"Mittag", pos:"名詞", gender:"der", plural:"Mittage", meaning:"正午、昼", example:"Am Mittag essen wir Reis.", translation:"昼に私たちはご飯を食べます。"},
             {word:"Mittwoch", pos:"名詞", gender:"der", plural:"Mittwoche", meaning:"水曜日", example:"Am Mittwoch habe ich keine Zeit.", translation:"水曜日に私は時間がありません。"},
             {word:"Möbel", pos:"名詞", gender:"die", plural:"Möbel", meaning:"家具", detail:"通常複数形で使用", example:"Die Möbel sind neu und schön.", translation:"その家具は新しくて美しいです。"},
@@ -997,7 +1017,7 @@
             {word:"Schlag", pos:"名詞", gender:"der", plural:"Schläge", meaning:"打撃", example:"Das ist ein schwerer Schlag.", translation:"それは大きな打撃です。"},
             {word:"Schokolade", pos:"名詞", gender:"die", plural:"Schokoladen", meaning:"チョコレート", example:"Kinder essen gern Schokolade.", translation:"子供たちはお菓子/チョコを喜んで食べます。"},
             {word:"Schrank", pos:"名詞", gender:"der", plural:"Schränke", meaning:"戸棚、タンス", example:"Der Schrank steht im Zimmer.", translation:"タンスが部屋の中に置いてあります。"},
-            {word:"Schülerin", pos:"名詞", gender:"die", plural:"Schülerinnen", meaning:"生徒（女性）", example:"Die Schülerin lernt fleißig Deutsch.", translation:"その女子生徒は熱心にドイツ語を勉強します。"},
+            {word:"Schülerin", pos:"名詞", gender:"die", plural:"Schülerinnen", meaning:"生徒（女性）", counterpart:"der Schüler（男性）", example:"Die Schülerin lernt fleißig Deutsch.", translation:"その女子生徒は熱心にドイツ語を勉強します。"},
             {word:"Tag", pos:"名詞", gender:"der", plural:"Tage", meaning:"日、1日", example:"Guten Tag! Wie heißen Sie?", translation:"こんにちは！お名前は何とおっしゃいますか？"},
             {word:"Telefon", pos:"名詞", gender:"das", plural:"Telefone", meaning:"電話", example:"Das Telefon steht auf dem Schreibtisch.", translation:"電話が机の上に置いてあります。"},
             {word:"Tomate", pos:"名詞", gender:"die", plural:"Tomaten", meaning:"トマト", example:"Ich kaufe frische Tomaten.", translation:"私は新鮮なトマトを買います。"},
@@ -1181,20 +1201,20 @@
             { cat: 'Lektion 8', q: "Im nächsten Jahr _____ sie 20 Jahre alt.", ja: "来年、彼女は20歳になるでしょう（未来）。", hint: "werden の 3人称単数 (wird)", options: ["wird", "werde", "wirst", "werden"], answer: 0, exp: "sie (3人称単数) に対する werden は wird です。" },
             { cat: 'Lektion 5', q: "Er _____ ein Geschenk.", ja: "彼はプレゼントを受け取ります。", hint: "bekommen の Er 活用 (非分離動詞)", options: ["bekommt", "bekomme", "bekommst", "bekommen"], answer: 0, exp: "Er に対する動詞 bekommen の現在人称変化は bekommt です。（非分離動詞）" },
             { cat: 'Lektion 1', q: "Ich _____ frisches Brot.", ja: "私は焼きたてのパンを買います。", hint: "kaufen の ich 活用 (規則動詞)", options: ["kaufe", "kaufst", "kauft", "kaufen"], answer: 0, exp: "ich に対する動詞 kaufen の現在人称変化は kaufe です。（規則動詞）" },
-            { cat: 'Lektion 1', q: "Er _____ heute um sechs Uhr.", ja: "彼は今日6時に来ます。", hint: "kommen の Er 活用 (規則動詞)", options: ["kommt", "komme", "kommst", "kommen"], answer: 0, exp: "Er に対する動詞 kommen の現在人称変化は kommt です。（規則動詞）" },
-            { cat: 'Lektion 1', q: "Die Vase _____ auf dem Tisch.", ja: "花瓶がテーブルの上に立っています。", hint: "stehen の Die Vase 活用 (規則動詞)", options: ["steht", "stehe", "stehst", "stehen"], answer: 0, exp: "Die Vase に対する動詞 stehen の現在人称変化は steht です。（規則動詞）" },
+            { cat: 'Lektion 1', q: "Er _____ heute um sechs Uhr.", ja: "彼は今日6時に来ます。", hint: "kommen の Er 活用 (不規則動詞)", options: ["kommt", "komme", "kommst", "kommen"], answer: 0, exp: "Er に対する動詞 kommen の現在人称変化は kommt です。（不規則動詞）" },
+            { cat: 'Lektion 1', q: "Die Vase _____ auf dem Tisch.", ja: "花瓶がテーブルの上に立っています。", hint: "stehen の Die Vase 活用 (不規則動詞)", options: ["steht", "stehe", "stehst", "stehen"], answer: 0, exp: "Die Vase に対する動詞 stehen の現在人称変化は steht です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Er _____ die Tasse auf den Tisch.", ja: "彼はカップをテーブルの上に置きます。", hint: "stellen の Er 活用 (規則動詞)", options: ["stellt", "stelle", "stellst", "stellen"], answer: 0, exp: "Er に対する動詞 stellen の現在人称変化は stellt です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Sie _____ das Buch auf den Schreibtisch.", ja: "彼女は本を机の上に置きます。", hint: "legen の Sie 活用 (規則動詞)", options: ["legt", "lege", "legst", "legen"], answer: 0, exp: "Sie に対する動詞 legen の現在人称変化は legt です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Mein Vater _____ viel.", ja: "私の父はたくさん働きます。", hint: "arbeiten の Mein Vater 活用 (規則(e挿入))", options: ["arbeitet", "arbeite", "arbeitest", "arbeiten"], answer: 0, exp: "Mein Vater に対する動詞 arbeiten の現在人称変化は arbeitet です。（規則(e挿入)）" },
             { cat: 'Lektion 1', q: "Er _____ das Kind auf den Stuhl.", ja: "彼は子供を椅子に座らせます。", hint: "setzen の Er 活用 (規則動詞)", options: ["setzt", "setze", "setzen", "setzet"], answer: 0, exp: "Er に対する動詞 setzen の現在人称変化は setzt です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Das Bild _____ an der Wand.", ja: "絵が壁にかかっています。", hint: "hängen の Das Bild 活用 (規則/不規則)", options: ["hängt", "hänge", "hängst", "hängen"], answer: 0, exp: "Das Bild に対する動詞 hängen の現在人称変化は hängt です。（規則/不規則）" },
             { cat: 'Lektion 1', q: "Das Heft _____ auf dem Tisch.", ja: "ノートがテーブルの上に置いてあります。", hint: "liegen の Das Heft 活用 (不規則動詞)", options: ["liegt", "liege", "liegst", "liegen"], answer: 0, exp: "Das Heft に対する動詞 liegen の現在人称変化は liegt です。（不規則動詞）" },
-            { cat: 'Lektion 1', q: "Ich _____ heute zu Hause.", ja: "私は今日家に残ります。", hint: "bleiben の ich 活用 (規則動詞)", options: ["bleibe", "bleibst", "bleibt", "bleiben"], answer: 0, exp: "ich に対する動詞 bleiben の現在人称変化は bleibe です。（規則動詞）" },
-            { cat: 'Lektion 1', q: "Er _____ ein Glas Wasser.", ja: "彼はコップ1杯の水を飲みます。", hint: "trinken の Er 活用 (規則動詞)", options: ["trinkt", "trinke", "trinkst", "trinken"], answer: 0, exp: "Er に対する動詞 trinken の現在人称変化は trinkt です。（規則動詞）" },
+            { cat: 'Lektion 1', q: "Ich _____ heute zu Hause.", ja: "私は今日家に残ります。", hint: "bleiben の ich 活用 (不規則動詞)", options: ["bleibe", "bleibst", "bleibt", "bleiben"], answer: 0, exp: "ich に対する動詞 bleiben の現在人称変化は bleibe です。（不規則動詞）" },
+            { cat: 'Lektion 1', q: "Er _____ ein Glas Wasser.", ja: "彼はコップ1杯の水を飲みます。", hint: "trinken の Er 活用 (不規則動詞)", options: ["trinkt", "trinke", "trinkst", "trinken"], answer: 0, exp: "Er に対する動詞 trinken の現在人称変化は trinkt です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Ich _____ auf den Bus.", ja: "私はバスを待っています。", hint: "warten の ich 活用 (規則(e挿入))", options: ["warte", "wartest", "wartet", "warten"], answer: 0, exp: "ich に対する動詞 warten の現在人称変化は warte です。（規則(e挿入)）" },
             { cat: 'Lektion 1', q: "Der Student _____ den Professor.", ja: "学生は教授に質問します。", hint: "fragen の Der Student 活用 (規則動詞)", options: ["fragt", "frage", "fragst", "fragen"], answer: 0, exp: "Der Student に対する動詞 fragen の現在人称変化は fragt です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Der Kellner _____ das Essen.", ja: "給仕が料理を持ってきます。", hint: "bringen の Der Kellner 活用 (混合動詞)", options: ["bringt", "bringe", "bringst", "bringen"], answer: 0, exp: "Der Kellner に対する動詞 bringen の現在人称変化は bringt です。（混合動詞）" },
-            { cat: 'Lektion 1', q: "Ich _____ diesen Mann gut.", ja: "私はこの男性をよく知っています。", hint: "kennen の ich 活用 (規則動詞)", options: ["kenne", "kennst", "kennt", "kennen"], answer: 0, exp: "ich に対する動詞 kennen の現在人称変化は kenne です。（規則動詞）" },
+            { cat: 'Lektion 1', q: "Ich _____ diesen Mann gut.", ja: "私はこの男性をよく知っています。", hint: "kennen の ich 活用 (混合動詞)", options: ["kenne", "kennst", "kennt", "kennen"], answer: 0, exp: "ich に対する動詞 kennen の現在人称変化は kenne です。（混合動詞）" },
             { cat: 'Lektion 1', q: "Er _____ ihr Blumen.", ja: "彼は彼女に花を贈ります。", hint: "schenken の Er 活用 (3格人+4格物)", options: ["schenkt", "schenke", "schenkst", "schenken"], answer: 0, exp: "Er に対する動詞 schenken の現在人称変化は schenkt です。（3格人+4格物）" },
             { cat: 'Lektion 1', q: "Ich _____ einen Brief an meine Mutter.", ja: "私は母へ手紙を送ります。", hint: "schicken の ich 活用 (規則動詞)", options: ["schicke", "schickst", "schickt", "schicken"], answer: 0, exp: "ich に対する動詞 schicken の現在人称変化は schicke です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Ich _____ dir alles Gute.", ja: "あなたの幸運を祈ります。", hint: "wünschen の ich 活用 (規則動詞)", options: ["wünsche", "wünschst", "wünscht", "wünschen"], answer: 0, exp: "ich に対する動詞 wünschen の現在人称変化は wünsche です。（規則動詞）" },
@@ -1216,7 +1236,7 @@
             { cat: 'Lektion 1', q: "Meine Mutter _____ Suppe.", ja: "母はスープを料理します。", hint: "kochen の Meine Mutter 活用 (規則動詞)", options: ["kocht", "koche", "kochst", "kochen"], answer: 0, exp: "Meine Mutter に対する動詞 kochen の現在人称変化は kocht です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Ich _____ meine Familie.", ja: "私は家族を愛しています。", hint: "lieben の ich 活用 (規則動詞)", options: ["liebe", "liebst", "liebt", "lieben"], answer: 0, exp: "ich に対する動詞 lieben の現在人称変化は liebe です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Er _____ mir sein Wörterbuch.", ja: "彼は私に自身の辞書を貸してくれます。", hint: "leihen の Er 活用 (不規則動詞)", options: ["leiht", "leihe", "leihst", "leihen"], answer: 0, exp: "Er に対する動詞 leihen の現在人称変化は leiht です。（不規則動詞）" },
-            { cat: 'Lektion 1', q: "Sie _____ eine Karte.", ja: "彼女はハガキを書きます。", hint: "schreiben の Sie 活用 (規則動詞)", options: ["schreibt", "schreibe", "schreibst", "schreiben"], answer: 0, exp: "Sie に対する動詞 schreiben の現在人称変化は schreibt です。（規則動詞）" },
+            { cat: 'Lektion 1', q: "Sie _____ eine Karte.", ja: "彼女はハガキを書きます。", hint: "schreiben の Sie 活用 (不規則動詞)", options: ["schreibt", "schreibe", "schreibst", "schreiben"], answer: 0, exp: "Sie に対する動詞 schreiben の現在人称変化は schreibt です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Er _____ das Fenster.", ja: "彼は窓を閉めます。", hint: "schließen の Er 活用 (不規則動詞)", options: ["schließt", "schließe", "schließen", "schließet"], answer: 0, exp: "Er に対する動詞 schließen の現在人称変化は schließt です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Ich _____ den Computer.", ja: "私はパソコンを使います。", hint: "benutzen の ich 活用 (規則動詞)", options: ["benutze", "benutzt", "benutzen", "benutzet"], answer: 0, exp: "ich に対する動詞 benutzen の現在人称変化は benutze です。（規則動詞）" },
             { cat: 'Lektion 5', q: "Ich _____ es noch einmal.", ja: "私はもう一度それを試してみます。", hint: "versuchen の ich 活用 (非分離動詞)", options: ["versuche", "versuchst", "versucht", "versuchen"], answer: 0, exp: "ich に対する動詞 versuchen の現在人称変化は versuche です。（非分離動詞）" },
@@ -1230,7 +1250,7 @@
             { cat: 'Lektion 1', q: "Ich _____ gern Deutsch.", ja: "私はドイツ語を学ぶのが好きです。", hint: "lernen の ich 活用 (規則動詞)", options: ["lerne", "lernst", "lernt", "lernen"], answer: 0, exp: "ich に対する動詞 lernen の現在人称変化は lerne です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Er _____ seine Frau.", ja: "彼は妻にキスをします。", hint: "küssen の Er 活用 (規則動詞)", options: ["küsst", "küsse", "küssen", "küsset"], answer: 0, exp: "Er に対する動詞 küssen の現在人称変化は küsst です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Das Mädchen _____ freundlich.", ja: "少女は親しげに微笑みます。", hint: "lächeln の Das Mädchen 活用 (規則動詞)", options: ["lächelt", "lächele", "lächelst", "lächeln"], answer: 0, exp: "Das Mädchen に対する動詞 lächeln の現在人称変化は lächelt です。（規則動詞）" },
-            { cat: 'Lektion 1', q: "Ich _____ das Buch interessant.", ja: "私はその本が面白いと思います。", hint: "finden の ich 活用 (規則(e挿入))", options: ["finde", "findest", "findet", "finden"], answer: 0, exp: "ich に対する動詞 finden の現在人称変化は finde です。（規則(e挿入)）" },
+            { cat: 'Lektion 1', q: "Ich _____ das Buch interessant.", ja: "私はその本が面白いと思います。", hint: "finden の ich 活用 (不規則動詞・e挿入)", options: ["finde", "findest", "findet", "finden"], answer: 0, exp: "ich に対する動詞 finden の現在人称変化は finde です。（不規則動詞・e挿入）" },
             { cat: 'Lektion 5', q: "Das Paket _____ heute an.", ja: "小包は今日届きます。", hint: "ankommen の Das Paket 活用 (分離動詞)", options: ["kommt", "komme", "kommst", "ankommen"], answer: 0, exp: "Das Paket に対する動詞 ankommen の現在人称変化は kommt です。（分離動詞）" },
             { cat: 'Lektion 1', q: "Der Professor _____ freundlich.", ja: "教授は親切に答えます。", hint: "antworten の Der Professor 活用 (規則(e挿入))", options: ["antwortet", "antworte", "antwortest", "antworten"], answer: 0, exp: "Der Professor に対する動詞 antworten の現在人称変化は antwortet です。（規則(e挿入)）" },
             { cat: 'Lektion 1', q: "Der Unterricht _____ um acht Uhr.", ja: "授業は8時に始まります。", hint: "beginnen の Der Unterricht 活用 (不規則動詞)", options: ["beginnt", "beginne", "beginnst", "beginnen"], answer: 0, exp: "Der Unterricht に対する動詞 beginnen の現在人称変化は beginnt です。（不規則動詞）" },
@@ -1255,7 +1275,7 @@
             { cat: 'Lektion 5', q: "Er _____ seinen Ausweis.", ja: "彼は身分証明書を忘れます。", hint: "vergessen の Er 活用 (幹母音変化(e→i))", options: ["vergisst", "vergesse", "vergessen", "vergesst"], answer: 0, exp: "Er に対する動詞 vergessen の現在人称変化は vergisst です。（幹母音変化(e→i)）" },
             { cat: 'Lektion 1', q: "Er _____ das Geld.", ja: "彼はそのお金を数えます。", hint: "zählen の Er 活用 (規則動詞)", options: ["zählt", "zähle", "zählst", "zählen"], answer: 0, exp: "Er に対する動詞 zählen の現在人称変化は zählt です。（規則動詞）" },
             { cat: 'Lektion 1', q: "Wir _____ in diesem Haus.", ja: "私たちはこの家に住んでいます。", hint: "wohnen の Wir 活用 (規則動詞)", options: ["wohnen", "wohne", "wohnst", "wohnt"], answer: 0, exp: "Wir に対する動詞 wohnen の現在人称変化は wohnen です。（規則動詞）" },
-            { cat: 'Lektion 1', q: "Wir _____ nach Hause.", ja: "私たちは家に帰ります。", hint: "gehen の Wir 活用 (規則動詞)", options: ["gehen", "gehe", "gehst", "geht"], answer: 0, exp: "Wir に対する動詞 gehen の現在人称変化は gehen です。（規則動詞）" },
+            { cat: 'Lektion 1', q: "Wir _____ nach Hause.", ja: "私たちは家に帰ります。", hint: "gehen の Wir 活用 (不規則動詞)", options: ["gehen", "gehe", "gehst", "geht"], answer: 0, exp: "Wir に対する動詞 gehen の現在人称変化は gehen です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Wir _____ im Café.", ja: "私たちはカフェに座っています。", hint: "sitzen の Wir 活用 (不規則動詞)", options: ["sitzen", "sitze", "sitzt", "sitzet"], answer: 0, exp: "Wir に対する動詞 sitzen の現在人称変化は sitzen です。（不規則動詞）" },
             { cat: 'Lektion 1', q: "Wir _____ über Politik.", ja: "私たちは政治について議論します。", hint: "diskutieren の Wir 活用 (規則動詞)", options: ["diskutieren", "diskutiere", "diskutierst", "diskutiert"], answer: 0, exp: "Wir に対する動詞 diskutieren の現在人称変化は diskutieren です。（規則動詞）" },
             { cat: 'Lektion 5', q: "Wir _____ unsere Großmutter.", ja: "私たちは祖母を訪問します。", hint: "besuchen の Wir 活用 (非分離動詞)", options: ["besuchen", "besuche", "besuchst", "besucht"], answer: 0, exp: "Wir に対する動詞 besuchen の現在人称変化は besuchen です。（非分離動詞）" },
@@ -1928,6 +1948,30 @@
 
         function handleGlobalClick(e) { closeWordPopup(); }
 
+        // 名詞の単数形・複数形情報を単語クイズの解説用に組み立てる。
+        // ・複数形専用の見出し語（detailが「〜の複数形」の形式）→ その複数形である旨と元の単数形を表示
+        // ・常に複数形で使われる語（pluralがword自身と同じ）→ その旨を表示
+        // ・複数形が存在しない語（plural未設定または'-'）→ その旨を表示
+        // ・通常の名詞→ 単数形と複数形の両方を表示
+        function buildSingularPluralInfoHtml(item) {
+            if (item.pos !== '名詞') return '';
+            const pluralOnlyMatch = item.detail ? item.detail.match(/^(.+)の複数形$/) : null;
+            if (pluralOnlyMatch) {
+                return `<b>【単数形】</b> ${pluralOnlyMatch[1]}（この見出し語は複数形専用です） &nbsp;|&nbsp; <b>【複数形】</b> ${item.word}`;
+            }
+            const isAlwaysPlural = item.detail && (item.detail.includes('複数形のみ') || item.detail.includes('複数形で使用') || item.detail.startsWith('Pl.'));
+            if (isAlwaysPlural) {
+                const singularText = item.gender ? `${item.gender} ${item.word}` : item.word;
+                return `<b>【単数形】</b> ${singularText}（常に複数形で使われ、単数形はありません）`;
+            }
+            if (item.plural && item.plural !== '-') {
+                const singularText = item.gender ? `${item.gender} ${item.word}` : item.word;
+                return `<b>【単数形】</b> ${singularText} &nbsp;|&nbsp; <b>【複数形】</b> die ${item.plural}`;
+            }
+            const singularText = item.gender ? `${item.gender} ${item.word}` : item.word;
+            return `<b>【単数形】</b> ${singularText} &nbsp;|&nbsp; <b>【複数形】</b> なし（複数形は存在しません）`;
+        }
+
         function generatePluralDistractors(word, correctPlural) {
             const distractors = new Set();
             function addUmlaut(str) {
@@ -2092,7 +2136,7 @@
                     const isPluralOnlyEntry = item.pos === '名詞' && item.detail && item.detail.includes('の複数形');
                     const mode = Math.floor(Math.random() * 3);
                     if (mode === 0 && item.pos === '名詞' && item.gender && !isPluralOnlyEntry) {
-                        const pl = (item.plural && item.plural !== '-') ? `die ${item.plural}` : 'なし';
+                        const counterpartLine = item.counterpart ? ` &nbsp;|&nbsp; <b>【対応する語】</b> ${item.counterpart}` : '';
                         return {
                             type: 'choice',
                             title: "名詞の性・定冠詞",
@@ -2105,9 +2149,9 @@
                             options: ["der (男性)", "die (女性)", "das (中性)"],
                             answer: item.gender === "der" ? 0 : item.gender === "die" ? 1 : 2,
                             ja: `【正解】 ${item.gender} ${item.word}`,
-                            exp: `<b>【定冠詞】</b> ${item.gender} ${item.word} &nbsp;|&nbsp; <b>【複数】</b> ${pl}`
+                            exp: `${buildSingularPluralInfoHtml(item)}${counterpartLine}`
                         };
-                    } else if (mode === 1 && item.pos === '名詞' && item.plural && item.plural !== '-') {
+                    } else if (mode === 1 && item.pos === '名詞' && item.plural && item.plural !== '-' && !(item.detail && (item.detail.includes('複数形のみ') || item.detail.includes('複数形で使用') || item.detail.startsWith('Pl.')))) {
                         const wrongPlurals = generatePluralDistractors(item.word, item.plural);
                         const options = shuffle([item.plural, ...wrongPlurals]);
                         return {
@@ -2133,7 +2177,10 @@
                             wrongList = [...wrongList, ...fallbackList];
                         }
                         const options = shuffle([item.meaning, ...wrongList]);
-                        let nounInfo = (item.pos === '名詞' && item.gender) ? `<br><b>【定冠詞】</b> ${item.gender} ${item.word}` : '';
+                        let nounInfo = (item.pos === '名詞' && item.gender) ? `<br>${buildSingularPluralInfoHtml(item)}` : '';
+                        if (item.counterpart) {
+                            nounInfo += `<br><b>【対応する語】</b> ${item.counterpart}`;
+                        }
                         return {
                             type: 'choice',
                             title: "語彙意味クイズ",
@@ -2796,6 +2843,7 @@
                 }
 
                 const pluralText = (item.plural && item.plural !== '-') ? `複数: die ${item.plural}` : '';
+                const counterpartText = item.counterpart ? `対応する語: ${item.counterpart}` : '';
                 const detailNote = item.detail ? `${item.detail}` : '';
                 const pluralOnlyMatch = (item.pos === '名詞' && item.detail) ? item.detail.match(/^(.+)の複数形$/) : null;
                 const singularRefText = pluralOnlyMatch ? `単数形: ${pluralOnlyMatch[1]}（この見出し語は複数形専用です）` : '';
@@ -2826,6 +2874,7 @@
                         <div class="text-xs sm:text-sm font-bold text-slate-800">${item.meaning}</div>
                         ${pluralText ? `<div class="text-xs text-slate-600 mt-0.5">${pluralText}</div>` : ''}
                         ${singularRefText ? `<div class="text-xs text-slate-600 mt-0.5">${singularRefText}</div>` : ''}
+                        ${counterpartText ? `<div class="text-xs text-slate-600 mt-0.5">${counterpartText}</div>` : ''}
                         ${conjHtml}
                         ${(item.example || item.translation) ? `
                         <div class="mt-1.5 pt-1.5 border-t border-slate-300/50 text-xs leading-snug">
@@ -2868,6 +2917,9 @@
                 detail += ` / 複数: die ${item.plural}`;
             } else if (item.pos === '名詞' && item.detail && /の複数形$/.test(item.detail)) {
                 detail += '（この見出し語は複数形専用です）';
+            }
+            if (item.counterpart) {
+                detail += ` / 対応する語: ${item.counterpart}`;
             }
             document.getElementById('fc-back-detail').innerText = detail;
 
