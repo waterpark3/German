@@ -276,8 +276,10 @@
                         <button onclick="filterDictCategory('ALL')" class="dict-tab active px-2.5 py-1 rounded-md bg-amber-500 text-white whitespace-nowrap text-xs font-bold">すべて</button>
                         <button onclick="filterDictCategory('名詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">名詞</button>
                         <button onclick="filterDictCategory('動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">動詞</button>
+                        <button onclick="filterDictCategory('助動詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-200 whitespace-nowrap text-xs font-bold">助動詞</button>
                         <button onclick="filterDictCategory('形容詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">形容詞</button>
                         <button onclick="filterDictCategory('副詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">副詞</button>
+                        <button onclick="filterDictCategory('前置詞')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">前置詞</button>
                         <button onclick="filterDictCategory('その他')" class="dict-tab px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 hover:bg-slate-50 whitespace-nowrap text-xs font-bold">その他</button>
                     </div>
 
@@ -683,17 +685,18 @@
             {word:"gefallen", pos:"動詞", meaning:"気に入る", detail:"3格支配(a→ä)", conjugation:"es gefällt, sie gefallen", example:"Das Bild gefällt mir sehr.", translation:"その絵がとても気に入っています。"},
             {word:"wünschen", pos:"動詞", meaning:"望む、祈る", detail:"規則動詞", conjugation:"ich wünsche, du wünschst, er wünscht", example:"Ich wünsche dir alles Gute.", translation:"あなたの幸運を祈ります。"},
             {word:"geben", pos:"動詞", meaning:"与える、あげる", detail:"幹母音変化(e→i)", conjugation:"ich gebe, du gibst, er gibt", example:"Er gibt mir einen Bleistift.", translation:"彼は私に鉛筆をくれます。"},
-            {word:"mögen", pos:"動詞", meaning:"〜が好きだ、〜かもしれない", detail:"話法の助動詞", conjugation:"ich mag, du magst, er mag, wir mögen", example:"Ich mag kalten Kaffee nicht.", translation:"私は冷たいコーヒーが好きではありません。"},
-            {word:"möchten", pos:"動詞", meaning:"〜したい", detail:"話法の助動詞", conjugation:"ich möchte, du möchtest, er möchte", example:"Ich möchte eine Tasse Tee.", translation:"私はハーブティー/お茶を1杯いただきたいです。"},
+            {word:"mögen", pos:"助動詞", meaning:"〜が好きだ、〜かもしれない", detail:"話法の助動詞", conjugation:"ich mag, du magst, er mag, wir mögen", example:"Ich mag kalten Kaffee nicht.", translation:"私は冷たいコーヒーが好きではありません。"},
+            {word:"möchten", pos:"助動詞", meaning:"〜したい", detail:"話法の助動詞", conjugation:"ich möchte, du möchtest, er möchte", example:"Ich möchte eine Tasse Tee.", translation:"私はハーブティー/お茶を1杯いただきたいです。"},
+            {word:"wollen", pos:"助動詞", meaning:"〜するつもりだ、〜したい", detail:"話法の助動詞", conjugation:"ich will, du willst, er will, wir wollen", example:"Wir wollen im Sommer nach Deutschland reisen.", translation:"私たちは夏にドイツへ旅行するつもりです。"},
             {word:"werden", pos:"動詞", meaning:"〜になる・〜だろう", detail:"不規則(e→i)", conjugation:"ich werde, du wirst, er wird, wir werden", example:"Er wird im Sommer Arzt.", translation:"彼は夏に医師になります。"},
-            {word:"müssen", pos:"動詞", meaning:"〜しなければならない", detail:"話法の助動詞", conjugation:"ich muss, du musst, er muss, wir müssen", example:"Ich muss heute viel lernen.", translation:"私は今日たくさん勉強しなければなりません。"},
-            {word:"dürfen", pos:"動詞", meaning:"〜してもよい", detail:"話法の助動詞", conjugation:"ich darf, du darfst, er darf, wir dürfen", example:"Hier darf man nicht rauchen.", translation:"ここではタバコを吸ってはいけません。"},
+            {word:"müssen", pos:"助動詞", meaning:"〜しなければならない", detail:"話法の助動詞", conjugation:"ich muss, du musst, er muss, wir müssen", example:"Ich muss heute viel lernen.", translation:"私は今日たくさん勉強しなければなりません。"},
+            {word:"dürfen", pos:"助動詞", meaning:"〜してもよい", detail:"話法の助動詞", conjugation:"ich darf, du darfst, er darf, wir dürfen", example:"Hier darf man nicht rauchen.", translation:"ここではタバコを吸ってはいけません。"},
             {word:"rauchen", pos:"動詞", meaning:"タバコを吸う", detail:"規則動詞", conjugation:"ich rauche, du rauchst, er raucht", example:"Mein Onkel raucht nicht mehr.", translation:"叔父はもうタバコを吸いません。"},
             {word:"abgeben", pos:"動詞", meaning:"提出する、渡す", detail:"分離動詞(e→i)", conjugation:"ich gebe ab, du gibst ab, er gibt ab", example:"Er muss den Bericht abgeben.", translation:"彼は報告書を提出しなければなりません。"},
             {word:"stehlen", pos:"動詞", meaning:"盗む", detail:"幹母音変化(e→ie)", conjugation:"ich stehle, du stiehlst, er stiehlt", example:"Man darf kein Geld stehlen.", translation:"お金を盗んではいけません。"},
-            {word:"können", pos:"動詞", meaning:"〜できる", detail:"話法の助動詞", conjugation:"ich kann, du kannst, er kann, wir können", example:"Sie kann sehr gut singen.", translation:"彼女は歌がとても上手です。"},
+            {word:"können", pos:"助動詞", meaning:"〜できる", detail:"話法の助動詞", conjugation:"ich kann, du kannst, er kann, wir können", example:"Sie kann sehr gut singen.", translation:"彼女は歌がとても上手です。"},
             {word:"essen", pos:"動詞", meaning:"食べる", detail:"幹母音変化(e→i)", conjugation:"ich esse, du isst, er isst, wir essen", example:"Wir essen morgens Müsli.", translation:"私たちは朝にミューズリーを食べます。"},
-            {word:"sollen", pos:"動詞", meaning:"〜すべきである", detail:"話法の助動詞", conjugation:"ich soll, du sollst, er soll, wir sollen", example:"Du sollst fleißig lernen.", translation:"あなたは熱心に勉強すべきです。"},
+            {word:"sollen", pos:"助動詞", meaning:"〜すべきである", detail:"話法の助動詞", conjugation:"ich soll, du sollst, er soll, wir sollen", example:"Du sollst fleißig lernen.", translation:"あなたは熱心に勉強すべきです。"},
             {word:"helfen", pos:"動詞", meaning:"助ける、手伝う", detail:"3格支配(e→i)", conjugation:"ich helfe, du hilfst, er hilft", example:"Er hilft seinen Eltern.", translation:"彼は両親を助けます。"},
             {word:"heißen", pos:"動詞", meaning:"〜という名前である", detail:"不規則動詞", conjugation:"ich heiße, du heißt, er heißt", example:"Wie heißen Sie?", translation:"お名前は何とおっしゃいますか？"},
             {word:"brauchen", pos:"動詞", meaning:"必要とする", detail:"規則動詞", conjugation:"ich brauche, du brauchst, er braucht", example:"Ich brauche deine Hilfe.", translation:"私にはあなたの助けが必要です。"},
@@ -2789,7 +2792,7 @@
                 } else if (activeDictCategory === '名詞') {
                     matchCategory = (item.pos === '名詞' || item.pos === '固有名詞');
                 } else if (activeDictCategory === 'その他') {
-                    matchCategory = ['前置詞', '代名詞', '冠詞', '数詞', '接続詞'].includes(item.pos);
+                    matchCategory = ['代名詞', '冠詞', '数詞', '接続詞'].includes(item.pos);
                 } else {
                     matchCategory = (item.pos === activeDictCategory);
                 }
